@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="style.css?v=33">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <style>
-        #event-modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); }
+        #event-modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+        .modal-content { position: relative; background: var(--card-bg); margin: 10% auto; padding: 20px; width: 90%; max-width: 500px; border-radius: 15px; max-height: 80vh; overflow-y: auto; color: var(--text-color); }
         .modal-img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; display: block; }
+        .close-btn { position: absolute; right: 15px; top: 10px; font-size: 30px; cursor: pointer; }
         .map-section { margin-bottom: 40px; }
+        .tab-content { display: none; padding: 20px; padding-bottom: 100px; }
+        .tab-content.active { display: block; }
     </style>
 </head>
 <body>
@@ -38,6 +43,10 @@
         <div class="map-section">
             <h2>Abkühlung &amp; Erfrischung 💧</h2>
             <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897"></iframe>
+        </div>
+        <div class="map-section">
+            <h2>Barrierefreies Unna ♿</h2>
+            <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678"></iframe>
         </div>
     </div>
 
@@ -67,7 +76,7 @@
     </div>
 
     <div id="content-vereine" class="tab-content">
-        <h1>Vereine &amp; Freizeit in Unna</h1>
+        <h1>Vereine &amp; Freizeit</h1>
         <select id="vereins-filter" style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px;">
             <option value="alle">Alle Kategorien</option>
             <option value="Sport">Sportvereine</option>
@@ -78,7 +87,10 @@
         <div id="vereine-container">👥 Lade Vereine...</div>
     </div>
 
-    <div id="content-news" class="tab-content"><h1>News</h1><div id="news-container">📰 Lade News...</div></div>
+    <div id="content-news" class="tab-content">
+        <h1>News</h1>
+        <div id="news-container">📰 Lade News...</div>
+    </div>
 
     <div id="content-tickets" class="tab-content">
         <h1>Ticketshops</h1>
@@ -86,7 +98,6 @@
             Buchen Sie Ihre Tickets bequem online. <br><br>
             <i><b>Hinweis:</b> Mit Ausnahme des Amtes für Kultur &amp; Weiterbildung werden alle hier verlinkten Shops eigenverantwortlich von externen Anbietern betrieben.</i>
         </p>
-
         <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background-color: #28a745;">🏛️ Amt für Kultur &amp; Weiterbildung</a>
         <a href="https://pretix.eu/wlb/mah12/" target="_blank" class="ticket-btn">🕵️‍♂️ Mord am Hellweg</a>
         <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
@@ -107,7 +118,7 @@
         <button id="btn-maps">🗺️<br>Karten</button>
         <button id="btn-mobilitaet">🚆<br>Mobil</button>
         <button id="btn-gastro">🍽️<br>Gastro</button>
-        <button id="btn-vereine">👥<br>Vereine &amp; Freizeit</button>
+        <button id="btn-vereine">👥<br>Vereine</button>
         <button id="btn-news">📰<br>News</button>
         <button id="btn-tickets">🎟️<br>Tickets</button>
         <button id="btn-tourismus">🛏️<br>Gast</button>
@@ -117,11 +128,6 @@
         <div class="modal-content"><span class="close-btn" id="btn-close-modal">×</span><div id="modal-body"></div></div>
     </div>
 
-    <script src="app.js?v=29"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() { navigator.serviceWorker.register('sw.js'); });
-        }
-    </script>
+    <script src="app.js?v=33"></script>
 </body>
 </html>

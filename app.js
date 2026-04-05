@@ -53,24 +53,14 @@ function oeffneImpressum(e) {
             Anna Gemünd | E-Mail: anna.gemuend@stadt-unna.de<br>
             Kevin Kohues | E-Mail: kevin.kohues@stadt-unna.de</p>
 
-            <p><b>Redaktion</b><br>
-            Armin Eichenmüller | E-Mail: kultur@stadt-unna.de</p>
-
-            <p><b>Webdesign/Programmierung/Entwicklung</b><br>
+            <p><b>Redaktion/Programmierung/Entwicklung</b><br>
             Kreisstadt Unna<br>
-            Armin Eichenmüller | E-Mail: armin.eichenmueller@stadt-unna.de (bis 06/2025)</p>
-
-            <p><b>Technische Umsetzung &amp; Website Support</b><br>
-            Diese Webseite wird betreut von der EXWE GmbH – Experts in Web Technologies. Digitalagentur für Webdesign in Dortmund und Düsseldorf.</p>
+            Armin Eichenmüller | E-Mail: armin.eichenmueller@stadt-unna.de</p>
 
             <hr style="border:0; border-top:1px solid var(--border-color); margin:20px 0;">
 
             <h3>Urheberrecht</h3>
-            <p>Layout, Texte, Bilder und sonstige Inhalte der Website kultur-in-unna.de sind urheberrechtlich geschützt. Einzelkopien von Seiten oder Teilen von Seiten für den Privatgebrauch sind unter der Bedingung zulässig, dass der Urheberrechtshinweis der Kreisstadt Unna erhalten bleibt. Die Vervielfältigung von Informationen und Daten ist ohne vorherige schriftliche Zustimmung nicht gestattet.</p>
-
-            <h3>Bildnachweis</h3>
-            <p>© Kreisstadt Unna, © Armin Eichenmüller<br>
-            Das Bild zum Banner „Unna. Kultur erleben.“ ist bei der Aufführung des Stück „UPSIDE DOWN“ des Theaters Titanick am 25.06.2022 auf dem Platz der Kulturen entstanden.</p>
+            <p>Layout, Texte, Bilder und sonstige Inhalte der App kultur-in-unna sind urheberrechtlich geschützt. Einzelkopien von Seiten oder Teilen von Seiten für den Privatgebrauch sind unter der Bedingung zulässig, dass der Urheberrechtshinweis der Kreisstadt Unna erhalten bleibt. Die Vervielfältigung von Informationen und Daten ist ohne vorherige schriftliche Zustimmung nicht gestattet.</p>
 
             <h3>Haftungsausschluss</h3>
             <p>Die Kreisstadt Unna übernimmt keine Gewähr für die Aktualität, Richtigkeit und Vollständigkeit der bereitgestellten Informationen. Dies gilt ebenso für alle anderen Websites, auf die mittels eines Links verwiesen wird.</p>

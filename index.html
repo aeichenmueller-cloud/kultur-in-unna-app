@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=14">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
     <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
+
+    <div class="top-bar">
+        <button id="btn-share" class="icon-btn" title="App teilen">📤</button>
+        <button id="btn-darkmode" class="icon-btn" title="Dark Mode an/aus">🌓</button>
+    </div>
 
     <div id="content-events" class="tab-content active">
         <h1>Kultur in Unna</h1>
@@ -18,71 +23,67 @@
         <a href="https://kultur-in-unna.de/veranstaltungen/" target="_blank" class="ticket-btn" style="background-color: #0056b3; margin-top: 20px;">📅 Alle Events im Kulturkalender</a>
         <a href="https://www.kultur-in-unna.de/veranstaltungen/community/add/" target="_blank" class="ticket-btn" style="background-color: #ffc107; color: #333; margin-top: 10px;">➕ Veranstaltung einreichen</a>
         <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
-            <a href="#" id="link-impressum-1" style="color: #888; font-size: 12px; text-decoration: none;">Impressum &amp; Datenschutz</a>
+            <a href="#" id="link-impressum-1" style="color: #888; font-size: 12px; text-decoration: none;">Impressum & Datenschutz</a>
         </div>
     </div>
 
     <div id="content-maps" class="tab-content">
         <h1>Entdecke Unna</h1>
         <h2>Kultur-Landkarte 🎨</h2>
-        <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_16601?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false"></iframe>
-        <a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_16601" target="_blank" class="map-btn" style="margin-bottom:30px;">🔍 Vollbild &amp; Ortung</a>
-        
-        <h2>Abkühlung &amp; Erfrischung 💧</h2>
+        <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false#14/51.5305/7.6936"></iframe>
+        <a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739#14/51.5305/7.6936" target="_blank" class="map-btn" style="margin-bottom:30px;">🔍 Vollbild & Ortung</a>
+        <h2>Abkühlung & Erfrischung 💧</h2>
         <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false"></iframe>
-        <a href="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897" target="_blank" class="map-btn">🔍 Vollbild &amp; Ortung</a>
     </div>
 
     <div id="content-mobilitaet" class="tab-content">
         <h1>Mobilität in Unna</h1>
-        <h2 style="margin-top:20px;">Bus &amp; Bahn 🚆</h2>
+        <h2 style="margin-top:20px;">Bus & Bahn 🚆</h2>
         <a href="https://www.vku-online.de/" target="_blank" class="ticket-btn" style="background-color:#0056b3;">🚌 VKU Fahrplanauskunft</a>
-        
         <h2 style="margin-top:30px;">Parken 🚗</h2>
-        <a href="https://www.wirtschaftsbetriebe-unna.de/" target="_blank" class="ticket-btn" style="background-color: #28a745; margin-bottom: 20px;">🟢 Live-Belegung Parkhäuser</a>
+        <a href="https://www.wirtschaftsbetriebe-unna.de/parken" target="_blank" class="ticket-btn" style="background-color: #28a745; margin-bottom: 20px;">🟢 Live-Belegung Parkhäuser</a>
         <div id="parken-container"></div>
-
         <h2 style="margin-top:30px;">Fahrrad 🚲</h2>
         <div id="rad-container"></div>
-
         <h2 style="margin-top:30px;">Taxi 🚕</h2>
         <div id="taxi-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
     </div>
 
     <div id="content-gastro" class="tab-content">
-        <h1>Essen &amp; Trinken</h1>
-        <div id="gastro-container"></div>
+        <h1>Essen & Trinken</h1>
+        <select id="gastro-filter" style="width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color);">
+            <option value="alle">Alle Kategorien</option>
+            <option value="Restaurant">Restaurants</option>
+            <option value="Café">Cafés</option>
+            <option value="Bar">Bars & Kneipen</option>
+        </select>
+        <input type="text" id="gastro-suche" placeholder="Suchen..." style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); box-sizing:border-box;">
+        <div id="gastro-container">Lade Gastronomie...</div>
     </div>
 
     <div id="content-vereine" class="tab-content">
-        <h1>Vereine &amp; Freizeit in Unna</h1>
-        <div id="vereine-container"></div>
+        <h1>Vereine & Freizeit in Unna</h1>
+        <select id="vereins-filter" style="width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color);">
+            <option value="alle">Alle Kategorien</option>
+            <option value="Sport">Sportvereine</option>
+            <option value="Kultur">Kultur & Musik</option>
+            <option value="Soziales">Soziales & Hilfe</option>
+            <option value="Freizeit">Freizeit & Hobby</option>
+        </select>
+        <div id="vereine-container">Lade Vereine...</div>
     </div>
 
-    <div id="content-news" class="tab-content">
-        <h1>Unna Aktuell</h1>
-        <div id="news-container"></div>
-    </div>
+    <div id="content-news" class="tab-content"><h1>Unna Aktuell</h1><div id="news-container"></div></div>
+    <div id="content-tickets" class="tab-content"><h1>Tickets</h1><a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn">🏛️ Amt für Kultur</a></div>
+    <div id="content-tourismus" class="tab-content"><h1>Zu Gast</h1><div id="hotels-container"></div></div>
 
-    <div id="content-tickets" class="tab-content">
-        <h1>Tickets</h1>
-        <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background-color: #28a745;">🏛️ Amt für Kultur &amp; Weiterbildung</a>
-    </div>
-
-    <div id="content-tourismus" class="tab-content">
-        <h1>Zu Gast</h1>
-        <div id="hotels-container"></div>
-        <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
-            <a href="#" id="link-impressum-2" style="color: #888; font-size: 12px; text-decoration: none;">Impressum &amp; Datenschutz</a>
-        </div>
-    </div>
-
+    <div class="nav-container"></div> 
     <div class="bottom-nav">
-        <button id="btn-events">📅<br>Events</button>
+        <button id="btn-events" class="active">📅<br>Events</button>
         <button id="btn-maps">🗺️<br>Karten</button>
         <button id="btn-mobilitaet">🚆<br>Mobil</button>
         <button id="btn-gastro">🍽️<br>Gastro</button>
-        <button id="btn-vereine">👥<br>Vereine &amp; Freizeit</button>
+        <button id="btn-vereine">👥<br>Vereine & Freizeit</button>
         <button id="btn-news">📰<br>News</button>
         <button id="btn-tickets">🎟️<br>Tickets</button>
         <button id="btn-tourismus">🛏️<br>Gast</button>
@@ -95,7 +96,7 @@
         </div>
     </div>
 
-    <script src="app.js?v=9"></script>
+    <script src="app.js?v=14"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'unna-app-cache-v2';
+const CACHE_NAME = 'unna-app-cache-v3';
 
 // Diese Dateien werden für die Offline-Nutzung gespeichert
 const urlsToCache = [

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=24">
+    <link rel="stylesheet" href="style.css?v=27">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
     <style>
@@ -30,23 +30,14 @@
 
     <div id="content-maps" class="tab-content">
         <h1>Entdecke Unna</h1>
-        
         <div class="map-section">
             <h2>Kultur-Landkarte 🎨</h2>
             <iframe width="100%" height="350px" frameborder="0" src="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739"></iframe>
             <a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739#14/51.5305/7.6936" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
         </div>
-
         <div class="map-section">
             <h2>Abkühlung &amp; Erfrischung 💧</h2>
             <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897"></iframe>
-            <a href="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
-        </div>
-
-        <div class="map-section">
-            <h2>Barrierefreies Unna ♿</h2>
-            <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678"></iframe>
-            <a href="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
         </div>
     </div>
 
@@ -55,7 +46,7 @@
         <h2 style="margin-top:20px;">Bus &amp; Bahn 🚆</h2>
         <a href="https://www.vku-online.de/" target="_blank" class="ticket-btn">🚌 VKU Fahrplanauskunft</a>
         <h2 style="margin-top:30px;">Parken 🚗</h2>
-        <a href="https://www.wirtschaftsbetriebe-unna.de/" target="_blank" class="ticket-btn" style="background-color: #28a745; margin-bottom: 20px;">🟢 Live-Belegung Parkhäuser</a>
+        <a href="https://www.wirtschaftsbetriebe-unna.de/parken" target="_blank" class="ticket-btn" style="background-color: #28a745; margin-bottom: 20px;">🟢 Live-Belegung Parkhäuser</a>
         <div id="parken-container"></div>
         <h2 style="margin-top:30px;">Fahrrad 🚲</h2>
         <div id="rad-container"></div>
@@ -88,9 +79,30 @@
     </div>
 
     <div id="content-news" class="tab-content"><h1>News</h1><div id="news-container">📰 Lade News...</div></div>
-    <div id="content-tickets" class="tab-content"><h1>Tickets</h1><a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background:#28a745;">🏛️ Amt für Kultur &amp; Weiterbildung</a></div>
-    <div id="content-tourismus" class="tab-content"><h1>Zu Gast</h1><div id="hotels-container">🏨 Lade Hotels...</div><div style="text-align:center; margin-top:40px;"><a href="#" id="link-impressum-2" style="color:#888; font-size:12px; text-decoration:none;">Impressum &amp; Datenschutz</a></div></div>
 
+    <div id="content-tickets" class="tab-content">
+        <h1>Ticketshops</h1>
+        <p style="color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 20px;">
+            Buchen Sie Ihre Tickets bequem online. <br><br>
+            <i><b>Hinweis:</b> Mit Ausnahme des Amtes für Kultur &amp; Weiterbildung werden alle hier verlinkten Shops eigenverantwortlich von externen Anbietern betrieben.</i>
+        </p>
+
+        <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background-color: #28a745;">🏛️ Amt für Kultur &amp; Weiterbildung</a>
+        <a href="https://pretix.eu/wlb/mah12/" target="_blank" class="ticket-btn">🕵️‍♂️ Mord am Hellweg</a>
+        <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
+        <a href="https://pretix.eu/musikverein-unna/" target="_blank" class="ticket-btn">🎺 Musikverein Unna</a>
+        <a href="https://pretix.eu/KUW/" target="_blank" class="ticket-btn">🎻 Celloherbst / Take5</a>
+        <a href="https://pretix.eu/pnk-unna/" target="_blank" class="ticket-btn">⛪ Philipp-Nicolai-Kantorei</a>
+    </div>
+
+    <div id="content-tourismus" class="tab-content">
+        <h1>Zu Gast in Unna</h1>
+        <a href="https://hansetourist.de/" target="_blank" class="ticket-btn" style="background:#0056b3; margin-bottom: 30px;">🏙️ Hansetourist (Stadtführungen)</a>
+        <div id="hotels-container">🏨 Lade Hotels...</div>
+        <div style="text-align:center; margin-top:40px;"><a href="#" id="link-impressum-2" style="color:#888; font-size:12px; text-decoration:none;">Impressum &amp; Datenschutz</a></div>
+    </div>
+
+    <div class="nav-container"></div> 
     <div class="bottom-nav">
         <button id="btn-events" class="active">📅<br>Events</button>
         <button id="btn-maps">🗺️<br>Karten</button>
@@ -106,7 +118,7 @@
         <div class="modal-content"><span class="close-btn" id="btn-close-modal">×</span><div id="modal-body"></div></div>
     </div>
 
-    <script src="app.js?v=24"></script>
+    <script src="app.js?v=27"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() { navigator.serviceWorker.register('sw.js'); });

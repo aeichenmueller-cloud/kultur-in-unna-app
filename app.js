@@ -54,10 +54,8 @@ function wechselTab(tabName) {
         if (c) c.classList.remove('active');
         if (b) b.classList.remove('active');
     });
-    const activeC = document.getElementById('content-' + tabName);
-    const activeB = document.getElementById('btn-' + tabName);
-    if (activeC) activeC.classList.add('active');
-    if (activeB) activeB.classList.add('active');
+    document.getElementById('content-' + tabName).classList.add('active');
+    document.getElementById('btn-' + tabName).classList.add('active');
     window.scrollTo(0, 0);
 }
 ['events', 'maps', 'mobilitaet', 'gastro', 'vereine', 'news', 'tickets', 'tourismus'].forEach(t => {
@@ -90,12 +88,12 @@ function rendereListe(containerId, daten, typ) {
 // 4. DATEN LADEN
 // ==========================================
 function ladeAlles() {
-    fetch('gastronomie.json').then(r => r.json()).then(d => { gastroDaten = d; rendereListe('gastro-container', d, 'Gastro'); }).catch(e => console.log("Gastro Load Fail"));
-    fetch('vereine.json').then(r => r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Verein & Freizeit'); }).catch(e => console.log("Vereins Load Fail"));
+    fetch('gastronomie.json').then(r => r.json()).then(d => { gastroDaten = d; rendereListe('gastro-container', d, 'Gastro'); }).catch(e => console.log("Gastro Fail"));
+    fetch('vereine.json').then(r => r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Verein & Freizeit'); }).catch(e => console.log("Vereins Fail"));
     fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events').then(r => r.json()).then(d => {
         const evs = (d.events || []).map(e => ({ ...e, name: e.title, bildUrl: (e.image && e.image.url) ? e.image.url : null }));
         rendereListe('events-container', evs.slice(0, 15), 'Veranstaltung');
-    }).catch(e => { document.getElementById('events-container').innerHTML = "Events konnten nicht geladen werden."; });
+    }).catch(e => { document.getElementById('events-container').innerHTML = "Fehler beim Laden."; });
     fetch('mobilitaet.json?v=' + Date.now()).then(r => r.json()).then(d => {
         rendereListe('parken-container', d.parken, 'Parken');
         rendereListe('rad-container', d.rad, 'Fahrrad');
@@ -104,35 +102,33 @@ function ladeAlles() {
                 const a = document.createElement('a'); a.href = `tel:${t.telefon}`; a.className = 'ticket-btn'; a.style.flex = '1 1 140px'; a.innerHTML = `🚕 ${t.name}`; tc.appendChild(a);
             });
         }
-    }).catch(e => console.log("Mobil Load Fail"));
-    fetch('uebernachtungen.json').then(r => r.json()).then(d => rendereListe('hotels-container', d, 'Hotel')).catch(e => console.log("Hotels Load Fail"));
+    }).catch(e => console.log("Mobil Fail"));
+    fetch('uebernachtungen.json').then(r => r.json()).then(d => rendereListe('hotels-container', d, 'Hotel')).catch(e => console.log("Hotels Fail"));
     fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r => r.json()).then(d => {
         const nc = document.getElementById('news-container'); if(nc) {
             nc.innerHTML = ''; d.items.forEach(i => { nc.innerHTML += `<div style="padding:10px 0;border-bottom:1px solid var(--border-color);"><a href="${i.link}" target="_blank" style="text-decoration:none;color:var(--primary-color);font-weight:bold;">${i.title}</a></div>`; });
         }
-    }).catch(e => console.log("News Load Fail"));
+    }).catch(e => console.log("News Fail"));
 }
 
-// ==========================================
-// 5. FILTER-LOGIK
-// ==========================================
-const gastroSuche = document.getElementById('gastro-suche');
-if (gastroSuche) {
-    gastroSuche.oninput = (e) => {
+// FILTER-LOGIK
+const gSuche = document.getElementById('gastro-suche');
+if (gSuche) {
+    gSuche.oninput = (e) => {
         const q = e.target.value.toLowerCase();
         rendereListe('gastro-container', gastroDaten.filter(x => x.name.toLowerCase().includes(q)), 'Gastro');
     };
 }
-const gastroFilter = document.getElementById('gastro-filter');
-if (gastroFilter) {
-    gastroFilter.onchange = (e) => {
+const gFilter = document.getElementById('gastro-filter');
+if (gFilter) {
+    gFilter.onchange = (e) => {
         const k = e.target.value;
         rendereListe('gastro-container', k === 'alle' ? gastroDaten : gastroDaten.filter(x => x.kategorie === k), 'Gastro');
     };
 }
-const vereinsFilter = document.getElementById('vereins-filter');
-if (vereinsFilter) {
-    vereinsFilter.onchange = (e) => {
+const vFilter = document.getElementById('vereins-filter');
+if (vFilter) {
+    vFilter.onchange = (e) => {
         const k = e.target.value;
         rendereListe('vereine-container', k === 'alle' ? vereinsDaten : vereinsDaten.filter(x => x.kategorie === k), 'Verein & Freizeit');
     };

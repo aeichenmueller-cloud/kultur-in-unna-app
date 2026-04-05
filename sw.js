@@ -1,4 +1,4 @@
-const CACHE_NAME = 'unna-app-cache-v24';
+const CACHE_NAME = 'unna-app-cache-v27';
 const urlsToCache = ['./', './index.html', './style.css', './app.js', './manifest.json', './gastronomie.json', './vereine.json', './uebernachtungen.json', './mobilitaet.json', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.map(k => { if(k !== CACHE_NAME) return caches.delete(k); })))); });

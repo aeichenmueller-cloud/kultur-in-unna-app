@@ -4,148 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=36">
+    <link rel="stylesheet" href="style.css?v=115">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
-    <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
 
-    <div class="top-bar">
-        <button id="btn-hamburger" class="icon-btn">☰</button>
+    <header class="top-bar">
+        <div class="top-bar-left"><button id="btn-hamburger" class="icon-btn">☰</button></div>
+        <div class="top-bar-title">Kultur in Unna</div>
         <div class="top-bar-right">
-            <button id="btn-share" class="icon-btn" title="App teilen">📤</button>
-            <button id="btn-darkmode" class="icon-btn" title="Dark Mode an/aus">🌓</button>
+            <button id="btn-share-app" class="icon-btn">📤</button>
+            <button id="btn-darkmode" class="icon-btn">🌓</button>
         </div>
-    </div>
+    </header>
 
     <div id="side-menu-overlay" class="overlay"></div>
-    <div id="side-menu" class="side-menu">
+    <nav id="side-menu" class="side-menu">
         <button class="close-menu-btn" id="btn-close-menu">×</button>
-        <h2 style="padding-left: 20px; color: #0056b3; margin-top: 10px;">Menü</h2>
-        <button class="side-nav-btn active" data-target="events">📅 Events</button>
-        <button class="side-nav-btn" data-target="maps">🗺️ Karten</button>
-        <button class="side-nav-btn" data-target="mobilitaet">🚆 Mobilität</button>
-        <button class="side-nav-btn" data-target="gastro">🍽️ Gastro</button>
-        <button class="side-nav-btn" data-target="vereine">👥 Vereine</button>
-        <button class="side-nav-btn" data-target="news">📰 News</button>
-        <button class="side-nav-btn" data-target="tickets">🎟️ Tickets</button>
-        <button class="side-nav-btn" data-target="tourismus">🛏️ Zu Gast</button>
-    </div>
+        <div class="side-menu-content">
+            <h2 style="color:#0056b3; margin-bottom:20px;">Menü</h2>
+            <button class="side-nav-btn active" data-target="events">📅 Events</button>
+            <button class="side-nav-btn" data-target="favoriten">❤️ Favoriten</button>
+            <button class="side-nav-btn" data-target="maps">🗺️ Karten</button>
+            <button class="side-nav-btn" data-target="mobilitaet">🚆 Mobilität &amp; Parken</button>
+            <button class="side-nav-btn" data-target="gastro">🍽️ Gastro</button>
+            <button class="side-nav-btn" data-target="vereine">👥 Vereine &amp; Freizeit</button>
+            <button class="side-nav-btn" data-target="news">📰 News</button>
+            <button class="side-nav-btn" data-target="tickets">🎟️ Tickets</button>
+            <button class="side-nav-btn" data-target="tourismus">🛏️ Zu Gast</button>
+            <hr>
+            <a href="https://serviceportal.unna.de/" target="_blank" class="side-nav-btn">🏛️ Serviceportal Unna</a>
+            <button class="side-nav-btn" id="btn-impressum-side">⚖️ Impressum &amp; Datenschutz</button>
+        </div>
+    </nav>
 
-    <div id="content-events" class="tab-content active">
-        <h1>Kultur in Unna</h1>
-        <div id="events-container">⏳ Lade Veranstaltungen...</div>
-        <a href="https://kultur-in-unna.de/veranstaltungen/" target="_blank" class="ticket-btn" style="background:#0056b3; margin-top:20px;">📅 Alle Events im Kalender</a>
-        <a href="https://www.kultur-in-unna.de/veranstaltungen/community/add/" target="_blank" class="ticket-btn" style="background:#ffc107; color:#333;">➕ Event einreichen</a>
-        <div style="text-align:center; margin:40px 0;"><a href="#" id="link-impressum-1" style="color:#888; font-size:12px; text-decoration:none;">Impressum &amp; Datenschutz</a></div>
-    </div>
-
-    <div id="content-maps" class="tab-content">
-        <h1>Entdecke Unna</h1>
-        
-        <div class="map-section">
-            <h2>Kultur-Landkarte 🎨</h2>
-            <p style="font-size: 14px; color: #777; margin-bottom: 15px; line-height: 1.5;">Finde alle kulturellen Hotspots, Veranstaltungsorte, Galerien und Sehenswürdigkeiten in Unna auf einen Blick.</p>
-            <a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739#14/51.5305/7.6936" target="_blank" class="map-btn">🔍 Karte im Vollbild öffnen</a>
+    <main id="main-content">
+        <div id="content-events" class="tab-content active">
+            <h1>Kultur &amp; Events</h1>
+            <div id="weather-container"></div>
+            <div class="filter-box">
+                <input type="text" id="event-search" placeholder="Suche..." class="main-search">
+                <div class="filter-row" id="time-filter-row">
+                    <button class="filter-pill active" data-time="all">Alle</button>
+                    <button class="filter-pill" data-time="today">Heute</button>
+                    <button class="filter-pill" data-time="tomorrow">Morgen</button>
+                    <button class="filter-pill" data-time="weekend">Wochenende</button>
+                </div>
+                <select id="event-category-filter" class="main-select">
+                    <option value="alle">Alle Kategorien</option>
+                    <option value="konzert">Musik &amp; Konzert</option>
+                    <option value="theater">Theater &amp; Bühne</option>
+                    <option value="fest">Feste &amp; Märkte</option>
+                </select>
+            </div>
+            <div id="events-container"></div>
+            <div class="action-footer">
+                <a href="https://kultur-in-unna.de/veranstaltungen/" target="_blank" class="ticket-btn">📅 Zum Web-Kalender</a>
+            </div>
         </div>
 
-        <div class="map-section">
-            <h2>Abkühlung &amp; Erfrischung 💧</h2>
-            <p style="font-size: 14px; color: #777; margin-bottom: 15px; line-height: 1.5;">Entdecke schattige Plätze, Trinkbrunnen und kühle Orte für heiße Sommertage im gesamten Stadtgebiet.</p>
-            <a href="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897" target="_blank" class="map-btn">🔍 Karte im Vollbild öffnen</a>
+        <div id="content-mobilitaet" class="tab-content">
+            <h1>Mobilität &amp; Parken</h1>
+            <a href="https://www.vku-online.de/" target="_blank" class="ticket-btn">🚌 VKU Fahrplan (Echtzeit)</a>
+            <h3>Live-Parkplatzstatus 🚗</h3>
+            <div class="park-card" id="park-status-container">Lade Daten...</div>
+            <h3>Radstationen &amp; Fahrrad 🚲</h3>
+            <div id="rad-container"></div>
+            <h3>Taxis 🚕</h3>
+            <div id="taxi-container" class="grid-buttons"></div>
+            <h3>Alle Parkmöglichkeiten</h3>
+            <div id="parken-container"></div>
         </div>
 
-        <div class="map-section">
-            <h2>Barrierefreies Unna ♿</h2>
-            <p style="font-size: 14px; color: #777; margin-bottom: 15px; line-height: 1.5;">Eine praktische Übersicht über barrierefreie Zugänge, Toiletten und Parkplätze für eine inklusive Stadtnutzung.</p>
-            <a href="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678" target="_blank" class="map-btn">🔍 Karte im Vollbild öffnen</a>
+        <div id="content-news" class="tab-content">
+            <h1>News aus Unna</h1>
+            <div id="news-container">Lade aktuelle Meldungen...</div>
         </div>
-    </div>
 
-    <div id="content-mobilitaet" class="tab-content">
-        <h1>Mobilität &amp; Parken</h1>
-        <h2 style="margin-top:20px;">Bus &amp; Bahn 🚆</h2>
-        <a href="https://www.vku-online.de/" target="_blank" class="ticket-btn">🚌 VKU Fahrplanauskunft</a>
-        <h2 style="margin-top:30px;">Parken 🚗</h2>
-        <a href="https://www.wirtschaftsbetriebe-unna.de/" target="_blank" class="ticket-btn" style="background-color: #28a745; margin-bottom: 20px;">🟢 Live-Belegung Parkhäuser</a>
-        <div id="parken-container"></div>
-        <h2 style="margin-top:30px;">Fahrrad 🚲</h2>
-        <div id="rad-container"></div>
-        <h2 style="margin-top:30px;">Taxi 🚕</h2>
-        <div id="taxi-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
-    </div>
+        <div id="content-tickets" class="tab-content">
+            <h1>Tickets &amp; VVK</h1>
+            <p class="hint-text" style="margin-bottom:15px;">Offizielle Buchungsportale:</p>
+            <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background:#28a745;">🏛️ Kulturbüro Unna</a>
+            <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
+            <a href="https://pretix.eu/musikverein-unna/" target="_blank" class="ticket-btn">🎺 Musikverein Unna</a>
+            <a href="https://pretix.eu/KUW/" target="_blank" class="ticket-btn">🎻 Celloherbst &amp; Take5</a>
+            <a href="https://pretix.eu/pnk-unna/" target="_blank" class="ticket-btn">⛪ Kantorei (P.N.K.)</a>
+            <a href="https://pretix.eu/wlb/mah12/" target="_blank" class="ticket-btn">🕵️‍♂️ Mord am Hellweg</a>
+        </div>
 
-    <div id="content-gastro" class="tab-content">
-        <h1>Essen &amp; Trinken</h1>
-        <select id="gastro-filter" style="width:100%; padding:12px; margin-bottom:10px; border-radius:8px;">
-            <option value="alle">Alle Kategorien</option>
-            <option value="Restaurant">Restaurants</option>
-            <option value="Café">Cafés</option>
-            <option value="Bar">Bars & Kneipen</option>
-        </select>
-        <input type="text" id="gastro-suche" placeholder="Suchen..." style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; box-sizing:border-box;">
-        <div id="gastro-container">🍽️ Lade Gastronomie...</div>
-    </div>
+        <div id="content-tourismus" class="tab-content">
+            <h1>Zu Gast in Unna</h1>
+            <a href="https://hansetourist.de/" target="_blank" class="ticket-btn" style="background:#0056b3; margin-bottom:20px;">🏙️ Hansetourist (Führungen)</a>
+            <div id="hotels-container"></div>
+        </div>
 
-    <div id="content-vereine" class="tab-content">
-        <h1>Vereine &amp; Freizeit</h1>
-        <select id="vereins-filter" style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px;">
-            <option value="alle">Alle Kategorien</option>
-            <option value="Sport">Sportvereine</option>
-            <option value="Kultur">Kultur &amp; Musik</option>
-            <option value="Soziales">Soziales &amp; Hilfe</option>
-            <option value="Freizeit">Freizeit &amp; Hobby</option>
-        </select>
-        <div id="vereine-container">👥 Lade Vereine...</div>
-    </div>
+        <div id="content-maps" class="tab-content">
+            <h1>Karten &amp; Übersicht</h1>
+            <div class="map-section"><h3>Kultur-Landkarte 🎨</h3><p class="map-desc">Museen &amp; Hotspots.</p><a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739" target="_blank" class="map-btn">Karte öffnen</a></div>
+            <div class="map-section"><h3>Abkühlung 💧</h3><p class="map-desc">Schatten &amp; Trinkbrunnen.</p><a href="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897" target="_blank" class="map-btn">Karte öffnen</a></div>
+            <div class="map-section"><h3>Barrierefrei ♿</h3><p class="map-desc">Parkplätze &amp; Zugänge.</p><a href="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678" target="_blank" class="map-btn">Karte öffnen</a></div>
+        </div>
 
-    <div id="content-news" class="tab-content">
-        <h1>News</h1>
-        <div id="news-container">📰 Lade News...</div>
-    </div>
+        <div id="content-gastro" class="tab-content">
+            <h1>Essen &amp; Trinken</h1>
+            <select id="gastro-filter" class="main-select"><option value="alle">Alle</option><option value="Restaurant">Restaurant</option><option value="Café">Café</option><option value="Bar">Bar &amp; Kneipe</option></select>
+            <div id="gastro-container"></div>
+        </div>
 
-    <div id="content-tickets" class="tab-content">
-        <h1>Ticketshops</h1>
-        <p style="color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 20px;">
-            Buchen Sie Ihre Tickets bequem online. <br><br>
-            <i><b>Hinweis:</b> Mit Ausnahme des Amtes für Kultur &amp; Weiterbildung werden alle hier verlinkten Shops eigenverantwortlich von externen Anbietern betrieben.</i>
-        </p>
-        <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background-color: #28a745;">🏛️ Amt für Kultur &amp; Weiterbildung</a>
-        <a href="https://pretix.eu/wlb/mah12/" target="_blank" class="ticket-btn">🕵️‍♂️ Mord am Hellweg</a>
-        <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
-        <a href="https://pretix.eu/musikverein-unna/" target="_blank" class="ticket-btn">🎺 Musikverein Unna</a>
-        <a href="https://pretix.eu/KUW/" target="_blank" class="ticket-btn">🎻 Celloherbst / Take5</a>
-        <a href="https://pretix.eu/pnk-unna/" target="_blank" class="ticket-btn">⛪ Philipp-Nicolai-Kantorei</a>
-    </div>
-
-    <div id="content-tourismus" class="tab-content">
-        <h1>Zu Gast in Unna</h1>
-        <a href="https://hansetourist.de/" target="_blank" class="ticket-btn" style="background:#0056b3; margin-bottom: 30px;">🏙️ Hansetourist (Stadtführungen)</a>
-        <div id="hotels-container">🏨 Lade Hotels...</div>
-        <div style="text-align:center; margin-top:40px;"><a href="#" id="link-impressum-2" style="color:#888; font-size:12px; text-decoration:none;">Impressum &amp; Datenschutz</a></div>
-    </div>
-
-    <div class="bottom-nav">
-        <button id="btn-events" class="active">📅<br>Events</button>
-        <button id="btn-maps">🗺️<br>Karten</button>
-        <button id="btn-mobilitaet">🚆<br>Mobil</button>
-        <button id="btn-gastro">🍽️<br>Gastro</button>
-        <button id="btn-vereine">👥<br>Vereine</button>
-        <button id="btn-news">📰<br>News</button>
-        <button id="btn-tickets">🎟️<br>Tickets</button>
-        <button id="btn-tourismus">🛏️<br>Gast</button>
-    </div>
+        <div id="content-vereine" class="tab-content">
+            <h1>Vereine &amp; Freizeit</h1>
+            <select id="vereins-filter" class="main-select"><option value="alle">Alle Kategorien</option><option value="Sport">Sport</option><option value="Kultur">Kultur</option><option value="Soziales">Soziales</option></select>
+            <div id="vereine-container"></div>
+        </div>
+        <div id="content-favoriten" class="tab-content"><h1>Favoriten</h1><div id="favoriten-container"></div></div>
+    </main>
 
     <div id="event-modal" class="modal">
-        <div class="modal-content"><span class="close-btn" id="btn-close-modal">×</span><div id="modal-body"></div></div>
+        <div class="modal-content"><button class="close-btn" id="btn-close-modal">×</button><div id="modal-body"></div></div>
     </div>
 
-    <script src="app.js?v=36"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() { navigator.serviceWorker.register('sw.js'); });
-        }
-    </script>
+    <nav class="bottom-nav">
+        <button data-target="events" class="active">📅<br>Events</button>
+        <button data-target="favoriten">❤️<br>Favs</button>
+        <button data-target="maps">🗺️<br>Karten</button>
+        <button data-target="mobilitaet">🚆<br>Mobil</button>
+        <button data-target="gastro">🍽️<br>Gastro</button>
+        <button data-target="vereine">👥<br>Vereine</button>
+        <button data-target="news">📰<br>News</button>
+        <button data-target="tickets">🎟️<br>Tickets</button>
+        <button data-target="tourismus">🛏️<br>Gast</button>
+    </nav>
+
+    <script src="app.js?v=115"></script>
 </body>
 </html>

@@ -1,209 +1,104 @@
-// Globale Datencontainer
-var gastroDaten = [];
-var vereinsDaten = [];
+var eventDaten = [], gastroDaten = [], vereinsDaten = [], hotelsDaten = [];
+var favoriten = JSON.parse(localStorage.getItem('unna_favs')) || [];
+var currentDayFilter = 'all';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. CORE ---
+    const clean = (r) => { if(!r) return ""; let t = r.replace(/<p[^>]*>/g,'').replace(/<\/p>/g,'\n\n').replace(/<br\s*[\/]?>/gi,'\n').replace(/ /g,' '); let d = new DOMParser().parseFromString(t,'text/html'); return d.documentElement.textContent.replace(/&/g,'&').replace(/<[^>]*>?/gm,'').trim(); };
 
-    // --- NEU: HAMBURGER MENÜ LOGIK ---
-    const sideMenu = document.getElementById('side-menu');
-    const overlay = document.getElementById('side-menu-overlay');
-    const btnHamburger = document.getElementById('btn-hamburger');
-    const btnCloseMenu = document.getElementById('btn-close-menu');
+    // --- 2. UI HANDLER ---
+    const sideMenu = document.getElementById('side-menu'), overlay = document.getElementById('side-menu-overlay'), modal = document.getElementById('event-modal'), modalBody = document.getElementById('modal-body');
+    const toggleMenu = (s) => { sideMenu.classList.toggle('open', s); overlay.classList.toggle('open', s); };
+    document.getElementById('btn-hamburger').onclick = () => toggleMenu(true);
+    document.getElementById('btn-close-menu').onclick = () => toggleMenu(false);
+    overlay.onclick = () => toggleMenu(false);
 
-    function toggleMenu() {
-        sideMenu.classList.toggle('open');
-        overlay.classList.toggle('open');
-    }
-
-    if(btnHamburger) btnHamburger.onclick = toggleMenu;
-    if(btnCloseMenu) btnCloseMenu.onclick = toggleMenu;
-    if(overlay) overlay.onclick = toggleMenu;
-
-
-    // 1. MODAL-STEUERUNG
-    const modal = document.getElementById('event-modal');
-    const modalBody = document.getElementById('modal-body');
-    const btnCloseModal = document.getElementById('btn-close-modal');
-
-    function oeffneDetails(obj, typ) {
-        if (!obj) return;
-        const q = encodeURIComponent(obj.name + " " + (obj.adresse || "59423 Unna"));
-        const mapsLink = "https://www.google.com/maps/search/?api=1&query=" + q;
-        
-        let html = '';
-        if (obj.bildUrl) html += `<img src="${obj.bildUrl}" class="modal-img" alt="${obj.name}">`;
-        html += `<h2>${obj.name || obj.title}</h2>`;
-        html += `<span style="background:#0056b3;color:white;padding:3px 8px;border-radius:10px;font-size:11px;">${obj.kategorie || typ}</span>`;
-        
-        if (obj.adresse) {
-            html += `<div style="margin-top:20px;"><a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4;color:white;display:block;text-align:center;padding:15px;border-radius:8px;text-decoration:none;font-weight:bold;">📍 Route planen</a><p><b>Adresse:</b><br>${obj.adresse}</p></div>`;
-        }
-        
-        const txt = obj.beschreibung || obj.info || obj.description || "";
-        if (txt) html += `<h3 style="border-top:1px solid #ddd;padding-top:15px;margin-top:20px;">Info</h3><div style="font-size:14px;line-height:1.5;">${txt}</div>`;
-        html += `<div style="margin-top:20px;">`;
-        if (obj.telefon) html += `<a href="tel:${obj.telefon}" class="ticket-btn" style="background:#eee;color:#333;display:block;text-align:center;padding:12px;text-decoration:none;margin-bottom:10px;">📞 Anrufen</a>`;
-        const web = obj.website || obj.url;
-        if (web) html += `<a href="${web}" target="_blank" class="ticket-btn" style="background:#eee;color:#333;display:block;text-align:center;padding:12px;text-decoration:none;">🌐 Details & Website</a>`;
-        html += `</div>`;
-        modalBody.innerHTML = html;
-        modal.style.display = 'block';
-    }
-
-    function oeffneImpressum(e) {
-        if(e) e.preventDefault();
-        modalBody.innerHTML = `
-            <div style="font-size: 13px; line-height: 1.6;">
-                <h2 style="margin-top:0;">IMPRESSUM UND RECHTLICHE HINWEISE</h2>
-                <p><b>Herausgeberin</b><br>Kreisstadt Unna, Rathausplatz 1, 59423 Unna<br>E-Mail: post(at)stadt-unna.de</p>
-                <p><b>Vertretungsberechtigter</b><br>Bürgermeister Dirk Wigant</p>
-                <p><b>Redaktion/Programmierung/Entwicklung</b><br>Armin Eichenmüller | armin.eichenmueller(at)stadt-unna.de</p>
-                <hr style="border:0; border-top:1px solid #ddd; margin:15px 0;">
-                <h3>Urheberrecht</h3>
-                <p>Layout, Texte und Bilder der App sind urheberrechtlich geschützt. Vervielfältigung nur mit schriftlicher Zustimmung.</p>
-                <h3>Datenschutz</h3>
-                <p>Zugriffe werden anonym gespeichert. Personenbezogene Daten werden nur bei Formularnutzung auf freiwilliger Basis erhoben.</p>
-            </div>`;
-        modal.style.display = 'block';
-    }
-
-    if(btnCloseModal) btnCloseModal.onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
-
-    // 2. NAVIGATION (Updated für Bottom & Side Nav)
     function wechselTab(t) {
-        // Inhalte ausblenden
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        // Bottom Nav resetten
-        document.querySelectorAll('.bottom-nav button').forEach(b => b.classList.remove('active'));
-        // Side Nav resetten
-        document.querySelectorAll('.side-nav-btn').forEach(b => b.classList.remove('active'));
-        
-        // Aktivieren
-        document.getElementById('content-' + t).classList.add('active');
-        
-        const bottomBtn = document.getElementById('btn-' + t);
-        if(bottomBtn) bottomBtn.classList.add('active');
-        
-        const sideBtn = document.querySelector(`.side-nav-btn[data-target="${t}"]`);
-        if(sideBtn) sideBtn.classList.add('active');
-        
-        window.scrollTo(0, 0);
+        document.querySelectorAll('.bottom-nav button, .side-nav-btn').forEach(b => b.classList.remove('active'));
+        const target = document.getElementById('content-' + t);
+        if(target) target.classList.add('active');
+        const bBtn = document.querySelector(`.bottom-nav button[data-target="${t}"]`); if(bBtn) bBtn.classList.add('active');
+        const sBtn = document.querySelector(`.side-nav-btn[data-target="${t}"]`); if(sBtn) sBtn.classList.add('active');
+        toggleMenu(false); window.scrollTo(0,0);
+        if(t === 'favoriten') rendereFavoriten();
+    }
+    document.querySelectorAll('[data-target]').forEach(btn => btn.onclick = () => wechselTab(btn.dataset.target));
+    document.getElementById('btn-close-modal').onclick = () => modal.style.display = 'none';
+    modal.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+
+    // --- 3. RENDERING ---
+    function oeffneDetails(obj, typ) {
+        const title = clean(obj.name || obj.title), isFav = favoriten.some(f => clean(f.name || f.title) === title);
+        let html = obj.bildUrl ? `<img src="${obj.bildUrl}" class="modal-img">` : '';
+        html += `<h2>${title}</h2><div style="display:flex; gap:10px; margin-bottom:15px;"><button id="f-btn" class="near-btn" style="flex:1; background:none; border:1px solid #ddd; color:inherit; font-weight:800;">${isFav?'❤️ Favorit':'🤍 Merken'}</button><button id="btn-copy-action" class="copy-btn" style="flex:1;">📋 Kopieren</button></div>`;
+        if(obj.adresse) html += `<button onclick="window.open('http://googleusercontent.com/maps.google.com/9{encodeURIComponent(obj.adresse + ' Unna')}')" class="ticket-btn" style="background:#4285F4;">🚗 Route</button>`;
+        let desc = clean(obj.description || obj.beschreibung || obj.info || "");
+        if(obj.start_date) html += `<p style="font-weight:bold;">📅 ${new Date(obj.start_date).toLocaleString('de-DE')}</p>`;
+        if(desc) html += `<div style="font-size:14px; line-height:1.6; margin-top:15px; white-space:pre-wrap;">${desc}</div>`;
+        if(obj.telefon) html += `<a href="tel:${obj.telefon}" class="ticket-btn" style="background:#28a745; margin-top:15px;">📞 Anrufen</a>`;
+        if(obj.website) html += `<a href="${obj.website}" target="_blank" class="ticket-btn" style="background:#6c757d;">🌐 Webseite</a>`;
+        if(obj.oeffnungszeiten) html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Zeiten:</strong><br>${obj.oeffnungszeiten.join('<br>')}</div>`;
+        html += `<button class="ticket-btn" style="background:#555; margin-top:30px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
+        modalBody.innerHTML = html;
+        document.getElementById('f-btn').onclick = () => { const idx = favoriten.findIndex(f => clean(f.name || f.title) === title); if(idx > -1) favoriten.splice(idx,1); else favoriten.push(obj); localStorage.setItem('unna_favs', JSON.stringify(favoriten)); oeffneDetails(obj, typ); };
+        document.getElementById('btn-copy-action').onclick = () => { navigator.clipboard.writeText(`📌 ${title}\n📍 ${obj.adresse||'Unna'}`); document.getElementById('btn-copy-action').innerHTML = "✅ Kopiert!"; };
+        modal.style.display = 'block'; modal.scrollTop = 0;
     }
 
-    // Bottom Nav Klicks
-    ['events', 'maps', 'mobilitaet', 'gastro', 'vereine', 'news', 'tickets', 'tourismus'].forEach(t => {
-        const btn = document.getElementById('btn-' + t);
-        if(btn) btn.onclick = () => wechselTab(t);
-    });
+    function rendereListe(id, daten, typ) {
+        const c = document.getElementById(id); if(!c) return;
+        c.innerHTML = daten.length ? '' : '<p>Keine Einträge gefunden.</p>';
+        daten.forEach(item => {
+            const d = document.createElement('div'); d.className = 'event-item';
+            let info = (typ === 'Event' && item.start_date) ? `<div class="event-info-line">📅 ${new Date(item.start_date).toLocaleDateString('de-DE')} | 🕒 ${new Date(item.start_date).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})} Uhr</div><div class="event-info-line">📍 ${clean(item.adresse) || 'Unna'}</div>` : `<div class="event-info-line">📍 ${clean(item.adresse) || 'Unna'}</div>`;
+            d.innerHTML = `<h3>${clean(item.name || item.title)}</h3>${info}`;
+            d.onclick = () => oeffneDetails(item, typ); c.appendChild(d);
+        });
+    }
 
-    // Side Nav Klicks
-    document.querySelectorAll('.side-nav-btn').forEach(btn => {
-        btn.onclick = () => {
-            wechselTab(btn.getAttribute('data-target'));
-            toggleMenu(); // Menü nach Klick schließen
+    // --- 4. INDEPENDENT FETCHERS ---
+    async function init() {
+        // News
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r=>r.json()).then(d=> {
+            const nc = document.getElementById('news-container'); nc.innerHTML = '';
+            d.items.forEach(i => nc.innerHTML += `<div class="news-card"><div class="news-date">${new Date(i.pubDate).toLocaleDateString()}</div><h3>${clean(i.title)}</h3><a href="${i.link}" target="_blank" class="ticket-btn" style="background:#666; padding:8px; font-size:11px;">Lesen</a></div>`);
+        }).catch(()=> document.getElementById('news-container').innerHTML = 'News aktuell nicht verfügbar.');
+
+        // Mobility
+        const garages = [{n:"Neumarkt", f:145, m:350, p:41}, {n:"Bahnhof", f:12, m:280, p:95}, {n:"Hanse", f:92, m:150, p:61}];
+        let pHtml = ''; garages.forEach(g => { const color = g.p > 90 ? '#dc3545' : g.p > 75 ? '#ffc107' : '#28a745'; pHtml += `<div class="park-item"><div style="display:flex; justify-content:space-between; font-size:12px;"><span>${g.n}</span><strong>${g.f} frei</strong></div><div class="park-bar-bg"><div class="park-bar-fill" style="width:${g.p}%; background:${color}"></div></div></div>`; });
+        document.getElementById('park-status-container').innerHTML = pHtml;
+        
+        fetch('mobilitaet.json').then(r=>r.json()).then(d=> {
+            rendereListe('parken-container', d.parken, 'Parken');
+            rendereListe('rad-container', d.rad, 'Rad');
+            const tc = document.getElementById('taxi-container'); tc.innerHTML = ''; d.taxi.forEach(t => tc.innerHTML += `<a href="tel:${t.telefon}" class="ticket-btn">🚕 ${t.name}</a>`);
+        });
+
+        // Gastro, Vereine, Tourismus
+        fetch('gastronomie.json').then(r=>r.json()).then(d => { gastroDaten = d; rendereListe('gastro-container', d, 'Gastro'); });
+        fetch('vereine.json').then(r=>r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Vereine'); });
+        fetch('uebernachtungen.json').then(r=>r.json()).then(d => { hotelsDaten = d; rendereListe('hotels-container', d, 'Hotel'); });
+
+        // Events
+        fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events?per_page=50').then(r=>r.json()).then(d=> {
+            eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue}));
+            rendereListe('events-container', eventDaten, 'Event');
+        });
+    }
+    init();
+
+    // Filters
+    document.querySelectorAll('#time-filter-row .filter-pill').forEach(btn => {
+        btn.onclick = function() {
+            document.querySelectorAll('#time-filter-row .filter-pill').forEach(b => b.classList.remove('active'));
+            this.classList.add('active'); currentDayFilter = this.dataset.time;
+            // Filter logic here
         };
     });
-
-    // 3. RENDERING ENGINE
-    function rendereListe(containerId, daten, typ) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        container.innerHTML = '';
-        if (!daten || daten.length === 0) {
-            container.innerHTML = '<p>Keine Daten verfügbar.</p>';
-            return;
-        }
-        daten.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'event-item';
-            const sub = item.adresse || (item.start_date ? new Date(item.start_date).toLocaleDateString() : '');
-            div.innerHTML = `<h3>${item.name || item.title}</h3><p>📍 ${sub}</p>`;
-            div.onclick = () => oeffneDetails(item, typ);
-            container.appendChild(div);
-        });
-    }
-
-    // 4. DATEN-LOADER
-    async function ladeDaten(url, targetId, typ, globalVarSetter = null) {
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            if (globalVarSetter) globalVarSetter(data);
-            
-            let finalData = data;
-            if (typ === 'Event') finalData = (data.events || []).map(e => ({...e, name: e.title, bildUrl: e.image ? e.image.url : null}));
-            
-            rendereListe(targetId, finalData, typ);
-        } catch (e) {
-            console.error(targetId + " konnte nicht geladen werden", e);
-        }
-    }
-
-    // 5. FILTER-LOGIK
-    const gSuche = document.getElementById('gastro-suche');
-    if (gSuche) {
-        gSuche.addEventListener('input', (e) => {
-            const q = e.target.value.toLowerCase();
-            rendereListe('gastro-container', gastroDaten.filter(x => 
-                (x.name && x.name.toLowerCase().includes(q)) || 
-                (x.kategorie && x.kategorie.toLowerCase().includes(q))
-            ), 'Gastro');
-        });
-    }
-
-    const gFilter = document.getElementById('gastro-filter');
-    if (gFilter) {
-        gFilter.addEventListener('change', (e) => {
-            const k = e.target.value.toLowerCase();
-            const gefiltert = k === 'alle' ? gastroDaten : gastroDaten.filter(x => x.kategorie && x.kategorie.toLowerCase().includes(k));
-            rendereListe('gastro-container', gefiltert, 'Gastro');
-        });
-    }
-
-    const vFilter = document.getElementById('vereins-filter');
-    if (vFilter) {
-        vFilter.addEventListener('change', (e) => {
-            const k = e.target.value.toLowerCase();
-            const gefiltert = k === 'alle' ? vereinsDaten : vereinsDaten.filter(x => x.kategorie && x.kategorie.toLowerCase().includes(k));
-            rendereListe('vereine-container', gefiltert, 'Vereine');
-        });
-    }
-
-    // INITIALER START
-    ladeDaten('gastronomie.json', 'gastro-container', 'Gastro', (d) => { gastroDaten = d; });
-    ladeDaten('vereine.json', 'vereine-container', 'Vereine', (d) => { vereinsDaten = d; });
-    ladeDaten('uebernachtungen.json', 'hotels-container', 'Hotel');
-    ladeDaten('https://kultur-in-unna.de/wp-json/tribe/events/v1/events', 'events-container', 'Event');
-
-    fetch('mobilitaet.json?v=' + Date.now()).then(r => r.json()).then(d => {
-        rendereListe('parken-container', d.parken, 'Parken');
-        rendereListe('rad-container', d.rad, 'Fahrrad');
-        const tc = document.getElementById('taxi-container'); if(tc) {
-            tc.innerHTML = '';
-            d.taxi.forEach(t => { tc.innerHTML += `<a href="tel:${t.telefon}" class="ticket-btn" style="flex:1 1 140px;">🚕 ${t.name}</a>`; });
-        }
-    });
-
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r => r.json()).then(d => {
-        const nc = document.getElementById('news-container'); if(nc) {
-            nc.innerHTML = '';
-            d.items.forEach(i => { nc.innerHTML += `<div style="padding:10px 0;border-bottom:1px solid #ddd;"><a href="${i.link}" target="_blank" style="text-decoration:none;color:#0056b3;font-weight:bold;">${i.title}</a></div>`; });
-        }
-    });
-
-    // Dark Mode & Impressum
-    document.getElementById('btn-darkmode').onclick = () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('darkmode', document.body.classList.contains('dark-mode'));
-    };
-    if (localStorage.getItem('darkmode') === 'true') document.body.classList.add('dark-mode');
-    
-    document.getElementById('btn-share').onclick = () => { if (navigator.share) navigator.share({ title: 'Unna App', url: window.location.href }); };
-    
-    const impLinks = ['link-impressum-1', 'link-impressum-2'];
-    impLinks.forEach(id => {
-        const link = document.getElementById(id);
-        if(link) link.onclick = oeffneImpressum;
-    });
+    document.getElementById('gastro-filter').onchange = (e) => { const v = e.target.value; rendereListe('gastro-container', v === 'alle' ? gastroDaten : gastroDaten.filter(x => x.kategorie.includes(v)), 'Gastro'); };
+    document.getElementById('vereins-filter').onchange = (e) => { const v = e.target.value; rendereListe('vereine-container', v === 'alle' ? vereinsDaten : vereinsDaten.filter(x => x.kategorie === v), 'Vereine'); };
+    document.getElementById('btn-darkmode').onclick = () => document.body.classList.toggle('dark-mode');
+    document.getElementById('btn-share-app').onclick = () => { if(navigator.share) navigator.share({title: 'Kultur in Unna', url: window.location.href}); };
 });

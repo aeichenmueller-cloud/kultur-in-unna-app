@@ -1,0 +1,114 @@
+[
+    {
+        "name": "Ringhotel Katharinenhof****",
+        "adresse": "Bahnhofstraße 49, 59423 Unna",
+        "telefon": "02303 9200",
+        "email": "katharinenhof@riepe.com",
+        "website": "https://www.riepe.com/",
+        "beschreibung": "Zimmeranzahl: 99, Bettenanzahl: 173. Werktags: EZ/Ü ab 114,- € | DZ/Ü ab 134,- €. Wochenende: EZ/Ü ab 99,- € | DZ/Ü ab 119,- €. Suite ab 158,- €. Frühstück 14,- € pro Person."
+    },
+    {
+        "name": "Akzent Gut Höing",
+        "adresse": "Ligusterweg 18, 59425 Unna",
+        "telefon": "02303 968660",
+        "email": "mail@hotel-gut-hoeing.de",
+        "website": "http://www.hotel-gut-hoeing.de",
+        "beschreibung": "Zimmeranzahl: 48. EZ ab 79,- € | DZ ab 106,50 € | DZ als EZ ab 91,50 € | Dreibettzimmer ab 135,- €."
+    },
+    {
+        "name": "Hotel Garni Heidehof",
+        "adresse": "Massener Heide 22, 59427 Unna",
+        "telefon": "02303 83130",
+        "email": "info@heidehof-schwill.de",
+        "website": "https://www.heidehof-schwill.de",
+        "beschreibung": "Bettenanzahl: 37. EZ ab 49,- € | DZ ab 70,- € | 3-Bettzimmer ab 80,- €."
+    },
+    {
+        "name": "Hotel Garni - Gästehaus Brüggemann",
+        "adresse": "Kamener Straße 34, 59425 Unna",
+        "telefon": "02303 60281",
+        "email": "info@hotel-brueggemann.de",
+        "website": "http://www.hotel-brueggemann.de",
+        "beschreibung": "EZ ab 59,- € | DZ ab 79,- € | 3-Bettzimmer ab 109,- € | Apartment ab 80,- € | FeWo (bis 6 Pers.) ab 120,- €."
+    },
+    {
+        "name": "Gästezimmer Ölckenthurm",
+        "adresse": "Grabengasse 27, 59423 Unna",
+        "telefon": "02303 772007",
+        "email": "info@oelckenthurm.de",
+        "website": "https://oelckenthurm.de/",
+        "beschreibung": "3 Ferienwohnungen, ab 2 Übernachtungen buchbar für 2-4 Personen. 2 Pers. ab 75,- €. Jede weitere Pers. 15,- €."
+    },
+    {
+        "name": "Hotel Nachtwächter",
+        "adresse": "Schulstraße 1, 59423 Unna",
+        "telefon": "02303 12449",
+        "email": "info@hotel-nachtwaechter.de",
+        "website": "https://www.hotel-nachtwaechter.de/",
+        "beschreibung": "Familienzimmer ab 99,- € | EZ ab 65,- € | DZ ab 85,- €."
+    },
+    {
+        "name": "Maringer Rooms",
+        "adresse": "Lönsstraße 1, 59423 Unna",
+        "telefon": "02303 9477807",
+        "email": "info@maringer-rooms.de",
+        "website": "https://maringer-rooms.de/",
+        "beschreibung": "Standard Zimmer: 1-2 Ü ab 80,- € | Ab 3 Ü ab 75,- €."
+    },
+    {
+        "name": "Ferienwohnung Wickede / Ruhr",
+        "adresse": "Wickede (Ruhr)",
+        "telefon": "02377 8059049 (Mobil: 0163 6768935)",
+        "email": "info@FEWO-Wicke.de",
+        "website": "",
+        "beschreibung": "Bettenanzahl: 4-12. Mind. 3 Pers. ab 79,- €. Jede weitere Pers. 15,- € /Ü. Reinigung 65,- €."
+    },
+    {
+        "name": "Ferienwohnung Kornrumpf",
+        "adresse": "Hardenbergstraße 10, 59425 Unna",
+        "telefon": "02303 65790",
+        "email": "fam.kornrumpf@unnacom.biz",
+        "website": "https://wohnung-kornrumpf.jimdofree.com/",
+        "beschreibung": "Vermieter: Familie Rudolf & Helga Kornrumpf. DZ/Ü 85,- €. Jede weitere Pers. (bis max. 5) je 10,- € / Ü. Endreinigung 80,- €."
+    },
+    {
+        "name": "Privatvermietung Michael Büttner",
+        "adresse": "Parkstraße 11, 59425 Unna",
+        "telefon": "02303 254030",
+        "email": "misimato@t-online.de",
+        "website": "",
+        "beschreibung": "Bettenanzahl: 3-4. Ab 70,- € pro Tag inkl. Bettwäsche, Handtücher und Endreinigung."
+    },
+    {
+        "name": "Privatvermietung Rusche",
+        "adresse": "Feldstraße 21, 59423 Unna",
+        "telefon": "02922 806048 (Mobil: 0160 8413426)",
+        "email": "",
+        "website": "",
+        "beschreibung": "Bettenanzahl: 6. Pro Nacht/Pers.: ab 25,- € inkl. Handtücher, Bettwäsche und Endreinigung."
+    },
+    {
+        "name": "Monteurzimmer Frau Prill",
+        "adresse": "Werner Straße, 59192 Bergkamen",
+        "telefon": "06545 914799",
+        "email": "monteur.apartment@gmail.com",
+        "website": "",
+        "beschreibung": "Wohnung mit 3 Schlafzimmern. Bettenanzahl: 6. Ab 14,- € pro Person/Ü."
+    },
+    {
+        "name": "Ferien- & Monteurwohnung Weißmann",
+        "adresse": "Hertingerstraße 100, 59423 Unna",
+        "telefon": "02303 9792719 (Mobil: 0162 3702038)",
+        "email": "",
+        "website": "http://www.weissmanns.jimdo.com",
+        "beschreibung": "Vermieter: Klaus Weißmann. 4 Pers. ab 68,- € / Ü. | 3 Pers. ab 54,- € / Ü."
+    },
+    {
+        "name": "Gästehaus Lemberger",
+        "adresse": "Eickhoff 3, 59439 Holzwickede",
+        "telefon": "02334 924600",
+        "email": "info@gaestehaus-lemberger.de",
+        "website": "http://www.gaestehaus-lemberger.de",
+        "beschreibung": "Vermieter: Maik Lemberger. Ab 95,- €."
+    }
+]

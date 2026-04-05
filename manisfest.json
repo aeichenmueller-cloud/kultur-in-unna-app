@@ -1,0 +1,21 @@
+{
+  "name": "Kultur in Unna",
+  "short_name": "Kultur Unna",
+  "description": "Events, Gastronomie und Vereine in der Kreisstadt Unna.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0056b3",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

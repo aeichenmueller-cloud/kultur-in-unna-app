@@ -49,30 +49,21 @@ function oeffneImpressum(e) {
     var body = document.getElementById('modal-body');
     body.innerHTML = `
         <h2 style="margin-top:0;">Impressum & Datenschutz</h2>
-        
         <h3 style="font-size:14px; margin-bottom:5px;">Herausgeberin</h3>
         <p style="font-size:14px; color:#555; margin-top:0;">
             Kreisstadt Unna<br>Rathausplatz 1, 59423 Unna<br>
             Die Kreisstadt Unna ist eine Körperschaft des öffentlichen Rechts.<br>
             Vertretungsberechtigter: Bürgermeister Dirk Wigant
         </p>
-        
-        <h3 style="font-size:14px; margin-bottom:5px;">Redaktion, App-Entwicklung & Technische Umsetzung</h3>
+        <h3 style="font-size:14px; margin-bottom:5px;">Redaktion, App-Entwicklung &amp; Technische Umsetzung</h3>
         <p style="font-size:14px; color:#555; margin-top:0;">
             Armin Eichenmüller<br>E-Mail: <a href="mailto:armin.eichenmueller@stadt-unna.de" style="color:#0056b3;">armin.eichenmueller@stadt-unna.de</a>
         </p>
-        
         <h3 style="font-size:14px; margin-bottom:5px;">Behördlicher Datenschutz</h3>
         <p style="font-size:14px; color:#555; margin-top:0;">
             Kreisstadt Unna – Der/Die Datenschutzbeauftragte –<br>
             Rathausplatz 1, 59423 Unna<br>
             E-Mail: <a href="mailto:datenschutz@stadt-unna.de" style="color:#0056b3;">datenschutz@stadt-unna.de</a>
-        </p>
-        
-        <h3 style="font-size:14px; margin-bottom:5px;">Urheberrecht & Haftungsausschluss</h3>
-        <p style="font-size:13px; color:#666; margin-top:0; line-height:1.5;">
-            Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden derartige Inhalte umgehend entfernt.<br><br>
-            Gerichtsstand, anzuwendendes Recht: Alle Informationen oder Daten auf dieser App unterliegen ausschließlich deutschem Recht. Gerichtsstand ist Unna.
         </p>
     `;
     document.getElementById('event-modal').style.display = 'block';
@@ -83,89 +74,37 @@ var link2 = document.getElementById('link-impressum-2');
 if (link1) link1.onclick = oeffneImpressum;
 if (link2) link2.onclick = oeffneImpressum;
 
-function oeffneGastroDetails(ort) {
+// GEMEINSAME FUNKTION FÜR DETAILS (Gastro, Hotels, Vereine)
+function oeffneDetails(obj, typ) {
     var body = document.getElementById('modal-body');
-    var zeiten = ort.oeffnungszeiten ? `<ul style="list-style:none; padding:0; font-size:14px; color:#444;">${ort.oeffnungszeiten.map(t => `<li style="padding:8px 0; border-bottom:1px solid #eee;">${t}</li>`).join('')}</ul>` : '<p>Keine Zeiten hinterlegt.</p>';
-    var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(ort.name + " " + ort.adresse);
-
-    body.innerHTML = `
-        <h2 style="margin:0;">${ort.name}</h2>
-        <span style="background:#eee; padding:3px 8px; border-radius:10px; font-size:11px; color:#333;">${ort.kategorie}</span>
-        <div style="margin-top:20px;">
-            <a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4; color:white; display:block; text-align:center; padding:15px; border-radius:8px; text-decoration:none; font-weight:bold; margin-bottom:20px;">📍 Navigiere zu</a>
-            <p><b>Adresse:</b><br>${ort.adresse}</p>
-        </div>
-        <h3 style="border-top:1px solid #ddd; padding-top:15px; margin-top:20px;">🕒 Öffnungszeiten</h3>
-        ${zeiten}
-        <div style="margin-top:20px;">
-            ${ort.telefon ? `<a href="tel:${ort.telefon}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>` : ''}
-            ${ort.website ? `<a href="${ort.website}" target="_blank" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>` : ''}
-        </div>
-    `;
-    document.getElementById('event-modal').style.display = 'block';
-}
-
-function oeffneHotelDetails(h) {
-    var body = document.getElementById('modal-body');
-    var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(h.name + " " + h.adresse);
-
-    body.innerHTML = `
-        <h2 style="margin:0;">${h.name}</h2>
-        <span style="background:#eee; padding:3px 8px; border-radius:10px; font-size:11px; color:#333;">Übernachtung</span>
-        
-        <div style="margin-top:20px;">
-            <a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4; color:white; display:block; text-align:center; padding:15px; border-radius:8px; text-decoration:none; font-weight:bold; margin-bottom:20px;">📍 Navigiere zu</a>
-            <p><b>Adresse:</b><br>${h.adresse}</p>
-        </div>
-        
-        ${h.beschreibung ? `<h3 style="border-top:1px solid #ddd; padding-top:15px; margin-top:20px;">ℹ️ Info</h3><p style="font-size:14px; color:#555; line-height:1.5;">${h.beschreibung}</p>` : ''}
-        
-        <div style="margin-top:20px;">
-            ${h.telefon ? `<a href="tel:${h.telefon}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>` : ''}
-            ${h.website ? `<a href="${h.website}" target="_blank" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>` : ''}
-        </div>
-    `;
-    document.getElementById('event-modal').style.display = 'block';
-}
-
-// NEU: Vereine im Modal anzeigen (jetzt auch mit Adresse und Navigation!)
-function oeffneVereinDetails(v) {
-    var body = document.getElementById('modal-body');
+    var mapsLink = obj.adresse ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(obj.name + " " + obj.adresse) : "";
     
-    // Prüfen ob eine Adresse da ist, um den Maps-Link zu bauen
-    var mapsLink = v.adresse ? "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(v.name + " " + v.adresse) : "";
-    var adresseHtml = v.adresse ? `
-        <div style="margin-top:20px;">
+    var html = `<h2 style="margin:0;">${obj.name}</h2>`;
+    html += `<span style="background:#eee; padding:3px 8px; border-radius:10px; font-size:11px; color:#333;">${obj.kategorie || typ}</span>`;
+    
+    if (obj.adresse) {
+        html += `<div style="margin-top:20px;">
             <a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4; color:white; display:block; text-align:center; padding:15px; border-radius:8px; text-decoration:none; font-weight:bold; margin-bottom:20px;">📍 Navigiere zu</a>
-            <p><b>Adresse:</b><br>${v.adresse}</p>
-        </div>` : '';
+            <p><b>Adresse:</b><br>${obj.adresse}</p>
+        </div>`;
+    }
 
-    body.innerHTML = `
-        <h2 style="margin:0;">${v.name}</h2>
-        <span style="background:#eee; padding:3px 8px; border-radius:10px; font-size:11px; color:#333;">${v.kategorie || 'Verein'}</span>
-        
-        ${adresseHtml}
-        
-        ${v.beschreibung ? `<h3 style="border-top:1px solid #ddd; padding-top:15px; margin-top:20px;">ℹ️ Info</h3><p style="font-size:14px; color:#555; line-height:1.5;">${v.beschreibung}</p>` : ''}
-        
-        <div style="margin-top:20px;">
-            ${v.telefon ? `<a href="tel:${v.telefon}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>` : ''}
-            ${v.email ? `<a href="mailto:${v.email}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">✉️ E-Mail senden</a>` : ''}
-            ${v.website ? `<a href="${v.website}" target="_blank" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>` : ''}
-        </div>
-    `;
-    document.getElementById('event-modal').style.display = 'block';
-}
+    if (obj.beschreibung) {
+        html += `<h3 style="border-top:1px solid #ddd; padding-top:15px; margin-top:20px;">ℹ️ Info</h3><p style="font-size:14px; color:#555; line-height:1.5;">${obj.beschreibung}</p>`;
+    }
 
-function oeffneEventDetails(e) {
-    var body = document.getElementById('modal-body');
-    var datum = new Date(e.start_date).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', hour: '2-digit', minute:'2-digit' });
-    body.innerHTML = `<h2>${e.title}</h2><p style="color:#0056b3; font-weight:bold;">📅 ${datum} Uhr</p><div>${e.description || ''}</div><a href="${e.url}" target="_blank" class="ticket-btn" style="display:block; text-align:center; background:#0056b3; color:white; padding:15px; text-decoration:none; border-radius:8px; margin-top:20px;">🔗 Details auf Website</a>`;
+    html += `<div style="margin-top:20px;">`;
+    if (obj.telefon) html += `<a href="tel:${obj.telefon}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>`;
+    if (obj.email) html += `<a href="mailto:${obj.email}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">✉️ E-Mail</a>`;
+    if (obj.website) html += `<a href="${obj.website}" target="_blank" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>`;
+    html += `</div>`;
+
+    body.innerHTML = html;
     document.getElementById('event-modal').style.display = 'block';
 }
 
 // ==========================================
-// 3. DATEN LADEN
+// 3. DATEN LADEN & RENDERN
 // ==========================================
 function ladeEvents() {
     fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events').then(r => r.json()).then(data => {
@@ -175,7 +114,11 @@ function ladeEvents() {
             data.events.forEach(e => {
                 var d = document.createElement('div'); d.className = 'event-item';
                 d.innerHTML = `<h3>${e.title}</h3><p style="font-size:13px; color:#666;">📅 ${new Date(e.start_date).toLocaleDateString()}</p>`;
-                d.onclick = function() { oeffneEventDetails(e); };
+                d.onclick = function() { 
+                    var body = document.getElementById('modal-body');
+                    body.innerHTML = `<h2>${e.title}</h2><p>📅 ${new Date(e.start_date).toLocaleString()}</p><div>${e.description}</div><a href="${e.url}" target="_blank" class="ticket-btn">🔗 Details</a>`;
+                    document.getElementById('event-modal').style.display = 'block';
+                };
                 c.appendChild(d);
             });
         }
@@ -194,7 +137,7 @@ function rendereGastro(liste) {
     liste.forEach(o => {
         var d = document.createElement('div'); d.className = 'event-item';
         d.innerHTML = `<h3>${o.name}</h3><p style="font-size:13px; color:#666;">📍 ${o.adresse}</p>`;
-        d.onclick = function() { oeffneGastroDetails(o); };
+        d.onclick = function() { oeffneDetails(o, 'Gastronomie'); };
         c.appendChild(d);
     });
 }
@@ -209,12 +152,25 @@ function rendereVereine(liste) {
     var c = document.getElementById('vereine-container');
     if(!c) return; c.innerHTML = '';
     liste.forEach(v => {
-        var d = document.createElement('div'); 
-        d.className = 'event-item'; 
-        var vorschau = v.beschreibung ? v.beschreibung.substring(0, 60) + '...' : '';
-        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase; color:#888;">${v.kategorie || ''}</span><h3 style="margin:5px 0;">${v.name}</h3><p style="font-size:13px; color:#666;">${vorschau}</p>`;
-        d.onclick = function() { oeffneVereinDetails(v); };
+        var d = document.createElement('div'); d.className = 'event-item';
+        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase; color:#888;">${v.kategorie}</span><h3 style="margin:5px 0;">${v.name}</h3><p style="font-size:13px; color:#666;">${v.beschreibung ? v.beschreibung.substring(0, 60) + '...' : ''}</p>`;
+        // DAS IST DER ENTSCHEIDENDE KLICK-BEFEHL:
+        d.onclick = function() { oeffneDetails(v, 'Verein & Freizeit'); };
         c.appendChild(d);
+    });
+}
+
+function ladeHotels() {
+    var container = document.getElementById('hotels-container');
+    if (!container) return;
+    fetch('uebernachtungen.json?v=' + Date.now()).then(r => r.json()).then(data => {
+        container.innerHTML = '';
+        data.forEach(h => {
+            var div = document.createElement('div'); div.className = 'event-item';
+            div.innerHTML = `<h3>${h.name}</h3><p style="font-size:13px; color:#666;">📍 ${h.adresse}</p>`;
+            div.onclick = function() { oeffneDetails(h, 'Übernachtung'); };
+            container.appendChild(div);
+        });
     });
 }
 
@@ -234,50 +190,25 @@ function ladeNews() {
     });
 }
 
-function ladeHotels() {
-    var container = document.getElementById('hotels-container');
-    if (!container) return;
-    fetch('uebernachtungen.json?v=' + Date.now()).then(r => r.json()).then(data => {
-        container.innerHTML = '';
-        data.forEach(h => {
-            var div = document.createElement('div'); 
-            div.className = 'event-item';
-            div.innerHTML = `<h3>${h.name}</h3><p style="font-size:13px; color:#666;">📍 ${h.adresse}</p>`;
-            div.onclick = function() { oeffneHotelDetails(h); };
-            container.appendChild(div);
-        });
-    });
-}
-
-// ==========================================
-// 4. FILTER LOGIK (Gastro & Vereine)
-// ==========================================
+// FILTER
 function filterGastro() {
-    var textInput = document.getElementById('gastro-suche');
-    var dropInput = document.getElementById('gastro-filter');
-    
-    var query = textInput ? textInput.value.toLowerCase() : '';
-    var kat = dropInput ? dropInput.value : 'alle';
-    
-    var gefiltert = gastroDaten.filter(function(o) {
-        var matchText = o.name.toLowerCase().includes(query) || (o.kategorie && o.kategorie.toLowerCase().includes(query));
-        var matchKat = (kat === 'alle') || (o.kategorie && o.kategorie.includes(kat));
+    var query = document.getElementById('gastro-suche').value.toLowerCase();
+    var kat = document.getElementById('gastro-filter').value;
+    var gefiltert = gastroDaten.filter(o => {
+        var matchText = o.name.toLowerCase().includes(query);
+        var matchKat = (kat === 'alle') || (o.kategorie === kat);
         return matchText && matchKat;
     });
-    
     rendereGastro(gefiltert);
 }
 
-var gs = document.getElementById('gastro-suche');
-var gf = document.getElementById('gastro-filter');
-if (gs) gs.addEventListener('input', filterGastro);
-if (gf) gf.addEventListener('change', filterGastro);
+document.getElementById('gastro-suche').addEventListener('input', filterGastro);
+document.getElementById('gastro-filter').addEventListener('change', filterGastro);
 
-var vf = document.getElementById('vereins-filter');
-if(vf) vf.onchange = function(e) {
+document.getElementById('vereins-filter').onchange = function(e) {
     var k = e.target.value;
     rendereVereine(k === 'alle' ? vereinsDaten : vereinsDaten.filter(v => v.kategorie === k));
 };
 
-// Start
+// START
 ladeEvents(); ladeGastro(); ladeVereine(); ladeNews(); ladeHotels();

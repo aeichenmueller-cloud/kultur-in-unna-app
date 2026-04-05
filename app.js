@@ -1,162 +1,150 @@
 var gastroDaten = [];
 var vereinsDaten = [];
 
-// NAVIGATION
+// ==========================================
+// 1. MODAL-STEUERUNG
+// ==========================================
+function oeffneDetails(obj, typ) {
+    if (!obj) return;
+    const modal = document.getElementById('event-modal');
+    const body = document.getElementById('modal-body');
+    const query = encodeURIComponent(obj.name + " " + (obj.adresse || "59423 Unna"));
+    const mapsLink = `https://www.google.com/maps/search/?api=1&query=${query}`;
+    
+    let html = '';
+    if (obj.bildUrl) html += `<img src="${obj.bildUrl}" class="modal-img" alt="${obj.name}">`;
+
+    html += `<h2>${obj.name || obj.title}</h2>`;
+    html += `<span style="background:var(--primary-color);color:white;padding:3px 8px;border-radius:10px;font-size:11px;">${obj.kategorie || typ}</span>`;
+    
+    if (obj.adresse) {
+        html += `<div style="margin-top:20px;">
+            <a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4;color:white;display:block;text-align:center;padding:15px;border-radius:8px;text-decoration:none;font-weight:bold;">📍 Route planen</a>
+            <p><b>Adresse:</b><br>${obj.adresse}</p>
+        </div>`;
+    }
+    
+    const beschreibung = obj.beschreibung || obj.info || obj.description || "";
+    if (beschreibung) html += `<h3 style="border-top:1px solid var(--border-color);padding-top:15px;margin-top:20px;">Info</h3><div style="font-size:14px;line-height:1.5;">${beschreibung}</div>`;
+
+    html += `<div style="margin-top:20px;">`;
+    if (obj.telefon) html += `<a href="tel:${obj.telefon}" class="ticket-btn" style="background:var(--card-bg);color:var(--text-color);border:1px solid var(--border-color);display:block;text-align:center;padding:12px;text-decoration:none;margin-bottom:10px;">📞 Anrufen</a>`;
+    const web = obj.website || obj.url;
+    if (web) html += `<a href="${web}" target="_blank" class="ticket-btn" style="background:var(--card-bg);color:var(--text-color);border:1px solid var(--border-color);display:block;text-align:center;padding:12px;text-decoration:none;">🌐 Details &amp; Website</a>`;
+    html += `</div>`;
+
+    body.innerHTML = html;
+    modal.style.display = 'block';
+}
+
+function schliesseModal() { document.getElementById('event-modal').style.display = 'none'; }
+document.getElementById('btn-close-modal').onclick = schliesseModal;
+window.onclick = (e) => { if (e.target == document.getElementById('event-modal')) schliesseModal(); };
+
+// ==========================================
+// 2. NAVIGATION
+// ==========================================
 function wechselTab(tabName) {
     const tabs = ['events', 'maps', 'mobilitaet', 'news', 'tickets', 'tourismus', 'gastro', 'vereine'];
     tabs.forEach(name => {
-        const content = document.getElementById('content-' + name);
-        const button = document.getElementById('btn-' + name);
-        if (content) content.classList.remove('active');
-        if (button) button.classList.remove('active');
+        const c = document.getElementById('content-' + name);
+        const b = document.getElementById('btn-' + name);
+        if (c) c.classList.remove('active');
+        if (b) b.classList.remove('active');
     });
-    const activeContent = document.getElementById('content-' + tabName);
-    const activeButton = document.getElementById('btn-' + tabName);
-    if (activeContent) activeContent.classList.add('active');
-    if (activeButton) activeButton.classList.add('active');
+    document.getElementById('content-' + tabName).classList.add('active');
+    document.getElementById('btn-' + tabName).classList.add('active');
     window.scrollTo(0, 0);
 }
-
-const navTabs = ['events', 'maps', 'mobilitaet', 'gastro', 'vereine', 'news', 'tickets', 'tourismus'];
-navTabs.forEach(tab => {
-    const btn = document.getElementById('btn-' + tab);
-    if (btn) btn.onclick = () => wechselTab(tab);
+['events', 'maps', 'mobilitaet', 'gastro', 'vereine', 'news', 'tickets', 'tourismus'].forEach(t => {
+    const btn = document.getElementById('btn-' + t);
+    if (btn) btn.onclick = () => wechselTab(t);
 });
 
-// DARK MODE
-const btnDarkMode = document.getElementById('btn-darkmode');
-if (btnDarkMode) {
-    btnDarkMode.onclick = () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('darkmode', document.body.classList.contains('dark-mode'));
-    };
+// ==========================================
+// 3. RENDERING
+// ==========================================
+function rendereListe(containerId, daten, typ) {
+    const c = document.getElementById(containerId);
+    if (!c) return;
+    c.innerHTML = '';
+    daten.forEach(item => {
+        const d = document.createElement('div');
+        d.className = 'event-item';
+        const subtext = item.adresse || (item.start_date ? new Date(item.start_date).toLocaleDateString() : '');
+        d.innerHTML = `<h3>${item.name || item.title}</h3><p>📍 ${subtext}</p>`;
+        d.onclick = () => oeffneDetails(item, typ);
+        c.appendChild(d);
+    });
 }
-if (localStorage.getItem('darkmode') === 'true') document.body.classList.add('dark-mode');
 
-// TEILEN
-const btnShare = document.getElementById('btn-share');
-if (btnShare) {
-    btnShare.onclick = () => {
-        if (navigator.share) {
-            navigator.share({ title: 'Kultur in Unna App', url: window.location.href });
+// ==========================================
+// 4. DATEN LADEN
+// ==========================================
+function ladeAlles() {
+    fetch('gastronomie.json').then(r => r.json()).then(d => { gastroDaten = d; rendereListe('gastro-container', d, 'Gastro'); });
+    fetch('vereine.json').then(r => r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Verein & Freizeit'); });
+    fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events').then(r => r.json()).then(d => {
+        const evs = (d.events || []).map(e => ({ ...e, name: e.title, bildUrl: (e.image && e.image.url) ? e.image.url : null }));
+        rendereListe('events-container', evs.slice(0, 15), 'Veranstaltung');
+    });
+    fetch('mobilitaet.json?v=' + Date.now()).then(r => r.json()).then(d => {
+        rendereListe('parken-container', d.parken, 'Parken');
+        rendereListe('rad-container', d.rad, 'Fahrrad');
+        const tc = document.getElementById('taxi-container'); if(tc) {
+            tc.innerHTML = ''; d.taxi.forEach(t => {
+                const a = document.createElement('a'); a.href = `tel:${t.telefon}`; a.className = 'ticket-btn'; a.style.flex = '1 1 140px'; a.innerHTML = `🚕 ${t.name}`; tc.appendChild(a);
+            });
         }
+    });
+    fetch('uebernachtungen.json').then(r => r.json()).then(d => rendereListe('hotels-container', d, 'Hotel'));
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r => r.json()).then(d => {
+        const nc = document.getElementById('news-container'); if(nc) {
+            nc.innerHTML = ''; d.items.forEach(i => { nc.innerHTML += `<div style="padding:10px 0;border-bottom:1px solid var(--border-color);"><a href="${i.link}" target="_blank" style="text-decoration:none;color:var(--primary-color);font-weight:bold;">${i.title}</a></div>`; });
+        }
+    });
+}
+
+// ==========================================
+// 5. FILTER-LOGIK (DIE HIER GEFEHLT HAT)
+// ==========================================
+const gastroSuche = document.getElementById('gastro-suche');
+if (gastroSuche) {
+    gastroSuche.oninput = (e) => {
+        const query = e.target.value.toLowerCase();
+        const gefiltert = gastroDaten.filter(item => item.name.toLowerCase().includes(query));
+        rendereListe('gastro-container', gefiltert, 'Gastro');
     };
 }
 
-// MODAL
-function schliesseModal() { document.getElementById('event-modal').style.display = 'none'; }
-document.getElementById('btn-close-modal').onclick = schliesseModal;
-window.onclick = function(e) { if (e.target == document.getElementById('event-modal')) schliesseModal(); };
-
-function oeffneDetails(obj, typ) {
-    var body = document.getElementById('modal-body');
-    var mapsLink = obj.adresse ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(obj.name + " " + obj.adresse) : "";
-    var html = `<h2>${obj.name}</h2><span style="background:var(--primary-color); color:white; padding:3px 8px; border-radius:10px; font-size:11px;">${obj.kategorie || typ}</span>`;
-    if (obj.adresse) {
-        html += `<div style="margin-top:20px;"><a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4; color:white; display:block; text-align:center; padding:15px; border-radius:8px; text-decoration:none; font-weight:bold;">📍 Navigiere zu</a><p><b>Adresse:</b><br>${obj.adresse}</p></div>`;
-    }
-    if (obj.plaetze) html += `<p><b>Stellplätze:</b> ${obj.plaetze}</p>`;
-    if (obj.preise) html += `<p><b>Preise:</b><br>${obj.preise}</p>`;
-    if (obj.beschreibung || obj.info) html += `<h3 style="border-top:1px solid var(--border-color); padding-top:15px; margin-top:20px;">ℹ️ Info</h3><p>${obj.beschreibung || obj.info}</p>`;
-    html += `<div style="margin-top:20px;">`;
-    if (obj.telefon) html += `<a href="tel:${obj.telefon}" class="ticket-btn" style="background:var(--card-bg); color:var(--text-color); border:1px solid var(--border-color); display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>`;
-    if (obj.website) html += `<a href="${obj.website}" target="_blank" class="ticket-btn" style="background:var(--card-bg); color:var(--text-color); border:1px solid var(--border-color); display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>`;
-    html += `</div>`;
-    body.innerHTML = html;
-    document.getElementById('event-modal').style.display = 'block';
+const gastroFilter = document.getElementById('gastro-filter');
+if (gastroFilter) {
+    gastroFilter.onchange = (e) => {
+        const kat = e.target.value;
+        const gefiltert = kat === 'alle' ? gastroDaten : gastroDaten.filter(item => item.kategorie === kat);
+        rendereListe('gastro-container', gefiltert, 'Gastro');
+    };
 }
 
-// RENDERING FUNKTIONEN (FÜR FILTER)
-function rendereGastro(liste) {
-    var c = document.getElementById('gastro-container'); if(!c) return; c.innerHTML = '';
-    liste.forEach(o => {
-        var d = document.createElement('div'); d.className = 'event-item'; d.innerHTML = `<h3>${o.name}</h3><p>📍 ${o.adresse}</p>`;
-        d.onclick = function() { oeffneDetails(o, 'Gastro'); }; c.appendChild(d);
-    });
+const vereinsFilter = document.getElementById('vereins-filter');
+if (vereinsFilter) {
+    vereinsFilter.onchange = (e) => {
+        const kat = e.target.value;
+        const gefiltert = kat === 'alle' ? vereinsDaten : vereinsDaten.filter(item => item.kategorie === kat);
+        rendereListe('vereine-container', gefiltert, 'Verein & Freizeit');
+    };
 }
 
-function rendereVereine(liste) {
-    var c = document.getElementById('vereine-container'); if(!c) return; c.innerHTML = '';
-    liste.forEach(v => {
-        var d = document.createElement('div'); d.className = 'event-item';
-        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase;">${v.kategorie}</span><h3>${v.name}</h3>`;
-        d.onclick = function() { oeffneDetails(v, 'Verein & Freizeit'); }; c.appendChild(d);
-    });
-}
-
-// DATEN LADEN
-function ladeGastro() {
-    fetch('gastronomie.json').then(r => r.json()).then(data => { gastroDaten = data; rendereGastro(data); });
-}
-
-function ladeVereine() {
-    fetch('vereine.json').then(r => r.json()).then(data => { vereinsDaten = data; rendereVereine(data); });
-}
-
-function ladeMobilitaet() {
-    fetch('mobilitaet.json?v=' + Date.now()).then(r => r.json()).then(data => {
-        var pC = document.getElementById('parken-container'); if(pC) { pC.innerHTML = ''; data.parken.forEach(p => {
-            var d = document.createElement('div'); d.className = 'event-item'; d.innerHTML = `<h3>${p.name}</h3><p>📍 ${p.adresse}</p>`;
-            d.onclick = function() { oeffneDetails(p, 'Parken'); }; pC.appendChild(d);
-        }); }
-        var rC = document.getElementById('rad-container'); if(rC) { rC.innerHTML = ''; data.rad.forEach(r => {
-            var d = document.createElement('div'); d.className = 'event-item'; d.innerHTML = `<h3>${r.name}</h3><p>🚲 ${r.info}</p>`;
-            d.onclick = function() { oeffneDetails(r, 'Fahrrad'); }; rC.appendChild(d);
-        }); }
-        var tC = document.getElementById('taxi-container'); if(tC) { tC.innerHTML = ''; data.taxi.forEach(t => {
-            var btn = document.createElement('a'); btn.href = `tel:${t.telefon}`; btn.className = 'ticket-btn'; btn.style.flex = '1 1 140px'; btn.innerHTML = `🚕 ${t.name}`; tC.appendChild(btn);
-        }); }
-    });
-}
-
-function ladeEvents() {
-    fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events').then(r => r.json()).then(data => {
-        var c = document.getElementById('events-container'); if(!c) return; c.innerHTML = '';
-        data.events.slice(0, 15).forEach(e => {
-            var d = document.createElement('div'); d.className = 'event-item'; d.innerHTML = `<h3>${e.title}</h3><p>📅 ${new Date(e.start_date).toLocaleDateString()}</p>`;
-            d.onclick = function() { 
-                var body = document.getElementById('modal-body');
-                body.innerHTML = `<h2>${e.title}</h2><p>📅 ${new Date(e.start_date).toLocaleString()}</p><div>${e.description}</div><a href="${e.url}" target="_blank" class="ticket-btn">🔗 Details</a>`;
-                document.getElementById('event-modal').style.display = 'block';
-            }; c.appendChild(d);
-        });
-    });
-}
-
-function ladeHotels() {
-    fetch('uebernachtungen.json').then(r => r.json()).then(data => {
-        var c = document.getElementById('hotels-container'); if(!c) return; c.innerHTML = '';
-        data.forEach(h => {
-            var d = document.createElement('div'); d.className = 'event-item'; d.innerHTML = `<h3>${h.name}</h3><p>📍 ${h.adresse}</p>`;
-            d.onclick = function() { oeffneDetails(h, 'Übernachtung'); }; c.appendChild(d);
-        });
-    });
-}
-
-function ladeNews() {
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r => r.json()).then(data => {
-        var c = document.getElementById('news-container'); if(!c) return; c.innerHTML = '';
-        data.items.forEach(item => {
-            var d = document.createElement('div'); d.style.padding = "10px 0"; d.style.borderBottom = "1px solid var(--border-color)";
-            d.innerHTML = `<a href="${item.link}" target="_blank" style="text-decoration:none; color:var(--primary-color); font-weight:bold;">${item.title}</a>`;
-            c.appendChild(d);
-        });
-    });
-}
-
-// FILTER LOGIK EVENT LISTENER
-document.getElementById('gastro-suche').oninput = function() {
-    var q = this.value.toLowerCase();
-    rendereGastro(gastroDaten.filter(o => o.name.toLowerCase().includes(q)));
+// DARK MODE & SHARE
+document.getElementById('btn-darkmode').onclick = () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkmode', document.body.classList.contains('dark-mode'));
 };
-document.getElementById('gastro-filter').onchange = function() {
-    var k = this.value;
-    rendereGastro(k === 'alle' ? gastroDaten : gastroDaten.filter(o => o.kategorie === k));
-};
-document.getElementById('vereins-filter').onchange = function() {
-    var k = this.value;
-    rendereVereine(k === 'alle' ? vereinsDaten : vereinsDaten.filter(v => v.kategorie === k));
-};
+if (localStorage.getItem('darkmode') === 'true') document.body.classList.add('dark-mode');
+document.getElementById('btn-share').onclick = () => { if (navigator.share) navigator.share({ title: 'Kultur in Unna App', url: window.location.href }); };
 
-// START
-ladeEvents(); ladeGastro(); ladeVereine(); ladeNews(); ladeHotels(); ladeMobilitaet();
+const imp = (e) => { e.preventDefault(); oeffneDetails({name:"Impressum & Datenschutz", info:"Herausgeber: Kreisstadt Unna<br>Redaktion: Armin Eichenmüller"}, "Info"); };
+document.getElementById('link-impressum-1').onclick = imp;
+document.getElementById('link-impressum-2').onclick = imp;
+
+ladeAlles();

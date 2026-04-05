@@ -1,450 +1,490 @@
 [
     {
-        "name": "Rot-Weiß Unna e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Traditionsreicher Fußballverein im Herzen von Unna.",
-        "website": "http://rwunna.de/",
-        "kontakt": ""
-    },
-    {
-        "name": "Königsborner Sport Verein 1880/1911 e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Vielseitiger Sportverein mit großer Handball- und Fußballabteilung.",
-        "website": "https://koenigsborner-sv.de/",
-        "kontakt": ""
-    },
-    {
-        "name": "Bürger-Schützen-Verein Unna 1777 e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Historischer Schützenverein mit Fokus auf Schießsport und Tradition.",
-        "website": "http://www.bürgerschützen-unna.de/",
-        "kontakt": "02303 83881"
-    },
-    {
-        "name": "1.Volleyball-Verein Holzwickede e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Engagierter Volleyballverein für alle Altersklassen.",
-        "website": "",
-        "kontakt": "02301 942119"
-    },
-    {
-        "name": "Boxverein Unna",
-        "kategorie": "Sport",
-        "beschreibung": "Boxsport und Athletiktraining in Unna.",
-        "website": "https://www.psv-unna-boxabteilung.de/",
-        "kontakt": ""
-    },
-    {
-        "name": "Kleingartenverein Kastanienhain",
-        "kategorie": "Freizeit",
-        "beschreibung": "Kleingartenanlage zur Erholung und ökologischen Freizeitgestaltung.",
-        "website": "",
-        "kontakt": ""
-    },
-    {
-        "name": "TV Unna 1861 e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Großer Turn- und Breitensportverein mit vielfältigem Angebot.",
-        "website": "http://tv-unna.com/",
-        "kontakt": "02303 15656"
-    },
-    {
-        "name": "SV Unna 1924",
-        "kategorie": "Sport",
-        "beschreibung": "Schwimmverein mit Fokus auf Leistungssport und Ausbildung.",
-        "website": "http://svunna.de/",
-        "kontakt": ""
-    },
-    {
-        "name": "Historischer Verein zu Unna e.V.",
+        "name": "arthaus:nowodworski",
         "kategorie": "Kultur",
-        "beschreibung": "Erforschung und Pflege der Stadtgeschichte von Unna.",
-        "website": "https://www.historischer-verein-unna.de/",
-        "kontakt": "02303 53503"
-    },
-    {
-        "name": "Tauschring Unna",
-        "kategorie": "Soziales",
-        "beschreibung": "Nachbarschaftshilfe und bargeldloser Tausch von Dienstleistungen.",
-        "website": "http://tauschring-unna.de/",
-        "kontakt": "02303 592180"
-    },
-    {
-        "name": "Kanuklub Unna 1949 e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Wassersport am Kanal und Naturerlebnis.",
-        "website": "http://www.kku49.de/",
-        "kontakt": "02378 2866"
-    },
-    {
-        "name": "Tierstation Johanna Winterkamp",
-        "kategorie": "Soziales",
-        "beschreibung": "Engagement für den Tierschutz und Pflege von Tieren.",
-        "website": "http://www.tsv-unna.de/",
-        "kontakt": "02303 62765"
-    },
-    {
-        "name": "Schwimmsporthalle Unna",
-        "kategorie": "Sport",
-        "beschreibung": "Zentrale Sportstätte für Schwimmsport und Training.",
-        "website": "https://www.wirtschaftsbetriebe-unna.de/schwimmen",
-        "kontakt": "02303 65622"
-    },
-    {
-        "name": "EVC Massen Ev",
-        "kategorie": "Sport",
-        "beschreibung": "Verein für Eissport und Volleyball in Massen.",
-        "website": "https://www.evc-massen.de/",
-        "kontakt": "02303 983036"
-    },
-    {
-        "name": "Tierschutzverein Unna e.V.",
-        "kategorie": "Soziales",
-        "beschreibung": "Aktiver Tierschutz und Betrieb des Tierheims.",
-        "website": "https://tsv-unna.de/",
-        "kontakt": "0177 6030777"
-    },
-    {
-        "name": "Frauenforum im Kreis Unna e.V.",
-        "kategorie": "Soziales",
-        "beschreibung": "Beratung und Hilfe für Frauen und Mädchen in schwierigen Lagen.",
-        "website": "http://www.frauenforum-unna.de/",
-        "kontakt": "02303 778910"
-    },
-    {
-        "name": "Sportgemeinschaft Massen 1911/ 45 e. V.",
-        "kategorie": "Sport",
-        "beschreibung": "Vielseitige Sportangebote im Stadtteil Massen.",
-        "website": "http://www.sgmassen.de/",
-        "kontakt": ""
-    },
-    {
-        "name": "Kunstverein Unna e.V.",
-        "kategorie": "Kultur",
-        "beschreibung": "Förderung zeitgenössischer Kunst und Ausstellungen.",
-        "website": "http://www.kunstvereinunna.de/",
-        "kontakt": "02303 21828"
-    },
-    {
-        "name": "Ski – Club Unna e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Wintersport, Wanderungen und Fitness in der Gemeinschaft.",
-        "website": "http://scunna.de/",
-        "kontakt": "02303 21960"
-    },
-    {
-        "name": "Bürgerstiftung Unna",
-        "kategorie": "Soziales",
-        "beschreibung": "Engagement von Bürgern für Bürger in verschiedenen sozialen Projekten.",
-        "website": "",
-        "kontakt": "02303 1041023"
-    },
-    {
-        "name": "KreisSportBund Unna e.V.",
-        "kategorie": "Sport",
-        "beschreibung": "Dachverband der Sportvereine im Kreis Unna.",
-        "website": "http://www.kreissportbund-unna.de/",
-        "kontakt": "02303 271324"
-    },
-    {
-        "name": "Stadtsportverband Unna",
-        "kategorie": "Sport",
-        "beschreibung": "Interessenvertretung der Sportvereine im Stadtgebiet.",
-        "website": "http://stadtsportverband-unna.de/",
-        "kontakt": "0175 4744777"
+        "beschreibung": "Ort für innovative Kunst, Ausstellungen und Design.",
+        "website": "http://www.nowodworski.de/",
+        "telefon": "02303 918480",
+        "adresse": "Massener Str. 24, 59423 Unna"
     },
     {
         "name": "„Auf geht’s“ Sportverein für Behinderte und Nichtbehinderte Unna e.V.",
         "kategorie": "Sport",
         "beschreibung": "Inklusiver Sportverein für Menschen mit und ohne Einschränkungen.",
         "website": "http://www.aufgehtsunna.de/",
-        "kontakt": "02303 22230"
-    },
-    {
-        "name": "Platz der Kulturen",
-        "kategorie": "Kultur",
-        "beschreibung": "Ort der interkulturellen Begegnung und des Austauschs.",
-        "website": "",
-        "kontakt": ""
-    },
-    {
-        "name": "Lindenbrauerei e. V. Kultur- und Kommunikationszentrum",
-        "kategorie": "Kultur",
-        "beschreibung": "Zentrum für Konzerte, Kleinkunst und soziokulturelle Arbeit.",
-        "website": "http://www.lindenbrauerei.de/",
-        "kontakt": "02303 959471"
-    },
-    {
-        "name": "Türkisch Islamischer Kultur-Verein e.V.",
-        "kategorie": "Kultur",
-        "beschreibung": "Zentrum für religiösen und kulturellen Austausch.",
-        "website": "http://www.unna-cami.de/",
-        "kontakt": "02303 16778"
-    },
-    {
-        "name": "Zentrum für Internationale Lichtkunst (ZFIL)",
-        "kategorie": "Kultur",
-        "beschreibung": "Einzigartiges Museum für Lichtkunst in den Kellern der Brauerei.",
-        "website": "https://www.zfil.de/",
-        "kontakt": "02303 1034567"
-    },
-    {
-        "name": "Nicolaihaus Unna",
-        "kategorie": "Kultur",
-        "beschreibung": "Historisches Gebäude und Ort für kulturelle Veranstaltungen.",
-        "website": "",
-        "kontakt": "02303 103720"
-    },
-    {
-        "name": "Buhre Haus",
-        "kategorie": "Kultur",
-        "beschreibung": "Kulturdenkmal und historischer Treffpunkt.",
-        "website": "",
-        "kontakt": ""
-    },
-    {
-        "name": "Theater Narrenschiff",
-        "kategorie": "Kultur",
-        "beschreibung": "Freies Theater mit vielfältigem Repertoire und Eigenproduktionen.",
-        "website": "https://www.theater-narrenschiff.de/startseite",
-        "kontakt": "02303 770505"
-    },
-    {
-        "name": "Erich-Göpfert-Stadthalle Unna",
-        "kategorie": "Kultur",
-        "beschreibung": "Zentrale Veranstaltungsstätte für Messen, Shows und Konzerte.",
-        "website": "http://www.unna-marketing.de/",
-        "kontakt": "02303 968050"
-    },
-    {
-        "name": "zib - Zentrum für Information und Bildung",
-        "kategorie": "Kultur",
-        "beschreibung": "Zentraler Ort für Bildung, Kultur und Information (VHS, Bibliothek).",
-        "website": "https://kultur-in-unna.de/infos/zib/",
-        "kontakt": ""
-    },
-    {
-        "name": "Kunstforderer Unna e.V.",
-        "kategorie": "Kultur",
-        "beschreibung": "Förderung bildender Kunst und Atelierarbeit.",
-        "website": "http://www.kunstfordererunna.de/",
-        "kontakt": "0162 1941956"
-    },
-    {
-        "name": "Musikverein Unna e.V.",
-        "kategorie": "Kultur",
-        "beschreibung": "Sinfonisches Blasorchester und musikalische Ausbildung.",
-        "website": "http://www.musikverein-unna.de/",
-        "kontakt": "01578 5984020"
-    },
-    {
-        "name": "Kultur und Tourismus - Kreis Unna",
-        "kategorie": "Kultur",
-        "beschreibung": "Förderung der regionalen Kultur und touristischen Attraktivität.",
-        "website": "https://www.kreis-unna.de/Erleben/",
-        "kontakt": "02303 271441"
-    },
-    {
-        "name": "arthaus:nowodworski",
-        "kategorie": "Kultur",
-        "beschreibung": "Ort für innovative Kunst, Ausstellungen und Design.",
-        "website": "http://www.nowodworski.de/",
-        "kontakt": "02303 918480"
-    },
-    {
-        "name": "Ev. Jugend Unna",
-        "kategorie": "Soziales",
-        "beschreibung": "Offene Kinder- und Jugendarbeit der evangelischen Kirche.",
-        "website": "https://unna-evangelisch.ekvw.de/kinder-und-jugend/",
-        "kontakt": ""
-    },
-    {
-        "name": "Schwammdrüber Improtheater",
-        "kategorie": "Kultur",
-        "beschreibung": "Kreatives Improvisationstheater aus Unna.",
-        "website": "http://www.schwammdrueber-unna.de/",
-        "kontakt": "02303 256639"
-    },
-    {
-        "name": "i-Punkt im zib",
-        "kategorie": "Kultur",
-        "beschreibung": "Information und Kartenvorverkauf für kulturelle Events.",
-        "website": "https://kultur-in-unna.de/tickets/",
-        "kontakt": "02303 1034114"
-    },
-    {
-        "name": "Sozialverband Deutschland NRW e. V. Kreisverband Hamm-Unna",
-        "kategorie": "Soziales",
-        "beschreibung": "Interessenvertretung und Beratung in sozialen Angelegenheiten.",
-        "website": "",
-        "kontakt": "02303 14230"
-    },
-    {
-        "name": "SPI Sozialpädagogische Initiative Unna gGmbH",
-        "kategorie": "Soziales",
-        "beschreibung": "Unterstützung und Förderung im sozialpädagogischen Bereich.",
-        "website": "https://www.spi-unna.de/",
-        "kontakt": "02303 9029560"
-    },
-    {
-        "name": "IN VIA Unna e. V. Katholischer Verband für Mädchen- und Frauensozialarbeit",
-        "kategorie": "Soziales",
-        "beschreibung": "Hilfe und Integration für Mädchen und junge Frauen.",
-        "website": "http://www.invia-unna.de/",
-        "kontakt": "02303 986120"
-    },
-    {
-        "name": "Übergangshilfe Unna e.V.",
-        "kategorie": "Soziales",
-        "beschreibung": "Unterstützung für Menschen in besonderen Lebenslagen.",
-        "website": "http://uebergangshilfe-unna.de/",
-        "kontakt": "02303 968060"
-    },
-    {
-        "name": "Caritasverband für den Kreis Unna e.V.",
-        "kategorie": "Soziales",
-        "beschreibung": "Vielfältige soziale Dienste und Beratungsstellen.",
-        "website": "https://www.caritas-unna.de/",
-        "kontakt": "02303 2513514"
-    },
-    {
-        "name": "KISS Kontakt- und Informationsstelle für Selbsthilfe des Kreises Unna, Gesundheitshaus",
-        "kategorie": "Soziales",
-        "beschreibung": "Vernetzung und Information für Selbsthilfegruppen.",
-        "website": "",
-        "kontakt": "02303 272829"
-    },
-    {
-        "name": "Frauen- und Mädchenberatungsstelle",
-        "kategorie": "Soziales",
-        "beschreibung": "Krisenberatung und Prävention für Frauen und Mädchen.",
-        "website": "http://www.frauenforum-unna.de/",
-        "kontakt": "02303 82202"
-    },
-    {
-        "name": "[KJHK] Kinder- und Jugendhilfekonzepte - \"Jugendhilfe in Unna\"",
-        "kategorie": "Soziales",
-        "beschreibung": "Individuelle Hilfe und Konzepte für Kinder und Jugendliche.",
-        "website": "http://www.kjhk.de/",
-        "kontakt": "02303 258080"
-    },
-    {
-        "name": "* ISE INSTITUT FÜR SOZIALE ENTWICKLUNG \"AMBULANTE JUGENDHILFE IN UNNA\"",
-        "kategorie": "Soziales",
-        "beschreibung": "Ambulante Angebote zur Förderung der sozialen Entwicklung.",
-        "website": "http://www.ise-unna.de/",
-        "kontakt": "02303 258080"
-    },
-    {
-        "name": "Schwerter Netz für Jugend und Familie",
-        "kategorie": "Soziales",
-        "beschreibung": "Soziale Netzwerkarbeit für Familien im Kreis Unna.",
-        "website": "http://www.schwerter-netz.de/",
-        "kontakt": "02303 952000"
-    },
-    {
-        "name": "Der Paritätische Kreis Unna",
-        "kategorie": "Soziales",
-        "beschreibung": "Dachverband für soziale Organisationen und Selbsthilfe.",
-        "website": "https://www.paritaetischer-unna.de/kreisgruppe/ueberblick",
-        "kontakt": "02303 239845"
-    },
-    {
-        "name": "Deutsches Rotes Kreuz Ortsverein Unna e.V.",
-        "kategorie": "Soziales",
-        "beschreibung": "Erste Hilfe, Sanitätsdienste und ehrenamtliches Engagement.",
-        "website": "http://drk-ov-unna.de/",
-        "kontakt": "02303 253150"
+        "telefon": "02303 22230",
+        "adresse": "Gabelsbergerstr. 2, 59425 Unna"
     },
     {
         "name": "Beratungsstelle für alleinstehende Wohnungslose",
         "kategorie": "Soziales",
         "beschreibung": "Hilfe und Beratung bei drohender oder bestehender Wohnungslosigkeit.",
         "website": "http://www.caritas-unna.de/",
-        "kontakt": "02303 21009"
+        "telefon": "02303 21009",
+        "adresse": "Märkische Str. 12, 59423 Unna"
     },
     {
-        "name": "Kinderhaus Grundmannshof - Verein für Jugendhilfe Kessebüren e.V. - Päd. Leitung: L. Bergmann",
-        "kategorie": "Soziales",
-        "beschreibung": "Stationäre Jugendhilfe in familiärem Rahmen.",
-        "website": "http://www.kinderhaus-grundmannshof.de/",
-        "kontakt": "02303 5924323"
+        "name": "Boxverein Unna",
+        "kategorie": "Sport",
+        "beschreibung": "Boxsport und Athletiktraining in Unna.",
+        "website": "https://www.psv-unna-boxabteilung.de/",
+        "telefon": "",
+        "adresse": "Palaiseaustr. 1, 59425 Unna"
     },
     {
-        "name": "Institut für soziale Entwicklung Unna GmbH",
-        "kategorie": "Soziales",
-        "beschreibung": "Forschungs- und Praxisangebote zur sozialen Integration.",
-        "website": "https://www.kjhk.de/kooperationspartner/ise",
-        "kontakt": "02303 2580841"
-    },
-    {
-        "name": "Gemeinnützige Gesellschaft für Frühförderung und Frühtherapie Unna mbH",
-        "kategorie": "Soziales",
-        "beschreibung": "Förderung von Kindern mit Entwicklungsverzögerungen.",
-        "website": "http://www.ffs-kreis-unna.de/",
-        "kontakt": "02303 986500"
-    },
-    {
-        "name": "Verein zur Erhaltung der Ev. Stadtkirche zu Unna e. V.",
+        "name": "Buhre Haus",
         "kategorie": "Kultur",
-        "beschreibung": "Förderung und Instandhaltung des historischen Baudenkmals Stadtkirche.",
-        "website": "http://foerderverein-stadtkirche-unna.de/",
-        "kontakt": ""
+        "beschreibung": "Kulturdenkmal und historischer Treffpunkt, montags 17-19 Uhr geöffnet",
+        "website": "",
+        "telefon": "",
+        "adresse": "Massener Str., 59423 Unna"
     },
     {
-        "name": "VIF Verein zur Integrationsförderung e.V.",
+        "name": "Bürger-Schützen-Verein Unna 1777 e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Historischer Schützenverein mit Fokus auf Schießsport und Tradition.",
+        "website": "http://www.bürgerschützen-unna.de/",
+        "telefon": "02303 83881",
+        "adresse": "Am Friedrichsborn 3, 59423 Unna"
+    },
+    {
+        "name": "Bürgerstiftung Unna",
         "kategorie": "Soziales",
-        "beschreibung": "Begleitung und Hilfe für Menschen mit Migrationshintergrund.",
-        "website": "https://vif-ev.de/",
-        "kontakt": "02303 96950"
+        "beschreibung": "Engagement von Bürgern für Bürger in verschiedenen sozialen Projekten.",
+        "website": "https://buergerstiftung-unna.de/",
+        "telefon": "02303 1041023",
+        "adresse": "Rathausplatz 1, 59423 Unna"
     },
     {
-        "name": "Schäferhundeverein OG Unna 23",
-        "kategorie": "Freizeit",
-        "beschreibung": "Ausbildung und Training für Hunde und Halter.",
-        "website": "https://sv-og-unna23.jimdo.com/",
-        "kontakt": ""
+        "name": "Caritasverband für den Kreis Unna e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Vielfältige soziale Dienste und Beratungsstellen.",
+        "website": "https://www.caritas-unna.de/",
+        "telefon": "02303 2513514",
+        "adresse": "Höingstr. 5, 59425 Unna"
+    },
+    {
+        "name": "Der Paritätische Kreis Unna",
+        "kategorie": "Soziales",
+        "beschreibung": "Dachverband für soziale Organisationen und Selbsthilfe.",
+        "website": "https://www.paritaetischer-unna.de/kreisgruppe/ueberblick",
+        "telefon": "02303 239845",
+        "adresse": "Wasserstr. 1, 59423 Unna"
+    },
+    {
+        "name": "Deutsches Rotes Kreuz Ortsverein Unna e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Erste Hilfe, Sanitätsdienste und ehrenamtliches Engagement.",
+        "website": "http://drk-ov-unna.de/",
+        "telefon": "02303 253150",
+        "adresse": "Mozartstr. 34, 59423 Unna"
     },
     {
         "name": "DLRG OG Unna e.V.",
         "kategorie": "Sport",
         "beschreibung": "Lebensrettung, Schwimmausbildung und Wasserrettungsdienst.",
         "website": "http://unna.dlrg.de/",
-        "kontakt": ""
+        "telefon": "",
+        "adresse": "Bergenkamp 7, 59423 Unna"
     },
     {
-        "name": "Jakob-Muth-Schule",
+        "name": "Erich-Göpfert-Stadthalle Unna",
+        "kategorie": "Kultur",
+        "beschreibung": "Zentrale Veranstaltungsstätte für Messen, Shows und Konzerte.",
+        "website": "http://www.unna-marketing.de/",
+        "telefon": "02303 968050",
+        "adresse": "Parkstr. 44, 59425 Unna"
+    },
+    {
+        "name": "Ev. Jugend Unna",
         "kategorie": "Soziales",
-        "beschreibung": "Förderzentrum mit Fokus auf die soziale und emotionale Entwicklung.",
-        "website": "http://www.foerderzentrum-unna.de/",
-        "kontakt": "02303 271242"
+        "beschreibung": "Offene Kinder- und Jugendarbeit der evangelischen Kirche.",
+        "website": "https://unna-evangelisch.ekvw.de/kinder-und-jugend/",
+        "telefon": "",
+        "adresse": "Mozartstr. 18, 59423 Unna"
+    },
+    {
+        "name": "EVC Massen Ev",
+        "kategorie": "Sport",
+        "beschreibung": "Verein für Eissport und Volleyball in Massen.",
+        "website": "https://www.evc-massen.de/",
+        "telefon": "02303 983036",
+        "adresse": "Karlstr. 15, 59427 Unna"
+    },
+    {
+        "name": "Frauen- und Mädchenberatungsstelle",
+        "kategorie": "Soziales",
+        "beschreibung": "Krisenberatung und Prävention für Frauen und Mädchen.",
+        "website": "http://www.frauenforum-unna.de/",
+        "telefon": "02303 82202",
+        "adresse": "Wasserstr. 15, 59423 Unna"
+    },
+    {
+        "name": "Frauenforum im Kreis Unna e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Beratung und Hilfe für Frauen und Mädchen in schwierigen Lagen.",
+        "website": "http://www.frauenforum-unna.de/",
+        "telefon": "02303 778910",
+        "adresse": "Wasserstr. 15, 59423 Unna"
+    },
+    {
+        "name": "Gemeinnützige Gesellschaft für Frühförderung und Frühtherapie Unna mbH",
+        "kategorie": "Soziales",
+        "beschreibung": "Förderung von Kindern mit Entwicklungsverzögerungen.",
+        "website": "http://www.ffs-kreis-unna.de/",
+        "telefon": "02303 986500",
+        "adresse": "Südwall 19, 59423 Unna"
     },
     {
         "name": "Haus & Grund Unna e.V.",
         "kategorie": "Freizeit",
         "beschreibung": "Interessenvertretung für private Haus-, Wohnungs- und Grundeigentümer.",
         "website": "http://www.haus-und-grund-unna.de/",
-        "kontakt": "02303 239911"
+        "telefon": "02303 239911",
+        "adresse": "Bahnhofstr. 11, 59423 Unna"
+    },
+    {
+        "name": "Historischer Verein zu Unna e.V.",
+        "kategorie": "Kultur",
+        "beschreibung": "Erforschung und Pflege der Stadtgeschichte von Unna.",
+        "website": "https://www.historischer-verein-unna.de/",
+        "telefon": "02303 53503",
+        "adresse": "Wasserstr. 1, 59423 Unna"
+    },
+    {
+        "name": "Holzwickeder Sport Club",
+        "kategorie": "Sport",
+        "beschreibung": "Sportangebot in der Nachbargemeinde mit großer Fußballabteilung.",
+        "website": "https://hsc-holzwickede.de/",
+        "telefon": "02301 9450377",
+        "adresse": "Montanhydraulik-Stadion, 59439 Holzwickede"
+    },
+    {
+        "name": "i-Punkt im zib",
+        "kategorie": "Kultur",
+        "beschreibung": "Information und Kartenvorverkauf für kulturelle Events.",
+        "website": "https://kultur-in-unna.de/tickets/",
+        "telefon": "02303 1034114",
+        "adresse": "Lindenplatz 1, 59423 Unna"
+    },
+    {
+        "name": "IN VIA Unna e. V. Katholischer Verband für Mädchen- und Frauensozialarbeit",
+        "kategorie": "Soziales",
+        "beschreibung": "Hilfe und Integration für Mädchen und junge Frauen.",
+        "website": "http://www.invia-unna.de/",
+        "telefon": "02303 986120",
+        "adresse": "Gerhart-Hauptmann-Str. 29, 59423 Unna"
+    },
+    {
+        "name": "Institut für soziale Entwicklung Unna GmbH",
+        "kategorie": "Soziales",
+        "beschreibung": "Forschungs- und Praxisangebote zur sozialen Integration.",
+        "website": "https://www.kjhk.de/kooperationspartner/ise",
+        "telefon": "02303 2580841",
+        "adresse": "Bahnhofstr. 12, 59423 Unna"
+    },
+    {
+        "name": "ISE INSTITUT FÜR SOZIALE ENTWICKLUNG",
+        "kategorie": "Soziales",
+        "beschreibung": "Ambulante Angebote zur Förderung der sozialen Entwicklung.",
+        "website": "http://www.ise-unna.de/",
+        "telefon": "02303 258080",
+        "adresse": "Bahnhofstr. 12, 59423 Unna"
+    },
+    {
+        "name": "Jakob-Muth-Schule",
+        "kategorie": "Soziales",
+        "beschreibung": "Förderzentrum mit Fokus auf die soziale und emotionale Entwicklung.",
+        "website": "http://www.foerderzentrum-unna.de/",
+        "telefon": "02303 271242",
+        "adresse": "Mozartstr. 18, 59423 Unna"
+    },
+    {
+        "name": "Kanuklub Unna 1949 e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Wassersport am Kanal und Naturerlebnis.",
+        "website": "http://www.kku49.de/",
+        "telefon": "02378 2866",
+        "adresse": "An den Bootshäusern, 59423 Unna"
+    },
+    {
+        "name": "Kinder- und Jugendhilfekonzepte - \"Jugendhilfe in Unna\"",
+        "kategorie": "Soziales",
+        "beschreibung": "Individuelle Hilfe und Konzepte für Kinder und Jugendliche.",
+        "website": "http://www.kjhk.de/",
+        "telefon": "02303 258080",
+        "adresse": "Bahnhofstr. 12, 59423 Unna"
+    },
+    {
+        "name": "Kinderhaus Grundmannshof - Verein für Jugendhilfe Kessebüren e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Stationäre Jugendhilfe in familiärem Rahmen.",
+        "website": "http://www.kinderhaus-grundmannshof.de/",
+        "telefon": "02303 5924323",
+        "adresse": "Fröndenberger Str. 91, 59427 Unna"
+    },
+    {
+        "name": "KISS Kontakt- und Informationsstelle für Selbsthilfe des Kreises Unna",
+        "kategorie": "Soziales",
+        "beschreibung": "Vernetzung und Information für Selbsthilfegruppen.",
+        "website": "",
+        "telefon": "02303 272829",
+        "adresse": "Platanenallee 16, 59425 Unna"
+    },
+    {
+        "name": "Kleingartenverein Kastanienhain",
+        "kategorie": "Freizeit",
+        "beschreibung": "Kleingartenanlage zur Erholung und ökologischen Freizeitgestaltung.",
+        "website": "",
+        "telefon": "",
+        "adresse": "Feldstr., 59423 Unna"
+    },
+    {
+        "name": "Königsborner Sport Verein 1880/1911 e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Vielseitiger Sportverein mit großer Handball- und Fußballabteilung.",
+        "website": "https://koenigsborner-sv.de/",
+        "telefon": "",
+        "adresse": "Kamener Str. 114, 59425 Unna"
+    },
+    {
+        "name": "KreisSportBund Unna e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Dachverband der Sportvereine im Kreis Unna.",
+        "website": "http://www.kreissportbund-unna.de/",
+        "telefon": "02303 271324",
+        "adresse": "Platanenallee 16, 59425 Unna"
+    },
+    {
+        "name": "Kultur und Tourismus - Kreis Unna",
+        "kategorie": "Kultur",
+        "beschreibung": "Förderung der regionalen Kultur und touristischen Attraktivität.",
+        "website": "https://www.kreis-unna.de/Erleben/",
+        "telefon": "02303 271441",
+        "adresse": "Friedrich-Ebert-Str. 17, 59425 Unna"
+    },
+    {
+        "name": "Kunstforderer Unna e.V.",
+        "kategorie": "Kultur",
+        "beschreibung": "Förderung bildender Kunst und Atelierarbeit.",
+        "website": "http://www.kunstfordererunna.de/",
+        "telefon": "0162 1941956",
+        "adresse": "Bahnhofstr. 10, 59423 Unna"
+    },
+    {
+        "name": "Kunstverein Unna e.V.",
+        "kategorie": "Kultur",
+        "beschreibung": "Förderung zeitgenössischer Kunst und Ausstellungen.",
+        "website": "http://www.kunstvereinunna.de/",
+        "telefon": "02303 21828",
+        "adresse": "Mühlenstr. 4c, 59423 Unna"
+    },
+    {
+        "name": "Lindenbrauerei e. V. Kultur- und Kommunikationszentrum",
+        "kategorie": "Kultur",
+        "beschreibung": "Zentrum für Konzerte, Kleinkunst und soziokulturelle Arbeit.",
+        "website": "http://www.lindenbrauerei.de/",
+        "telefon": "02303 959471",
+        "adresse": "Rio-Reiser-Weg 1, 59423 Unna"
+    },
+    {
+        "name": "Musikverein Unna e.V.",
+        "kategorie": "Kultur",
+        "beschreibung": "Chor und Konzerte.",
+        "website": "http://www.musikverein-unna.de/",
+        "telefon": "01578 5984020",
+        "adresse": "Südring 21, 59423 Unna"
     },
     {
         "name": "Pfadfinderheim Goten Unna",
         "kategorie": "Freizeit",
         "beschreibung": "Kinder- und Jugendarbeit mit Naturbezug (DPSG).",
         "website": "http://www.dpsg-unna.de/",
-        "kontakt": ""
+        "telefon": "",
+        "adresse": "Königsborner Str. 15, 59425 Unna"
+    },
+    {
+        "name": "Rot-Weiß Unna e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Traditionsreicher Fußballverein im Herzen von Unna.",
+        "website": "http://rwunna.de/",
+        "telefon": "",
+        "adresse": "Zum Südfriedhof 31a, 59423 Unna"
+    },
+    {
+        "name": "Schäferhundeverein OG Unna 23",
+        "kategorie": "Freizeit",
+        "beschreibung": "Ausbildung und Training für Hunde und Halter.",
+        "website": "https://sv-og-unna23.jimdo.com/",
+        "telefon": "",
+        "adresse": "Bornekampstr., 59423 Unna"
+    },
+    {
+        "name": "Schwammdrüber Improtheater",
+        "kategorie": "Kultur",
+        "beschreibung": "Kreatives Improvisationstheater aus Unna.",
+        "website": "http://www.schwammdrueber-unna.de/",
+        "telefon": "02303 256639",
+        "adresse": "Lindenplatz 1, 59423 Unna"
+    },
+    {
+        "name": "Schwerter Netz für Jugend und Familie",
+        "kategorie": "Soziales",
+        "beschreibung": "Soziale Netzwerkarbeit für Familien im Kreis Unna.",
+        "website": "http://www.schwerter-netz.de/",
+        "telefon": "02303 952000",
+        "adresse": "Ostenhellweg 42, 59423 Unna"
+    },
+    {
+        "name": "Schwimmsporthalle Unna",
+        "kategorie": "Sport",
+        "beschreibung": "Zentrale Sportstätte für Schwimmsport und Training.",
+        "website": "https://www.wirtschaftsbetriebe-unna.de/schwimmen",
+        "telefon": "02303 65622",
+        "adresse": "Bergenkamp 7, 59423 Unna"
+    },
+    {
+        "name": "Ski – Club Unna e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Wintersport, Wanderungen und Fitness in der Gemeinschaft.",
+        "website": "http://scunna.de/",
+        "telefon": "02303 21960",
+        "adresse": "Postfach 2108, 59411 Unna"
+    },
+    {
+        "name": "Sportgemeinschaft Massen 1911/ 45 e. V.",
+        "kategorie": "Sport",
+        "beschreibung": "Vielseitige Sportangebote im Stadtteil Massen.",
+        "website": "http://www.sgmassen.de/",
+        "telefon": "",
+        "adresse": "Sonnenschule, 59427 Unna"
+    },
+    {
+        "name": "Sozialverband Deutschland NRW e. V. Kreisverband Hamm-Unna",
+        "kategorie": "Soziales",
+        "beschreibung": "Interessenvertretung und Beratung in sozialen Angelegenheiten.",
+        "website": "",
+        "telefon": "02303 14230",
+        "adresse": "Nicolaistr. 3, 59423 Unna"
+    },
+    {
+        "name": "SPI Sozialpädagogische Initiative Unna gGmbH",
+        "kategorie": "Soziales",
+        "beschreibung": "Unterstützung und Förderung im sozialpädagogischen Bereich.",
+        "website": "https://www.spi-unna.de/",
+        "telefon": "02303 9029560",
+        "adresse": "Hertingerstr. 15, 59423 Unna"
+    },
+    {
+        "name": "Stadtsportverband Unna",
+        "kategorie": "Sport",
+        "beschreibung": "Interessenvertretung der Sportvereine im Stadtgebiet.",
+        "website": "http://stadtsportverband-unna.de/",
+        "telefon": "0175 4744777",
+        "adresse": "Rathausplatz 1, 59423 Unna"
+    },
+    {
+        "name": "SV Unna 1924",
+        "kategorie": "Sport",
+        "beschreibung": "Schwimmverein mit Fokus auf Leistungssport und Ausbildung.",
+        "website": "http://svunna.de/",
+        "telefon": "",
+        "adresse": "Ligusterweg 6, 59425 Unna"
+    },
+    {
+        "name": "Tauschring Unna",
+        "kategorie": "Soziales",
+        "beschreibung": "Nachbarschaftshilfe und bargeldloser Tausch von Dienstleistungen.",
+        "website": "http://tauschring-unna.de/",
+        "telefon": "02303 592180",
+        "adresse": "Lindenplatz 1, 59423 Unna"
+    },
+    {
+        "name": "Theater Narrenschiff",
+        "kategorie": "Kultur",
+        "beschreibung": "Freies Theater mit vielfältigem Repertoire und Eigenproduktionen.",
+        "website": "https://www.theater-narrenschiff.de/startseite",
+        "telefon": "02303 770505",
+        "adresse": "Lindenplatz 1, 59423 Unna"
+    },
+    {
+        "name": "Tierschutzverein Unna e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Aktiver Tierschutz und Betrieb des Tierheims.",
+        "website": "https://tsv-unna.de/",
+        "telefon": "0177 6030777",
+        "adresse": "Hammer Str. 117, 59425 Unna"
+    },
+    {
+        "name": "Tierstation Johanna Winterkamp",
+        "kategorie": "Soziales",
+        "beschreibung": "Engagement für den Tierschutz und Pflege von Tieren.",
+        "website": "http://www.tsv-unna.de/",
+        "telefon": "02303 62765",
+        "adresse": "Hammer Str. 117, 59425 Unna"
+    },
+    {
+        "name": "Türkisch Islamischer Kultur-Verein e.V.",
+        "kategorie": "Kultur",
+        "beschreibung": "Zentrum für religiösen und kulturellen Austausch.",
+        "website": "http://www.unna-cami.de/",
+        "telefon": "02303 16778",
+        "adresse": "Höingstr. 15, 59425 Unna"
+    },
+    {
+        "name": "TV Unna 1861 e.V.",
+        "kategorie": "Sport",
+        "beschreibung": "Großer Turn- und Breitensportverein mit vielfältigem Angebot.",
+        "website": "http://tv-unna.com/",
+        "telefon": "02303 15656",
+        "adresse": "Hertingerstr. 27, 59423 Unna"
+    },
+    {
+        "name": "Übergangshilfe Unna e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Unterstützung für Menschen in besonderen Lebenslagen.",
+        "website": "http://uebergangshilfe-unna.de/",
+        "telefon": "02303 968060",
+        "adresse": "Käthe-Kollwitz-Ring 33, 59423 Unna"
+    },
+    {
+        "name": "Verein zur Erhaltung der Ev. Stadtkirche zu Unna e. V.",
+        "kategorie": "Kultur",
+        "beschreibung": "Förderung und Instandhaltung des historischen Baudenkmals Stadtkirche.",
+        "website": "http://foerderverein-stadtkirche-unna.de/",
+        "telefon": "",
+        "adresse": "Kirchplatz, 59423 Unna"
+    },
+    {
+        "name": "VIF Verein zur Integrationsförderung e.V.",
+        "kategorie": "Soziales",
+        "beschreibung": "Begleitung und Hilfe für Menschen mit Migrationshintergrund.",
+        "website": "https://vif-ev.de/",
+        "telefon": "02303 96950",
+        "adresse": "Zehntstr. 3, 59423 Unna"
     },
     {
         "name": "Wirtschaftsförderungsgesellschaft für den Kreis Unna mbH",
         "kategorie": "Freizeit",
         "beschreibung": "Unterstützung und Beratung für Unternehmen im Kreisgebiet.",
         "website": "https://www.wfg-kreis-unna.de/",
-        "kontakt": "02303 271690"
+        "telefon": "02303 271690",
+        "adresse": "Friedrich-Ebert-Str. 19, 59425 Unna"
     },
     {
-        "name": "Holzwickeder Sport Club eingetragener Verein",
-        "kategorie": "Sport",
-        "beschreibung": "Sportangebot in der Nachbargemeinde mit großer Fußballabteilung.",
-        "website": "https://hsc-holzwickede.de/",
-        "kontakt": "02301 9450377"
+        "name": "Zentrum für Internationale Lichtkunst (ZFIL)",
+        "kategorie": "Kultur",
+        "beschreibung": "Einzigartiges Museum für Lichtkunst in den Kellern der Brauerei.",
+        "website": "https://www.zfil.de/",
+        "telefon": "02303 1034567",
+        "adresse": "Lindenplatz 1, 59423 Unna"
+    },
+    {
+        "name": "zib - Zentrum für Information und Bildung",
+        "kategorie": "Kultur",
+        "beschreibung": "Zentraler Ort für Bildung, Kultur und Information (VHS, Bibliothek).",
+        "website": "https://kultur-in-unna.de/infos/zib/",
+        "telefon": "",
+        "adresse": "Lindenplatz 1, 59423 Unna"
     }
 ]

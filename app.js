@@ -105,7 +105,6 @@ function oeffneGastroDetails(ort) {
     document.getElementById('event-modal').style.display = 'block';
 }
 
-// NEU: Hotel Details im Modal
 function oeffneHotelDetails(h) {
     var body = document.getElementById('modal-body');
     var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(h.name + " " + h.adresse);
@@ -124,6 +123,35 @@ function oeffneHotelDetails(h) {
         <div style="margin-top:20px;">
             ${h.telefon ? `<a href="tel:${h.telefon}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>` : ''}
             ${h.website ? `<a href="${h.website}" target="_blank" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>` : ''}
+        </div>
+    `;
+    document.getElementById('event-modal').style.display = 'block';
+}
+
+// NEU: Vereine im Modal anzeigen (jetzt auch mit Adresse und Navigation!)
+function oeffneVereinDetails(v) {
+    var body = document.getElementById('modal-body');
+    
+    // Prüfen ob eine Adresse da ist, um den Maps-Link zu bauen
+    var mapsLink = v.adresse ? "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(v.name + " " + v.adresse) : "";
+    var adresseHtml = v.adresse ? `
+        <div style="margin-top:20px;">
+            <a href="${mapsLink}" target="_blank" class="ticket-btn" style="background:#4285F4; color:white; display:block; text-align:center; padding:15px; border-radius:8px; text-decoration:none; font-weight:bold; margin-bottom:20px;">📍 Navigiere zu</a>
+            <p><b>Adresse:</b><br>${v.adresse}</p>
+        </div>` : '';
+
+    body.innerHTML = `
+        <h2 style="margin:0;">${v.name}</h2>
+        <span style="background:#eee; padding:3px 8px; border-radius:10px; font-size:11px; color:#333;">${v.kategorie || 'Verein'}</span>
+        
+        ${adresseHtml}
+        
+        ${v.beschreibung ? `<h3 style="border-top:1px solid #ddd; padding-top:15px; margin-top:20px;">ℹ️ Info</h3><p style="font-size:14px; color:#555; line-height:1.5;">${v.beschreibung}</p>` : ''}
+        
+        <div style="margin-top:20px;">
+            ${v.telefon ? `<a href="tel:${v.telefon}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">📞 Anrufen</a>` : ''}
+            ${v.email ? `<a href="mailto:${v.email}" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none; margin-bottom:10px;">✉️ E-Mail senden</a>` : ''}
+            ${v.website ? `<a href="${v.website}" target="_blank" class="ticket-btn" style="background:#f8f9fa; color:#333; border:1px solid #ddd; display:block; text-align:center; padding:12px; text-decoration:none;">🌐 Website</a>` : ''}
         </div>
     `;
     document.getElementById('event-modal').style.display = 'block';
@@ -181,8 +209,11 @@ function rendereVereine(liste) {
     var c = document.getElementById('vereine-container');
     if(!c) return; c.innerHTML = '';
     liste.forEach(v => {
-        var d = document.createElement('div'); d.style.borderBottom = "1px solid #eee"; d.style.padding = "15px 0";
-        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase; color:#888;">${v.kategorie}</span><h3 style="margin:5px 0;">${v.name}</h3><p style="font-size:14px; color:#555;">${v.beschreibung || ''}</p>`;
+        var d = document.createElement('div'); 
+        d.className = 'event-item'; 
+        var vorschau = v.beschreibung ? v.beschreibung.substring(0, 60) + '...' : '';
+        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase; color:#888;">${v.kategorie || ''}</span><h3 style="margin:5px 0;">${v.name}</h3><p style="font-size:13px; color:#666;">${vorschau}</p>`;
+        d.onclick = function() { oeffneVereinDetails(v); };
         c.appendChild(d);
     });
 }
@@ -203,7 +234,6 @@ function ladeNews() {
     });
 }
 
-// NEU: Hotels werden jetzt als Klick-Elemente mit Modal geladen
 function ladeHotels() {
     var container = document.getElementById('hotels-container');
     if (!container) return;

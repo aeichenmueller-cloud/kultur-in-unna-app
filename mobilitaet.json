@@ -1,0 +1,60 @@
+{
+  "parken": [
+    {
+      "name": "Tiefgarage Bahnhof",
+      "adresse": "Bahnhofstraße 49, 59423 Unna",
+      "plaetze": "520",
+      "info": "Einfahrtshöhe 2,10m. 24 Std. geöffnet.",
+      "preise": "Je angef. Std: 1,50€, Tagesmax: 15,00€"
+    },
+    {
+      "name": "Parkhaus Neue Mühle",
+      "adresse": "Neue Mühle 2, 59423 Unna",
+      "plaetze": "325",
+      "info": "Direkt am Einkaufszentrum. Einfahrtshöhe 2,10m. 24 Std. geöffnet.",
+      "preise": "Je angef. Std: 1,50€, Tagesmax: 15,00€"
+    },
+    {
+      "name": "Parkhaus Massener Straße",
+      "adresse": "Massener Straße 37, 59423 Unna",
+      "plaetze": "247",
+      "info": "Einfahrtshöhe 2,00m. 24 Std. geöffnet.",
+      "preise": "Je angef. Std: 1,50€, Tagesmax: 12,00€"
+    },
+    {
+      "name": "Tiefgarage Neumarkt",
+      "adresse": "Südwall 5, 59423 Unna",
+      "plaetze": "300",
+      "info": "Einfahrtshöhe 1,95m. Mo-Sa 06:45 - 23:00 Uhr.",
+      "preise": "Je angef. Std: 1,50€, Tagesmax: 12,00€"
+    },
+    {
+      "name": "Parkplatz am Rathaus",
+      "adresse": "Rathausplatz 1, 59423 Unna",
+      "plaetze": "118",
+      "info": "Zentrumsnah am zib. Gebührenpflichtig Mo-Sa.",
+      "preise": "Je angef. Std: 1,50€"
+    },
+    {
+      "name": "P+R Parkplatz am Bahnhof",
+      "adresse": "Märkische Straße 19, 59423 Unna",
+      "plaetze": "89",
+      "info": "Ideal für Pendler und Bahnreisende. Mo-Sa 08-19 Uhr.",
+      "preise": "Je angef. Std: 0,75€"
+    }
+  ],
+  "taxi": [
+    { "name": "Taxi Adler", "telefon": "0230314444" },
+    { "name": "Taxi Brügmann", "telefon": "0230312011" },
+    { "name": "Taxi Thomas", "telefon": "02303332130" },
+    { "name": "Taxi Schäfer", "telefon": "023034444" }
+  ],
+  "rad": [
+    {
+      "name": "Radstation Unna",
+      "adresse": "Bahnhofstraße 1, 59423 Unna",
+      "info": "Sicheres Parken, Reparatur & Verleih direkt am Bahnhof.",
+      "website": "https://www.das-rad-unna.de/"
+    }
+  ]
+}

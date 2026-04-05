@@ -5,15 +5,8 @@
         "adresse": "Friedrich-Ebert-Straße 48, 59425 Unna",
         "telefon": "02303 6727769",
         "website": "https://www.amkurparkunna.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 16:00–22:00 Uhr",
-            "Donnerstag: 16:00–22:00 Uhr",
-            "Freitag: 16:00–02:00 Uhr",
-            "Samstag: 16:00–02:00 Uhr",
-            "Sonntag: 16:00–22:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: 16:00–22:00 Uhr", "Donnerstag: 16:00–22:00 Uhr", "Freitag: 16:00–02:00 Uhr", "Samstag: 16:00–02:00 Uhr", "Sonntag: 16:00–22:00 Uhr"],
+        "hoursLive": {"0":["16:00-22:00"], "1":[], "2":[], "3":["16:00-22:00"], "4":["16:00-22:00"], "5":["16:00-02:00"], "6":["16:00-02:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -22,15 +15,8 @@
         "adresse": "Blumenstraße 2, 59425 Unna",
         "telefon": "02303 66635",
         "website": "http://www.anadolu-restaurant.com/",
-        "oeffnungszeiten": [
-            "Montag: 17:00–23:00 Uhr",
-            "Dienstag: 17:00–23:00 Uhr",
-            "Mittwoch: 17:00–23:00 Uhr",
-            "Donnerstag: 17:00–23:00 Uhr",
-            "Freitag: 17:00–23:00 Uhr",
-            "Samstag: 17:00–23:00 Uhr",
-            "Sonntag: 17:00–23:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 17:00–23:00 Uhr", "Dienstag: 17:00–23:00 Uhr", "Mittwoch: 17:00–23:00 Uhr", "Donnerstag: 17:00–23:00 Uhr", "Freitag: 17:00–23:00 Uhr", "Samstag: 17:00–23:00 Uhr", "Sonntag: 17:00–23:00 Uhr"],
+        "hoursLive": {"0":["17:00-23:00"], "1":["17:00-23:00"], "2":["17:00-23:00"], "3":["17:00-23:00"], "4":["17:00-23:00"], "5":["17:00-23:00"], "6":["17:00-23:00"]},
         "beschreibung": "Türkisches Restaurant in Unna."
     },
     {
@@ -39,15 +25,8 @@
         "adresse": "Schäferstraße 3, 59423 Unna",
         "telefon": "02303 772458",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Dienstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Mittwoch: 11:00–16:00 Uhr",
-            "Donnerstag: 11:00–16:00 Uhr",
-            "Freitag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Samstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Sonntag: 11:00–16:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 11:00–16:00 Uhr, 19:00–00:00 Uhr", "Dienstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr", "Mittwoch: 11:00–16:00 Uhr", "Donnerstag: 11:00–16:00 Uhr", "Freitag: 11:00–16:00 Uhr, 19:00–00:00 Uhr", "Samstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr", "Sonntag: 11:00–16:00 Uhr"],
+        "hoursLive": {"0":["11:00-16:00"], "1":["11:00-16:00", "19:00-24:00"], "2":["11:00-16:00", "19:00-24:00"], "3":["11:00-16:00"], "4":["11:00-16:00"], "5":["11:00-16:00", "19:00-24:00"], "6":["11:00-16:00", "19:00-24:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -56,15 +35,8 @@
         "adresse": "Massener Str. 21, 59423 Unna",
         "telefon": "02303 8714100",
         "website": "https://www.instagram.com/bistro_sisi/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 10:00–20:00 Uhr",
-            "Mittwoch: 10:00–20:00 Uhr",
-            "Donnerstag: 10:00–20:00 Uhr",
-            "Freitag: 10:00–20:00 Uhr",
-            "Samstag: 10:00–20:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 10:00–20:00 Uhr", "Mittwoch: 10:00–20:00 Uhr", "Donnerstag: 10:00–20:00 Uhr", "Freitag: 10:00–20:00 Uhr", "Samstag: 10:00–20:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":["10:00-20:00"], "3":["10:00-20:00"], "4":["10:00-20:00"], "5":["10:00-20:00"], "6":["10:00-20:00"]},
         "beschreibung": "Restaurant in Unna. Italienische und österreichische Küche"
     },
     {
@@ -73,15 +45,8 @@
         "adresse": "Bahnhofstraße 52, 59423 Unna",
         "telefon": "02303 254320",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: 15:00–22:00 Uhr",
-            "Dienstag: 15:00–22:00 Uhr",
-            "Mittwoch: 15:00–22:00 Uhr",
-            "Donnerstag: 15:00–22:00 Uhr",
-            "Freitag: 15:00–02:00 Uhr",
-            "Samstag: 15:00–02:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: 15:00–22:00 Uhr", "Dienstag: 15:00–22:00 Uhr", "Mittwoch: 15:00–22:00 Uhr", "Donnerstag: 15:00–22:00 Uhr", "Freitag: 15:00–02:00 Uhr", "Samstag: 15:00–02:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":["15:00-22:00"], "2":["15:00-22:00"], "3":["15:00-22:00"], "4":["15:00-22:00"], "5":["15:00-02:00"], "6":["15:00-02:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -90,33 +55,18 @@
         "adresse": "Massener Hellweg 13, 59427 Unna",
         "telefon": "02303 953660",
         "website": "http://cafe-mailin.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 08:00–13:00 Uhr",
-            "Mittwoch: 08:00–13:00 Uhr",
-            "Donnerstag: 08:00–13:00 Uhr",
-            "Freitag: 08:00–13:00 Uhr",
-            "Samstag: 08:00–13:00 Uhr",
-            "Sonntag: 08:00–13:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 08:00–13:00 Uhr", "Mittwoch: 08:00–13:00 Uhr", "Donnerstag: 08:00–13:00 Uhr", "Freitag: 08:00–13:00 Uhr", "Samstag: 08:00–13:00 Uhr", "Sonntag: 08:00–13:00 Uhr"],
+        "hoursLive": {"0":["08:00-13:00"], "1":[], "2":["08:00-13:00"], "3":["08:00-13:00"], "4":["08:00-13:00"], "5":["08:00-13:00"], "6":["08:00-13:00"]},
         "beschreibung": "Café in Unna."
     },
-
     {
         "name": "Cafe Schulte",
         "kategorie": "Café",
         "adresse": "Massener Str. 71, 59423 Unna",
         "telefon": "02303 22226",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
-            "Mittwoch: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
-            "Donnerstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
-            "Freitag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
-            "Samstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
-            "Sonntag: 11:30–15:00 Uhr, 17:30–23:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr", "Mittwoch: 11:30–15:00 Uhr, 17:30–23:00 Uhr", "Donnerstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr", "Freitag: 11:30–15:00 Uhr, 17:30–23:00 Uhr", "Samstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr", "Sonntag: 11:30–15:00 Uhr, 17:30–23:00 Uhr"],
+        "hoursLive": {"0":["11:30-15:00", "17:30-23:00"], "1":[], "2":["11:30-15:00", "17:30-23:00"], "3":["11:30-15:00", "17:30-23:00"], "4":["11:30-15:00", "17:30-23:00"], "5":["11:30-15:00", "17:30-23:00"], "6":["11:30-15:00", "17:30-23:00"]},
         "beschreibung": "Café in Unna."
     },
     {
@@ -125,15 +75,8 @@
         "adresse": "Hertingerstraße 8, 59423 Unna",
         "telefon": "0176 24202752",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: 09:00–19:00 Uhr",
-            "Dienstag: 09:00–19:00 Uhr",
-            "Mittwoch: 09:00–19:00 Uhr",
-            "Donnerstag: 09:00–19:00 Uhr",
-            "Freitag: 09:00–19:00 Uhr",
-            "Samstag: 09:00–19:00 Uhr",
-            "Sonntag: 12:00–18:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 09:00–19:00 Uhr", "Dienstag: 09:00–19:00 Uhr", "Mittwoch: 09:00–19:00 Uhr", "Donnerstag: 09:00–19:00 Uhr", "Freitag: 09:00–19:00 Uhr", "Samstag: 09:00–19:00 Uhr", "Sonntag: 12:00–18:00 Uhr"],
+        "hoursLive": {"0":["12:00-18:00"], "1":["09:00-19:00"], "2":["09:00-19:00"], "3":["09:00-19:00"], "4":["09:00-19:00"], "5":["09:00-19:00"], "6":["09:00-19:00"]},
         "beschreibung": "Café in Unna."
     },
     {
@@ -142,15 +85,8 @@
         "adresse": "Massener Hellweg 20, 59427 Unna",
         "telefon": "",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: 13:00–18:00 Uhr",
-            "Dienstag: 13:00–18:30 Uhr",
-            "Mittwoch: 13:00–18:30 Uhr",
-            "Donnerstag: 13:00–18:30 Uhr",
-            "Freitag: 13:00–18:30 Uhr",
-            "Samstag: 13:00–18:30 Uhr",
-            "Sonntag: 13:00–17:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 13:00–18:00 Uhr", "Dienstag: 13:00–18:30 Uhr", "Mittwoch: 13:00–18:30 Uhr", "Donnerstag: 13:00–18:30 Uhr", "Freitag: 13:00–18:30 Uhr", "Samstag: 13:00–18:30 Uhr", "Sonntag: 13:00–17:30 Uhr"],
+        "hoursLive": {"0":["13:00-17:30"], "1":["13:00-18:00"], "2":["13:00-18:30"], "3":["13:00-18:30"], "4":["13:00-18:30"], "5":["13:00-18:30"], "6":["13:00-18:30"]},
         "beschreibung": "Eiscafé in Unna."
     },
     {
@@ -159,15 +95,8 @@
         "adresse": "Markt 10, 59423 Unna",
         "telefon": "02303 2921937",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: 10:00–20:30 Uhr",
-            "Dienstag: 09:00–20:30 Uhr",
-            "Mittwoch: 09:00–20:30 Uhr",
-            "Donnerstag: 10:00–20:30 Uhr",
-            "Freitag: 10:00–20:30 Uhr",
-            "Samstag: 10:00–20:30 Uhr",
-            "Sonntag: 10:00–20:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 10:00–20:30 Uhr", "Dienstag: 09:00–20:30 Uhr", "Mittwoch: 09:00–20:30 Uhr", "Donnerstag: 10:00–20:30 Uhr", "Freitag: 10:00–20:30 Uhr", "Samstag: 10:00–20:30 Uhr", "Sonntag: 10:00–20:30 Uhr"],
+        "hoursLive": {"0":["10:00-20:30"], "1":["10:00-20:30"], "2":["09:00-20:30"], "3":["09:00-20:30"], "4":["10:00-20:30"], "5":["10:00-20:30"], "6":["10:00-20:30"]},
         "beschreibung": "Eiscafé in Unna."
     },
     {
@@ -176,15 +105,8 @@
         "adresse": "Massener Str. 7, 59423 Unna",
         "telefon": "02303 9476339",
         "website": "http://lavenezia-unna.de/",
-        "oeffnungszeiten": [
-            "Montag: 10:00–18:00 Uhr",
-            "Dienstag: 10:00–18:00 Uhr",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: 10:00–18:00 Uhr",
-            "Freitag: 10:00–18:00 Uhr",
-            "Samstag: 10:00–18:00 Uhr",
-            "Sonntag: 11:00–18:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 10:00–18:00 Uhr", "Dienstag: 10:00–18:00 Uhr", "Mittwoch: Geschlossen", "Donnerstag: 10:00–18:00 Uhr", "Freitag: 10:00–18:00 Uhr", "Samstag: 10:00–18:00 Uhr", "Sonntag: 11:00–18:00 Uhr"],
+        "hoursLive": {"0":["11:00-18:00"], "1":["10:00-18:00"], "2":["10:00-18:00"], "3":[], "4":["10:00-18:00"], "5":["10:00-18:00"], "6":["10:00-18:00"]},
         "beschreibung": "Café in Unna."
     },
     {
@@ -193,15 +115,8 @@
         "adresse": "Massener Str. 33, 59423 Unna",
         "telefon": "02303 9298588",
         "website": "https://www.facebook.com/share/17HdHbDJzr/?mibextid=wwXIfr",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 10:00–19:00 Uhr",
-            "Mittwoch: 10:00–19:00 Uhr",
-            "Donnerstag: 10:00–19:00 Uhr",
-            "Freitag: 10:00–19:00 Uhr",
-            "Samstag: 10:00–19:00 Uhr",
-            "Sonntag: 10:00–19:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 10:00–19:00 Uhr", "Mittwoch: 10:00–19:00 Uhr", "Donnerstag: 10:00–19:00 Uhr", "Freitag: 10:00–19:00 Uhr", "Samstag: 10:00–19:00 Uhr", "Sonntag: 10:00–19:00 Uhr"],
+        "hoursLive": {"0":["10:00-19:00"], "1":[], "2":["10:00-19:00"], "3":["10:00-19:00"], "4":["10:00-19:00"], "5":["10:00-19:00"], "6":["10:00-19:00"]},
         "beschreibung": "Eiscafé in Unna."
     },
     {
@@ -210,15 +125,8 @@
         "adresse": "Südring 31, 59423 Unna",
         "telefon": "02303 2535045",
         "website": "https://www.amt31.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: 17:30–22:00 Uhr",
-            "Freitag: Geschlossen",
-            "Samstag: Geschlossen",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: 17:30–22:00 Uhr", "Freitag: Geschlossen", "Samstag: Geschlossen", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":[], "4":["17:30-22:00"], "5":[], "6":[]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -227,15 +135,8 @@
         "adresse": "Massener Str. 32, 59423 Unna",
         "telefon": "02303 239982",
         "website": "https://www.restaurantfoyer.de/",
-        "oeffnungszeiten": [
-            "Montag: 11:30–15:00 Uhr, 17:00–23:00 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 11:30–15:00 Uhr, 17:00–23:00 Uhr",
-            "Donnerstag: 11:30–15:00 Uhr, 17:00–23:00 Uhr",
-            "Freitag: 11:30–15:00 Uhr, 17:00–00:00 Uhr",
-            "Samstag: 11:30–15:00 Uhr, 17:00–00:00 Uhr",
-            "Sonntag: 11:30–15:00 Uhr, 17:00–23:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 11:30–15:00 Uhr, 17:00–23:00 Uhr", "Dienstag: Geschlossen", "Mittwoch: 11:30–15:00 Uhr, 17:00–23:00 Uhr", "Donnerstag: 11:30–15:00 Uhr, 17:00–23:00 Uhr", "Freitag: 11:30–15:00 Uhr, 17:00–00:00 Uhr", "Samstag: 11:30–15:00 Uhr, 17:00–00:00 Uhr", "Sonntag: 11:30–15:00 Uhr, 17:00–23:00 Uhr"],
+        "hoursLive": {"0":["11:30-15:00", "17:00-23:00"], "1":["11:30-15:00", "17:00-23:00"], "2":[], "3":["11:30-15:00", "17:00-23:00"], "4":["11:30-15:00", "17:00-23:00"], "5":["11:30-15:00", "17:00-24:00"], "6":["11:30-15:00", "17:00-24:00"]},
         "beschreibung": "Restaurant, indische und italienische Küche."
     },
     {
@@ -244,15 +145,8 @@
         "adresse": "Hemmerder Bahnhofstraße 23, 59427 Unna",
         "telefon": "",
         "website": "https://hermanns-hemmerde.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: 18:30–23:00 Uhr",
-            "Freitag: 18:30–00:00 Uhr",
-            "Samstag: 18:30–00:00 Uhr",
-            "Sonntag: 18:30–22:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: 18:30–23:00 Uhr", "Freitag: 18:30–00:00 Uhr", "Samstag: 18:30–00:00 Uhr", "Sonntag: 18:30–22:00 Uhr"],
+        "hoursLive": {"0":["18:30-22:00"], "1":[], "2":[], "3":[], "4":["18:30-23:00"], "5":["18:30-24:00"], "6":["18:30-24:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -261,15 +155,8 @@
         "adresse": "Güldener Trog 5, 59423 Unna",
         "telefon": "02303 952698",
         "website": "https://www.het-waffelstuebchen.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 12:00–17:00 Uhr",
-            "Donnerstag: 12:00–17:00 Uhr",
-            "Freitag: 14:00–17:00 Uhr",
-            "Samstag: 14:00–17:00 Uhr",
-            "Sonntag: 15:00–17:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: 12:00–17:00 Uhr", "Donnerstag: 12:00–17:00 Uhr", "Freitag: 14:00–17:00 Uhr", "Samstag: 14:00–17:00 Uhr", "Sonntag: 15:00–17:00 Uhr"],
+        "hoursLive": {"0":["15:00-17:00"], "1":[], "2":[], "3":["12:00-17:00"], "4":["12:00-17:00"], "5":["14:00-17:00"], "6":["14:00-17:00"]},
         "beschreibung": "Café in Unna."
     },
     {
@@ -278,15 +165,8 @@
         "adresse": "Friedrich-Ebert-Straße 79, 59425 Unna",
         "telefon": "02303 9291062",
         "website": "https://onepla.top/konigsborner-eisladchen",
-        "oeffnungszeiten": [
-            "Montag: 13:00–18:00 Uhr",
-            "Dienstag: 13:00–18:00 Uhr",
-            "Mittwoch: 13:00–18:00 Uhr",
-            "Donnerstag: 13:00–18:00 Uhr",
-            "Freitag: 13:00–18:00 Uhr",
-            "Samstag: 12:00–19:00 Uhr",
-            "Sonntag: 12:00–19:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 13:00–18:00 Uhr", "Dienstag: 13:00–18:00 Uhr", "Mittwoch: 13:00–18:00 Uhr", "Donnerstag: 13:00–18:00 Uhr", "Freitag: 13:00–18:00 Uhr", "Samstag: 12:00–19:00 Uhr", "Sonntag: 12:00–19:00 Uhr"],
+        "hoursLive": {"0":["12:00-19:00"], "1":["13:00-18:00"], "2":["13:00-18:00"], "3":["13:00-18:00"], "4":["13:00-18:00"], "5":["13:00-18:00"], "6":["12:00-19:00"]},
         "beschreibung": "Eiscafé in Unna."
     },
     {
@@ -295,15 +175,8 @@
         "adresse": "Markt 14, 59423 Unna",
         "telefon": "02303 9015134",
         "website": "http://www.kuhbar.com/",
-        "oeffnungszeiten": [
-            "Montag: 12:00–18:30 Uhr",
-            "Dienstag: 10:30–18:30 Uhr",
-            "Mittwoch: 11:00–18:30 Uhr",
-            "Donnerstag: 11:00–18:30 Uhr",
-            "Freitag: 10:30–18:30 Uhr",
-            "Samstag: 11:00–18:30 Uhr",
-            "Sonntag: 12:00–18:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 12:00–18:30 Uhr", "Dienstag: 10:30–18:30 Uhr", "Mittwoch: 11:00–18:30 Uhr", "Donnerstag: 11:00–18:30 Uhr", "Freitag: 10:30–18:30 Uhr", "Samstag: 11:00–18:30 Uhr", "Sonntag: 12:00–18:30 Uhr"],
+        "hoursLive": {"0":["12:00-18:30"], "1":["12:00-18:30"], "2":["10:30-18:30"], "3":["11:00-18:30"], "4":["11:00-18:30"], "5":["10:30-18:30"], "6":["11:00-18:30"]},
         "beschreibung": "Eiscafé in Unna."
     },
     {
@@ -312,15 +185,8 @@
         "adresse": "Güldener Trog 5, 59423 Unna",
         "telefon": "02303 332664",
         "website": "http://www.labodega-unna.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 17:00–00:00 Uhr",
-            "Mittwoch: 17:00–00:00 Uhr",
-            "Donnerstag: 17:00–00:00 Uhr",
-            "Freitag: 17:00–00:00 Uhr",
-            "Samstag: 17:00–00:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 17:00–00:00 Uhr", "Mittwoch: 17:00–00:00 Uhr", "Donnerstag: 17:00–00:00 Uhr", "Freitag: 17:00–00:00 Uhr", "Samstag: 17:00–00:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":["17:00-24:00"], "3":["17:00-24:00"], "4":["17:00-24:00"], "5":["17:00-24:00"], "6":["17:00-24:00"]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -329,15 +195,8 @@
         "adresse": "Hammer Str. 120, 59425 Unna",
         "telefon": "02303 952384",
         "website": "https://lalocanda-unna.eatbu.com/?lang=de",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
-            "Donnerstag: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
-            "Freitag: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
-            "Samstag: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
-            "Sonntag: 11:30–14:30 Uhr, 17:00–23:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: 11:30–14:30 Uhr, 17:00–23:30 Uhr", "Donnerstag: 11:30–14:30 Uhr, 17:00–23:30 Uhr", "Freitag: 11:30–14:30 Uhr, 17:00–23:30 Uhr", "Samstag: 11:30–14:30 Uhr, 17:00–23:30 Uhr", "Sonntag: 11:30–14:30 Uhr, 17:00–23:30 Uhr"],
+        "hoursLive": {"0":["11:30-14:30", "17:00-23:30"], "1":[], "2":[], "3":["11:30-14:30", "17:00-23:30"], "4":["11:30-14:30", "17:00-23:30"], "5":["11:30-14:30", "17:00-23:30"], "6":["11:30-14:30", "17:00-23:30"]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -346,15 +205,8 @@
         "adresse": "Rio-Reiser-Weg 1, 59423 Unna",
         "telefon": "02303 959471",
         "website": "http://www.lindenbrauerei.de/",
-        "oeffnungszeiten": [
-            "Montag: 10:00–14:00 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 10:00–14:00 Uhr",
-            "Donnerstag: 18:00–23:00 Uhr",
-            "Freitag: 10:00–00:00 Uhr",
-            "Samstag: 18:00–01:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: 10:00–14:00 Uhr", "Dienstag: Geschlossen", "Mittwoch: 10:00–14:00 Uhr", "Donnerstag: 18:00–23:00 Uhr", "Freitag: 10:00–00:00 Uhr", "Samstag: 18:00–01:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":["10:00-14:00"], "2":[], "3":["10:00-14:00"], "4":["18:00-23:00"], "5":["10:00-24:00"], "6":["18:00-01:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -363,15 +215,8 @@
         "adresse": "Morgenstraße 15, 59423 Unna",
         "telefon": "",
         "website": "https://ralf-bieri.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: Geschlossen",
-            "Freitag: 18:00–00:00 Uhr",
-            "Samstag: 18:00–00:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: Geschlossen", "Freitag: 18:00–00:00 Uhr", "Samstag: 18:00–00:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":[], "4":[], "5":["18:00-24:00"], "6":["18:00-24:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -380,15 +225,8 @@
         "adresse": "Herderstraße 2, 59423 Unna",
         "telefon": "02303 16916",
         "website": "https://m.facebook.com/pages/M%C3%BCsers-Kabinett/474014705985584",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: 16:00–23:00 Uhr",
-            "Freitag: 16:00–23:00 Uhr",
-            "Samstag: 16:00–01:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: 16:00–23:00 Uhr", "Freitag: 16:00–23:00 Uhr", "Samstag: 16:00–01:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":[], "4":["16:00-23:00"], "5":["16:00-23:00"], "6":["16:00-01:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -397,15 +235,8 @@
         "adresse": "Hellweg 31-33, 59423 Unna",
         "telefon": "02303 258735",
         "website": "http://www.ralf-bieri.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 18:00–23:30 Uhr",
-            "Donnerstag: 18:00–23:30 Uhr",
-            "Freitag: 18:00–23:30 Uhr",
-            "Samstag: 18:00–23:30 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: 18:00–23:30 Uhr", "Donnerstag: 18:00–23:30 Uhr", "Freitag: 18:00–23:30 Uhr", "Samstag: 18:00–23:30 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":["18:00-23:30"], "4":["18:00-23:30"], "5":["18:00-23:30"], "6":["18:00-23:30"]},
         "beschreibung": "Das Lokal mit dunklen Tischen, hellen Lederstühlen und rohen Ziegelwänden serviert internationale Speisen."
     },
     {
@@ -414,15 +245,8 @@
         "adresse": "Breitenbachgelände, Hellweg 31-33, 59423 Unna",
         "telefon": "0172 5347111",
         "website": "http://www.ralf-bieri.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: Geschlossen",
-            "Freitag: 22:00–05:00 Uhr",
-            "Samstag: 22:00–04:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: Geschlossen", "Freitag: 22:00–05:00 Uhr", "Samstag: 22:00–04:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":[], "4":[], "5":["22:00-05:00"], "6":["22:00-04:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -431,15 +255,8 @@
         "adresse": "Morgenstraße 16, 59423 Unna",
         "telefon": "02303 9792558",
         "website": "http://www.oller-kotten.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 16:00–01:00 Uhr",
-            "Mittwoch: 16:00–01:00 Uhr",
-            "Donnerstag: 16:00–01:00 Uhr",
-            "Freitag: 16:00–01:00 Uhr",
-            "Samstag: 16:00–01:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 16:00–01:00 Uhr", "Mittwoch: 16:00–01:00 Uhr", "Donnerstag: 16:00–01:00 Uhr", "Freitag: 16:00–01:00 Uhr", "Samstag: 16:00–01:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":["16:00-01:00"], "3":["16:00-01:00"], "4":["16:00-01:00"], "5":["16:00-01:00"], "6":["16:00-01:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -448,15 +265,8 @@
         "adresse": "Friedrich-Ebert-Straße 2, 59425 Unna",
         "telefon": "02303 8719889",
         "website": "http://www.piccolataormina.com/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
-            "Mittwoch: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
-            "Donnerstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
-            "Freitag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
-            "Samstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
-            "Sonntag: 11:30–15:00 Uhr, 17:30–22:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr", "Mittwoch: 11:30–15:00 Uhr, 17:30–22:00 Uhr", "Donnerstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr", "Freitag: 11:30–15:00 Uhr, 17:30–22:00 Uhr", "Samstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr", "Sonntag: 11:30–15:00 Uhr, 17:30–22:00 Uhr"],
+        "hoursLive": {"0":["11:30-15:00", "17:30-22:00"], "1":[], "2":["11:30-15:00", "17:30-22:00"], "3":["11:30-15:00", "17:30-22:00"], "4":["11:30-15:00", "17:30-22:00"], "5":["11:30-15:00", "17:30-22:00"], "6":["11:30-15:00", "17:30-22:00"]},
         "beschreibung": "Restaurant in Unna. Nur zum Mitnehmen."
     },
     {
@@ -465,15 +275,8 @@
         "adresse": "Ahornstraße 10, 59423 Unna",
         "telefon": "02303 2589955",
         "website": "https://pizzaitalianounna.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 11:00–22:45 Uhr",
-            "Mittwoch: 11:00–22:45 Uhr",
-            "Donnerstag: 11:00–22:45 Uhr",
-            "Freitag: 11:00–23:45 Uhr",
-            "Samstag: 11:00–23:45 Uhr",
-            "Sonntag: 11:00–22:45 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 11:00–22:45 Uhr", "Mittwoch: 11:00–22:45 Uhr", "Donnerstag: 11:00–22:45 Uhr", "Freitag: 11:00–23:45 Uhr", "Samstag: 11:00–23:45 Uhr", "Sonntag: 11:00–22:45 Uhr"],
+        "hoursLive": {"0":["11:00-22:45"], "1":[], "2":["11:00-22:45"], "3":["11:00-22:45"], "4":["11:00-22:45"], "5":["11:00-23:45"], "6":["11:00-23:45"]},
         "beschreibung": "Pizza-Imbiss in Unna."
     },
     {
@@ -482,15 +285,8 @@
         "adresse": "Massener Str. 33, 59423 Unna",
         "telefon": "02303 9295787",
         "website": "https://pizzeria-viva.de/",
-        "oeffnungszeiten": [
-            "Montag: 11:30–22:30 Uhr",
-            "Dienstag: 11:30–22:30 Uhr",
-            "Mittwoch: 11:30–22:30 Uhr",
-            "Donnerstag: 11:30–22:30 Uhr",
-            "Freitag: 11:30–22:30 Uhr",
-            "Samstag: 11:30–22:30 Uhr",
-            "Sonntag: 15:00–22:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 11:30–22:30 Uhr", "Dienstag: 11:30–22:30 Uhr", "Mittwoch: 11:30–22:30 Uhr", "Donnerstag: 11:30–22:30 Uhr", "Freitag: 11:30–22:30 Uhr", "Samstag: 11:30–22:30 Uhr", "Sonntag: 15:00–22:30 Uhr"],
+        "hoursLive": {"0":["15:00-22:30"], "1":["11:30-22:30"], "2":["11:30-22:30"], "3":["11:30-22:30"], "4":["11:30-22:30"], "5":["11:30-22:30"], "6":["11:30-22:30"]},
         "beschreibung": "Pizza-Imbiss in Unna."
     },
     {
@@ -499,15 +295,8 @@
         "adresse": "Flügelstraße 9, 59423 Unna",
         "telefon": "02303 592739",
         "website": "https://refugio-unna.de/",
-        "oeffnungszeiten": [
-            "Montag: 09:00–15:00 Uhr",
-            "Dienstag: 09:00–15:00 Uhr",
-            "Mittwoch: 09:00–15:00 Uhr",
-            "Donnerstag: 09:00–15:00 Uhr",
-            "Freitag: 09:00–21:30 Uhr",
-            "Samstag: 09:00–15:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: 09:00–15:00 Uhr", "Dienstag: 09:00–15:00 Uhr", "Mittwoch: 09:00–15:00 Uhr", "Donnerstag: 09:00–15:00 Uhr", "Freitag: 09:00–21:30 Uhr", "Samstag: 09:00–15:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":["09:00-15:00"], "2":["09:00-15:00"], "3":["09:00-15:00"], "4":["09:00-15:00"], "5":["09:00-21:30"], "6":["09:00-15:00"]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -516,15 +305,8 @@
         "adresse": "Uelzener Dorfstraße 41, 59425 Unna",
         "telefon": "02303 4545",
         "website": "http://www.restaurant-akropolis-unna-uelzen.de/",
-        "oeffnungszeiten": [
-            "Montag: 17:00–22:00 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–22:00 Uhr",
-            "Donnerstag: 17:00–22:00 Uhr",
-            "Freitag: 17:00–23:30 Uhr",
-            "Samstag: 17:00–23:30 Uhr",
-            "Sonntag: 12:00–15:00 Uhr, 17:00–22:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 17:00–22:00 Uhr", "Dienstag: Geschlossen", "Mittwoch: 17:00–22:00 Uhr", "Donnerstag: 17:00–22:00 Uhr", "Freitag: 17:00–23:30 Uhr", "Samstag: 17:00–23:30 Uhr", "Sonntag: 12:00–15:00 Uhr, 17:00–22:00 Uhr"],
+        "hoursLive": {"0":["12:00-15:00", "17:00-22:00"], "1":["17:00-22:00"], "2":[], "3":["17:00-22:00"], "4":["17:00-22:00"], "5":["17:00-23:30"], "6":["17:00-23:30"]},
         "beschreibung": "Restaurant in Unna, griechische Küche."
     },
     {
@@ -533,15 +315,8 @@
         "adresse": "Kessebürener Weg 59, 59423 Unna",
         "telefon": "02303 772999",
         "website": "http://www.lincontro-unna.de/",
-        "oeffnungszeiten": [
-            "Montag: 17:00–23:00 Uhr",
-            "Dienstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
-            "Mittwoch: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
-            "Donnerstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
-            "Freitag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
-            "Samstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
-            "Sonntag: 12:00–15:00 Uhr, 17:00–23:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 17:00–23:00 Uhr", "Dienstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr", "Mittwoch: 12:00–15:00 Uhr, 17:00–23:00 Uhr", "Donnerstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr", "Freitag: 12:00–15:00 Uhr, 17:00–23:00 Uhr", "Samstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr", "Sonntag: 12:00–15:00 Uhr, 17:00–23:00 Uhr"],
+        "hoursLive": {"0":["12:00-15:00", "17:00-23:00"], "1":["17:00-23:00"], "2":["12:00-15:00", "17:00-23:00"], "3":["12:00-15:00", "17:00-23:00"], "4":["12:00-15:00", "17:00-23:00"], "5":["12:00-15:00", "17:00-23:00"], "6":["12:00-15:00", "17:00-23:00"]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -550,15 +325,8 @@
         "adresse": "Hillering 42, 59427 Unna",
         "telefon": "02303 9280694",
         "website": "http://www.restaurant-hilleringmann.de/",
-        "oeffnungszeiten": [
-            "Montag: 11:00–23:00 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–23:30 Uhr",
-            "Donnerstag: 17:00–23:30 Uhr",
-            "Freitag: 17:00–23:30 Uhr",
-            "Samstag: 17:00–23:30 Uhr",
-            "Sonntag: 11:00–23:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 11:00–23:00 Uhr", "Dienstag: Geschlossen", "Mittwoch: 17:00–23:30 Uhr", "Donnerstag: 17:00–23:30 Uhr", "Freitag: 17:00–23:30 Uhr", "Samstag: 17:00–23:30 Uhr", "Sonntag: 11:00–23:30 Uhr"],
+        "hoursLive": {"0":["11:00-23:30"], "1":["11:00-23:00"], "2":[], "3":["17:00-23:30"], "4":["17:00-23:30"], "5":["17:00-23:30"], "6":["17:00-23:30"]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -567,15 +335,8 @@
         "adresse": "Grabengasse 27, 59423 Unna",
         "telefon": "02303 772007",
         "website": "https://www.oelckenthurm.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–22:00 Uhr",
-            "Donnerstag: 17:00–22:00 Uhr",
-            "Freitag: 17:00–23:00 Uhr",
-            "Samstag: 17:00–23:00 Uhr",
-            "Sonntag: 10:00–14:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: 17:00–22:00 Uhr", "Donnerstag: 17:00–22:00 Uhr", "Freitag: 17:00–23:00 Uhr", "Samstag: 17:00–23:00 Uhr", "Sonntag: 10:00–14:30 Uhr"],
+        "hoursLive": {"0":["10:00-14:30"], "1":[], "2":[], "3":["17:00-22:00"], "4":["17:00-22:00"], "5":["17:00-23:00"], "6":["17:00-23:00"]},
         "beschreibung": "Im Kaminzimmer oder Restaurant mit meterdicken Steinwänden und roten Stühlen gibt es internationale Speisen."
     },
     {
@@ -584,15 +345,8 @@
         "adresse": "Massener Str. 104, 59423 Unna",
         "telefon": "02303 12701",
         "website": "https://www.santorini-unna.de/",
-        "oeffnungszeiten": [
-            "Montag: 12:00–15:00 Uhr, 17:00–22:30 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–22:30 Uhr",
-            "Donnerstag: 17:00–22:30 Uhr",
-            "Freitag: 17:00–23:30 Uhr",
-            "Samstag: 12:00–15:00 Uhr, 17:00–23:30 Uhr",
-            "Sonntag: 12:00–15:00 Uhr, 17:00–22:30 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 12:00–15:00 Uhr, 17:00–22:30 Uhr", "Dienstag: Geschlossen", "Mittwoch: 17:00–22:30 Uhr", "Donnerstag: 17:00–22:30 Uhr", "Freitag: 17:00–23:30 Uhr", "Samstag: 12:00–15:00 Uhr, 17:00–23:30 Uhr", "Sonntag: 12:00–15:00 Uhr, 17:00–22:30 Uhr"],
+        "hoursLive": {"0":["12:00-15:00", "17:00-22:30"], "1":["12:00-15:00", "17:00-22:30"], "2":[], "3":["17:00-22:30"], "4":["17:00-22:30"], "5":["17:00-23:30"], "6":["12:00-15:00", "17:00-23:30"]},
         "beschreibung": "Gyros, Fisch und griechische Grillspeisen im Lokal mit weißen Statuen, mediterranen Bildmotiven und Terrasse."
     },
     {
@@ -601,15 +355,8 @@
         "adresse": "Hemmerder Dorfstraße 76, 59427 Unna",
         "telefon": "02308 404",
         "website": "http://www.zurpost-hemmerde.de/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 17:00–23:00 Uhr",
-            "Mittwoch: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
-            "Donnerstag: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
-            "Freitag: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
-            "Samstag: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
-            "Sonntag: 11:30–14:30 Uhr, 17:00–23:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: 17:00–23:00 Uhr", "Mittwoch: 11:30–14:30 Uhr, 17:00–23:00 Uhr", "Donnerstag: 11:30–14:30 Uhr, 17:00–23:00 Uhr", "Freitag: 11:30–14:30 Uhr, 17:00–23:00 Uhr", "Samstag: 11:30–14:30 Uhr, 17:00–23:00 Uhr", "Sonntag: 11:30–14:30 Uhr, 17:00–23:00 Uhr"],
+        "hoursLive": {"0":["11:30-14:30", "17:00-23:00"], "1":[], "2":["17:00-23:00"], "3":["11:30-14:30", "17:00-23:00"], "4":["11:30-14:30", "17:00-23:00"], "5":["11:30-14:30", "17:00-23:00"], "6":["11:30-14:30", "17:00-23:00"]},
         "beschreibung": "Restaurant in Unna."
     },
     {
@@ -618,15 +365,8 @@
         "adresse": "Massener Str. 33, 59423 Unna",
         "telefon": "02303 251120",
         "website": "https://lindenbrauerei.de/schalander/",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: 18:00–23:00 Uhr",
-            "Freitag: 18:00–23:00 Uhr",
-            "Samstag: 18:00–23:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: 18:00–23:00 Uhr", "Freitag: 18:00–23:00 Uhr", "Samstag: 18:00–23:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":[], "4":["18:00-23:00"], "5":["18:00-23:00"], "6":["18:00-23:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -635,15 +375,8 @@
         "adresse": "Hertingerstraße 31, 59423 Unna",
         "telefon": "02303 9797415",
         "website": "http://spatz-und-wal.de/",
-        "oeffnungszeiten": [
-            "Montag: 17:00–23:00 Uhr",
-            "Dienstag: 17:00–23:00 Uhr",
-            "Mittwoch: 17:00–23:00 Uhr",
-            "Donnerstag: 17:00–23:00 Uhr",
-            "Freitag: 17:00–02:00 Uhr",
-            "Samstag: 17:00–02:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: 17:00–23:00 Uhr", "Dienstag: 17:00–23:00 Uhr", "Mittwoch: 17:00–23:00 Uhr", "Donnerstag: 17:00–23:00 Uhr", "Freitag: 17:00–02:00 Uhr", "Samstag: 17:00–02:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":["17:00-23:00"], "2":["17:00-23:00"], "3":["17:00-23:00"], "4":["17:00-23:00"], "5":["17:00-02:00"], "6":["17:00-02:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
     {
@@ -652,33 +385,18 @@
         "adresse": "Hertingerstraße 10, 59423 Unna",
         "telefon": "02303 2921469",
         "website": "https://steakhaus-agethen.de/",
-        "oeffnungszeiten": [
-            "Montag: 11:30–23:00 Uhr",
-            "Dienstag: 16:00–23:00 Uhr",
-            "Mittwoch: 16:00–23:00 Uhr",
-            "Donnerstag: 16:00–23:00 Uhr",
-            "Freitag: 16:00–23:00 Uhr",
-            "Samstag: 16:00–23:00 Uhr",
-            "Sonntag: 11:30–23:00 Uhr"
-        ],
+        "oeffnungszeiten": ["Montag: 11:30–23:00 Uhr", "Dienstag: 16:00–23:00 Uhr", "Mittwoch: 16:00–23:00 Uhr", "Donnerstag: 16:00–23:00 Uhr", "Freitag: 16:00–23:00 Uhr", "Samstag: 16:00–23:00 Uhr", "Sonntag: 11:30–23:00 Uhr"],
+        "hoursLive": {"0":["11:30-23:00"], "1":["11:30-23:00"], "2":["16:00-23:00"], "3":["16:00-23:00"], "4":["16:00-23:00"], "5":["16:00-23:00"], "6":["16:00-23:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     },
-
     {
         "name": "Uni",
         "kategorie": "Bar & Kneipe",
         "adresse": "Morgenstraße 32, 59423 Unna",
         "telefon": "02303 12925",
         "website": "",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: Geschlossen",
-            "Freitag: 20:00–04:00 Uhr",
-            "Samstag: 20:00–04:00 Uhr",
-            "Sonntag: Geschlossen"
-        ],
+        "oeffnungszeiten": ["Montag: Geschlossen", "Dienstag: Geschlossen", "Mittwoch: Geschlossen", "Donnerstag: Geschlossen", "Freitag: 20:00–04:00 Uhr", "Samstag: 20:00–04:00 Uhr", "Sonntag: Geschlossen"],
+        "hoursLive": {"0":[], "1":[], "2":[], "3":[], "4":[], "5":["20:00-04:00"], "6":["20:00-04:00"]},
         "beschreibung": "Bar & Kneipe in Unna."
     }
 ]

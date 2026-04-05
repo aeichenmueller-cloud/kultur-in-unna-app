@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=116">
+    <link rel="stylesheet" href="style.css?v=120">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
 </head>
@@ -83,8 +83,12 @@
 
         <div id="content-tickets" class="tab-content">
             <h1>Tickets &amp; VVK</h1>
-            <p class="hint-text" style="margin-bottom:15px;">Offizielle Buchungsportale:</p>
-            <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background:#28a745;">🏛️ Kulturbüro Unna</a>
+            
+            <p class="hint-text" style="margin-bottom:15px; font-size:13px; line-height:1.5; color:#555;">
+                ℹ️ <strong>Transparenzhinweis:</strong> Bei den folgenden Links handelt es sich um externe Angebote der jeweiligen Veranstalter – mit Ausnahme des Amts für Kultur und Weiterbildung.
+            </p>
+            
+            <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background:#28a745;">🏛️ Amt für Kultur und Weiterbildung</a>
             <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
             <a href="https://pretix.eu/musikverein-unna/" target="_blank" class="ticket-btn">🎺 Musikverein Unna</a>
             <a href="https://pretix.eu/KUW/" target="_blank" class="ticket-btn">🎻 Celloherbst &amp; Take5</a>
@@ -107,13 +111,28 @@
 
         <div id="content-gastro" class="tab-content">
             <h1>Essen &amp; Trinken</h1>
-            <select id="gastro-filter" class="main-select"><option value="alle">Alle Kategorien</option><option value="Restaurant">Restaurant</option><option value="Café">Café</option><option value="Bar">Bar &amp; Kneipe</option></select>
+            
+            <p class="hint-text" style="margin-bottom:15px; font-size:13px; line-height:1.5; color:#555;">
+                ℹ️ <strong>Hinweis:</strong> Die angezeigten Live-Öffnungszeiten basieren auf den öffentlich zugänglichen Daten bei Google Maps.
+            </p>
+            
+            <select id="gastro-filter" class="main-select">
+                <option value="alle">Alle Kategorien</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Café">Café</option>
+                <option value="Bar">Bar &amp; Kneipe</option>
+            </select>
             <div id="gastro-container"></div>
         </div>
 
         <div id="content-vereine" class="tab-content">
             <h1>Vereine &amp; Freizeit</h1>
-            <select id="vereins-filter" class="main-select"><option value="alle">Alle Kategorien</option><option value="Sport">Sport</option><option value="Kultur">Kultur</option><option value="Soziales">Soziales</option></select>
+            <select id="vereins-filter" class="main-select">
+                <option value="alle">Alle Kategorien</option>
+                <option value="Sport">Sport</option>
+                <option value="Kultur">Kultur</option>
+                <option value="Soziales">Soziales</option>
+            </select>
             <div id="vereine-container"></div>
         </div>
     </main>
@@ -133,6 +152,6 @@
         <button data-target="tourismus">🛏️<br>Gast</button>
     </nav>
 
-    <script src="app.js?v=116"></script>
+    <script src="app.js?v=120"></script>
 </body>
 </html>

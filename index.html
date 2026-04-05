@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
     <link rel="stylesheet" href="style.css">
-    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
     <link rel="apple-touch-icon" href="icon-192.png">
@@ -15,7 +14,12 @@
     <div id="content-events" class="tab-content active">
         <h1>Kultur in Unna</h1>
         <h2>Veranstaltungen</h2>
+        
         <div id="events-container">Lade Events...</div>
+
+        <a href="https://kultur-in-unna.de/veranstaltungen/" target="_blank" class="ticket-btn" style="background-color: #0056b3; margin-top: 20px;">📅 Alle Events im Kulturkalender</a>
+
+        <a href="https://www.kultur-in-unna.de/veranstaltungen/community/add/" target="_blank" class="ticket-btn" style="background-color: #ffc107; color: #333; margin-top: 10px;">➕ Veranstaltung einreichen</a>
         
         <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
             <a href="#" id="link-impressum-1" style="color: #888; font-size: 12px; text-decoration: none;">Impressum &amp; Datenschutz</a>
@@ -35,7 +39,6 @@
 
     <div id="content-gastro" class="tab-content">
         <h1>Essen &amp; Trinken</h1>
-        
         <label for="gastro-filter" style="font-size: 13px; color: #666;">Kategorie wählen:</label>
         <select id="gastro-filter" style="width: 100%; padding: 12px; margin: 8px 0 15px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; background: white;">
             <option value="alle">Alle zeigen</option>
@@ -43,7 +46,6 @@
             <option value="Café">Cafés</option>
             <option value="Bar">Bars &amp; Kneipen</option>
         </select>
-
         <input type="text" id="gastro-suche" placeholder="Suchen (z.B. Pizza, Name...)" style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #ddd; box-sizing:border-box; font-size:16px;">
         <div id="gastro-container">Lade Gastronomie...</div>
         
@@ -55,7 +57,6 @@
 
     <div id="content-vereine" class="tab-content">
         <h1>Vereine &amp; Freizeit in Unna</h1>
-        
         <label for="vereins-filter" style="font-size: 13px; color: #666;">Kategorie filtern:</label>
         <select id="vereins-filter" style="width: 100%; padding: 12px; margin: 8px 0 20px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; background: white;">
             <option value="alle">Alle Kategorien</option>
@@ -65,7 +66,7 @@
             <option value="Freizeit">Freizeit &amp; Hobby</option>
         </select>
         <div id="vereine-container">Lade Vereine...</div>
-
+        
         <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
             <p style="font-size: 14px; color: #666;">Fehlt dein Verein?</p>
             <a href="mailto:armin.eichenmueller@stadt-unna.de?subject=Vorschlag Verein für Kultur in Unna" class="ticket-btn" style="background-color: #ffc107; color: #333; display: inline-block; width: 80%;">💡 Vorschlag senden</a>
@@ -83,7 +84,6 @@
             Buchen Sie Ihre Tickets bequem online. <br><br>
             <i><b>Hinweis:</b> Mit Ausnahme des Amtes für Kultur &amp; Weiterbildung werden alle hier verlinkten Shops eigenverantwortlich von externen Anbietern betrieben.</i>
         </p>
-
         <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background-color: #28a745;">🏛️ Amt für Kultur &amp; Weiterbildung</a>
         <a href="https://pretix.eu/wlb/mah12/" target="_blank" class="ticket-btn">🕵️‍♂️ Mord am Hellweg</a>
         <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
@@ -96,7 +96,6 @@
         <h1>Zu Gast</h1>
         <a href="https://hansetourist.de/" target="_blank" class="ticket-btn" style="background:#28a745;">🧭 Hanse-Tourist entdecken</a>
         <div id="hotels-container" style="margin-top:20px;">Lade Hotels...</div>
-        
         <div style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
             <a href="#" id="link-impressum-2" style="color: #888; font-size: 12px; text-decoration: none;">Impressum &amp; Datenschutz</a>
         </div>
@@ -119,15 +118,12 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
-    
+    <script src="app.js?v=3"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js').then(function(registration) {
-                    console.log('ServiceWorker erfolgreich registriert!');
-                }, function(err) {
-                    console.log('ServiceWorker Fehler: ', err);
+                navigator.serviceWorker.register('sw.js').then(function(reg) {
+                    console.log('SW registriert');
                 });
             });
         }

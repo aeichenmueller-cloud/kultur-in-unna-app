@@ -30,51 +30,17 @@ setupNav('btn-tickets', 'tickets');
 setupNav('btn-tourismus', 'tourismus');
 
 // ==========================================
-// 2. MODAL & IMPRESSUM
+// 2. MODAL & DETAILS
 // ==========================================
 function schliesseModal() {
-    var modal = document.getElementById('event-modal');
-    if (modal) modal.style.display = 'none';
+    document.getElementById('event-modal').style.display = 'none';
 }
 
-var cb = document.getElementById('btn-close-modal');
-if(cb) cb.onclick = schliesseModal;
-
+document.getElementById('btn-close-modal').onclick = schliesseModal;
 window.onclick = function(e) {
     if (e.target == document.getElementById('event-modal')) schliesseModal();
 };
 
-function oeffneImpressum(e) {
-    e.preventDefault();
-    var body = document.getElementById('modal-body');
-    body.innerHTML = `
-        <h2 style="margin-top:0;">Impressum & Datenschutz</h2>
-        <h3 style="font-size:14px; margin-bottom:5px;">Herausgeberin</h3>
-        <p style="font-size:14px; color:#555; margin-top:0;">
-            Kreisstadt Unna<br>Rathausplatz 1, 59423 Unna<br>
-            Die Kreisstadt Unna ist eine Körperschaft des öffentlichen Rechts.<br>
-            Vertretungsberechtigter: Bürgermeister Dirk Wigant
-        </p>
-        <h3 style="font-size:14px; margin-bottom:5px;">Redaktion, App-Entwicklung &amp; Technische Umsetzung</h3>
-        <p style="font-size:14px; color:#555; margin-top:0;">
-            Armin Eichenmüller<br>E-Mail: <a href="mailto:armin.eichenmueller@stadt-unna.de" style="color:#0056b3;">armin.eichenmueller@stadt-unna.de</a>
-        </p>
-        <h3 style="font-size:14px; margin-bottom:5px;">Behördlicher Datenschutz</h3>
-        <p style="font-size:14px; color:#555; margin-top:0;">
-            Kreisstadt Unna – Der/Die Datenschutzbeauftragte –<br>
-            Rathausplatz 1, 59423 Unna<br>
-            E-Mail: <a href="mailto:datenschutz@stadt-unna.de" style="color:#0056b3;">datenschutz@stadt-unna.de</a>
-        </p>
-    `;
-    document.getElementById('event-modal').style.display = 'block';
-}
-
-var link1 = document.getElementById('link-impressum-1');
-var link2 = document.getElementById('link-impressum-2');
-if (link1) link1.onclick = oeffneImpressum;
-if (link2) link2.onclick = oeffneImpressum;
-
-// GEMEINSAME FUNKTION FÜR DETAILS (Gastro, Hotels, Vereine)
 function oeffneDetails(obj, typ) {
     var body = document.getElementById('modal-body');
     var mapsLink = obj.adresse ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(obj.name + " " + obj.adresse) : "";
@@ -103,110 +69,100 @@ function oeffneDetails(obj, typ) {
     document.getElementById('event-modal').style.display = 'block';
 }
 
+function oeffneImpressum(e) {
+    e.preventDefault();
+    var body = document.getElementById('modal-body');
+    body.innerHTML = `<h2>Impressum & Datenschutz</h2><p><b>Herausgeberin:</b><br>Kreisstadt Unna<br>Bürgermeister Dirk Wigant</p><p><b>Redaktion:</b><br>Armin Eichenmüller<br>armin.eichenmueller@stadt-unna.de</p><p><b>Datenschutz:</b><br>datenschutz@stadt-unna.de</p>`;
+    document.getElementById('event-modal').style.display = 'block';
+}
+
+document.getElementById('link-impressum-1').onclick = oeffneImpressum;
+document.getElementById('link-impressum-2').onclick = oeffneImpressum;
+
 // ==========================================
-// 3. DATEN LADEN & RENDERN
+// 3. DATEN LADEN
 // ==========================================
 function ladeEvents() {
     fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events').then(r => r.json()).then(data => {
         var c = document.getElementById('events-container');
         if(!c) return; c.innerHTML = '';
-        if (data.events) {
-            data.events.forEach(e => {
-                var d = document.createElement('div'); d.className = 'event-item';
-                d.innerHTML = `<h3>${e.title}</h3><p style="font-size:13px; color:#666;">📅 ${new Date(e.start_date).toLocaleDateString()}</p>`;
-                d.onclick = function() { 
-                    var body = document.getElementById('modal-body');
-                    body.innerHTML = `<h2>${e.title}</h2><p>📅 ${new Date(e.start_date).toLocaleString()}</p><div>${e.description}</div><a href="${e.url}" target="_blank" class="ticket-btn">🔗 Details</a>`;
-                    document.getElementById('event-modal').style.display = 'block';
-                };
-                c.appendChild(d);
-            });
-        }
-    }).catch(err => console.error(err));
-}
-
-function ladeGastro() {
-    fetch('gastronomie.json?v=' + Date.now()).then(r => r.json()).then(data => {
-        gastroDaten = data; rendereGastro(data);
+        data.events.slice(0, 15).forEach(e => {
+            var d = document.createElement('div'); d.className = 'event-item';
+            d.innerHTML = `<h3>${e.title}</h3><p style="font-size:13px; color:#666;">📅 ${new Date(e.start_date).toLocaleDateString()}</p>`;
+            d.onclick = function() { 
+                var body = document.getElementById('modal-body');
+                body.innerHTML = `<h2>${e.title}</h2><p>📅 ${new Date(e.start_date).toLocaleString()}</p><div>${e.description}</div><a href="${e.url}" target="_blank" class="ticket-btn">🔗 Details</a>`;
+                document.getElementById('event-modal').style.display = 'block';
+            };
+            c.appendChild(d);
+        });
     });
 }
 
+function ladeGastro() {
+    fetch('gastronomie.json?v=' + Date.now()).then(r => r.json()).then(data => { gastroDaten = data; rendereGastro(data); });
+}
 function rendereGastro(liste) {
     var c = document.getElementById('gastro-container');
     if(!c) return; c.innerHTML = '';
     liste.forEach(o => {
         var d = document.createElement('div'); d.className = 'event-item';
-        d.innerHTML = `<h3>${o.name}</h3><p style="font-size:13px; color:#666;">📍 ${o.adresse}</p>`;
+        d.innerHTML = `<h3>${o.name}</h3><p>📍 ${o.adresse}</p>`;
         d.onclick = function() { oeffneDetails(o, 'Gastronomie'); };
         c.appendChild(d);
     });
 }
 
 function ladeVereine() {
-    fetch('vereine.json?v=' + Date.now()).then(r => r.json()).then(data => {
-        vereinsDaten = data; rendereVereine(data);
-    });
+    fetch('vereine.json?v=' + Date.now()).then(r => r.json()).then(data => { vereinsDaten = data; rendereVereine(data); });
 }
-
 function rendereVereine(liste) {
     var c = document.getElementById('vereine-container');
     if(!c) return; c.innerHTML = '';
     liste.forEach(v => {
         var d = document.createElement('div'); d.className = 'event-item';
-        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase; color:#888;">${v.kategorie}</span><h3 style="margin:5px 0;">${v.name}</h3><p style="font-size:13px; color:#666;">${v.beschreibung ? v.beschreibung.substring(0, 60) + '...' : ''}</p>`;
-        // DAS IST DER ENTSCHEIDENDE KLICK-BEFEHL:
-        d.onclick = function() { oeffneDetails(v, 'Verein & Freizeit'); };
+        d.innerHTML = `<span style="font-size:10px; text-transform:uppercase; color:#888;">${v.kategorie}</span><h3>${v.name}</h3>`;
+        d.onclick = function() { oeffneDetails(v, 'Verein'); };
         c.appendChild(d);
     });
 }
 
 function ladeHotels() {
-    var container = document.getElementById('hotels-container');
-    if (!container) return;
     fetch('uebernachtungen.json?v=' + Date.now()).then(r => r.json()).then(data => {
-        container.innerHTML = '';
+        var c = document.getElementById('hotels-container');
+        if(!c) return; c.innerHTML = '';
         data.forEach(h => {
-            var div = document.createElement('div'); div.className = 'event-item';
-            div.innerHTML = `<h3>${h.name}</h3><p style="font-size:13px; color:#666;">📍 ${h.adresse}</p>`;
-            div.onclick = function() { oeffneDetails(h, 'Übernachtung'); };
-            container.appendChild(div);
+            var d = document.createElement('div'); d.className = 'event-item';
+            d.innerHTML = `<h3>${h.name}</h3><p>📍 ${h.adresse}</p>`;
+            d.onclick = function() { oeffneDetails(h, 'Übernachtung'); };
+            c.appendChild(d);
         });
     });
 }
 
 function ladeNews() {
-    var c = document.getElementById('news-container');
-    if(!c) return;
     fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r => r.json()).then(data => {
-        c.innerHTML = '';
-        if (data.items) {
-            data.items.forEach(item => {
-                var d = document.createElement('div');
-                d.style.padding = "10px 0"; d.style.borderBottom = "1px solid #eee";
-                d.innerHTML = `<a href="${item.link}" target="_blank" style="text-decoration:none; color:#0056b3; font-weight:bold;">${item.title}</a>`;
-                c.appendChild(d);
-            });
-        }
+        var c = document.getElementById('news-container');
+        if(!c) return; c.innerHTML = '';
+        data.items.forEach(item => {
+            var d = document.createElement('div'); d.style.padding = "10px 0"; d.style.borderBottom = "1px solid #eee";
+            d.innerHTML = `<a href="${item.link}" target="_blank" style="text-decoration:none; color:#0056b3; font-weight:bold;">${item.title}</a>`;
+            c.appendChild(d);
+        });
     });
 }
 
 // FILTER
-function filterGastro() {
-    var query = document.getElementById('gastro-suche').value.toLowerCase();
-    var kat = document.getElementById('gastro-filter').value;
-    var gefiltert = gastroDaten.filter(o => {
-        var matchText = o.name.toLowerCase().includes(query);
-        var matchKat = (kat === 'alle') || (o.kategorie === kat);
-        return matchText && matchKat;
-    });
-    rendereGastro(gefiltert);
-}
-
-document.getElementById('gastro-suche').addEventListener('input', filterGastro);
-document.getElementById('gastro-filter').addEventListener('change', filterGastro);
-
-document.getElementById('vereins-filter').onchange = function(e) {
-    var k = e.target.value;
+document.getElementById('gastro-suche').oninput = function() {
+    var q = this.value.toLowerCase();
+    rendereGastro(gastroDaten.filter(o => o.name.toLowerCase().includes(q)));
+};
+document.getElementById('gastro-filter').onchange = function() {
+    var k = this.value;
+    rendereGastro(k === 'alle' ? gastroDaten : gastroDaten.filter(o => o.kategorie === k));
+};
+document.getElementById('vereins-filter').onchange = function() {
+    var k = this.value;
     rendereVereine(k === 'alle' ? vereinsDaten : vereinsDaten.filter(v => v.kategorie === k));
 };
 

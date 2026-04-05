@@ -1,139 +1,10 @@
 [
     {
-        "name": "Café-Bistro Grün-Weiß",
-        "kategorie": "Restaurant",
-        "adresse": "Parkstraße 16, 59425 Unna, Deutschland",
-        "telefon": "01575 3665472",
-        "website": "https://cafe-bistro-gruen-weiss.eatbu.com/",
-        "ruhetage": "Montag",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 17:00–22:00 Uhr",
-            "Mittwoch: 17:00–22:00 Uhr",
-            "Donnerstag: 17:00–22:00 Uhr",
-            "Freitag: 17:00–22:00 Uhr",
-            "Samstag: 17:00–22:30 Uhr",
-            "Sonntag: 12:00–21:30 Uhr"
-        ]
-    },
-    {
-        "name": "Schalander",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Massener Str. 33, 59423 Unna, Deutschland",
-        "telefon": "02303 251120",
-        "website": "https://lindenbrauerei.de/schalander/",
-        "ruhetage": "Montag, Dienstag, Mittwoch, Sonntag",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: 18:00–23:00 Uhr",
-            "Freitag: 18:00–23:00 Uhr",
-            "Samstag: 18:00–23:00 Uhr",
-            "Sonntag: Geschlossen"
-        ]
-    },
-    {
-        "name": "Restaurant Ölckenthurm",
-        "kategorie": "Restaurant",
-        "adresse": "Grabengasse 27, 59423 Unna, Deutschland",
-        "telefon": "02303 772007",
-        "website": "https://www.oelckenthurm.de/",
-        "ruhetage": "Montag, Dienstag",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–22:00 Uhr",
-            "Donnerstag: 17:00–22:00 Uhr",
-            "Freitag: 17:00–23:00 Uhr",
-            "Samstag: 17:00–23:00 Uhr",
-            "Sonntag: 10:00–14:30 Uhr"
-        ]
-    },
-    {
-        "name": "Bierhaus",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Schäferstraße 3, 59423 Unna, Deutschland",
-        "telefon": "02303 772458",
-        "website": "",
-        "ruhetage": "Keine",
-        "oeffnungszeiten": [
-            "Montag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Dienstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Mittwoch: 11:00–16:00 Uhr",
-            "Donnerstag: 11:00–16:00 Uhr",
-            "Freitag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Samstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
-            "Sonntag: 11:00–16:00 Uhr"
-        ]
-    },
-    {
-        "name": "Spatz und Wal",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Hertingerstraße 31, 59423 Unna, Deutschland",
-        "telefon": "02303 9797415",
-        "website": "http://spatz-und-wal.de/",
-        "ruhetage": "Sonntag",
-        "oeffnungszeiten": [
-            "Montag: 17:00–23:00 Uhr",
-            "Dienstag: 17:00–23:00 Uhr",
-            "Mittwoch: 17:00–23:00 Uhr",
-            "Donnerstag: 17:00–23:00 Uhr",
-            "Freitag: 17:00–02:00 Uhr",
-            "Samstag: 17:00–02:00 Uhr",
-            "Sonntag: Geschlossen"
-        ]
-    },
-    {
-        "name": "Biergarten Meisterhaus",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Hertingerstraße 32, 59423 Unna, Deutschland",
-        "telefon": "",
-        "website": "http://www.meisterhaus.de/",
-        "ruhetage": "Wetterabhängig",
-        "oeffnungszeiten": []
-    },
-    {
-        "name": "Restaurant Akropolis Unna",
-        "kategorie": "Restaurant",
-        "adresse": "Uelzener Dorfstraße 41, 59425 Unna, Deutschland",
-        "telefon": "02303 4545",
-        "website": "http://www.restaurant-akropolis-unna-uelzen.de/",
-        "ruhetage": "Dienstag",
-        "oeffnungszeiten": [
-            "Montag: 17:00–22:00 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–22:00 Uhr",
-            "Donnerstag: 17:00–22:00 Uhr",
-            "Freitag: 17:00–23:30 Uhr",
-            "Samstag: 17:00–23:30 Uhr",
-            "Sonntag: 12:00–15:00 Uhr, 17:00–22:00 Uhr"
-        ]
-    },
-    {
-        "name": "Cafe Extrablatt Unna",
-        "kategorie": "Restaurant",
-        "adresse": "Markt 1, 59423 Unna, Deutschland",
-        "telefon": "02303 253438",
-        "website": "https://cafe-extrablatt.de/standorte/details/cafe-extrablatt-unna",
-        "ruhetage": "Keine",
-        "oeffnungszeiten": [
-            "Montag: 08:30–23:00 Uhr",
-            "Dienstag: 08:30–23:00 Uhr",
-            "Mittwoch: 08:30–23:00 Uhr",
-            "Donnerstag: 08:30–23:00 Uhr",
-            "Freitag: 08:30–01:00 Uhr",
-            "Samstag: 09:00–01:00 Uhr",
-            "Sonntag: 09:00–22:00 Uhr"
-        ]
-    },
-    {
         "name": "Am Kurpark „Gaststätte“",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Friedrich-Ebert-Straße 48, 59425 Unna, Deutschland",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Friedrich-Ebert-Straße 48, 59425 Unna",
         "telefon": "02303 6727769",
         "website": "https://www.amkurparkunna.de/",
-        "ruhetage": "Montag, Dienstag",
         "oeffnungszeiten": [
             "Montag: Geschlossen",
             "Dienstag: Geschlossen",
@@ -142,100 +13,83 @@
             "Freitag: 16:00–02:00 Uhr",
             "Samstag: 16:00–02:00 Uhr",
             "Sonntag: 16:00–22:00 Uhr"
-        ]
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
     },
     {
-        "name": "Steakhaus Agethen",
+        "name": "Anadolu Restaurant",
         "kategorie": "Restaurant",
-        "adresse": "Hertingerstraße 10, 59423 Unna, Deutschland",
-        "telefon": "02303 2921469",
-        "website": "https://steakhaus-agethen.de/",
-        "ruhetage": "Montag",
+        "adresse": "Blumenstraße 2, 59425 Unna",
+        "telefon": "02303 66635",
+        "website": "http://www.anadolu-restaurant.com/",
         "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: 16:00–23:00 Uhr",
-            "Mittwoch: 16:00–23:00 Uhr",
-            "Donnerstag: 16:00–23:00 Uhr",
-            "Freitag: 16:00–23:00 Uhr",
-            "Samstag: 16:00–23:00 Uhr",
-            "Sonntag: 11:30–23:00 Uhr"
-        ]
+            "Montag: 17:00–23:00 Uhr",
+            "Dienstag: 17:00–23:00 Uhr",
+            "Mittwoch: 17:00–23:00 Uhr",
+            "Donnerstag: 17:00–23:00 Uhr",
+            "Freitag: 17:00–23:00 Uhr",
+            "Samstag: 17:00–23:00 Uhr",
+            "Sonntag: 17:00–23:00 Uhr"
+        ],
+        "beschreibung": "Türkisches Restaurant in Unna."
     },
     {
-        "name": "Gaststätte Der Spiegel",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Markt Königsborn 5, 59425 Unna, Deutschland",
-        "telefon": "01577 7747021",
+        "name": "Bierhaus",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Schäferstraße 3, 59423 Unna",
+        "telefon": "02303 772458",
         "website": "",
-        "ruhetage": "Keine",
         "oeffnungszeiten": [
-            "Montag: 17:00–00:00 Uhr",
-            "Dienstag: 17:00–00:00 Uhr",
-            "Mittwoch: 17:00–00:00 Uhr",
-            "Donnerstag: 17:00–00:00 Uhr",
-            "Freitag: 17:00–00:00 Uhr",
-            "Samstag: 17:00–00:00 Uhr",
-            "Sonntag: 10:00–14:00 Uhr"
-        ]
-    },
-    {
-        "name": "Centro Cultural Português de Unna",
-        "kategorie": "Restaurant",
-        "adresse": "Bornekampstraße 5, 59423 Unna, Deutschland",
-        "telefon": "0176 82715523",
-        "website": "https://speisekartenweb.de/restaurants/unna/centro-cultural-portugu%C3%AAs-de-unna",
-        "ruhetage": "Mo bis Do",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: Geschlossen",
-            "Freitag: 17:00–22:00 Uhr",
-            "Samstag: 15:00–23:00 Uhr",
+            "Montag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
+            "Dienstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
+            "Mittwoch: 11:00–16:00 Uhr",
+            "Donnerstag: 11:00–16:00 Uhr",
+            "Freitag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
+            "Samstag: 11:00–16:00 Uhr, 19:00–00:00 Uhr",
             "Sonntag: 11:00–16:00 Uhr"
-        ]
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
     },
     {
-        "name": "Morgentor",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Morgenstraße 15, 59423 Unna, Deutschland",
-        "telefon": "",
-        "website": "https://ralf-bieri.de/",
-        "ruhetage": "So bis Do",
-        "oeffnungszeiten": [
-            "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: Geschlossen",
-            "Donnerstag: Geschlossen",
-            "Freitag: 18:00–00:00 Uhr",
-            "Samstag: 18:00–00:00 Uhr",
-            "Sonntag: Geschlossen"
-        ]
-    },
-    {
-        "name": "Neue Schmiede",
+        "name": "Bistro SiSi",
         "kategorie": "Restaurant",
-        "adresse": "Hellweg 31-33, 59423 Unna, Deutschland",
-        "telefon": "02303 258735",
-        "website": "http://www.ralf-bieri.de/",
-        "ruhetage": "Mo, Di, So",
+        "adresse": "Massener Str. 21, 59423 Unna",
+        "telefon": "02303 8714100",
+        "website": "https://www.instagram.com/bistro_sisi/",
         "oeffnungszeiten": [
             "Montag: Geschlossen",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 18:00–23:30 Uhr",
-            "Donnerstag: 18:00–23:30 Uhr",
-            "Freitag: 18:00–23:30 Uhr",
-            "Samstag: 18:00–23:30 Uhr",
+            "Dienstag: 10:00–20:00 Uhr",
+            "Mittwoch: 10:00–20:00 Uhr",
+            "Donnerstag: 10:00–20:00 Uhr",
+            "Freitag: 10:00–20:00 Uhr",
+            "Samstag: 10:00–20:00 Uhr",
             "Sonntag: Geschlossen"
-        ]
+        ],
+        "beschreibung": "Restaurant in Unna. Italienische und österreichische Küche"
+    },
+    {
+        "name": "Bistro Trittbrett",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Bahnhofstraße 52, 59423 Unna",
+        "telefon": "02303 254320",
+        "website": "",
+        "oeffnungszeiten": [
+            "Montag: 15:00–22:00 Uhr",
+            "Dienstag: 15:00–22:00 Uhr",
+            "Mittwoch: 15:00–22:00 Uhr",
+            "Donnerstag: 15:00–22:00 Uhr",
+            "Freitag: 15:00–02:00 Uhr",
+            "Samstag: 15:00–02:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
     },
     {
         "name": "Café Mailin",
         "kategorie": "Café",
-        "adresse": "Massener Hellweg 13, 59427 Unna, Deutschland",
+        "adresse": "Massener Hellweg 13, 59427 Unna",
         "telefon": "02303 953660",
         "website": "http://cafe-mailin.de/",
-        "ruhetage": "Montag",
         "oeffnungszeiten": [
             "Montag: Geschlossen",
             "Dienstag: 08:00–13:00 Uhr",
@@ -244,32 +98,152 @@
             "Freitag: 08:00–13:00 Uhr",
             "Samstag: 08:00–13:00 Uhr",
             "Sonntag: 08:00–13:00 Uhr"
-        ]
+        ],
+        "beschreibung": "Café in Unna."
+    },
+
+    {
+        "name": "Cafe Schulte",
+        "kategorie": "Café",
+        "adresse": "Massener Str. 71, 59423 Unna",
+        "telefon": "02303 22226",
+        "website": "",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Mittwoch: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Donnerstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Freitag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Samstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Sonntag: 11:30–15:00 Uhr, 17:30–23:00 Uhr"
+        ],
+        "beschreibung": "Café in Unna."
     },
     {
-        "name": "Vereinshaus 49er",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Zum Osterfeld 13, 59425 Unna, Deutschland",
-        "telefon": "02303 9675358",
-        "website": "http://www.ssv-muehlhausen-uelzen.de/",
-        "ruhetage": "Dienstag, Donnerstag",
+        "name": "Cafe#01 Kaffeerösterei Unna",
+        "kategorie": "Café",
+        "adresse": "Hertingerstraße 8, 59423 Unna",
+        "telefon": "0176 24202752",
+        "website": "",
         "oeffnungszeiten": [
-            "Montag: 17:00–22:00 Uhr",
+            "Montag: 09:00–19:00 Uhr",
+            "Dienstag: 09:00–19:00 Uhr",
+            "Mittwoch: 09:00–19:00 Uhr",
+            "Donnerstag: 09:00–19:00 Uhr",
+            "Freitag: 09:00–19:00 Uhr",
+            "Samstag: 09:00–19:00 Uhr",
+            "Sonntag: 12:00–18:00 Uhr"
+        ],
+        "beschreibung": "Café in Unna."
+    },
+    {
+        "name": "Eddy's Eis Oase",
+        "kategorie": "Café",
+        "adresse": "Massener Hellweg 20, 59427 Unna",
+        "telefon": "",
+        "website": "",
+        "oeffnungszeiten": [
+            "Montag: 13:00–18:00 Uhr",
+            "Dienstag: 13:00–18:30 Uhr",
+            "Mittwoch: 13:00–18:30 Uhr",
+            "Donnerstag: 13:00–18:30 Uhr",
+            "Freitag: 13:00–18:30 Uhr",
+            "Samstag: 13:00–18:30 Uhr",
+            "Sonntag: 13:00–17:30 Uhr"
+        ],
+        "beschreibung": "Eiscafé in Unna."
+    },
+    {
+        "name": "Eiscafé Goloso Unna",
+        "kategorie": "Café",
+        "adresse": "Markt 10, 59423 Unna",
+        "telefon": "02303 2921937",
+        "website": "",
+        "oeffnungszeiten": [
+            "Montag: 10:00–20:30 Uhr",
+            "Dienstag: 09:00–20:30 Uhr",
+            "Mittwoch: 09:00–20:30 Uhr",
+            "Donnerstag: 10:00–20:30 Uhr",
+            "Freitag: 10:00–20:30 Uhr",
+            "Samstag: 10:00–20:30 Uhr",
+            "Sonntag: 10:00–20:30 Uhr"
+        ],
+        "beschreibung": "Eiscafé in Unna."
+    },
+    {
+        "name": "Eiscafe La Venezia",
+        "kategorie": "Café",
+        "adresse": "Massener Str. 7, 59423 Unna",
+        "telefon": "02303 9476339",
+        "website": "http://lavenezia-unna.de/",
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–18:00 Uhr",
+            "Sonntag: 11:00–18:00 Uhr"
+        ],
+        "beschreibung": "Café in Unna."
+    },
+    {
+        "name": "Eiscafé Rialto2 Unna",
+        "kategorie": "Café",
+        "adresse": "Massener Str. 33, 59423 Unna",
+        "telefon": "02303 9298588",
+        "website": "https://www.facebook.com/share/17HdHbDJzr/?mibextid=wwXIfr",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 10:00–19:00 Uhr",
+            "Mittwoch: 10:00–19:00 Uhr",
+            "Donnerstag: 10:00–19:00 Uhr",
+            "Freitag: 10:00–19:00 Uhr",
+            "Samstag: 10:00–19:00 Uhr",
+            "Sonntag: 10:00–19:00 Uhr"
+        ],
+        "beschreibung": "Eiscafé in Unna."
+    },
+    {
+        "name": "Eventaurant amt31",
+        "kategorie": "Restaurant",
+        "adresse": "Südring 31, 59423 Unna",
+        "telefon": "02303 2535045",
+        "website": "https://www.amt31.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
             "Dienstag: Geschlossen",
-            "Mittwoch: 17:00–22:00 Uhr",
-            "Donnerstag: Geschlossen",
-            "Freitag: 17:00–22:00 Uhr",
-            "Samstag: 14:30–22:00 Uhr",
-            "Sonntag: 12:30–22:00 Uhr"
-        ]
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 17:30–22:00 Uhr",
+            "Freitag: Geschlossen",
+            "Samstag: Geschlossen",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "Foyer",
+        "kategorie": "Restaurant",
+        "adresse": "Massener Str. 32, 59423 Unna",
+        "telefon": "02303 239982",
+        "website": "https://www.restaurantfoyer.de/",
+        "oeffnungszeiten": [
+            "Montag: 11:30–15:00 Uhr, 17:00–23:00 Uhr",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 11:30–15:00 Uhr, 17:00–23:00 Uhr",
+            "Donnerstag: 11:30–15:00 Uhr, 17:00–23:00 Uhr",
+            "Freitag: 11:30–15:00 Uhr, 17:00–00:00 Uhr",
+            "Samstag: 11:30–15:00 Uhr, 17:00–00:00 Uhr",
+            "Sonntag: 11:30–15:00 Uhr, 17:00–23:00 Uhr"
+        ],
+        "beschreibung": "Restaurant, indische und italienische Küche."
     },
     {
         "name": "Hermanns",
-        "kategorie": "Bar / Kneipe",
-        "adresse": "Hemmerder Bahnhofstraße 23, 59427 Unna, Deutschland",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Hemmerder Bahnhofstraße 23, 59427 Unna",
         "telefon": "",
         "website": "https://hermanns-hemmerde.de/",
-        "ruhetage": "Mo, Di, Mi",
         "oeffnungszeiten": [
             "Montag: Geschlossen",
             "Dienstag: Geschlossen",
@@ -278,6 +252,433 @@
             "Freitag: 18:30–00:00 Uhr",
             "Samstag: 18:30–00:00 Uhr",
             "Sonntag: 18:30–22:00 Uhr"
-        ]
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "HÉT Waffelstübchen",
+        "kategorie": "Café",
+        "adresse": "Güldener Trog 5, 59423 Unna",
+        "telefon": "02303 952698",
+        "website": "https://www.het-waffelstuebchen.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 12:00–17:00 Uhr",
+            "Donnerstag: 12:00–17:00 Uhr",
+            "Freitag: 14:00–17:00 Uhr",
+            "Samstag: 14:00–17:00 Uhr",
+            "Sonntag: 15:00–17:00 Uhr"
+        ],
+        "beschreibung": "Café in Unna."
+    },
+    {
+        "name": "Königsborner Eislädchen",
+        "kategorie": "Café",
+        "adresse": "Friedrich-Ebert-Straße 79, 59425 Unna",
+        "telefon": "02303 9291062",
+        "website": "https://onepla.top/konigsborner-eisladchen",
+        "oeffnungszeiten": [
+            "Montag: 13:00–18:00 Uhr",
+            "Dienstag: 13:00–18:00 Uhr",
+            "Mittwoch: 13:00–18:00 Uhr",
+            "Donnerstag: 13:00–18:00 Uhr",
+            "Freitag: 13:00–18:00 Uhr",
+            "Samstag: 12:00–19:00 Uhr",
+            "Sonntag: 12:00–19:00 Uhr"
+        ],
+        "beschreibung": "Eiscafé in Unna."
+    },
+    {
+        "name": "KUHBAR Unna",
+        "kategorie": "Café",
+        "adresse": "Markt 14, 59423 Unna",
+        "telefon": "02303 9015134",
+        "website": "http://www.kuhbar.com/",
+        "oeffnungszeiten": [
+            "Montag: 12:00–18:30 Uhr",
+            "Dienstag: 10:30–18:30 Uhr",
+            "Mittwoch: 11:00–18:30 Uhr",
+            "Donnerstag: 11:00–18:30 Uhr",
+            "Freitag: 10:30–18:30 Uhr",
+            "Samstag: 11:00–18:30 Uhr",
+            "Sonntag: 12:00–18:30 Uhr"
+        ],
+        "beschreibung": "Eiscafé in Unna."
+    },
+    {
+        "name": "La Bodega",
+        "kategorie": "Restaurant",
+        "adresse": "Güldener Trog 5, 59423 Unna",
+        "telefon": "02303 332664",
+        "website": "http://www.labodega-unna.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 17:00–00:00 Uhr",
+            "Mittwoch: 17:00–00:00 Uhr",
+            "Donnerstag: 17:00–00:00 Uhr",
+            "Freitag: 17:00–00:00 Uhr",
+            "Samstag: 17:00–00:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "La Locanda",
+        "kategorie": "Restaurant",
+        "adresse": "Hammer Str. 120, 59425 Unna",
+        "telefon": "02303 952384",
+        "website": "https://lalocanda-unna.eatbu.com/?lang=de",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
+            "Donnerstag: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
+            "Freitag: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
+            "Samstag: 11:30–14:30 Uhr, 17:00–23:30 Uhr",
+            "Sonntag: 11:30–14:30 Uhr, 17:00–23:30 Uhr"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "Lindenbrauerei e. V. Kultur- und Kommunikationszentrum",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Rio-Reiser-Weg 1, 59423 Unna",
+        "telefon": "02303 959471",
+        "website": "http://www.lindenbrauerei.de/",
+        "oeffnungszeiten": [
+            "Montag: 10:00–14:00 Uhr",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 10:00–14:00 Uhr",
+            "Donnerstag: 18:00–23:00 Uhr",
+            "Freitag: 10:00–00:00 Uhr",
+            "Samstag: 18:00–01:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Morgentor",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Morgenstraße 15, 59423 Unna",
+        "telefon": "",
+        "website": "https://ralf-bieri.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: Geschlossen",
+            "Freitag: 18:00–00:00 Uhr",
+            "Samstag: 18:00–00:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Müser's Kabinett",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Herderstraße 2, 59423 Unna",
+        "telefon": "02303 16916",
+        "website": "https://m.facebook.com/pages/M%C3%BCsers-Kabinett/474014705985584",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 16:00–23:00 Uhr",
+            "Freitag: 16:00–23:00 Uhr",
+            "Samstag: 16:00–01:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Neue Schmiede",
+        "kategorie": "Restaurant",
+        "adresse": "Hellweg 31-33, 59423 Unna",
+        "telefon": "02303 258735",
+        "website": "http://www.ralf-bieri.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 18:00–23:30 Uhr",
+            "Donnerstag: 18:00–23:30 Uhr",
+            "Freitag: 18:00–23:30 Uhr",
+            "Samstag: 18:00–23:30 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Das Lokal mit dunklen Tischen, hellen Lederstühlen und rohen Ziegelwänden serviert internationale Speisen."
+    },
+    {
+        "name": "neue waschkaue",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Breitenbachgelände, Hellweg 31-33, 59423 Unna",
+        "telefon": "0172 5347111",
+        "website": "http://www.ralf-bieri.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: Geschlossen",
+            "Freitag: 22:00–05:00 Uhr",
+            "Samstag: 22:00–04:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Oller Kotten",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Morgenstraße 16, 59423 Unna",
+        "telefon": "02303 9792558",
+        "website": "http://www.oller-kotten.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 16:00–01:00 Uhr",
+            "Mittwoch: 16:00–01:00 Uhr",
+            "Donnerstag: 16:00–01:00 Uhr",
+            "Freitag: 16:00–01:00 Uhr",
+            "Samstag: 16:00–01:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Piccola Taormina",
+        "kategorie": "Restaurant",
+        "adresse": "Friedrich-Ebert-Straße 2, 59425 Unna",
+        "telefon": "02303 8719889",
+        "website": "http://www.piccolataormina.com/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
+            "Mittwoch: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
+            "Donnerstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
+            "Freitag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
+            "Samstag: 11:30–15:00 Uhr, 17:30–22:00 Uhr",
+            "Sonntag: 11:30–15:00 Uhr, 17:30–22:00 Uhr"
+        ],
+        "beschreibung": "Restaurant in Unna. Nur zum Mitnehmen."
+    },
+    {
+        "name": "Pizza Italiano Unna",
+        "kategorie": "Restaurant",
+        "adresse": "Ahornstraße 10, 59423 Unna",
+        "telefon": "02303 2589955",
+        "website": "https://pizzaitalianounna.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 11:00–22:45 Uhr",
+            "Mittwoch: 11:00–22:45 Uhr",
+            "Donnerstag: 11:00–22:45 Uhr",
+            "Freitag: 11:00–23:45 Uhr",
+            "Samstag: 11:00–23:45 Uhr",
+            "Sonntag: 11:00–22:45 Uhr"
+        ],
+        "beschreibung": "Pizza-Imbiss in Unna."
+    },
+    {
+        "name": "Pizzeria Viva",
+        "kategorie": "Restaurant",
+        "adresse": "Massener Str. 33, 59423 Unna",
+        "telefon": "02303 9295787",
+        "website": "https://pizzeria-viva.de/",
+        "oeffnungszeiten": [
+            "Montag: 11:30–22:30 Uhr",
+            "Dienstag: 11:30–22:30 Uhr",
+            "Mittwoch: 11:30–22:30 Uhr",
+            "Donnerstag: 11:30–22:30 Uhr",
+            "Freitag: 11:30–22:30 Uhr",
+            "Samstag: 11:30–22:30 Uhr",
+            "Sonntag: 15:00–22:30 Uhr"
+        ],
+        "beschreibung": "Pizza-Imbiss in Unna."
+    },
+    {
+        "name": "Refugio",
+        "kategorie": "Restaurant",
+        "adresse": "Flügelstraße 9, 59423 Unna",
+        "telefon": "02303 592739",
+        "website": "https://refugio-unna.de/",
+        "oeffnungszeiten": [
+            "Montag: 09:00–15:00 Uhr",
+            "Dienstag: 09:00–15:00 Uhr",
+            "Mittwoch: 09:00–15:00 Uhr",
+            "Donnerstag: 09:00–15:00 Uhr",
+            "Freitag: 09:00–21:30 Uhr",
+            "Samstag: 09:00–15:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "Restaurant Akropolis Unna",
+        "kategorie": "Restaurant",
+        "adresse": "Uelzener Dorfstraße 41, 59425 Unna",
+        "telefon": "02303 4545",
+        "website": "http://www.restaurant-akropolis-unna-uelzen.de/",
+        "oeffnungszeiten": [
+            "Montag: 17:00–22:00 Uhr",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 17:00–22:00 Uhr",
+            "Donnerstag: 17:00–22:00 Uhr",
+            "Freitag: 17:00–23:30 Uhr",
+            "Samstag: 17:00–23:30 Uhr",
+            "Sonntag: 12:00–15:00 Uhr, 17:00–22:00 Uhr"
+        ],
+        "beschreibung": "Restaurant in Unna, griechische Küche."
+    },
+    {
+        "name": "Restaurant L'Incontro",
+        "kategorie": "Restaurant",
+        "adresse": "Kessebürener Weg 59, 59423 Unna",
+        "telefon": "02303 772999",
+        "website": "http://www.lincontro-unna.de/",
+        "oeffnungszeiten": [
+            "Montag: 17:00–23:00 Uhr",
+            "Dienstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
+            "Mittwoch: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
+            "Donnerstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
+            "Freitag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
+            "Samstag: 12:00–15:00 Uhr, 17:00–23:00 Uhr",
+            "Sonntag: 12:00–15:00 Uhr, 17:00–23:00 Uhr"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "Restaurant Mal Anders! by Hilleringmann",
+        "kategorie": "Restaurant",
+        "adresse": "Hillering 42, 59427 Unna",
+        "telefon": "02303 9280694",
+        "website": "http://www.restaurant-hilleringmann.de/",
+        "oeffnungszeiten": [
+            "Montag: 11:00–23:00 Uhr",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 17:00–23:30 Uhr",
+            "Donnerstag: 17:00–23:30 Uhr",
+            "Freitag: 17:00–23:30 Uhr",
+            "Samstag: 17:00–23:30 Uhr",
+            "Sonntag: 11:00–23:30 Uhr"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "Restaurant Ölckenthurm",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Grabengasse 27, 59423 Unna",
+        "telefon": "02303 772007",
+        "website": "https://www.oelckenthurm.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 17:00–22:00 Uhr",
+            "Donnerstag: 17:00–22:00 Uhr",
+            "Freitag: 17:00–23:00 Uhr",
+            "Samstag: 17:00–23:00 Uhr",
+            "Sonntag: 10:00–14:30 Uhr"
+        ],
+        "beschreibung": "Im Kaminzimmer oder Restaurant mit meterdicken Steinwänden und roten Stühlen gibt es internationale Speisen."
+    },
+    {
+        "name": "Restaurant Santorini",
+        "kategorie": "Restaurant",
+        "adresse": "Massener Str. 104, 59423 Unna",
+        "telefon": "02303 12701",
+        "website": "https://www.santorini-unna.de/",
+        "oeffnungszeiten": [
+            "Montag: 12:00–15:00 Uhr, 17:00–22:30 Uhr",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 17:00–22:30 Uhr",
+            "Donnerstag: 17:00–22:30 Uhr",
+            "Freitag: 17:00–23:30 Uhr",
+            "Samstag: 12:00–15:00 Uhr, 17:00–23:30 Uhr",
+            "Sonntag: 12:00–15:00 Uhr, 17:00–22:30 Uhr"
+        ],
+        "beschreibung": "Gyros, Fisch und griechische Grillspeisen im Lokal mit weißen Statuen, mediterranen Bildmotiven und Terrasse."
+    },
+    {
+        "name": "Restaurant Zur Post",
+        "kategorie": "Restaurant",
+        "adresse": "Hemmerder Dorfstraße 76, 59427 Unna",
+        "telefon": "02308 404",
+        "website": "http://www.zurpost-hemmerde.de/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 17:00–23:00 Uhr",
+            "Mittwoch: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
+            "Donnerstag: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
+            "Freitag: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
+            "Samstag: 11:30–14:30 Uhr, 17:00–23:00 Uhr",
+            "Sonntag: 11:30–14:30 Uhr, 17:00–23:00 Uhr"
+        ],
+        "beschreibung": "Restaurant in Unna."
+    },
+    {
+        "name": "Schalander",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Massener Str. 33, 59423 Unna",
+        "telefon": "02303 251120",
+        "website": "https://lindenbrauerei.de/schalander/",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 18:00–23:00 Uhr",
+            "Freitag: 18:00–23:00 Uhr",
+            "Samstag: 18:00–23:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Spatz und Wal",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Hertingerstraße 31, 59423 Unna",
+        "telefon": "02303 9797415",
+        "website": "http://spatz-und-wal.de/",
+        "oeffnungszeiten": [
+            "Montag: 17:00–23:00 Uhr",
+            "Dienstag: 17:00–23:00 Uhr",
+            "Mittwoch: 17:00–23:00 Uhr",
+            "Donnerstag: 17:00–23:00 Uhr",
+            "Freitag: 17:00–02:00 Uhr",
+            "Samstag: 17:00–02:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+    {
+        "name": "Steakhaus Agethen",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Hertingerstraße 10, 59423 Unna",
+        "telefon": "02303 2921469",
+        "website": "https://steakhaus-agethen.de/",
+        "oeffnungszeiten": [
+            "Montag: 11:30–23:00 Uhr",
+            "Dienstag: 16:00–23:00 Uhr",
+            "Mittwoch: 16:00–23:00 Uhr",
+            "Donnerstag: 16:00–23:00 Uhr",
+            "Freitag: 16:00–23:00 Uhr",
+            "Samstag: 16:00–23:00 Uhr",
+            "Sonntag: 11:30–23:00 Uhr"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
+    },
+
+    {
+        "name": "Uni",
+        "kategorie": "Bar & Kneipe",
+        "adresse": "Morgenstraße 32, 59423 Unna",
+        "telefon": "02303 12925",
+        "website": "",
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: Geschlossen",
+            "Freitag: 20:00–04:00 Uhr",
+            "Samstag: 20:00–04:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": "Bar & Kneipe in Unna."
     }
 ]

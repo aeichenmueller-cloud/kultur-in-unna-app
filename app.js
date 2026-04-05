@@ -1,5 +1,4 @@
 var eventDaten = [], gastroDaten = [], vereinsDaten = [], hotelsDaten = [];
-var favoriten = JSON.parse(localStorage.getItem('unna_favs')) || [];
 var currentDayFilter = 'all';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const bBtn = document.querySelector(`.bottom-nav button[data-target="${t}"]`); if(bBtn) bBtn.classList.add('active');
         const sBtn = document.querySelector(`.side-nav-btn[data-target="${t}"]`); if(sBtn) sBtn.classList.add('active');
         toggleMenu(false); window.scrollTo(0,0);
-        if(t === 'favoriten') rendereFavoriten();
     }
     document.querySelectorAll('[data-target]').forEach(btn => btn.onclick = () => wechselTab(btn.dataset.target));
     document.getElementById('btn-close-modal').onclick = () => modal.style.display = 'none';
@@ -29,20 +27,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. RENDERING ---
     function oeffneDetails(obj, typ) {
-        const title = clean(obj.name || obj.title), isFav = favoriten.some(f => clean(f.name || f.title) === title);
+        const title = clean(obj.name || obj.title);
         let html = obj.bildUrl ? `<img src="${obj.bildUrl}" class="modal-img">` : '';
-        html += `<h2>${title}</h2><div style="display:flex; gap:10px; margin-bottom:15px;"><button id="f-btn" class="near-btn" style="flex:1; background:none; border:1px solid #ddd; color:inherit; font-weight:800;">${isFav?'❤️ Favorit':'🤍 Merken'}</button><button id="btn-copy-action" class="copy-btn" style="flex:1;">📋 Kopieren</button></div>`;
-        if(obj.adresse) html += `<button onclick="window.open('http://googleusercontent.com/maps.google.com/9{encodeURIComponent(obj.adresse + ' Unna')}')" class="ticket-btn" style="background:#4285F4;">🚗 Route</button>`;
+        html += `<h2>${title}</h2>`;
+        
+        // Kopieren-Button (vollständig überarbeitet)
+        html += `<div style="display:flex; gap:10px; margin-bottom:15px;">
+                    <button id="btn-copy-action" class="copy-btn" style="flex:1;">📋 Text & Daten kopieren</button>
+                 </div>`;
+                 
+        // Route-Button (URL repariert)
+        if(obj.adresse) {
+            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(obj.adresse + ', Unna')}`;
+            html += `<button onclick="window.open('${mapsUrl}')" class="ticket-btn" style="background:#4285F4;">🚗 Route planen</button>`;
+        }
+        
         let desc = clean(obj.description || obj.beschreibung || obj.info || "");
-        if(obj.start_date) html += `<p style="font-weight:bold;">📅 ${new Date(obj.start_date).toLocaleString('de-DE')}</p>`;
+        if(obj.start_date) html += `<p style="font-weight:bold;">📅 ${new Date(obj.start_date).toLocaleString('de-DE')} Uhr</p>`;
         if(desc) html += `<div style="font-size:14px; line-height:1.6; margin-top:15px; white-space:pre-wrap;">${desc}</div>`;
         if(obj.telefon) html += `<a href="tel:${obj.telefon}" class="ticket-btn" style="background:#28a745; margin-top:15px;">📞 Anrufen</a>`;
         if(obj.website) html += `<a href="${obj.website}" target="_blank" class="ticket-btn" style="background:#6c757d;">🌐 Webseite</a>`;
         if(obj.oeffnungszeiten) html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Zeiten:</strong><br>${obj.oeffnungszeiten.join('<br>')}</div>`;
         html += `<button class="ticket-btn" style="background:#555; margin-top:30px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
+        
         modalBody.innerHTML = html;
-        document.getElementById('f-btn').onclick = () => { const idx = favoriten.findIndex(f => clean(f.name || f.title) === title); if(idx > -1) favoriten.splice(idx,1); else favoriten.push(obj); localStorage.setItem('unna_favs', JSON.stringify(favoriten)); oeffneDetails(obj, typ); };
-        document.getElementById('btn-copy-action').onclick = () => { navigator.clipboard.writeText(`📌 ${title}\n📍 ${obj.adresse||'Unna'}`); document.getElementById('btn-copy-action').innerHTML = "✅ Kopiert!"; };
+        
+        // Kopieren-Logik (Datum + Uhrzeit + Adresse)
+        document.getElementById('btn-copy-action').onclick = () => { 
+            let dateStr = "";
+            if (obj.start_date) {
+                const d = new Date(obj.start_date);
+                dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`;
+            }
+            const copyText = `📌 ${title}\n${dateStr}📍 ${obj.adresse || 'Unna'}`;
+            navigator.clipboard.writeText(copyText); 
+            document.getElementById('btn-copy-action').innerHTML = "✅ Kopiert!"; 
+        };
+        
         modal.style.display = 'block'; modal.scrollTop = 0;
     }
 
@@ -94,11 +115,32 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.onclick = function() {
             document.querySelectorAll('#time-filter-row .filter-pill').forEach(b => b.classList.remove('active'));
             this.classList.add('active'); currentDayFilter = this.dataset.time;
-            // Filter logic here
+            
+            const q = document.getElementById('event-search').value.toLowerCase();
+            const cat = document.getElementById('event-category-filter').value.toLowerCase();
+            
+            let filtered = eventDaten.filter(e => {
+                const matchesSearch = clean(e.name).toLowerCase().includes(q);
+                const matchesCat = (cat === 'alle') || (e.description + e.name).toLowerCase().includes(cat);
+                if(!matchesSearch || !matchesCat) return false;
+                
+                if(currentDayFilter === 'all') return true;
+                
+                const eDate = new Date(e.start_date);
+                const today = new Date(); today.setHours(0,0,0,0);
+                const tomorrow = new Date(today.getTime() + 86400000);
+                
+                if(currentDayFilter === 'today') return eDate.toDateString() === today.toDateString();
+                if(currentDayFilter === 'tomorrow') return eDate.toDateString() === tomorrow.toDateString();
+                if(currentDayFilter === 'weekend') return [5, 6, 0].includes(eDate.getDay());
+                return true;
+            });
+            rendereListe('events-container', filtered, 'Event');
         };
     });
     document.getElementById('gastro-filter').onchange = (e) => { const v = e.target.value; rendereListe('gastro-container', v === 'alle' ? gastroDaten : gastroDaten.filter(x => x.kategorie.includes(v)), 'Gastro'); };
     document.getElementById('vereins-filter').onchange = (e) => { const v = e.target.value; rendereListe('vereine-container', v === 'alle' ? vereinsDaten : vereinsDaten.filter(x => x.kategorie === v), 'Vereine'); };
+    
     document.getElementById('btn-darkmode').onclick = () => document.body.classList.toggle('dark-mode');
     document.getElementById('btn-share-app').onclick = () => { if(navigator.share) navigator.share({title: 'Kultur in Unna', url: window.location.href}); };
 });

@@ -40,8 +40,9 @@ body.dark-mode { background:#121212; color:#f0f0f0; --item-bg: #1e1e1e; --border
 .close-btn { position: fixed; top: calc(5vh + 10px); right: calc(4% + 10px); width: 44px; height: 44px; font-size: 34px; color: white; background: rgba(0,0,0,0.8); border: 2px solid white; border-radius: 50%; z-index: 30000; display:flex; align-items:center; justify-content:center; cursor:pointer; line-height: 1; }
 .modal-img { width: 100%; max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 15px; display: block; }
 
+/* BOTTOM NAV (ANGEPASST FÜR 8 BUTTONS) */
 .bottom-nav { position:fixed; bottom:0; width:100%; height:75px; background:var(--item-bg); border-top:1px solid var(--border); display:flex; z-index:5000; overflow-x: auto; scrollbar-width: none; }
-.bottom-nav button { flex:0 0 11.11%; min-width: 65px; background:none; border:none; font-size:7px; color:#777; display:flex; flex-direction:column; align-items:center; justify-content:center; white-space: nowrap; font-weight: 700; cursor: pointer; }
+.bottom-nav button { flex:0 0 12.5%; min-width: 65px; background:none; border:none; font-size:7px; color:#777; display:flex; flex-direction:column; align-items:center; justify-content:center; white-space: nowrap; font-weight: 700; cursor: pointer; }
 .bottom-nav button.active { color:#0056b3; }
 
 .side-menu { position:fixed; top:0; left:-285px; width:280px; height:100vh; background:var(--item-bg); z-index:10000; transition: 0.3s ease; overflow-y: auto; box-shadow: 5px 0 15px rgba(0,0,0,0.3); }

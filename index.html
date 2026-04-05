@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=115">
+    <link rel="stylesheet" href="style.css?v=116">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
 </head>
@@ -25,7 +25,6 @@
         <div class="side-menu-content">
             <h2 style="color:#0056b3; margin-bottom:20px;">Menü</h2>
             <button class="side-nav-btn active" data-target="events">📅 Events</button>
-            <button class="side-nav-btn" data-target="favoriten">❤️ Favoriten</button>
             <button class="side-nav-btn" data-target="maps">🗺️ Karten</button>
             <button class="side-nav-btn" data-target="mobilitaet">🚆 Mobilität &amp; Parken</button>
             <button class="side-nav-btn" data-target="gastro">🍽️ Gastro</button>
@@ -108,7 +107,7 @@
 
         <div id="content-gastro" class="tab-content">
             <h1>Essen &amp; Trinken</h1>
-            <select id="gastro-filter" class="main-select"><option value="alle">Alle</option><option value="Restaurant">Restaurant</option><option value="Café">Café</option><option value="Bar">Bar &amp; Kneipe</option></select>
+            <select id="gastro-filter" class="main-select"><option value="alle">Alle Kategorien</option><option value="Restaurant">Restaurant</option><option value="Café">Café</option><option value="Bar">Bar &amp; Kneipe</option></select>
             <div id="gastro-container"></div>
         </div>
 
@@ -117,7 +116,6 @@
             <select id="vereins-filter" class="main-select"><option value="alle">Alle Kategorien</option><option value="Sport">Sport</option><option value="Kultur">Kultur</option><option value="Soziales">Soziales</option></select>
             <div id="vereine-container"></div>
         </div>
-        <div id="content-favoriten" class="tab-content"><h1>Favoriten</h1><div id="favoriten-container"></div></div>
     </main>
 
     <div id="event-modal" class="modal">
@@ -126,7 +124,6 @@
 
     <nav class="bottom-nav">
         <button data-target="events" class="active">📅<br>Events</button>
-        <button data-target="favoriten">❤️<br>Favs</button>
         <button data-target="maps">🗺️<br>Karten</button>
         <button data-target="mobilitaet">🚆<br>Mobil</button>
         <button data-target="gastro">🍽️<br>Gastro</button>
@@ -136,6 +133,6 @@
         <button data-target="tourismus">🛏️<br>Gast</button>
     </nav>
 
-    <script src="app.js?v=115"></script>
+    <script src="app.js?v=116"></script>
 </body>
 </html>

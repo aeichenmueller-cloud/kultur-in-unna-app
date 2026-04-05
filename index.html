@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=22">
+    <link rel="stylesheet" href="style.css?v=24">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
     <style>
         #event-modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); }
         .modal-img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px; display: block; }
+        .map-section { margin-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -29,9 +30,24 @@
 
     <div id="content-maps" class="tab-content">
         <h1>Entdecke Unna</h1>
-        <h2>Kultur-Landkarte 🎨</h2>
-        <iframe width="100%" height="350px" frameborder="0" src="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739"></iframe>
-        <a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739#14/51.5305/7.6936" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
+        
+        <div class="map-section">
+            <h2>Kultur-Landkarte 🎨</h2>
+            <iframe width="100%" height="350px" frameborder="0" src="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739"></iframe>
+            <a href="https://umap.openstreetmap.de/de/map/kultur-landkarte-unna_37739#14/51.5305/7.6936" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
+        </div>
+
+        <div class="map-section">
+            <h2>Abkühlung &amp; Erfrischung 💧</h2>
+            <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897"></iframe>
+            <a href="https://umap.openstreetmap.de/de/map/abkuhlung-und-erfrischung-in-unna_42897" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
+        </div>
+
+        <div class="map-section">
+            <h2>Barrierefreies Unna ♿</h2>
+            <iframe width="100%" height="300px" frameborder="0" src="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678"></iframe>
+            <a href="https://umap.openstreetmap.de/de/map/barrierefreies-unna_98678" target="_blank" class="map-btn">🔍 Vollbild öffnen</a>
+        </div>
     </div>
 
     <div id="content-mobilitaet" class="tab-content">
@@ -90,7 +106,7 @@
         <div class="modal-content"><span class="close-btn" id="btn-close-modal">×</span><div id="modal-body"></div></div>
     </div>
 
-    <script src="app.js?v=22"></script>
+    <script src="app.js?v=24"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() { navigator.serviceWorker.register('sw.js'); });

@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. RENDERING (MODAL) ---
     function oeffneDetails(obj, typ) {
         
-        // --- NEWS LOGIK MIT LIVE-VOLLTEXT-FETCHER ---
+        // --- NEWS LOGIK (VERKÜRZTER RSS-TEXT) ---
         if (typ === 'News') {
             const title = clean(obj.title);
             let imgSrc = obj.thumbnail || (obj.enclosure && obj.enclosure.link) || '';
@@ -345,63 +345,19 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `<h2>${title}</h2>`;
             html += `<p style="font-weight:bold; color:#555; font-size:13px;">📅 ${new Date(obj.pubDate).toLocaleDateString('de-DE')}</p>`;
             
-            // Backup-Text (Kurzversion aus RSS) Bilder entfernen, um Doppelungen zu vermeiden
             let rawContent = obj.content || obj.description || "";
             rawContent = rawContent.replace(/<img[^>]*>/gi, ""); 
             
-            html += `<div id="news-full-text" style="font-size:15px; line-height:1.6; margin-top:15px; overflow-wrap: break-word;">
+            html += `<div style="font-size:15px; line-height:1.6; margin-top:15px; overflow-wrap: break-word;">
                         ${rawContent}
-                        <div style="margin-top: 20px; padding: 12px; background: rgba(0,86,179,0.1); color: #0056b3; border-radius: 8px; text-align: center; font-size: 13px; font-weight: bold;">
-                            ⏳ Lade vollständigen Artikel...
-                        </div>
                      </div>`;
             
-            html += `<a href="${obj.link}" target="_blank" class="ticket-btn" style="background:#0056b3; margin-top:25px;">🔗 Originalmeldung im Browser öffnen</a>`;
+            html += `<a href="${obj.link}" target="_blank" class="ticket-btn" style="background:#0056b3; margin-top:25px;">🔗 Vollständige Meldung auf unna.de lesen</a>`;
             html += `<button class="ticket-btn" style="background:#555; margin-top:10px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
             
             if(modalBody) modalBody.innerHTML = html;
             if(modal) { modal.style.display = 'block'; modal.scrollTop = 0; }
-
-            // Lade den echten Volltext dynamisch nach
-            fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(obj.link))
-                .then(r => r.json())
-                .then(data => {
-                    const doc = new DOMParser().parseFromString(data.contents, 'text/html');
-                    
-                    // Störende Webseiten-Elemente (Navigation, Menüs, Skripte) radikal entfernen
-                    doc.querySelectorAll('header, footer, nav, aside, .sidebar, script, style, form, .breadcrumb, img').forEach(el => el.remove());
-                    
-                    let contentHtml = "";
-                    
-                    // Suche nach typischen Inhalts-Klassen
-                    const specificContainer = doc.querySelector('.MeldungText, .news-detail, .news-article, .ce-bodytext, article, main');
-                    
-                    if (specificContainer) {
-                        contentHtml = specificContainer.innerHTML;
-                    } else {
-                        // Fallback: Sammle einfach alle längeren Textabsätze auf der Seite ein
-                        doc.querySelectorAll('p').forEach(p => {
-                            if (p.textContent.trim().length > 40) {
-                                contentHtml += `<p style="margin-bottom: 12px;">${p.innerHTML}</p>`;
-                            }
-                        });
-                    }
-
-                    const container = document.getElementById('news-full-text');
-                    if (container && contentHtml.trim().length > 100) {
-                        // Volltext erfolgreich geladen und injiziert!
-                        container.innerHTML = contentHtml;
-                    } else if (container) {
-                        // Laden fehlgeschlagen, behalte Backup-Text
-                        container.innerHTML = rawContent + '<div style="margin-top:15px; color:#888; font-size:12px;">(Der komplette Text konnte nicht automatisch geladen werden. Bitte klicken Sie auf den Link.)</div>';
-                    }
-                })
-                .catch(() => {
-                    const container = document.getElementById('news-full-text');
-                    if (container) container.innerHTML = rawContent + '<div style="margin-top:15px; color:#dc3545; font-size:12px;">(Laden des Textes fehlgeschlagen)</div>';
-                });
-
-            return; // WICHTIG: Stoppt die Funktion hier für News
+            return; 
         }
 
         // --- LOGIK FÜR EVENTS, GASTRO, HOTELS ETC. ---
@@ -451,7 +407,10 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Öffnungszeiten:</strong><br>${obj.oeffnungszeiten.join('<br>').replace(/&/g,'&')}</div>`;
         }
         
-        html += `<button class="ticket-btn" style="background:#555; margin-top:30px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
+        // NEU: COMMUNITY-FEEDBACK BUTTON
+        html += `<a href="mailto:a.eichenmueller@gmail.com?subject=App-Feedback%20zu%20${encodeURIComponent(title)}&body=Hallo%20Armin,%0A%0Aich%20habe%20einen%20Fehler%20bei%20'${encodeURIComponent(title)}'%20entdeckt:%0A%0A" class="ticket-btn" style="background:transparent; color:var(--text) !important; border:2px solid var(--border); margin-top:20px;">✉️ Fehler entdeckt? Änderung vorschlagen</a>`;
+
+        html += `<button class="ticket-btn" style="background:#555; margin-top:10px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
         if(modalBody) modalBody.innerHTML = html;
         
         const copyAction = document.getElementById('btn-copy-action');
@@ -542,7 +501,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. FETCH DATEN ---
     async function init() {
-        // NEWS FETCH UPDATE - OHNE BILDER IN DER ÜBERSICHT
+
+        // NEU: WETTER WIDGET UNNA (Open-Meteo API)
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=51.5344&longitude=7.6888&current_weather=true')
+            .then(r => r.json())
+            .then(d => {
+                const wc = document.getElementById('weather-container');
+                if (wc && d.current_weather) {
+                    const temp = Math.round(d.current_weather.temperature);
+                    const code = d.current_weather.weathercode;
+                    let icon = '⛅';
+                    if (code === 0) icon = '☀️';
+                    else if (code === 1 || code === 2) icon = '🌤️';
+                    else if (code === 3) icon = '☁️';
+                    else if (code >= 45 && code <= 67) icon = '🌫️';
+                    else if (code >= 71 && code <= 82) icon = '🌧️';
+                    else if (code >= 95) icon = '⛈️';
+                    
+                    wc.innerHTML = `
+                        <div style="background:var(--item-bg); border:1px solid var(--border); border-radius:16px; padding:15px; margin-bottom:20px; display:flex; align-items:center; justify-content:center; gap:20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <div style="font-size:40px; line-height:1;">${icon}</div>
+                            <div style="text-align:left;">
+                                <div style="font-size:12px; color:#888; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Aktuell in Unna</div>
+                                <div style="font-size:22px; font-weight:900;">${temp}°C</div>
+                            </div>
+                        </div>`;
+                }
+            }).catch(e => console.log("Wetterfehler", e));
+
         fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032')
         .then(r=>r.json())
         .then(d=> {
@@ -572,7 +558,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }).catch(()=>{});
 
-        // MOBILITÄT FETCH
         const fetchParkData = async () => {
             const container = document.getElementById('park-status-container');
             if(!container) return;
@@ -660,13 +645,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const karteVal = document.getElementById('gastro-karte-filter') ? document.getElementById('gastro-karte-filter').value : 'alle';
         const openVal = document.getElementById('gastro-open-filter') ? document.getElementById('gastro-open-filter').value : 'alle';
 
+        // NEU: Nightlife Checker
+        const isNightlife = (item) => {
+            if (item.kategorie && item.kategorie.includes("Bar")) return true;
+            if (item.hoursLive) {
+                for (let day in item.hoursLive) {
+                    for (let period of item.hoursLive[day]) {
+                        let endStr = period.split('-')[1];
+                        if (!endStr) continue;
+                        let endHour = parseInt(endStr.split(':')[0]);
+                        if (endHour >= 22 || endHour < 6) return true; // Alles was bis 22 Uhr oder später (bzw. nach Mitternacht) auf hat
+                    }
+                }
+            }
+            return false;
+        };
+
         let filtered = gastroDaten.filter(x => {
             if (typVal !== 'alle' && (!x.kategorie || !x.kategorie.includes(typVal))) return false;
             if (kuecheVal !== 'alle' && (!x.kueche || !x.kueche.includes(kuecheVal))) return false;
             if (aussenVal !== 'alle' && x.aussenplaetze !== aussenVal) return false;
             if (karteVal !== 'alle' && x.kartenzahlung !== karteVal) return false;
             
-            if (openVal === 'ja') {
+            if (openVal === 'nightlife') {
+                if (!isNightlife(x)) return false;
+            } else if (openVal === 'ja') {
                 const ls = getLiveStatus(x);
                 if (ls.status !== 'open' && ls.status !== 'closing') return false;
             }

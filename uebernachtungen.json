@@ -2,6 +2,8 @@
     {
         "name": "Ringhotel Katharinenhof****",
         "adresse": "Bahnhofstraße 49, 59423 Unna",
+        "lat": 51.5385,
+        "lon": 7.6915,
         "telefon": "02303 9200",
         "email": "katharinenhof@riepe.com",
         "website": "https://www.riepe.com/",
@@ -10,6 +12,8 @@
     {
         "name": "Akzent Gut Höing",
         "adresse": "Ligusterweg 18, 59425 Unna",
+        "lat": 51.5470,
+        "lon": 7.6990,
         "telefon": "02303 968660",
         "email": "mail@hotel-gut-hoeing.de",
         "website": "http://www.hotel-gut-hoeing.de",
@@ -18,6 +22,8 @@
     {
         "name": "Hotel Garni Heidehof",
         "adresse": "Massener Heide 22, 59427 Unna",
+        "lat": 51.5280,
+        "lon": 7.6350,
         "telefon": "02303 83130",
         "email": "info@heidehof-schwill.de",
         "website": "https://www.heidehof-schwill.de",
@@ -26,6 +32,8 @@
     {
         "name": "Hotel Garni - Gästehaus Brüggemann",
         "adresse": "Kamener Straße 34, 59425 Unna",
+        "lat": 51.5420,
+        "lon": 7.6860,
         "telefon": "02303 60281",
         "email": "info@hotel-brueggemann.de",
         "website": "http://www.hotel-brueggemann.de",
@@ -34,6 +42,8 @@
     {
         "name": "Gästezimmer Ölckenthurm",
         "adresse": "Grabengasse 27, 59423 Unna",
+        "lat": 51.5330,
+        "lon": 7.6920,
         "telefon": "02303 772007",
         "email": "info@oelckenthurm.de",
         "website": "https://oelckenthurm.de/",
@@ -42,6 +52,8 @@
     {
         "name": "Hotel Nachtwächter",
         "adresse": "Schulstraße 1, 59423 Unna",
+        "lat": 51.5340,
+        "lon": 7.6885,
         "telefon": "02303 12449",
         "email": "info@hotel-nachtwaechter.de",
         "website": "https://www.hotel-nachtwaechter.de/",
@@ -50,6 +62,8 @@
     {
         "name": "Maringer Rooms",
         "adresse": "Lönsstraße 1, 59423 Unna",
+        "lat": 51.5360,
+        "lon": 7.6890,
         "telefon": "02303 9477807",
         "email": "info@maringer-rooms.de",
         "website": "https://maringer-rooms.de/",
@@ -58,6 +72,8 @@
     {
         "name": "Ferienwohnung Wickede / Ruhr",
         "adresse": "Wickede (Ruhr)",
+        "lat": 51.4960,
+        "lon": 7.8650,
         "telefon": "02377 8059049 (Mobil: 0163 6768935)",
         "email": "info@FEWO-Wicke.de",
         "website": "",
@@ -66,6 +82,8 @@
     {
         "name": "Ferienwohnung Kornrumpf",
         "adresse": "Hardenbergstraße 10, 59425 Unna",
+        "lat": 51.5440,
+        "lon": 7.6880,
         "telefon": "02303 65790",
         "email": "fam.kornrumpf@unnacom.biz",
         "website": "https://wohnung-kornrumpf.jimdofree.com/",
@@ -74,6 +92,8 @@
     {
         "name": "Privatvermietung Michael Büttner",
         "adresse": "Parkstraße 11, 59425 Unna",
+        "lat": 51.5390,
+        "lon": 7.6810,
         "telefon": "02303 254030",
         "email": "misimato@t-online.de",
         "website": "",
@@ -82,6 +102,8 @@
     {
         "name": "Privatvermietung Rusche",
         "adresse": "Feldstraße 21, 59423 Unna",
+        "lat": 51.5370,
+        "lon": 7.6980,
         "telefon": "02922 806048 (Mobil: 0160 8413426)",
         "email": "",
         "website": "",
@@ -90,6 +112,8 @@
     {
         "name": "Monteurzimmer Frau Prill",
         "adresse": "Werner Straße, 59192 Bergkamen",
+        "lat": 51.6200,
+        "lon": 7.6300,
         "telefon": "06545 914799",
         "email": "monteur.apartment@gmail.com",
         "website": "",
@@ -98,6 +122,8 @@
     {
         "name": "Ferien- & Monteurwohnung Weißmann",
         "adresse": "Hertingerstraße 100, 59423 Unna",
+        "lat": 51.5250,
+        "lon": 7.6870,
         "telefon": "02303 9792719 (Mobil: 0162 3702038)",
         "email": "",
         "website": "http://www.weissmanns.jimdo.com",
@@ -106,6 +132,8 @@
     {
         "name": "Gästehaus Lemberger",
         "adresse": "Eickhoff 3, 59439 Holzwickede",
+        "lat": 51.5050,
+        "lon": 7.6250,
         "telefon": "02334 924600",
         "email": "info@gaestehaus-lemberger.de",
         "website": "http://www.gaestehaus-lemberger.de",

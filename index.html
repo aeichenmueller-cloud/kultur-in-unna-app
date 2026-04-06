@@ -105,14 +105,13 @@
                 <h1>News aus Unna</h1>
                 <div id="news-container">
                     <div class="skel-card skeleton"><div class="skel-text skeleton" style="width:30%;"></div><div class="skel-title skeleton" style="width:90%;"></div><div class="skel-title skeleton" style="width:50%;"></div></div>
-                    <div class="skel-card skeleton"><div class="skel-text skeleton" style="width:30%;"></div><div class="skel-title skeleton" style="width:80%;"></div><div class="skel-title skeleton" style="width:40%;"></div></div>
                 </div>
             </div>
 
             <div id="content-tickets" class="tab-content">
                 <h1>Tickets &amp; VVK</h1>
                 <p class="hint-text" style="margin-bottom:15px; font-size:13px; line-height:1.5; color:#555;">
-                    ℹ️ <strong>Transparenzhinweis:</strong> Bei den folgenden Links handelt es sich um externe Angebote der jeweiligen Veranstalter – mit Ausnahme des Amts für Kultur und Weiterbildung.
+                    ℹ️ <strong>Transparenzhinweis:</strong> Bei den folgenden Links handelt es sich um externe Angebote der jeweiligen Veranstalter.
                 </p>
                 <a href="https://pretix.eu/bereichkultur/" target="_blank" class="ticket-btn" style="background:#28a745;">🏛️ Amt für Kultur und Weiterbildung</a>
                 <a href="https://pretix.eu/narrenschiff/" target="_blank" class="ticket-btn">🎭 Theater Narrenschiff</a>
@@ -131,7 +130,6 @@
 
             <div id="content-maps" class="tab-content">
                 <h1>Karten &amp; Umgebung</h1>
-                
                 <div id="inapp-map" style="height: 50vh; width: 100%; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 15px; z-index: 1;"></div>
                 <button id="btn-locate-map" class="ticket-btn" style="background:#28a745; margin-bottom: 25px;">📍 Meinen Standort auf Karte zeigen</button>
 
@@ -146,12 +144,35 @@
                 <p class="hint-text" style="margin-bottom:15px; font-size:13px; line-height:1.5; color:#555;">
                     ℹ️ <strong>Hinweis:</strong> Live-Öffnungszeiten basieren auf Google Maps Daten.
                 </p>
-                <select id="gastro-filter" class="main-select">
-                    <option value="alle">Alle Kategorien</option>
-                    <option value="Restaurant">Restaurant</option>
-                    <option value="Café">Café</option>
-                    <option value="Bar">Bar &amp; Kneipe</option>
-                </select>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                    <select id="gastro-typ-filter" class="main-select" style="margin-bottom:0;">
+                        <option value="alle">Alle Typen</option>
+                        <option value="Restaurant">Restaurant</option>
+                        <option value="Café">Café</option>
+                        <option value="Bar">Bar &amp; Kneipe</option>
+                        <option value="Lieferdienst">Lieferdienst</option>
+                    </select>
+                    <select id="gastro-kueche-filter" class="main-select" style="margin-bottom:0;">
+                        <option value="alle">Alle Küchen</option>
+                        <option value="Italienisch">Italienisch / Pizza</option>
+                        <option value="Griechisch">Griechisch</option>
+                        <option value="Asiatisch">Asiatisch</option>
+                        <option value="Deutsch">Deutsch / Regional</option>
+                        <option value="Burger">Burger</option>
+                    </select>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                    <select id="gastro-aussen-filter" class="main-select" style="margin-bottom:0;">
+                        <option value="alle">Außenplätze: Egal</option>
+                        <option value="Ja">☀️ Mit Außenbereich</option>
+                    </select>
+                    <select id="gastro-karte-filter" class="main-select" style="margin-bottom:0;">
+                        <option value="alle">Zahlung: Egal</option>
+                        <option value="Ja">💳 Kartenzahlung</option>
+                    </select>
+                </div>
+
                 <button id="btn-sort-gastro" class="ticket-btn" style="background:#17a2b8; margin-bottom:15px;">📍 In meiner Nähe finden</button>
                 <div id="gastro-container"></div>
             </div>
@@ -184,6 +205,6 @@
         <button data-target="tourismus">🛏️<br>Gast</button>
     </nav>
 
-    <script src="app.js?v=130"></script>
+    <script src="app.js?v=132"></script>
 </body>
 </html>

@@ -13,39 +13,107 @@ document.addEventListener('DOMContentLoaded', () => {
         return d.documentElement.textContent.replace(/&/g,'&').replace(/<[^>]*>?/gm,'').trim(); 
     };
 
+    // --- LIVE STATUS LOGIK ---
+    function getLiveStatus(item) {
+        if (!item.hoursLive || Object.keys(item.hoursLive).length === 0) return { status: 'unknown' };
+        
+        const now = new Date(); 
+        const day = now.getDay(); 
+        const prevDay = (day + 6) % 7; 
+        const minsNow = now.getHours() * 60 + now.getMinutes();
+        
+        let isOpen = false; 
+        let closingIn = -1; 
+        let closesAt = "";
+
+        const checkPeriod = (startStr, endStr) => {
+            let s = parseInt(startStr.split(':')[0]) * 60 + parseInt(startStr.split(':')[1]);
+            let e = parseInt(endStr.split(':')[0]) * 60 + parseInt(endStr.split(':')[1]);
+            return {s, e};
+        };
+
+        for (let period of (item.hoursLive[prevDay] || [])) {
+            let p = checkPeriod(...period.split('-'));
+            if (p.s > p.e && minsNow < p.e) { 
+                isOpen = true; closingIn = p.e - minsNow; closesAt = period.split('-')[1]; 
+            }
+        }
+        
+        if (!isOpen) {
+            for (let period of (item.hoursLive[day] || [])) {
+                let p = checkPeriod(...period.split('-'));
+                if (p.s <= p.e) {
+                    if (minsNow >= p.s && minsNow < p.e) { 
+                        isOpen = true; closingIn = p.e - minsNow; closesAt = period.split('-')[1]; break; 
+                    }
+                } else {
+                    if (minsNow >= p.s) { 
+                        isOpen = true; closingIn = (24 * 60 - minsNow) + p.e; closesAt = period.split('-')[1]; break; 
+                    }
+                }
+            }
+        }
+
+        if (isOpen) {
+            if (closingIn <= 60) return { status: 'closing', text: `🟠 Schließt in ${closingIn} Min.`, color: '#ffc107' };
+            return { status: 'open', text: `🟢 Geöffnet bis ${closesAt} Uhr`, color: '#28a745' };
+        }
+        return { status: 'closed', text: `🔴 Derzeit geschlossen`, color: '#dc3545' };
+    }
+
     // --- PWA INSTALL PROMPT ---
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
-        document.getElementById('pwa-prompt').style.display = 'flex';
+        const pwaPrompt = document.getElementById('pwa-prompt');
+        if(pwaPrompt) pwaPrompt.style.display = 'flex';
     });
+    
     const btnInstallPwa = document.getElementById('btn-install-pwa');
-    if (btnInstallPwa) {
+    if(btnInstallPwa) {
         btnInstallPwa.onclick = () => {
             if(deferredPrompt) {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then(() => { deferredPrompt = null; document.getElementById('pwa-prompt').style.display = 'none'; });
+                deferredPrompt.userChoice.then(() => { 
+                    deferredPrompt = null; 
+                    const pwaPrompt = document.getElementById('pwa-prompt');
+                    if(pwaPrompt) pwaPrompt.style.display = 'none'; 
+                });
             }
         };
     }
+    
     const btnClosePwa = document.getElementById('btn-close-pwa');
-    if (btnClosePwa) btnClosePwa.onclick = () => document.getElementById('pwa-prompt').style.display = 'none';
+    if(btnClosePwa) {
+        btnClosePwa.onclick = () => {
+            const pwaPrompt = document.getElementById('pwa-prompt');
+            if(pwaPrompt) pwaPrompt.style.display = 'none';
+        };
+    }
 
     // --- 2. UI HANDLER ---
-    const sideMenu = document.getElementById('side-menu'), 
-          overlay = document.getElementById('side-menu-overlay'), 
-          modal = document.getElementById('event-modal'), 
-          modalBody = document.getElementById('modal-body');
+    const sideMenu = document.getElementById('side-menu');
+    const overlay = document.getElementById('side-menu-overlay');
+    const modal = document.getElementById('event-modal');
+    const modalBody = document.getElementById('modal-body');
           
-    const toggleMenu = (s) => { sideMenu.classList.toggle('open', s); overlay.classList.toggle('open', s); };
-    document.getElementById('btn-hamburger').onclick = () => toggleMenu(true);
-    document.getElementById('btn-close-menu').onclick = () => toggleMenu(false);
-    overlay.onclick = () => toggleMenu(false);
+    const toggleMenu = (s) => { 
+        if(sideMenu) sideMenu.classList.toggle('open', s); 
+        if(overlay) overlay.classList.toggle('open', s); 
+    };
+    
+    const btnHamburger = document.getElementById('btn-hamburger');
+    if(btnHamburger) btnHamburger.onclick = () => toggleMenu(true);
+    
+    const btnCloseMenu = document.getElementById('btn-close-menu');
+    if(btnCloseMenu) btnCloseMenu.onclick = () => toggleMenu(false);
+    
+    if(overlay) overlay.onclick = () => toggleMenu(false);
 
     function wechselTab(t) {
-        const searchInput = document.getElementById('global-search-input');
-        if(searchInput) searchInput.value = ''; 
+        const globalSearch = document.getElementById('global-search-input');
+        if(globalSearch) globalSearch.value = ''; 
         
         const contentSearch = document.getElementById('content-search');
         if(contentSearch) contentSearch.style.display = 'none';
@@ -53,24 +121,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const tabWrappers = document.getElementById('tab-wrappers');
         if(tabWrappers) tabWrappers.style.display = 'block';
 
-        document.querySelectorAll('#tab-wrappers .tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.bottom-nav button, .side-nav-btn').forEach(b => b.classList.remove('active'));
         
         const target = document.getElementById('content-' + t);
         if(target) target.classList.add('active');
         
-        const bBtn = document.querySelector(`.bottom-nav button[data-target="${t}"]`); if(bBtn) bBtn.classList.add('active');
-        const sBtn = document.querySelector(`.side-nav-btn[data-target="${t}"]`); if(sBtn) sBtn.classList.add('active');
+        const bBtn = document.querySelector(`.bottom-nav button[data-target="${t}"]`); 
+        if(bBtn) bBtn.classList.add('active');
         
-        toggleMenu(false); window.scrollTo(0,0);
+        const sBtn = document.querySelector(`.side-nav-btn[data-target="${t}"]`); 
+        if(sBtn) sBtn.classList.add('active');
+        
+        toggleMenu(false); 
+        window.scrollTo(0,0);
 
         if(t === 'maps') {
             setTimeout(initLeafletMap, 100);
         }
     }
+    
     document.querySelectorAll('[data-target]').forEach(btn => btn.onclick = () => wechselTab(btn.dataset.target));
-    document.getElementById('btn-close-modal').onclick = () => modal.style.display = 'none';
-    modal.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+    
+    const btnCloseModal = document.getElementById('btn-close-modal');
+    if(btnCloseModal) btnCloseModal.onclick = () => modal.style.display = 'none';
+    
+    if(modal) modal.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
 
     // --- STANDORT & ENTFERNUNG ---
     function getDistance(lat1, lon1, lat2, lon2) {
@@ -104,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             prozessSortierung();
         } else if ("geolocation" in navigator) {
             const btn = document.getElementById(containerId === 'gastro-container' ? 'btn-sort-gastro' : 'btn-sort-hotels');
+            if(!btn) return;
             const originalText = btn.innerHTML;
             btn.innerHTML = "⏳ Suche Standort...";
             navigator.geolocation.getCurrentPosition(
@@ -120,103 +197,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- HILFSFUNKTION: IST GASTRO JETZT OFFEN? ---
-    function isGastroOpenNow(item) {
-        if (!item.hoursLive) return null;
-        const now = new Date(); 
-        const day = now.getDay(); 
-        const prevDay = (day + 6) % 7; 
-        const minsNow = now.getHours() * 60 + now.getMinutes();
-
-        const checkPeriod = (startStr, endStr) => {
-            let s = parseInt(startStr.split(':')[0]) * 60 + parseInt(startStr.split(':')[1]);
-            let e = parseInt(endStr.split(':')[0]) * 60 + parseInt(endStr.split(':')[1]);
-            return {s, e};
-        };
-
-        for (let period of (item.hoursLive[prevDay] || [])) {
-            let p = checkPeriod(...period.split('-'));
-            if (p.s > p.e && minsNow < p.e) return true;
-        }
-        for (let period of (item.hoursLive[day] || [])) {
-            let p = checkPeriod(...period.split('-'));
-            if (p.s <= p.e) {
-                if (minsNow >= p.s && minsNow < p.e) return true;
-            } else {
-                if (minsNow >= p.s) return true;
-            }
-        }
-        return false;
-    }
-
     // --- LEAFLET MAP IN-APP ---
     function initLeafletMap() {
         if(mapInitialized) {
-            leafletMap.invalidateSize();
+            if(leafletMap) leafletMap.invalidateSize(); 
             return;
         }
         
-        leafletMap = L.map('inapp-map').setView([51.5344, 7.6888], 14);
+        const mapContainer = document.getElementById('inapp-map');
+        if(!mapContainer) return; 
+        
+        if(typeof L === 'undefined') return;
+
+        leafletMap = L.map('inapp-map').setView([51.5344, 7.6888], 14); 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(leafletMap);
 
-        const createMarker = (item, type, iconStr, bgColor) => {
+        const createMarker = (item, type, iconStr) => {
             if(item.lat && item.lon) {
-                let statusIndicatorHTML = "";
-                let statusTooltipText = "";
-
-                // Wenn es ein Gastro-Eintrag ist, Live-Status abfragen
+                let markerColor = '#0056b3'; 
+                let tooltipText = `<strong>${iconStr} ${item.name}</strong>`;
+                
                 if (type === 'Gastro') {
-                    const isOpen = isGastroOpenNow(item);
-                    if (isOpen !== null) {
-                        const statusColor = isOpen ? '#28a745' : '#dc3545';
-                        statusIndicatorHTML = `<div style="position:absolute; bottom:-4px; right:-4px; width:14px; height:14px; border-radius:50%; background-color:${statusColor}; border:2px solid white; box-shadow: 0 1px 2px rgba(0,0,0,0.5);"></div>`;
-                        statusTooltipText = isOpen ? '<br><span style="color:#28a745; font-size:10px; font-weight:bold;">🟢 Geöffnet</span>' : '<br><span style="color:#dc3545; font-size:10px; font-weight:bold;">🔴 Geschlossen</span>';
-                    }
+                    const ls = getLiveStatus(item);
+                    if (ls.status === 'open') markerColor = '#28a745';
+                    else if (ls.status === 'closing') markerColor = '#ffc107';
+                    else if (ls.status === 'closed') markerColor = '#dc3545';
+                    else markerColor = '#6c757d'; // Grau für unbekannt/fehlende Daten
+                    
+                    if(ls.status !== 'unknown') tooltipText += `<br><span style="font-size:11px;">${ls.text}</span>`;
+                } else {
+                    markerColor = '#17a2b8'; // Hotels etc.
                 }
-
+                
                 const customIcon = L.divIcon({
-                    className: 'custom-pin',
-                    html: `<div style="position:relative; background-color: ${bgColor}; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 3px 6px rgba(0,0,0,0.4); font-size: 16px;">
-                              ${iconStr}
-                              ${statusIndicatorHTML}
-                           </div>`,
-                    iconSize: [34, 34],
-                    iconAnchor: [17, 17],
-                    tooltipAnchor: [0, -17]
+                    html: `<div style="background-color:${markerColor}; width:30px; height:30px; border-radius:50%; border:2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:16px;">${iconStr}</div>`,
+                    className: '',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
                 });
 
                 const m = L.marker([item.lat, item.lon], {icon: customIcon}).addTo(leafletMap);
-                
-                let subTitle = item.kategorie ? item.kategorie : type;
-                m.bindTooltip(`<strong>${item.name}</strong><br><span style="font-size:11px; color:#555;">${subTitle}</span>${statusTooltipText}`, {direction: 'top'});
+                m.bindTooltip(tooltipText, {direction: 'top'});
                 m.on('click', () => oeffneDetails(item, type));
             }
         };
 
-        // GASTRO PINS (Nach Kategorie unterschieden)
-        gastroDaten.forEach(g => {
-            let iconStr = '🍽️';
-            let bgColor = '#e67e22'; // Orange (Default / Restaurant)
-            
-            if(g.kategorie === 'Café') { 
-                iconStr = '☕'; bgColor = '#8d6e63'; // Braun
-            } else if(g.kategorie === 'Bar & Kneipe') { 
-                iconStr = '🍻'; bgColor = '#9b59b6'; // Lila
-            }
-            
-            createMarker(g, 'Gastro', iconStr, bgColor);
-        });
-
-        // HOTEL PINS
-        hotelsDaten.forEach(h => createMarker(h, 'Hotel', '🛏️', '#0056b3')); // Blau
+        gastroDaten.forEach(g => createMarker(g, 'Gastro', '🍽️'));
+        hotelsDaten.forEach(h => createMarker(h, 'Hotel', '🛏️'));
         
         mapInitialized = true;
     }
 
-    const btnLocateMap = document.getElementById('btn-locate-map');
-    if (btnLocateMap) {
-        btnLocateMap.onclick = () => {
-            if ("geolocation" in navigator) {
+    const btnLocate = document.getElementById('btn-locate-map');
+    if(btnLocate) {
+        btnLocate.onclick = () => {
+            if ("geolocation" in navigator && typeof L !== 'undefined' && leafletMap) {
                 navigator.geolocation.getCurrentPosition(pos => {
                     userLat = pos.coords.latitude; userLon = pos.coords.longitude;
                     L.circleMarker([userLat, userLon], {color: '#d9534f', radius: 8, fillOpacity: 0.8}).addTo(leafletMap).bindTooltip("Dein Standort").openTooltip();
@@ -232,10 +267,28 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = obj.bildUrl ? `<img src="${obj.bildUrl}" class="modal-img">` : '';
         html += `<h2>${title}</h2>`;
         
+        // --- Live Status & Meta-Tags im Detail-Modal anzeigen ---
+        if (typ === 'Gastro' || obj._type === 'Gastro') {
+            const ls = getLiveStatus(obj);
+            if(ls.status !== 'unknown') {
+                const bg = ls.status === 'open' ? '#d4edda' : ls.status === 'closing' ? '#fff3cd' : '#f8d7da';
+                const col = ls.status === 'open' ? '#155724' : ls.status === 'closing' ? '#856404' : '#721c24';
+                html += `<div class="status-badge" style="background:${bg}; color:${col}; margin-bottom:15px; margin-top:0; display:inline-block; font-size:13px;">${ls.text}</div><br>`;
+            }
+
+            let tagsHTML = `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; font-size:11px;">`;
+            if (obj.kueche) tagsHTML += `<span class="status-badge" style="background:#e9ecef; border:none; color:#333; margin-top:0;">🍴 ${obj.kueche}</span>`;
+            if (obj.aussenplaetze === 'Ja') tagsHTML += `<span class="status-badge" style="background:#d4edda; border:none; color:#155724; margin-top:0;">☀️ Außenplätze</span>`;
+            if (obj.kartenzahlung === 'Ja') tagsHTML += `<span class="status-badge" style="background:#cce5ff; border:none; color:#004085; margin-top:0;">💳 Kartenzahlung</span>`;
+            if (obj.lieferdienst === 'Ja') tagsHTML += `<span class="status-badge" style="background:#fff3cd; border:none; color:#856404; margin-top:0;">🛵 Lieferdienst</span>`;
+            tagsHTML += `</div>`;
+            html += tagsHTML;
+        }
+        
         let shareBtnHTML = navigator.share ? `<button id="btn-share-item" class="ticket-btn" style="background:#17a2b8; flex:1;">📤 Teilen</button>` : '';
         html += `<div style="display:flex; gap:10px; margin-bottom:15px;">
                     ${shareBtnHTML}
-                    <button id="btn-copy-action" class="copy-btn" style="flex:1;">📋 Text kopieren</button>
+                    <button id="btn-copy-action" class="copy-btn" style="flex:1;">📋 Kopieren</button>
                  </div>`;
                  
         if ((typ === 'Event' || obj._type === 'Event') && obj.start_date) {
@@ -258,19 +311,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         html += `<button class="ticket-btn" style="background:#555; margin-top:30px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
-        modalBody.innerHTML = html;
         
-        document.getElementById('btn-copy-action').onclick = () => { 
-            let dateStr = "";
-            if (obj.start_date) {
-                const d = new Date(obj.start_date);
-                dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`;
-            }
-            const copyText = `📌 ${title.replace(/&/g, '&')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`;
-            navigator.clipboard.writeText(copyText); 
-            document.getElementById('btn-copy-action').innerHTML = "✅ Kopiert!"; 
-            setTimeout(() => { document.getElementById('btn-copy-action').innerHTML = "📋 Text kopieren"; }, 2000);
-        };
+        if(modalBody) modalBody.innerHTML = html;
+        
+        const copyAction = document.getElementById('btn-copy-action');
+        if(copyAction) {
+            copyAction.onclick = () => { 
+                let dateStr = "";
+                if (obj.start_date) {
+                    const d = new Date(obj.start_date);
+                    dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`;
+                }
+                const copyText = `📌 ${title.replace(/&/g, '&')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`;
+                navigator.clipboard.writeText(copyText); 
+                copyAction.innerHTML = "✅ Kopiert!"; 
+                setTimeout(() => { copyAction.innerHTML = "📋 Kopieren"; }, 2000);
+            };
+        }
 
         const btnShare = document.getElementById('btn-share-item');
         if (btnShare) {
@@ -283,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnCal) {
             btnCal.onclick = () => {
                 const start = new Date(obj.start_date);
-                const end = new Date(start.getTime() + 2*60*60*1000);
+                const end = new Date(start.getTime() + 2*60*60*1000); 
                 const formatD = (date) => date.toISOString().replace(/-|:|\.\d+/g, '').substring(0, 15) + 'Z';
                 const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${formatD(start)}\nDTEND:${formatD(end)}\nSUMMARY:${title}\nLOCATION:${obj.adresse || 'Unna'}\nDESCRIPTION:${clean(desc).replace(/\n/g, '\\n')}\nEND:VEVENT\nEND:VCALENDAR`;
                 const blob = new Blob([ics], { type: 'text/calendar' });
@@ -294,7 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
         
-        modal.style.display = 'block'; modal.scrollTop = 0;
+        if(modal) {
+            modal.style.display = 'block'; 
+            modal.scrollTop = 0;
+        }
     }
 
     function rendereListe(id, daten, typ) {
@@ -305,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let info = "";
             
             if (typ === 'Mixed') {
-                info += `<div class="status-badge badge-search">🏷️ ${item._type}</div>`;
+                info += `<div class="status-badge badge-search" style="margin-top:0;">🏷️ ${item._type}</div>`;
             }
 
             if ((typ === 'Event' || item._type === 'Event') && item.start_date) {
@@ -314,70 +374,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.adresse) {
                 info += `<div class="event-info-line" style="margin-bottom: 5px;">📍 ${clean(item.adresse)}</div>`;
             }
+            
+            if ((typ === 'Gastro' || item._type === 'Gastro') && item.kueche) {
+                info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🍴 ${item.kueche}</div>`;
+            }
+
             if (item.entfernung && item.entfernung !== Infinity) {
                 info += `<div class="event-info-line" style="margin-bottom: 5px; color:#0056b3; font-weight:bold;">🚶 ${formatDistance(item.entfernung)} Luftlinie</div>`;
             }
 
-            // GASTRO LIVE STATUS & NEXT OPEN
-            if ((typ === 'Gastro' || item._type === 'Gastro') && item.hoursLive) {
-                const now = new Date(); const day = now.getDay(); const prevDay = (day + 6) % 7; 
-                const minsNow = now.getHours() * 60 + now.getMinutes();
-                let isOpen = false; let closingIn = -1; let closesAt = "";
-
-                const checkPeriod = (startStr, endStr) => {
-                    let s = parseInt(startStr.split(':')[0]) * 60 + parseInt(startStr.split(':')[1]);
-                    let e = parseInt(endStr.split(':')[0]) * 60 + parseInt(endStr.split(':')[1]);
-                    return {s, e};
-                };
-
-                for (let period of (item.hoursLive[prevDay] || [])) {
-                    let p = checkPeriod(...period.split('-'));
-                    if (p.s > p.e && minsNow < p.e) { isOpen = true; closingIn = p.e - minsNow; closesAt = period.split('-')[1]; }
-                }
-                
-                if (!isOpen) {
-                    for (let period of (item.hoursLive[day] || [])) {
-                        let p = checkPeriod(...period.split('-'));
-                        if (p.s <= p.e) {
-                            if (minsNow >= p.s && minsNow < p.e) { isOpen = true; closingIn = p.e - minsNow; closesAt = period.split('-')[1]; break; }
-                        } else {
-                            if (minsNow >= p.s) { isOpen = true; closingIn = (24 * 60 - minsNow) + p.e; closesAt = period.split('-')[1]; break; }
-                        }
-                    }
-                }
-
-                if (isOpen) {
-                    info += `<div class="status-badge ${closingIn <= 60 ? 'status-closing' : 'status-open'}">${closingIn <= 60 ? '🟠 Schließt in '+closingIn+' Min.' : '🟢 Geöffnet bis '+closesAt+' Uhr'}</div>`;
-                } else {
-                    let nextOpenStr = ""; let nextDayOffset = -1;
-                    for (let period of (item.hoursLive[day] || [])) {
-                        let p = checkPeriod(...period.split('-'));
-                        if (p.s > minsNow) {
-                            if (!nextOpenStr || p.s < checkPeriod(nextOpenStr + "-00:00", "00:00").s) { nextOpenStr = period.split('-')[0]; nextDayOffset = 0; }
-                        }
-                    }
-
-                    if (!nextOpenStr) {
-                        for (let i = 1; i <= 6; i++) {
-                            let checkDay = (day + i) % 7;
-                            if (item.hoursLive[checkDay] && item.hoursLive[checkDay].length > 0) {
-                                let earliestStart = Infinity;
-                                for (let period of item.hoursLive[checkDay]) {
-                                    let p = checkPeriod(...period.split('-'));
-                                    if (p.s < earliestStart) { earliestStart = p.s; nextOpenStr = period.split('-')[0]; }
-                                }
-                                if (nextOpenStr) { nextDayOffset = i; break; }
-                            }
-                        }
-                    }
-
-                    if (nextOpenStr) {
-                        let dayNames = ['So.', 'Mo.', 'Di.', 'Mi.', 'Do.', 'Fr.', 'Sa.'];
-                        let dayText = nextDayOffset === 0 ? "heute" : nextDayOffset === 1 ? "morgen" : dayNames[(day + nextDayOffset) % 7];
-                        info += `<div class="status-badge status-closed">🔴 Geschlossen (Öffnet ${dayText} um ${nextOpenStr} Uhr)</div>`;
-                    } else {
-                        info += `<div class="status-badge status-closed">🔴 Derzeit geschlossen</div>`;
-                    }
+            // --- Live Status Icon in der Liste ---
+            if ((typ === 'Gastro' || item._type === 'Gastro')) {
+                const ls = getLiveStatus(item);
+                if (ls.status !== 'unknown') {
+                    let badgeClass = ls.status === 'open' ? 'status-open' : ls.status === 'closing' ? 'status-closing' : 'status-closed';
+                    info += `<div class="status-badge ${badgeClass}">${ls.text}</div>`;
                 }
             }
 
@@ -387,57 +398,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ZENTRALE EVENT-FILTER FUNKTION ---
-    function applyEventFilters() {
-        const evtSearchField = document.getElementById('event-search');
-        const q = evtSearchField ? evtSearchField.value.toLowerCase() : '';
-        
-        const evtCatFilter = document.getElementById('event-category-filter');
-        const cat = evtCatFilter ? evtCatFilter.value.toLowerCase() : 'alle';
-        
-        let filtered = eventDaten.filter(e => {
-            const matchesSearch = clean(e.name || e.title).toLowerCase().includes(q);
-            const matchesCat = (cat === 'alle') || (e.description + (e.name||e.title)).toLowerCase().includes(cat);
-            if(!matchesSearch || !matchesCat) return false;
-            
-            if(currentDayFilter === 'all') return true;
-            
-            const eDate = new Date(e.start_date);
-            const today = new Date(); today.setHours(0,0,0,0);
-            const tomorrow = new Date(today.getTime() + 86400000);
-            
-            if(currentDayFilter === 'today') return eDate.toDateString() === today.toDateString();
-            if(currentDayFilter === 'tomorrow') return eDate.toDateString() === tomorrow.toDateString();
-            if(currentDayFilter === 'weekend') return [5, 6, 0].includes(eDate.getDay());
-            return true;
-        });
-        rendereListe('events-container', filtered, 'Event');
-    }
-
     // --- GLOBALE SUCHE ---
     const globalSearchInput = document.getElementById('global-search-input');
-    if (globalSearchInput) {
+    if(globalSearchInput) {
         globalSearchInput.addEventListener('input', (e) => {
             const q = e.target.value.toLowerCase();
+            const tabWrappers = document.getElementById('tab-wrappers');
+            const contentSearch = document.getElementById('content-search');
+            
             if(q.length > 2) {
-                const tabWrappers = document.getElementById('tab-wrappers');
                 if(tabWrappers) tabWrappers.style.display = 'none';
-                
-                const contentSearch = document.getElementById('content-search');
                 if(contentSearch) contentSearch.style.display = 'block';
                 
                 let results = [];
                 eventDaten.filter(x => (x.name||x.title||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Event'}));
-                gastroDaten.filter(x => (x.name||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Gastro'}));
+                gastroDaten.filter(x => (x.name||'').toLowerCase().includes(q) || (x.kueche||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Gastro'}));
                 vereinsDaten.filter(x => (x.name||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Verein'}));
                 hotelsDaten.filter(x => (x.name||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Hotel'}));
                 
                 rendereListe('search-results-container', results, 'Mixed');
             } else if(q.length === 0) {
-                const contentSearch = document.getElementById('content-search');
                 if(contentSearch) contentSearch.style.display = 'none';
-                
-                const tabWrappers = document.getElementById('tab-wrappers');
                 if(tabWrappers) tabWrappers.style.display = 'block';
             }
         });
@@ -445,14 +426,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. INDEPENDENT FETCHERS ---
     async function init() {
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r=>r.json()).then(d=> {
-            const nc = document.getElementById('news-container'); if(!nc) return;
-            nc.innerHTML = '';
-            d.items.forEach(i => nc.innerHTML += `<div class="news-card"><div class="news-date">${new Date(i.pubDate).toLocaleDateString()}</div><h3>${clean(i.title)}</h3><a href="${i.link}" target="_blank" class="ticket-btn" style="background:#666; padding:8px; font-size:11px;">Lesen</a></div>`);
-        }).catch(()=> {
-            const nc = document.getElementById('news-container');
-            if(nc) nc.innerHTML = 'News aktuell nicht verfügbar.';
-        });
+        const newsContainer = document.getElementById('news-container');
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032')
+        .then(r=>r.json())
+        .then(d=> {
+            if(!newsContainer) return;
+            newsContainer.innerHTML = '';
+            d.items.forEach(i => newsContainer.innerHTML += `<div class="news-card"><div class="news-date">${new Date(i.pubDate).toLocaleDateString()}</div><h3>${clean(i.title)}</h3><a href="${i.link}" target="_blank" class="ticket-btn" style="background:#666; padding:8px; font-size:11px;">Lesen</a></div>`);
+        }).catch(()=> { if(newsContainer) newsContainer.innerHTML = 'News aktuell nicht verfügbar.'; });
 
         const fetchParkData = async () => {
             const container = document.getElementById('park-status-container');
@@ -491,45 +472,85 @@ document.addEventListener('DOMContentLoaded', () => {
             rendereListe('rad-container', d.rad, 'Rad');
             const tc = document.getElementById('taxi-container'); 
             if(tc) {
-                tc.innerHTML = ''; d.taxi.forEach(t => tc.innerHTML += `<a href="tel:${t.telefon}" class="ticket-btn">🚕 ${t.name}</a>`);
+                tc.innerHTML = ''; 
+                d.taxi.forEach(t => tc.innerHTML += `<a href="tel:${t.telefon}" class="ticket-btn">🚕 ${t.name}</a>`);
             }
-        });
+        }).catch(e => console.log("Fehler bei Mobilität", e));
 
-        fetch('gastronomie.json').then(r=>r.json()).then(d => { gastroDaten = d.sort((a, b) => a.name.localeCompare(b.name, 'de')); rendereListe('gastro-container', gastroDaten, 'Gastro'); });
-        fetch('vereine.json').then(r=>r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Vereine'); });
-        fetch('uebernachtungen.json').then(r=>r.json()).then(d => { hotelsDaten = d; rendereListe('hotels-container', d, 'Hotel'); });
+        fetch('gastronomie.json').then(r=>r.json()).then(d => { 
+            gastroDaten = d.sort((a, b) => a.name.localeCompare(b.name, 'de')); 
+            rendereListe('gastro-container', gastroDaten, 'Gastro'); 
+        }).catch(e => console.log("Fehler bei Gastro", e));
+        
+        fetch('vereine.json').then(r=>r.json()).then(d => { 
+            vereinsDaten = d; 
+            rendereListe('vereine-container', d, 'Vereine'); 
+        }).catch(e => console.log("Fehler bei Vereine", e));
+        
+        fetch('uebernachtungen.json').then(r=>r.json()).then(d => { 
+            hotelsDaten = d; 
+            rendereListe('hotels-container', d, 'Hotel'); 
+        }).catch(e => console.log("Fehler bei Hotels", e));
 
         fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events?per_page=50').then(r=>r.json()).then(d=> {
-            eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue}));
-            applyEventFilters(); 
-        });
+            if(d.events) {
+                eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue}));
+                rendereListe('events-container', eventDaten, 'Event');
+            }
+        }).catch(e => console.log("Fehler bei Events", e));
     }
+    
+    // START
     init();
 
-    // --- EVENT LISTENER FÜR FILTER ---
+    // Filters & Buttons
     document.querySelectorAll('#time-filter-row .filter-pill').forEach(btn => {
         btn.onclick = function() {
             document.querySelectorAll('#time-filter-row .filter-pill').forEach(b => b.classList.remove('active'));
-            this.classList.add('active'); 
-            currentDayFilter = this.dataset.time;
-            applyEventFilters();
+            this.classList.add('active'); currentDayFilter = this.dataset.time;
+            
+            const catFilter = document.getElementById('event-category-filter');
+            const cat = catFilter ? catFilter.value.toLowerCase() : 'alle';
+            
+            let filtered = eventDaten.filter(e => {
+                const matchesCat = (cat === 'alle') || ((e.description || '') + (e.name || '')).toLowerCase().includes(cat);
+                if(!matchesCat) return false;
+                if(currentDayFilter === 'all') return true;
+                const eDate = new Date(e.start_date);
+                const today = new Date(); today.setHours(0,0,0,0);
+                const tomorrow = new Date(today.getTime() + 86400000);
+                if(currentDayFilter === 'today') return eDate.toDateString() === today.toDateString();
+                if(currentDayFilter === 'tomorrow') return eDate.toDateString() === tomorrow.toDateString();
+                if(currentDayFilter === 'weekend') return [5, 6, 0].includes(eDate.getDay());
+                return true;
+            });
+            rendereListe('events-container', filtered, 'Event');
         };
     });
     
-    const evtCatFilter = document.getElementById('event-category-filter');
-    if(evtCatFilter) evtCatFilter.addEventListener('change', applyEventFilters);
+    const filterGastroData = () => {
+        const typVal = document.getElementById('gastro-typ-filter') ? document.getElementById('gastro-typ-filter').value : 'alle';
+        const kuecheVal = document.getElementById('gastro-kueche-filter') ? document.getElementById('gastro-kueche-filter').value : 'alle';
+        const aussenVal = document.getElementById('gastro-aussen-filter') ? document.getElementById('gastro-aussen-filter').value : 'alle';
+        const karteVal = document.getElementById('gastro-karte-filter') ? document.getElementById('gastro-karte-filter').value : 'alle';
 
-    const evtSearchField = document.getElementById('event-search');
-    if(evtSearchField) evtSearchField.addEventListener('input', applyEventFilters);
+        let filtered = gastroDaten.filter(x => {
+            if (typVal !== 'alle' && (!x.kategorie || !x.kategorie.includes(typVal))) return false;
+            if (kuecheVal !== 'alle' && (!x.kueche || !x.kueche.includes(kuecheVal))) return false;
+            if (aussenVal !== 'alle' && x.aussenplaetze !== aussenVal) return false;
+            if (karteVal !== 'alle' && x.kartenzahlung !== karteVal) return false;
+            return true;
+        });
 
-    const gastroFilter = document.getElementById('gastro-filter');
-    if(gastroFilter) {
-        gastroFilter.onchange = (e) => { 
-            const v = e.target.value; 
-            rendereListe('gastro-container', v === 'alle' ? gastroDaten : gastroDaten.filter(x => x.kategorie.includes(v)), 'Gastro'); 
-        };
-    }
-    
+        rendereListe('gastro-container', filtered, 'Gastro');
+        return filtered; 
+    };
+
+    ['gastro-typ-filter', 'gastro-kueche-filter', 'gastro-aussen-filter', 'gastro-karte-filter'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.addEventListener('change', filterGastroData);
+    });
+
     const vereinsFilter = document.getElementById('vereins-filter');
     if(vereinsFilter) {
         vereinsFilter.onchange = (e) => { 
@@ -545,7 +566,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btnShareApp) btnShareApp.onclick = () => { if(navigator.share) navigator.share({title: 'Kultur in Unna', url: window.location.href}); };
 
     const btnSortGastro = document.getElementById('btn-sort-gastro');
-    if(btnSortGastro) btnSortGastro.onclick = () => sortiereNachNaehe(document.getElementById('gastro-filter').value === 'alle' ? gastroDaten : gastroDaten.filter(x => x.kategorie.includes(document.getElementById('gastro-filter').value)), 'gastro-container', 'Gastro');
+    if(btnSortGastro) {
+        btnSortGastro.onclick = () => {
+            const gefilterteDaten = filterGastroData();
+            sortiereNachNaehe(gefilterteDaten, 'gastro-container', 'Gastro');
+        }
+    }
 
     const btnSortHotels = document.getElementById('btn-sort-hotels');
     if(btnSortHotels) btnSortHotels.onclick = () => sortiereNachNaehe(hotelsDaten, 'hotels-container', 'Hotel');

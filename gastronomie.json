@@ -36,9 +36,9 @@
             ]
         },
         "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "American Burger Lounge",
@@ -49,8 +49,38 @@
         "lon": 7.6784913,
         "telefon": "02303 9676362",
         "website": "",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 17:00–22:00 Uhr",
+            "Dienstag: 17:00–22:00 Uhr",
+            "Mittwoch: 17:00–22:00 Uhr",
+            "Donnerstag: 17:00–22:00 Uhr",
+            "Freitag: 17:00–22:30 Uhr",
+            "Samstag: 17:00–22:30 Uhr",
+            "Sonntag: 16:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "16:00-22:00"
+            ],
+            "1": [
+                "17:00-22:00"
+            ],
+            "2": [
+                "17:00-22:00"
+            ],
+            "3": [
+                "17:00-22:00"
+            ],
+            "4": [
+                "17:00-22:00"
+            ],
+            "5": [
+                "17:00-22:30"
+            ],
+            "6": [
+                "17:00-22:30"
+            ]
+        },
         "beschreibung": "Lieferdienst für Burger in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Ja",
@@ -99,8 +129,8 @@
         },
         "beschreibung": "Türkisches Restaurant in Unna.",
         "kartenzahlung": "unbekannt",
-        "lieferdienst": "unbekannt",
-        "aussenplaetze": "unbekannt"
+        "lieferdienst": "Nein",
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Bambus Asia-Imbiss",
@@ -111,8 +141,38 @@
         "lon": 7.6821054,
         "telefon": "02303 9477811",
         "website": "http://bambusasia-imbissunna.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 11:30–22:00 Uhr",
+            "Dienstag: 11:30–22:00 Uhr",
+            "Mittwoch: 11:30–22:00 Uhr",
+            "Donnerstag: 11:30–22:00 Uhr",
+            "Freitag: 11:30–22:00 Uhr",
+            "Samstag: 11:30–22:00 Uhr",
+            "Sonntag: 12:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "12:00-22:00"
+            ],
+            "1": [
+                "11:30-22:00"
+            ],
+            "2": [
+                "11:30-22:00"
+            ],
+            "3": [
+                "11:30-22:00"
+            ],
+            "4": [
+                "11:30-22:00"
+            ],
+            "5": [
+                "11:30-22:00"
+            ],
+            "6": [
+                "11:30-22:00"
+            ]
+        },
         "beschreibung": "Asia-Imbiss und Lieferdienst.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Ja",
@@ -163,9 +223,9 @@
             ]
         },
         "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Bistro SiSi",
@@ -205,9 +265,9 @@
             ]
         },
         "beschreibung": "Restaurant in Unna. Italienische und österreichische Küche",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Bistro Trittbrett",
@@ -248,9 +308,9 @@
             ]
         },
         "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Nein"
     },
     {
         "name": "Cafe Extrablatt Unna",
@@ -260,8 +320,38 @@
         "lon": 7.690093,
         "telefon": "0230 3253438",
         "website": "https://cafe-extrablatt.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 09:00–23:00 Uhr",
+            "Dienstag: 09:00–23:00 Uhr",
+            "Mittwoch: 09:00–23:00 Uhr",
+            "Donnerstag: 09:00–23:00 Uhr",
+            "Freitag: 09:00–00:00 Uhr",
+            "Samstag: 09:00–00:00 Uhr",
+            "Sonntag: 09:00–23:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "09:00-23:00"
+            ],
+            "1": [
+                "09:00-23:00"
+            ],
+            "2": [
+                "09:00-23:00"
+            ],
+            "3": [
+                "09:00-23:00"
+            ],
+            "4": [
+                "09:00-23:00"
+            ],
+            "5": [
+                "09:00-24:00"
+            ],
+            "6": [
+                "09:00-24:00"
+            ]
+        },
         "beschreibung": "Café und Restaurant am Markt.",
         "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
@@ -318,8 +408,38 @@
         "lon": 7.6870985,
         "telefon": "02378 8629071",
         "website": "http://cafe-moller-unna.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 09:00–18:00 Uhr",
+            "Dienstag: 09:00–18:00 Uhr",
+            "Mittwoch: 09:00–18:00 Uhr",
+            "Donnerstag: 09:00–18:00 Uhr",
+            "Freitag: 09:00–18:00 Uhr",
+            "Samstag: 09:00–18:00 Uhr",
+            "Sonntag: 10:00–18:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "10:00-18:00"
+            ],
+            "1": [
+                "09:00-18:00"
+            ],
+            "2": [
+                "09:00-18:00"
+            ],
+            "3": [
+                "09:00-18:00"
+            ],
+            "4": [
+                "09:00-18:00"
+            ],
+            "5": [
+                "09:00-18:00"
+            ],
+            "6": [
+                "09:00-18:00"
+            ]
+        },
         "beschreibung": "Traditionelles Café in Unna.",
         "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
@@ -415,9 +535,9 @@
             ]
         },
         "beschreibung": "Café in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "China City Unna",
@@ -428,8 +548,44 @@
         "lon": 7.6907122,
         "telefon": "02303 9681858",
         "website": "http://china-city-unna.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 11:30–15:00 Uhr, 17:30–22:30 Uhr",
+            "Dienstag: 11:30–15:00 Uhr, 17:30–22:30 Uhr",
+            "Mittwoch: 11:30–15:00 Uhr, 17:30–22:30 Uhr",
+            "Donnerstag: 11:30–15:00 Uhr, 17:30–22:30 Uhr",
+            "Freitag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Samstag: 11:30–15:00 Uhr, 17:30–23:00 Uhr",
+            "Sonntag: 11:30–22:30 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "11:30-22:30"
+            ],
+            "1": [
+                "11:30-15:00",
+                "17:30-22:30"
+            ],
+            "2": [
+                "11:30-15:00",
+                "17:30-22:30"
+            ],
+            "3": [
+                "11:30-15:00",
+                "17:30-22:30"
+            ],
+            "4": [
+                "11:30-15:00",
+                "17:30-22:30"
+            ],
+            "5": [
+                "11:30-15:00",
+                "17:30-23:00"
+            ],
+            "6": [
+                "11:30-15:00",
+                "17:30-23:00"
+            ]
+        },
         "beschreibung": "Restaurant mit asiatischen und mongolischen Spezialitäten.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
@@ -444,8 +600,38 @@
         "lon": 7.6883594,
         "telefon": "02303 331413",
         "website": "http://delhi-roma-express.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 17:00–22:30 Uhr",
+            "Dienstag: 17:00–22:30 Uhr",
+            "Mittwoch: 17:00–22:30 Uhr",
+            "Donnerstag: 17:00–22:30 Uhr",
+            "Freitag: 17:00–23:00 Uhr",
+            "Samstag: 17:00–23:00 Uhr",
+            "Sonntag: 16:00–22:30 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "16:00-22:30"
+            ],
+            "1": [
+                "17:00-22:30"
+            ],
+            "2": [
+                "17:00-22:30"
+            ],
+            "3": [
+                "17:00-22:30"
+            ],
+            "4": [
+                "17:00-22:30"
+            ],
+            "5": [
+                "17:00-23:00"
+            ],
+            "6": [
+                "17:00-23:00"
+            ]
+        },
         "beschreibung": "Lieferservice für indische, italienische und griechische Gerichte.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Ja",
@@ -460,8 +646,38 @@
         "lon": 7.6882266,
         "telefon": "02303 22270",
         "website": "",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 11:00–22:00 Uhr",
+            "Dienstag: 11:00–22:00 Uhr",
+            "Mittwoch: 11:00–22:00 Uhr",
+            "Donnerstag: 11:00–22:00 Uhr",
+            "Freitag: 11:00–22:30 Uhr",
+            "Samstag: 11:00–22:30 Uhr",
+            "Sonntag: 12:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "12:00-22:00"
+            ],
+            "1": [
+                "11:00-22:00"
+            ],
+            "2": [
+                "11:00-22:00"
+            ],
+            "3": [
+                "11:00-22:00"
+            ],
+            "4": [
+                "11:00-22:00"
+            ],
+            "5": [
+                "11:00-22:30"
+            ],
+            "6": [
+                "11:00-22:30"
+            ]
+        },
         "beschreibung": "Türkischer Imbiss und Lieferdienst.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Ja",
@@ -553,9 +769,9 @@
             ]
         },
         "beschreibung": "Eiscafé in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Eiscafe La Venezia",
@@ -598,14 +814,14 @@
         "beschreibung": "Café in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Eiscafé Rialto2 Unna",
         "kategorie": "Café",
         "adresse": "Massener Str. 33, 59423 Unna",
-        "lat": 51.5345659,
-        "lon": 7.6849086,
+        "lat": 51.5345739,
+        "lon": 7.6853567,
         "telefon": "02303 9298588",
         "website": "https://www.facebook.com/share/17HdHbDJzr/?mibextid=wwXIfr",
         "oeffnungszeiten": [
@@ -639,9 +855,9 @@
             ]
         },
         "beschreibung": "Eiscafé in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Eventaurant amt31",
@@ -675,7 +891,7 @@
         "beschreibung": "Restaurant in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Foyer",
@@ -723,9 +939,9 @@
             ]
         },
         "beschreibung": "Restaurant, indische und italienische Küche.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Fuli-Express",
@@ -736,10 +952,40 @@
         "lon": 7.6794201,
         "telefon": "02303 14160",
         "website": "http://fuli-express.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 11:30–22:00 Uhr",
+            "Dienstag: 11:30–22:00 Uhr",
+            "Mittwoch: 11:30–22:00 Uhr",
+            "Donnerstag: 11:30–22:00 Uhr",
+            "Freitag: 11:30–22:00 Uhr",
+            "Samstag: 11:30–22:00 Uhr",
+            "Sonntag: 12:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "12:00-22:00"
+            ],
+            "1": [
+                "11:30-22:00"
+            ],
+            "2": [
+                "11:30-22:00"
+            ],
+            "3": [
+                "11:30-22:00"
+            ],
+            "4": [
+                "11:30-22:00"
+            ],
+            "5": [
+                "11:30-22:00"
+            ],
+            "6": [
+                "11:30-22:00"
+            ]
+        },
         "beschreibung": "Lieferservice und Asiatischer Imbiss.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Ja",
         "aussenplaetze": "Nein"
     },
@@ -752,12 +998,42 @@
         "lon": 7.694053,
         "telefon": "02303 773256",
         "website": "http://gyros-unna.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 11:30–22:00 Uhr",
+            "Dienstag: 11:30–22:00 Uhr",
+            "Mittwoch: 11:30–22:00 Uhr",
+            "Donnerstag: 11:30–22:00 Uhr",
+            "Freitag: 11:30–22:30 Uhr",
+            "Samstag: 11:30–22:30 Uhr",
+            "Sonntag: 12:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "12:00-22:00"
+            ],
+            "1": [
+                "11:30-22:00"
+            ],
+            "2": [
+                "11:30-22:00"
+            ],
+            "3": [
+                "11:30-22:00"
+            ],
+            "4": [
+                "11:30-22:00"
+            ],
+            "5": [
+                "11:30-22:30"
+            ],
+            "6": [
+                "11:30-22:30"
+            ]
+        },
         "beschreibung": "Griechischer Imbiss und Lieferservice.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Ja",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Nein"
     },
     {
         "name": "Hermanns",
@@ -837,7 +1113,7 @@
         "beschreibung": "Café in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "Nein"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Königsborner Eislädchen",
@@ -882,7 +1158,7 @@
         "beschreibung": "Eiscafé in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Nein"
     },
     {
         "name": "KUHBAR Unna (A. Pelz)",
@@ -969,7 +1245,7 @@
         "beschreibung": "Restaurant in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "La Locanda",
@@ -1018,62 +1294,51 @@
         "lieferdienst": "Nein",
         "aussenplaetze": "unbekannt"
     },
-	{
+    {
         "name": "Lido",
         "kategorie": "Restaurant",
         "kueche": "Vietnamesisch, Asiatisch",
         "adresse": "Markt 11, 59423 Unna",
-        "lat": 51.5344,
-        "lon": 7.6889,
+        "lat": 51.5345679,
+        "lon": 7.6894848,
         "telefon": "02303 8714588",
         "website": "",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
-        "beschreibung": "Vietnamesisches Restaurant am Markt in Unna.",
-        "kartenzahlung": "Nein",
-        "lieferdienst": "unbekannt",
-        "aussenplaetze": "Ja"
-    },
-    {
-        "name": "Lindenbrauerei e. V. Kultur- und Kommunikationszentrum",
-        "kategorie": "Bar & Kneipe",
-        "adresse": "Rio-Reiser-Weg 1, 59423 Unna",
-        "lat": 51.5349018,
-        "lon": 7.6848209,
-        "telefon": "02303 959471",
-        "website": "http://www.lindenbrauerei.de/",
         "oeffnungszeiten": [
-            "Montag: 10:00–14:00 Uhr",
-            "Dienstag: Geschlossen",
-            "Mittwoch: 10:00–14:00 Uhr",
-            "Donnerstag: 18:00–23:00 Uhr",
-            "Freitag: 10:00–00:00 Uhr",
-            "Samstag: 18:00–01:00 Uhr",
-            "Sonntag: Geschlossen"
+            "Montag: 11:30–22:30 Uhr",
+            "Dienstag: 11:30–22:30 Uhr",
+            "Mittwoch: 11:30–22:30 Uhr",
+            "Donnerstag: 11:30–22:30 Uhr",
+            "Freitag: 11:30–22:30 Uhr",
+            "Samstag: 11:30–22:30 Uhr",
+            "Sonntag: 11:30–22:30 Uhr"
         ],
         "hoursLive": {
-            "0": [],
-            "1": [
-                "10:00-14:00"
+            "0": [
+                "11:30-22:30"
             ],
-            "2": [],
+            "1": [
+                "11:30-22:30"
+            ],
+            "2": [
+                "11:30-22:30"
+            ],
             "3": [
-                "10:00-14:00"
+                "11:30-22:30"
             ],
             "4": [
-                "18:00-23:00"
+                "11:30-22:30"
             ],
             "5": [
-                "10:00-24:00"
+                "11:30-22:30"
             ],
             "6": [
-                "18:00-01:00"
+                "11:30-22:30"
             ]
         },
-        "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "beschreibung": "Vietnamesisches Restaurant am Markt in Unna.",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Morgentor",
@@ -1143,9 +1408,9 @@
             ]
         },
         "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Nein"
     },
     {
         "name": "My Pizza Unna",
@@ -1156,8 +1421,38 @@
         "lon": 7.6924347,
         "telefon": "02303 2920531",
         "website": "http://mypizzaunna.de",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 17:00–22:30 Uhr",
+            "Dienstag: 17:00–22:30 Uhr",
+            "Mittwoch: 17:00–22:30 Uhr",
+            "Donnerstag: 17:00–22:30 Uhr",
+            "Freitag: 17:00–23:00 Uhr",
+            "Samstag: 17:00–23:00 Uhr",
+            "Sonntag: 16:00–22:30 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "16:00-22:30"
+            ],
+            "1": [
+                "17:00-22:30"
+            ],
+            "2": [
+                "17:00-22:30"
+            ],
+            "3": [
+                "17:00-22:30"
+            ],
+            "4": [
+                "17:00-22:30"
+            ],
+            "5": [
+                "17:00-23:00"
+            ],
+            "6": [
+                "17:00-23:00"
+            ]
+        },
         "beschreibung": "Pizzeria und Lieferservice.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Ja",
@@ -1201,14 +1496,14 @@
         "beschreibung": "Das Lokal mit dunklen Tischen, hellen Lederstühlen und rohen Ziegelwänden serviert internationale Speisen.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "neue waschkaue",
         "kategorie": "Bar & Kneipe",
         "adresse": "Breitenbachgelände, Hellweg 31-33, 59423 Unna",
-        "lat": 51.536,
-        "lon": 7.697,
+        "lat": 51.53621,
+        "lon": 7.69741,
         "telefon": "0172 5347111",
         "website": "http://www.ralf-bieri.de/",
         "oeffnungszeiten": [
@@ -1236,7 +1531,7 @@
         "beschreibung": "Bar / Cocktail Lounge.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Oller Kotten",
@@ -1277,7 +1572,7 @@
         "beschreibung": "Bar & Kneipe in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Piccola Taormina",
@@ -1327,7 +1622,7 @@
         "beschreibung": "Restaurant in Unna. Nur zum Mitnehmen.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Nein"
     },
     {
         "name": "Pizza Italiano Unna",
@@ -1374,7 +1669,7 @@
         "aussenplaetze": "unbekannt"
     },
     {
-        "name": "Pizzeria Casa Mia (Al-Murad)",
+        "name": "Pizzeria Casa Mia",
         "kategorie": "Lieferdienst & Imbiss",
         "kueche": "Pizza",
         "adresse": "Westring 1, 59423 Unna",
@@ -1382,10 +1677,40 @@
         "lon": 7.684935,
         "telefon": "",
         "website": "",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 17:00–22:30 Uhr",
+            "Dienstag: 17:00–22:30 Uhr",
+            "Mittwoch: 17:00–22:30 Uhr",
+            "Donnerstag: 17:00–22:30 Uhr",
+            "Freitag: 17:00–23:00 Uhr",
+            "Samstag: 17:00–23:00 Uhr",
+            "Sonntag: 16:00–22:30 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "16:00-22:30"
+            ],
+            "1": [
+                "17:00-22:30"
+            ],
+            "2": [
+                "17:00-22:30"
+            ],
+            "3": [
+                "17:00-22:30"
+            ],
+            "4": [
+                "17:00-22:30"
+            ],
+            "5": [
+                "17:00-23:00"
+            ],
+            "6": [
+                "17:00-23:00"
+            ]
+        },
         "beschreibung": "Pizzeria und Lieferdienst.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Ja",
         "aussenplaetze": "Ja"
     },
@@ -1394,8 +1719,8 @@
         "kategorie": "Restaurant",
         "kueche": "Italienisch, Pizza",
         "adresse": "Massener Str. 33, 59423 Unna",
-        "lat": 51.5345659,
-        "lon": 7.6849086,
+        "lat": 51.5345739,
+        "lon": 7.6853567,
         "telefon": "02303 9295787",
         "website": "https://pizzeria-viva.de/",
         "oeffnungszeiten": [
@@ -1433,7 +1758,7 @@
         "beschreibung": "Pizza-Imbiss in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Nein"
     },
     {
         "name": "Refugio",
@@ -1474,10 +1799,10 @@
                 "09:00-15:00"
             ]
         },
-        "beschreibung": "Restaurant in Unna.",
-        "kartenzahlung": "unbekannt",
+        "beschreibung": "Restaurant und Feinkost in Unna.",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Restaurant Akropolis",
@@ -1710,7 +2035,7 @@
         "aussenplaetze": "Ja"
     },
     {
-        "name": "Restaurant Tapas (Robies)",
+        "name": "Restaurant Tapas",
         "kategorie": "Restaurant",
         "kueche": "Spanisch, Tapas",
         "adresse": "Güldener Trog 5, 59423 Unna",
@@ -1718,17 +2043,45 @@
         "lon": 7.6924307,
         "telefon": "",
         "website": "",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 17:00–23:00 Uhr",
+            "Mittwoch: 17:00–23:00 Uhr",
+            "Donnerstag: 17:00–23:00 Uhr",
+            "Freitag: 17:00–23:30 Uhr",
+            "Samstag: 17:00–23:30 Uhr",
+            "Sonntag: 16:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "16:00-22:00"
+            ],
+            "1": [],
+            "2": [
+                "17:00-23:00"
+            ],
+            "3": [
+                "17:00-23:00"
+            ],
+            "4": [
+                "17:00-23:00"
+            ],
+            "5": [
+                "17:00-23:30"
+            ],
+            "6": [
+                "17:00-23:30"
+            ]
+        },
         "beschreibung": "Spanische Tapas Bar und Restaurant.",
         "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Restaurant Zur Post",
         "kategorie": "Restaurant",
-        "kueche": "Deutsch",
+        "kueche": "Deutsch, Kroatisch",
         "adresse": "Hemmerder Dorfstraße 76, 59427 Unna",
         "lat": 51.5463517,
         "lon": 7.8115659,
@@ -1770,9 +2123,9 @@
             ]
         },
         "beschreibung": "Restaurant in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Ristorante im Rathaus",
@@ -1783,10 +2136,46 @@
         "lon": 7.6910249,
         "telefon": "",
         "website": "",
-        "oeffnungszeiten": [],
-        "hoursLive": {},
+        "oeffnungszeiten": [
+            "Montag: 11:30–14:30 Uhr, 17:30–23:00 Uhr",
+            "Dienstag: 11:30–14:30 Uhr, 17:30–23:00 Uhr",
+            "Mittwoch: 11:30–14:30 Uhr, 17:30–23:00 Uhr",
+            "Donnerstag: 11:30–14:30 Uhr, 17:30–23:00 Uhr",
+            "Freitag: 11:30–14:30 Uhr, 17:30–23:30 Uhr",
+            "Samstag: 11:30–14:30 Uhr, 17:30–23:30 Uhr",
+            "Sonntag: 12:00–22:00 Uhr"
+        ],
+        "hoursLive": {
+            "0": [
+                "12:00-22:00"
+            ],
+            "1": [
+                "11:30-14:30",
+                "17:30-23:00"
+            ],
+            "2": [
+                "11:30-14:30",
+                "17:30-23:00"
+            ],
+            "3": [
+                "11:30-14:30",
+                "17:30-23:00"
+            ],
+            "4": [
+                "11:30-14:30",
+                "17:30-23:00"
+            ],
+            "5": [
+                "11:30-14:30",
+                "17:30-23:30"
+            ],
+            "6": [
+                "11:30-14:30",
+                "17:30-23:30"
+            ]
+        },
         "beschreibung": "Italienisches Restaurant am Rathaus.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
         "aussenplaetze": "Nein"
     },
@@ -1794,8 +2183,8 @@
         "name": "Schalander",
         "kategorie": "Bar & Kneipe",
         "adresse": "Massener Str. 33, 59423 Unna",
-        "lat": 51.5345659,
-        "lon": 7.6849086,
+        "lat": 51.5345739,
+        "lon": 7.6853567,
         "telefon": "02303 251120",
         "website": "https://lindenbrauerei.de/schalander/",
         "oeffnungszeiten": [
@@ -1823,9 +2212,9 @@
             ]
         },
         "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Ja",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Spatz und Wal",
@@ -1914,7 +2303,7 @@
         "beschreibung": "Steakhaus in Unna.",
         "kartenzahlung": "unbekannt",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     },
     {
         "name": "Uni",
@@ -1947,8 +2336,8 @@
             ]
         },
         "beschreibung": "Bar & Kneipe in Unna.",
-        "kartenzahlung": "unbekannt",
+        "kartenzahlung": "Nein",
         "lieferdienst": "Nein",
-        "aussenplaetze": "unbekannt"
+        "aussenplaetze": "Ja"
     }
 ]

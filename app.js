@@ -111,6 +111,80 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if(overlay) overlay.onclick = () => toggleMenu(false);
 
+    // --- IMPRESSUM & DATENSCHUTZ ---
+    const btnImpressum = document.getElementById('btn-impressum-side');
+    if(btnImpressum) {
+        btnImpressum.onclick = () => {
+            toggleMenu(false); 
+            
+            const html = `
+                <h2>Impressum & Rechtliche Hinweise</h2>
+                
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Herausgeberin</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    <strong>Kreisstadt Unna</strong><br>
+                    Rathausplatz 1, 59423 Unna<br>
+                    Fon: (02303) 103-0 (Zentrale) | Fax: (02303) 103-9998 (zentral)<br>
+                    E-Mail: post(at)stadt-unna.de | Internet: www.unna.de
+                </p>
+
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Vertretungsberechtigter</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    <strong>Bürgermeister Dirk Wigant</strong><br>
+                    Rathausplatz 1, 59423 Unna<br>
+                    (Die Kreisstadt Unna ist eine Körperschaft des öffentlichen Rechts.)
+                </p>
+
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Verantwortlich nach § 5 DDG iVm. § 18 II MStV</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    <strong>Kreisstadt Unna | Presse- und Öffentlichkeitsarbeit</strong><br>
+                    Anna Gemünd | E-Mail: anna.gemuend(at)stadt-unna.de<br>
+                    Kevin Kohues | E-Mail: kevin.kohues(at)stadt-unna.de
+                </p>
+
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Programmierung/Entwicklung/Redaktion</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    <strong>Kreisstadt Unna</strong><br>
+                    Armin Eichenmüller | E-Mail: armin.eichenmueller(at)stadt-unna.de
+                </p>
+
+                <hr style="border:0; border-top:1px solid var(--border); margin: 20px 0;">
+
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Urheberrecht & Bildnachweis</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    Layout, Texte, Bilder und sonstige Inhalte der Website sind urheberrechtlich geschützt. Einzelkopien von Seiten für den Privatgebrauch sind unter der Bedingung zulässig, dass der Urheberrechtshinweis der Kreisstadt Unna erhalten bleibt. Die Vervielfältigung von Daten ist ohne vorherige schriftliche Zustimmung nicht gestattet.<br><br>
+                    Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen Hinweis.<br><br>
+                    <strong>Bildnachweis:</strong> © Kreisstadt Unna, © Armin Eichenmüller, © (siehe Events)
+                </p>
+
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Haftungsausschluss & Externe Links</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    Die Kreisstadt Unna übernimmt keine Gewähr für die Aktualität, Richtigkeit und Vollständigkeit der bereitgestellten Informationen. Dies gilt ebenso für alle verlinkten Websites. Haftungsansprüche gegen die Kreisstadt Unna sind grundsätzlich ausgeschlossen.<br><br>
+                    Die App ist werbefrei und veröffentlicht keine gesponserten Gastbeiträge.
+                </p>
+
+                <hr style="border:0; border-top:1px solid var(--border); margin: 20px 0;">
+
+                <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Datenschutz</h3>
+                <p style="font-size:13px; line-height:1.5; margin-top:0;">
+                    <strong>App-spezifische Funktionen (Lokale Speicherung & GPS):</strong><br>
+                    Diese App speichert Einstellungen lokal in deinem Browser. Es werden keine personenbezogenen Daten auf unseren Servern gespeichert. Wenn du die Funktion "In meiner Nähe finden" oder die Standortanzeige auf der Karte nutzt, berechnet dein Browser die Entfernung <strong>ausschließlich lokal</strong> auf deinem Endgerät. Deine Standortdaten werden zu keinem Zeitpunkt an uns übertragen.<br><br>
+                    <strong>Allgemeine Nutzung:</strong><br>
+                    Bei jedem Zugriff auf dieses Internetangebot werden standardmäßige Webserver-Logs (IP, Zeit, abgerufene Datei) gespeichert. Die Daten sind für die Stadt Unna nicht personenbezogen und werden ausschließlich zu statistischen Zwecken genutzt. Es werden keine Tracker/Cookies eingesetzt.<br><br>
+                    Bei Fragen zu Datenschutz steht der behördliche Beauftragte für Datenschutz bei der Stadt Unna zur Verfügung.
+                </p>
+
+                <button class="ticket-btn" style="background:#555; margin-top:30px; margin-bottom:15px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>
+            `;
+            
+            if(modalBody && modal) {
+                modalBody.innerHTML = html;
+                modal.style.display = 'block';
+                modal.scrollTop = 0;
+            }
+        };
+    }
+
     function wechselTab(t) {
         const globalSearch = document.getElementById('global-search-input');
         if(globalSearch) globalSearch.value = ''; 
@@ -148,19 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if(modal) modal.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
 
-    // --- STANDORT & ENTFERNUNG ---
-    function getDistance(lat1, lon1, lat2, lon2) {
-        if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
-        const R = 6371;
-        const dLat = (lat2 - lat1) * (Math.PI / 180);
-        const dLon = (lon2 - lon1) * (Math.PI / 180);
-        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                  Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
-                  Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
-    }
-
     function formatDistance(dist) {
         if (dist === Infinity) return "";
         if (dist < 1) return Math.round(dist * 1000) + ' m';
@@ -168,11 +229,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function sortiereNachNaehe(datenArray, containerId, typ) {
+        const R = 6371;
+        const getDistance = (lat1, lon1, lat2, lon2) => {
+            if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
+            const dLat = (lat2 - lat1) * (Math.PI / 180), dLon = (lon2 - lon1) * (Math.PI / 180);
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        };
+
         const prozessSortierung = () => {
-            let sortierteDaten = datenArray.map(item => {
-                item.entfernung = getDistance(userLat, userLon, item.lat, item.lon);
-                return item;
-            }).sort((a, b) => a.entfernung - b.entfernung);
+            let sortierteDaten = datenArray.map(item => { item.entfernung = getDistance(userLat, userLon, item.lat, item.lon); return item; })
+                                           .sort((a, b) => a.entfernung - b.entfernung);
             rendereListe(containerId, sortierteDaten, typ);
         };
 
@@ -189,25 +256,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.innerHTML = "✅ Sortiert nach Nähe"; btn.style.background = "#28a745";
                     prozessSortierung();
                 },
-                (err) => { alert("Standortfreigabe verweigert."); btn.innerHTML = originalText; },
+                () => { alert("Standortfreigabe verweigert."); btn.innerHTML = originalText; },
                 { timeout: 10000 }
             );
-        } else {
-            alert("Browser unterstützt keine Standortabfrage.");
         }
     }
 
     // --- LEAFLET MAP IN-APP ---
     function initLeafletMap() {
-        if(mapInitialized) {
-            if(leafletMap) leafletMap.invalidateSize(); 
-            return;
-        }
-        
+        if(mapInitialized) { if(leafletMap) leafletMap.invalidateSize(); return; }
         const mapContainer = document.getElementById('inapp-map');
-        if(!mapContainer) return; 
-        
-        if(typeof L === 'undefined') return;
+        if(!mapContainer || typeof L === 'undefined') return; 
 
         leafletMap = L.map('inapp-map').setView([51.5344, 7.6888], 14); 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(leafletMap);
@@ -215,25 +274,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const createMarker = (item, type, iconStr) => {
             if(item.lat && item.lon) {
                 let markerColor = '#0056b3'; 
-                let tooltipText = `<strong>${iconStr} ${item.name}</strong>`;
+                let tooltipText = `<div style="text-align:center;"><strong>${iconStr} ${item.name}</strong>`;
                 
                 if (type === 'Gastro') {
                     const ls = getLiveStatus(item);
                     if (ls.status === 'open') markerColor = '#28a745';
                     else if (ls.status === 'closing') markerColor = '#ffc107';
                     else if (ls.status === 'closed') markerColor = '#dc3545';
-                    else markerColor = '#6c757d'; // Grau für unbekannt/fehlende Daten
+                    else markerColor = '#6c757d'; 
                     
-                    if(ls.status !== 'unknown') tooltipText += `<br><span style="font-size:11px;">${ls.text}</span>`;
+                    if(ls.status !== 'unknown') tooltipText += `<br><span style="font-size:11px; font-weight:bold; color:${markerColor};">${ls.text}</span>`;
+                    
+                    let extraInfo = [];
+                    if (item.kueche) extraInfo.push(`🍴 ${item.kueche}`);
+                    if (item.aussenplaetze === 'Ja') extraInfo.push(`☀️`);
+                    if (item.kartenzahlung === 'Ja') extraInfo.push(`💳`);
+                    if (item.lieferdienst === 'Ja') extraInfo.push(`🛵`);
+                    
+                    if(extraInfo.length > 0) {
+                        tooltipText += `<br><span style="font-size:11px; color:#555; display:block; margin-top:4px;">${extraInfo.join(' ')}</span>`;
+                    }
+
                 } else {
-                    markerColor = '#17a2b8'; // Hotels etc.
+                    markerColor = '#17a2b8'; 
                 }
+                
+                tooltipText += `</div>`;
                 
                 const customIcon = L.divIcon({
                     html: `<div style="background-color:${markerColor}; width:30px; height:30px; border-radius:50%; border:2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:16px;">${iconStr}</div>`,
-                    className: '',
-                    iconSize: [30, 30],
-                    iconAnchor: [15, 15]
+                    className: '', iconSize: [30, 30], iconAnchor: [15, 15]
                 });
 
                 const m = L.marker([item.lat, item.lon], {icon: customIcon}).addTo(leafletMap);
@@ -244,7 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gastroDaten.forEach(g => createMarker(g, 'Gastro', '🍽️'));
         hotelsDaten.forEach(h => createMarker(h, 'Hotel', '🛏️'));
-        
         mapInitialized = true;
     }
 
@@ -263,11 +332,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. RENDERING (MODAL) ---
     function oeffneDetails(obj, typ) {
+        
+        // --- NEWS LOGIK MIT LIVE-VOLLTEXT-FETCHER ---
+        if (typ === 'News') {
+            const title = clean(obj.title);
+            let imgSrc = obj.thumbnail || (obj.enclosure && obj.enclosure.link) || '';
+            if(!imgSrc) {
+                const match = (obj.content || obj.description).match(/<img[^>]+src="([^">]+)"/);
+                if(match) imgSrc = match[1];
+            }
+            let html = imgSrc ? `<img src="${imgSrc}" class="modal-img" style="margin-bottom:10px;">` : '';
+            html += `<h2>${title}</h2>`;
+            html += `<p style="font-weight:bold; color:#555; font-size:13px;">📅 ${new Date(obj.pubDate).toLocaleDateString('de-DE')}</p>`;
+            
+            // Backup-Text (Kurzversion aus RSS) Bilder entfernen, um Doppelungen zu vermeiden
+            let rawContent = obj.content || obj.description || "";
+            rawContent = rawContent.replace(/<img[^>]*>/gi, ""); 
+            
+            html += `<div id="news-full-text" style="font-size:15px; line-height:1.6; margin-top:15px; overflow-wrap: break-word;">
+                        ${rawContent}
+                        <div style="margin-top: 20px; padding: 12px; background: rgba(0,86,179,0.1); color: #0056b3; border-radius: 8px; text-align: center; font-size: 13px; font-weight: bold;">
+                            ⏳ Lade vollständigen Artikel...
+                        </div>
+                     </div>`;
+            
+            html += `<a href="${obj.link}" target="_blank" class="ticket-btn" style="background:#0056b3; margin-top:25px;">🔗 Originalmeldung im Browser öffnen</a>`;
+            html += `<button class="ticket-btn" style="background:#555; margin-top:10px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
+            
+            if(modalBody) modalBody.innerHTML = html;
+            if(modal) { modal.style.display = 'block'; modal.scrollTop = 0; }
+
+            // Lade den echten Volltext dynamisch nach
+            fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(obj.link))
+                .then(r => r.json())
+                .then(data => {
+                    const doc = new DOMParser().parseFromString(data.contents, 'text/html');
+                    
+                    // Störende Webseiten-Elemente (Navigation, Menüs, Skripte) radikal entfernen
+                    doc.querySelectorAll('header, footer, nav, aside, .sidebar, script, style, form, .breadcrumb, img').forEach(el => el.remove());
+                    
+                    let contentHtml = "";
+                    
+                    // Suche nach typischen Inhalts-Klassen
+                    const specificContainer = doc.querySelector('.MeldungText, .news-detail, .news-article, .ce-bodytext, article, main');
+                    
+                    if (specificContainer) {
+                        contentHtml = specificContainer.innerHTML;
+                    } else {
+                        // Fallback: Sammle einfach alle längeren Textabsätze auf der Seite ein
+                        doc.querySelectorAll('p').forEach(p => {
+                            if (p.textContent.trim().length > 40) {
+                                contentHtml += `<p style="margin-bottom: 12px;">${p.innerHTML}</p>`;
+                            }
+                        });
+                    }
+
+                    const container = document.getElementById('news-full-text');
+                    if (container && contentHtml.trim().length > 100) {
+                        // Volltext erfolgreich geladen und injiziert!
+                        container.innerHTML = contentHtml;
+                    } else if (container) {
+                        // Laden fehlgeschlagen, behalte Backup-Text
+                        container.innerHTML = rawContent + '<div style="margin-top:15px; color:#888; font-size:12px;">(Der komplette Text konnte nicht automatisch geladen werden. Bitte klicken Sie auf den Link.)</div>';
+                    }
+                })
+                .catch(() => {
+                    const container = document.getElementById('news-full-text');
+                    if (container) container.innerHTML = rawContent + '<div style="margin-top:15px; color:#dc3545; font-size:12px;">(Laden des Textes fehlgeschlagen)</div>';
+                });
+
+            return; // WICHTIG: Stoppt die Funktion hier für News
+        }
+
+        // --- LOGIK FÜR EVENTS, GASTRO, HOTELS ETC. ---
         const title = clean(obj.name || obj.title);
         let html = obj.bildUrl ? `<img src="${obj.bildUrl}" class="modal-img">` : '';
         html += `<h2>${title}</h2>`;
         
-        // --- Live Status & Meta-Tags im Detail-Modal anzeigen ---
         if (typ === 'Gastro' || obj._type === 'Gastro') {
             const ls = getLiveStatus(obj);
             if(ls.status !== 'unknown') {
@@ -296,8 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if(obj.adresse) {
-            const mapsUrl = `http://googleusercontent.com/maps.google.com/?q=${encodeURIComponent(obj.adresse + ', Unna')}`;
-            html += `<button onclick="window.open('${mapsUrl}')" class="ticket-btn" style="background:#4285F4;">🚗 Route in Google Maps</button>`;
+            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(obj.adresse + ', Unna')}`;
+            html += `<button onclick="window.open('${mapsUrl}', '_blank')" class="ticket-btn" style="background:#4285F4;">🚗 Route in Google Maps</button>`;
         }
         
         let desc = clean(obj.description || obj.beschreibung || obj.info || "");
@@ -311,19 +452,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         html += `<button class="ticket-btn" style="background:#555; margin-top:30px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
-        
         if(modalBody) modalBody.innerHTML = html;
         
         const copyAction = document.getElementById('btn-copy-action');
         if(copyAction) {
             copyAction.onclick = () => { 
                 let dateStr = "";
-                if (obj.start_date) {
-                    const d = new Date(obj.start_date);
-                    dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`;
-                }
-                const copyText = `📌 ${title.replace(/&/g, '&')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`;
-                navigator.clipboard.writeText(copyText); 
+                if (obj.start_date) { const d = new Date(obj.start_date); dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`; }
+                navigator.clipboard.writeText(`📌 ${title.replace(/&/g, '&')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`); 
                 copyAction.innerHTML = "✅ Kopiert!"; 
                 setTimeout(() => { copyAction.innerHTML = "📋 Kopieren"; }, 2000);
             };
@@ -344,17 +480,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formatD = (date) => date.toISOString().replace(/-|:|\.\d+/g, '').substring(0, 15) + 'Z';
                 const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${formatD(start)}\nDTEND:${formatD(end)}\nSUMMARY:${title}\nLOCATION:${obj.adresse || 'Unna'}\nDESCRIPTION:${clean(desc).replace(/\n/g, '\\n')}\nEND:VEVENT\nEND:VCALENDAR`;
                 const blob = new Blob([ics], { type: 'text/calendar' });
-                const a = document.createElement('a');
-                a.href = URL.createObjectURL(blob);
-                a.download = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`;
-                a.click();
+                const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`; a.click();
             };
         }
         
-        if(modal) {
-            modal.style.display = 'block'; 
-            modal.scrollTop = 0;
-        }
+        if(modal) { modal.style.display = 'block'; modal.scrollTop = 0; }
     }
 
     function rendereListe(id, daten, typ) {
@@ -364,26 +494,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const d = document.createElement('div'); d.className = 'event-item';
             let info = "";
             
-            if (typ === 'Mixed') {
-                info += `<div class="status-badge badge-search" style="margin-top:0;">🏷️ ${item._type}</div>`;
-            }
+            if (typ === 'Mixed') info += `<div class="status-badge badge-search" style="margin-top:0;">🏷️ ${item._type}</div>`;
+            if ((typ === 'Event' || item._type === 'Event') && item.start_date) info += `<div class="event-info-line">📅 ${new Date(item.start_date).toLocaleDateString('de-DE')} | 🕒 ${new Date(item.start_date).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})} Uhr</div>`;
+            if (item.adresse) info += `<div class="event-info-line" style="margin-bottom: 5px;">📍 ${clean(item.adresse)}</div>`;
+            if ((typ === 'Gastro' || item._type === 'Gastro') && item.kueche) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🍴 ${item.kueche}</div>`;
+            if (item.entfernung && item.entfernung !== Infinity) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#0056b3; font-weight:bold;">🚶 ${formatDistance(item.entfernung)} Luftlinie</div>`;
 
-            if ((typ === 'Event' || item._type === 'Event') && item.start_date) {
-                info += `<div class="event-info-line">📅 ${new Date(item.start_date).toLocaleDateString('de-DE')} | 🕒 ${new Date(item.start_date).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})} Uhr</div>`;
-            }
-            if (item.adresse) {
-                info += `<div class="event-info-line" style="margin-bottom: 5px;">📍 ${clean(item.adresse)}</div>`;
-            }
-            
-            if ((typ === 'Gastro' || item._type === 'Gastro') && item.kueche) {
-                info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🍴 ${item.kueche}</div>`;
-            }
-
-            if (item.entfernung && item.entfernung !== Infinity) {
-                info += `<div class="event-info-line" style="margin-bottom: 5px; color:#0056b3; font-weight:bold;">🚶 ${formatDistance(item.entfernung)} Luftlinie</div>`;
-            }
-
-            // --- Live Status Icon in der Liste ---
             if ((typ === 'Gastro' || item._type === 'Gastro')) {
                 const ls = getLiveStatus(item);
                 if (ls.status !== 'unknown') {
@@ -424,17 +540,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. INDEPENDENT FETCHERS ---
+    // --- 4. FETCH DATEN ---
     async function init() {
-        const newsContainer = document.getElementById('news-container');
+        // NEWS FETCH UPDATE - OHNE BILDER IN DER ÜBERSICHT
         fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032')
         .then(r=>r.json())
         .then(d=> {
-            if(!newsContainer) return;
-            newsContainer.innerHTML = '';
-            d.items.forEach(i => newsContainer.innerHTML += `<div class="news-card"><div class="news-date">${new Date(i.pubDate).toLocaleDateString()}</div><h3>${clean(i.title)}</h3><a href="${i.link}" target="_blank" class="ticket-btn" style="background:#666; padding:8px; font-size:11px;">Lesen</a></div>`);
-        }).catch(()=> { if(newsContainer) newsContainer.innerHTML = 'News aktuell nicht verfügbar.'; });
+            const nc = document.getElementById('news-container'); if(!nc) return; nc.innerHTML = '';
+            d.items.forEach(i => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.style.cursor = 'pointer';
+                card.innerHTML = `<div class="news-date">📅 ${new Date(i.pubDate).toLocaleDateString('de-DE')}</div><h3 style="margin-top:5px; margin-bottom:10px;">${clean(i.title)}</h3><button class="ticket-btn" style="background:var(--accent); color:var(--text) !important; padding:8px; font-size:12px; margin:0; border:1px solid var(--border);">Meldung lesen</button>`;
+                card.onclick = () => oeffneDetails(i, 'News');
+                nc.appendChild(card);
+            });
+        }).catch(()=>{ if(document.getElementById('news-container')) document.getElementById('news-container').innerHTML = 'News aktuell nicht verfügbar.'; });
 
+        fetch('gastronomie.json').then(r=>r.json()).then(d => { 
+            gastroDaten = d.sort((a, b) => a.name.localeCompare(b.name, 'de')); 
+            rendereListe('gastro-container', gastroDaten, 'Gastro'); 
+        }).catch(()=>{});
+        
+        fetch('vereine.json').then(r=>r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Vereine'); }).catch(()=>{});
+        fetch('uebernachtungen.json').then(r=>r.json()).then(d => { hotelsDaten = d; rendereListe('hotels-container', d, 'Hotel'); }).catch(()=>{});
+
+        fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events?per_page=50').then(r=>r.json()).then(d=> {
+            if(d.events) {
+                eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue}));
+                rendereListe('events-container', eventDaten, 'Event');
+            }
+        }).catch(()=>{});
+
+        // MOBILITÄT FETCH
         const fetchParkData = async () => {
             const container = document.getElementById('park-status-container');
             if(!container) return;
@@ -466,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch(e) { container.innerHTML = '<p style="color:#dc3545; font-size:12px; padding: 10px; background: #f8d7da; border-radius: 8px;">Live-Daten aktuell nicht erreichbar.</p>'; }
         };
         fetchParkData(); 
-        
+
         fetch('mobilitaet.json').then(r=>r.json()).then(d=> {
             rendereListe('parken-container', d.parken, 'Parken');
             rendereListe('rad-container', d.rad, 'Rad');
@@ -475,70 +613,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 tc.innerHTML = ''; 
                 d.taxi.forEach(t => tc.innerHTML += `<a href="tel:${t.telefon}" class="ticket-btn">🚕 ${t.name}</a>`);
             }
-        }).catch(e => console.log("Fehler bei Mobilität", e));
-
-        fetch('gastronomie.json').then(r=>r.json()).then(d => { 
-            gastroDaten = d.sort((a, b) => a.name.localeCompare(b.name, 'de')); 
-            rendereListe('gastro-container', gastroDaten, 'Gastro'); 
-        }).catch(e => console.log("Fehler bei Gastro", e));
-        
-        fetch('vereine.json').then(r=>r.json()).then(d => { 
-            vereinsDaten = d; 
-            rendereListe('vereine-container', d, 'Vereine'); 
-        }).catch(e => console.log("Fehler bei Vereine", e));
-        
-        fetch('uebernachtungen.json').then(r=>r.json()).then(d => { 
-            hotelsDaten = d; 
-            rendereListe('hotels-container', d, 'Hotel'); 
-        }).catch(e => console.log("Fehler bei Hotels", e));
-
-        fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events?per_page=50').then(r=>r.json()).then(d=> {
-            if(d.events) {
-                eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue}));
-                rendereListe('events-container', eventDaten, 'Event');
-            }
-        }).catch(e => console.log("Fehler bei Events", e));
+        }).catch(()=>{});
     }
-    
-    // START
     init();
 
-    // Filters & Buttons
+    // --- Filter-Logik Events ---
+    const filterEventsData = () => {
+        const catFilter = document.getElementById('event-category-filter');
+        const cat = catFilter ? catFilter.value.toLowerCase() : 'alle';
+        
+        let filtered = eventDaten.filter(e => {
+            const matchesCat = (cat === 'alle') || ((e.description || '') + (e.name || '')).toLowerCase().includes(cat);
+            if(!matchesCat) return false;
+            
+            if(currentDayFilter === 'all') return true;
+            
+            const eDate = new Date(e.start_date);
+            const today = new Date(); today.setHours(0,0,0,0);
+            const tomorrow = new Date(today.getTime() + 86400000);
+            
+            if(currentDayFilter === 'today') return eDate.toDateString() === today.toDateString();
+            if(currentDayFilter === 'tomorrow') return eDate.toDateString() === tomorrow.toDateString();
+            if(currentDayFilter === 'weekend') return [5, 6, 0].includes(eDate.getDay());
+            return true;
+        });
+        rendereListe('events-container', filtered, 'Event');
+    };
+
     document.querySelectorAll('#time-filter-row .filter-pill').forEach(btn => {
         btn.onclick = function() {
             document.querySelectorAll('#time-filter-row .filter-pill').forEach(b => b.classList.remove('active'));
-            this.classList.add('active'); currentDayFilter = this.dataset.time;
-            
-            const catFilter = document.getElementById('event-category-filter');
-            const cat = catFilter ? catFilter.value.toLowerCase() : 'alle';
-            
-            let filtered = eventDaten.filter(e => {
-                const matchesCat = (cat === 'alle') || ((e.description || '') + (e.name || '')).toLowerCase().includes(cat);
-                if(!matchesCat) return false;
-                if(currentDayFilter === 'all') return true;
-                const eDate = new Date(e.start_date);
-                const today = new Date(); today.setHours(0,0,0,0);
-                const tomorrow = new Date(today.getTime() + 86400000);
-                if(currentDayFilter === 'today') return eDate.toDateString() === today.toDateString();
-                if(currentDayFilter === 'tomorrow') return eDate.toDateString() === tomorrow.toDateString();
-                if(currentDayFilter === 'weekend') return [5, 6, 0].includes(eDate.getDay());
-                return true;
-            });
-            rendereListe('events-container', filtered, 'Event');
+            this.classList.add('active'); 
+            currentDayFilter = this.dataset.time;
+            filterEventsData(); 
         };
     });
-    
+
+    const evtCatFilter = document.getElementById('event-category-filter');
+    if (evtCatFilter) evtCatFilter.addEventListener('change', filterEventsData); 
+
+    // --- Filter-Logik Gastro ---
     const filterGastroData = () => {
         const typVal = document.getElementById('gastro-typ-filter') ? document.getElementById('gastro-typ-filter').value : 'alle';
         const kuecheVal = document.getElementById('gastro-kueche-filter') ? document.getElementById('gastro-kueche-filter').value : 'alle';
         const aussenVal = document.getElementById('gastro-aussen-filter') ? document.getElementById('gastro-aussen-filter').value : 'alle';
         const karteVal = document.getElementById('gastro-karte-filter') ? document.getElementById('gastro-karte-filter').value : 'alle';
+        const openVal = document.getElementById('gastro-open-filter') ? document.getElementById('gastro-open-filter').value : 'alle';
 
         let filtered = gastroDaten.filter(x => {
             if (typVal !== 'alle' && (!x.kategorie || !x.kategorie.includes(typVal))) return false;
             if (kuecheVal !== 'alle' && (!x.kueche || !x.kueche.includes(kuecheVal))) return false;
             if (aussenVal !== 'alle' && x.aussenplaetze !== aussenVal) return false;
             if (karteVal !== 'alle' && x.kartenzahlung !== karteVal) return false;
+            
+            if (openVal === 'ja') {
+                const ls = getLiveStatus(x);
+                if (ls.status !== 'open' && ls.status !== 'closing') return false;
+            }
             return true;
         });
 
@@ -546,11 +677,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return filtered; 
     };
 
-    ['gastro-typ-filter', 'gastro-kueche-filter', 'gastro-aussen-filter', 'gastro-karte-filter'].forEach(id => {
+    ['gastro-typ-filter', 'gastro-kueche-filter', 'gastro-aussen-filter', 'gastro-karte-filter', 'gastro-open-filter'].forEach(id => {
         const el = document.getElementById(id);
         if(el) el.addEventListener('change', filterGastroData);
     });
 
+    // Vereins-Filter
     const vereinsFilter = document.getElementById('vereins-filter');
     if(vereinsFilter) {
         vereinsFilter.onchange = (e) => { 
@@ -559,19 +691,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
     
+    // UI Buttons
     const btnDarkMode = document.getElementById('btn-darkmode');
     if(btnDarkMode) btnDarkMode.onclick = () => document.body.classList.toggle('dark-mode');
     
-    const btnShareApp = document.getElementById('btn-share-app');
-    if(btnShareApp) btnShareApp.onclick = () => { if(navigator.share) navigator.share({title: 'Kultur in Unna', url: window.location.href}); };
-
     const btnSortGastro = document.getElementById('btn-sort-gastro');
-    if(btnSortGastro) {
-        btnSortGastro.onclick = () => {
-            const gefilterteDaten = filterGastroData();
-            sortiereNachNaehe(gefilterteDaten, 'gastro-container', 'Gastro');
-        }
-    }
+    if(btnSortGastro) { btnSortGastro.onclick = () => { sortiereNachNaehe(filterGastroData(), 'gastro-container', 'Gastro'); } }
 
     const btnSortHotels = document.getElementById('btn-sort-hotels');
     if(btnSortHotels) btnSortHotels.onclick = () => sortiereNachNaehe(hotelsDaten, 'hotels-container', 'Hotel');

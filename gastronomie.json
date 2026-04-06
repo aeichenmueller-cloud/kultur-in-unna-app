@@ -1018,6 +1018,22 @@
         "lieferdienst": "Nein",
         "aussenplaetze": "unbekannt"
     },
+	{
+        "name": "Lido",
+        "kategorie": "Restaurant",
+        "kueche": "Vietnamesisch, Asiatisch",
+        "adresse": "Markt 11, 59423 Unna",
+        "lat": 51.5344,
+        "lon": 7.6889,
+        "telefon": "02303 8714588",
+        "website": "",
+        "oeffnungszeiten": [],
+        "hoursLive": {},
+        "beschreibung": "Vietnamesisches Restaurant am Markt in Unna.",
+        "kartenzahlung": "Nein",
+        "lieferdienst": "unbekannt",
+        "aussenplaetze": "Ja"
+    },
     {
         "name": "Lindenbrauerei e. V. Kultur- und Kommunikationszentrum",
         "kategorie": "Bar & Kneipe",

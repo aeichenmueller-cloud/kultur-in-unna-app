@@ -4,13 +4,17 @@ var userLat = null, userLon = null;
 var leafletMap = null;
 var mapInitialized = false;
 
+// Globale Favoriten-Liste und Leaflet Layer Groups
+var favorites = JSON.parse(localStorage.getItem('unna_favorites') || '[]');
+var layerGroups = {}; 
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CORE ---
     const clean = (r) => { 
         if(!r) return ""; 
         let t = r.replace(/<p[^>]*>/g,'').replace(/<\/p>/g,'\n\n').replace(/<br\s*[\/]?>/gi,'\n').replace(/ /g,' '); 
         let d = new DOMParser().parseFromString(t,'text/html'); 
-        return d.documentElement.textContent.replace(/&/g,'&').replace(/<[^>]*>?/gm,'').trim(); 
+        return d.documentElement.textContent.replace(/&/g,'&amp;').replace(/<[^>]*>?/gm,'').trim(); 
     };
 
     // --- LIVE STATUS LOGIK ---
@@ -133,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnImpressum.onclick = () => {
             toggleMenu(false); 
             const html = `
-                <h2>Impressum & Rechtliche Hinweise</h2>
+                <h2>Impressum &amp; Rechtliche Hinweise</h2>
                 <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Herausgeberin</h3>
                 <p style="font-size:13px; line-height:1.5; margin-top:0;"><strong>Kreisstadt Unna</strong><br>Rathausplatz 1, 59423 Unna<br>Fon: (02303) 103-0 (Zentrale) | Fax: (02303) 103-9998<br>E-Mail: post(at)stadt-unna.de | Internet: www.unna.de</p>
                 <h3 style="margin-top:15px; margin-bottom:5px; font-size:15px;">Vertretungsberechtigter</h3>
@@ -158,11 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('tab-wrappers').style.display = 'block';
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.bottom-nav button, .side-nav-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById('content-' + t).classList.add('active');
+        
+        const target = document.getElementById('content-' + t);
+        if(target) target.classList.add('active');
+        
         const bBtn = document.querySelector(`.bottom-nav button[data-target="${t}"]`); if(bBtn) bBtn.classList.add('active');
         const sBtn = document.querySelector(`.side-nav-btn[data-target="${t}"]`); if(sBtn) sBtn.classList.add('active');
+        
         toggleMenu(false); window.scrollTo(0,0);
+        
         if(t === 'maps') setTimeout(initLeafletMap, 100);
+        if(t === 'favoriten') rendereListe('favoriten-container', favorites, 'Mixed');
     }
     
     document.querySelectorAll('[data-target]').forEach(btn => btn.onclick = () => wechselTab(btn.dataset.target));
@@ -203,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- LEAFLET MAP IN-APP ---
+    // --- LEAFLET MAP IN-APP (MIT LAYER FILTERN) ---
     function initLeafletMap() {
         if(mapInitialized) { if(leafletMap) leafletMap.invalidateSize(); return; }
         const mapContainer = document.getElementById('inapp-map');
@@ -212,7 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
         leafletMap = L.map('inapp-map').setView([51.5344, 7.6888], 14); 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(leafletMap);
 
-        const createMarker = (item, type, iconStr) => {
+        layerGroups = {
+            Gastro: L.layerGroup().addTo(leafletMap),
+            Gesundheit: L.layerGroup().addTo(leafletMap),
+            Hotel: L.layerGroup().addTo(leafletMap)
+        };
+
+        const createMarker = (item, type, iconStr, layerGrp) => {
             if(item.lat && item.lon) {
                 let markerColor = '#0056b3'; 
                 let tooltipText = `<div style="text-align:center;"><strong>${iconStr} ${item.name}</strong>`;
@@ -238,14 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     className: '', iconSize: [30, 30], iconAnchor: [15, 15]
                 });
 
-                const m = L.marker([item.lat, item.lon], {icon: customIcon}).addTo(leafletMap);
+                const m = L.marker([item.lat, item.lon], {icon: customIcon}).addTo(layerGrp);
                 m.bindTooltip(tooltipText, {direction: 'top'});
                 m.on('click', () => oeffneDetails(item, type));
             }
         };
 
-        gastroDaten.forEach(g => createMarker(g, 'Gastro', '🍽️'));
-        hotelsDaten.forEach(h => createMarker(h, 'Hotel', '🛏️'));
+        gastroDaten.forEach(g => createMarker(g, 'Gastro', '🍽️', layerGroups.Gastro));
+        hotelsDaten.forEach(h => createMarker(h, 'Hotel', '🛏️', layerGroups.Hotel));
         gesundheitDaten.forEach(g => {
             let gIcon = '⚕️';
             if (g.kategorie === 'Apotheke') gIcon = '💊';
@@ -256,11 +272,25 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (g.kategorie === 'Fitnessstudio') gIcon = '🏋️';
             else if (g.kategorie === 'Psychotherapie') gIcon = '🛋️';
             else if (g.kategorie === 'Psychiatrie') gIcon = '🧠';
-            createMarker(g, 'Gesundheit', gIcon);
+            createMarker(g, 'Gesundheit', gIcon, layerGroups.Gesundheit);
         });
         
         mapInitialized = true;
     }
+
+    document.querySelectorAll('.map-filter-btn').forEach(btn => {
+        btn.onclick = (e) => {
+            let layerName = e.target.dataset.layer;
+            e.target.classList.toggle('active');
+            if(layerGroups[layerName]) {
+                if(e.target.classList.contains('active')) {
+                    leafletMap.addLayer(layerGroups[layerName]);
+                } else {
+                    leafletMap.removeLayer(layerGroups[layerName]);
+                }
+            }
+        };
+    });
 
     const btnLocate = document.getElementById('btn-locate-map');
     if(btnLocate) {
@@ -277,12 +307,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. RENDERING (MODAL) ---
     function oeffneDetails(obj, typ) {
+        const title = clean(obj.name || obj.title);
+        const favId = title + '_' + typ;
+        const isFav = favorites.some(f => f.id === favId);
+        const favIcon = isFav ? '❤️' : '🤍';
+
         if (typ === 'News') {
-            const title = clean(obj.title);
             let imgSrc = obj.thumbnail || (obj.enclosure && obj.enclosure.link) || '';
             if(!imgSrc) { const match = (obj.content || obj.description).match(/<img[^>]+src="([^">]+)"/); if(match) imgSrc = match[1]; }
             let html = imgSrc ? `<img src="${imgSrc}" class="modal-img" style="margin-bottom:10px;">` : '';
-            html += `<h2>${title}</h2><p style="font-weight:bold; color:#555; font-size:13px;">📅 ${new Date(obj.pubDate).toLocaleDateString('de-DE')}</p>`;
+            html += `<div style="display:flex; justify-content:space-between; align-items:flex-start;"><h2 style="margin-top:0;">${title}</h2></div>`;
+            html += `<p style="font-weight:bold; color:#555; font-size:13px;">📅 ${new Date(obj.pubDate).toLocaleDateString('de-DE')}</p>`;
             let rawContent = obj.content || obj.description || ""; rawContent = rawContent.replace(/<img[^>]*>/gi, ""); 
             html += `<div style="font-size:15px; line-height:1.6; margin-top:15px; overflow-wrap: break-word;">${rawContent}</div>`;
             html += `<a href="${obj.link}" target="_blank" class="ticket-btn" style="background:#0056b3; margin-top:25px;">🔗 Vollständige Meldung auf unna.de lesen</a>`;
@@ -292,9 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return; 
         }
 
-        const title = clean(obj.name || obj.title);
         let html = obj.bildUrl ? `<img src="${obj.bildUrl}" class="modal-img">` : '';
-        html += `<h2>${title}</h2>`;
+        
+        html += `<div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <h2 style="margin-top:0;">${title}</h2>
+                    <button id="btn-toggle-fav" style="background:none; border:none; font-size:24px; padding:0 0 0 10px; cursor:pointer;">${favIcon}</button>
+                 </div>`;
         
         if (typ === 'Gesundheit' || obj._type === 'Gesundheit') {
             let tagsHTML = `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; font-size:11px;">`;
@@ -337,9 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
                  
         if ((typ === 'Event' || obj._type === 'Event') && obj.start_date) html += `<button id="btn-calendar-export" class="ticket-btn" style="background:#ffc107; color:#000 !important;">📅 In Kalender eintragen</button>`;
         
-        // ZUVERLÄSSIGER GOOGLE MAPS ROUTEN-LINK
         if(obj.adresse) {
-            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(obj.adresse + ', Unna')}`;
+            const mapsUrl = `http://googleusercontent.com/maps.google.com/?daddr=${encodeURIComponent(obj.adresse + ', Unna')}`;
             html += `<button onclick="window.open('${mapsUrl}', '_blank')" class="ticket-btn" style="background:#4285F4;">🚗 Route in Google Maps</button>`;
         }
         
@@ -350,19 +387,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if(obj.website) html += `<a href="${obj.website}" target="_blank" class="ticket-btn" style="background:#6c757d;">🌐 Webseite</a>`;
         
         if(obj.oeffnungszeiten && obj.oeffnungszeiten.length > 0) {
-            html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Öffnungszeiten:</strong><br>${obj.oeffnungszeiten.join('<br>').replace(/&/g,'&')}</div>`;
+            html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Öffnungszeiten:</strong><br>${obj.oeffnungszeiten.join('<br>').replace(/&/g,'&amp;')}</div>`;
         }
         
         html += `<a href="mailto:a.eichenmueller@gmail.com?subject=App-Feedback%20zu%20${encodeURIComponent(title)}&body=Hallo%20Armin,%0A%0Aich%20habe%20einen%20Fehler%20bei%20'${encodeURIComponent(title)}'%20entdeckt:%0A%0A" class="ticket-btn" style="background:transparent; color:var(--text) !important; border:2px solid var(--border); margin-top:20px;">✉️ Fehler entdeckt? Änderung vorschlagen</a>`;
         html += `<button class="ticket-btn" style="background:#555; margin-top:10px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
         if(modalBody) modalBody.innerHTML = html;
         
+        // Favoriten Logik
+        const favBtn = document.getElementById('btn-toggle-fav');
+        if(favBtn) {
+            favBtn.onclick = () => {
+                const idx = favorites.findIndex(f => f.id === favId);
+                if(idx > -1) {
+                    favorites.splice(idx, 1);
+                } else {
+                    favorites.push({...obj, _type: typ, id: favId});
+                }
+                localStorage.setItem('unna_favorites', JSON.stringify(favorites));
+                oeffneDetails(obj, typ); 
+                if (document.getElementById('content-favoriten').classList.contains('active')) {
+                    rendereListe('favoriten-container', favorites, 'Mixed');
+                }
+            };
+        }
+
         const copyAction = document.getElementById('btn-copy-action');
         if(copyAction) {
             copyAction.onclick = () => { 
                 let dateStr = "";
                 if (obj.start_date) { const d = new Date(obj.start_date); dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`; }
-                navigator.clipboard.writeText(`📌 ${title.replace(/&/g, '&')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`); 
+                navigator.clipboard.writeText(`📌 ${title.replace(/&/g, '&amp;')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`); 
                 copyAction.innerHTML = "✅ Kopiert!"; setTimeout(() => { copyAction.innerHTML = "📋 Kopieren"; }, 2000);
             };
         }
@@ -386,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function rendereListe(id, daten, typ) {
         const c = document.getElementById(id); if(!c) return;
-        c.innerHTML = daten.length ? '' : '<p>Keine Einträge gefunden.</p>';
+        c.innerHTML = daten.length ? '' : '<p style="padding:15px; color:#555;">Noch keine Einträge vorhanden.</p>';
         daten.forEach(item => {
             const d = document.createElement('div'); d.className = 'event-item';
             let info = "";
@@ -473,6 +528,75 @@ document.addEventListener('DOMContentLoaded', () => {
             if(d.events) { eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue})); rendereListe('events-container', eventDaten, 'Event'); }
         }).catch(()=>{});
 
+        // NEU: INTELLIGENTER LIVE ABFAHRTSMONITOR (DB API)
+        const fetchAbfahrten = async (lat = 51.5393, lon = 7.6895, custom = false) => {
+            const container = document.getElementById('oepnv-live-container'); 
+            if(!container) return;
+            if(custom) container.innerHTML = '<p style="color:#555; font-size:13px;">⏳ Suche Haltestellen in der Nähe...</p>';
+
+            try {
+                // Holt die 2 nächsten Haltestellen (Umkreis 1,5km)
+                const locRes = await fetch(`https://v6.db.transport.rest/locations/nearby?latitude=${lat}&longitude=${lon}&distance=1500&results=2&stops=true`);
+                const locData = await locRes.json();
+                
+                if(!locData || locData.length === 0) {
+                    container.innerHTML = '<p style="color:#555; font-size:13px;">Keine Haltestellen in der Nähe gefunden.</p>'; return;
+                }
+
+                let html = '';
+                for(let stop of locData) {
+                    // Abfahrten der Haltestelle abfragen
+                    const depRes = await fetch(`https://v6.db.transport.rest/stops/${stop.id}/departures?duration=120&results=5`);
+                    const depData = await depRes.json();
+                    let deps = depData.departures || depData; 
+
+                    if(Array.isArray(deps) && deps.length > 0) {
+                        html += `<div style="margin-top:15px; margin-bottom:5px; font-weight:bold; color:#0056b3;">🚏 ${stop.name} <span style="font-size:11px; color:#888;">(${Math.round(stop.distance)}m)</span></div>`;
+                        deps.forEach(dep => {
+                            let time = new Date(dep.when || dep.plannedWhen).toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'});
+                            let delayText = "";
+                            if(dep.delay > 0) delayText = `<span style="color:#dc3545; font-weight:bold;">(+${Math.round(dep.delay/60)})</span>`;
+                            else if(dep.delay <= 0) delayText = `<span style="color:#28a745; font-size:11px;">(pünktlich)</span>`;
+
+                            let lineName = dep.line ? dep.line.name : "Zug";
+                            let direction = dep.direction || "Fahrt";
+                            
+                            html += `<div style="background:var(--item-bg); border:1px solid var(--border); padding:10px 15px; border-radius:8px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+                                <div style="font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-right:10px;"><strong>${lineName}</strong> <span style="color:#555;">&rarr; ${direction}</span></div>
+                                <div style="font-size:14px; white-space:nowrap; text-align:right;">${time} ${delayText}</div>
+                            </div>`;
+                        });
+                    }
+                }
+                if(!html) html = '<p style="color:#555; font-size:13px;">Keine aktuellen Abfahrten gefunden.</p>';
+                container.innerHTML = html;
+            } catch(e) { 
+                container.innerHTML = '<p style="color:#dc3545; font-size:12px; padding: 10px; background: #f8d7da; border-radius: 8px;">Fahrplandaten aktuell nicht erreichbar.</p>'; 
+            }
+        };
+        // Standardmäßig für den Bahnhof Unna (Koordinaten) abfragen
+        fetchAbfahrten();
+
+        const btnOepnv = document.getElementById('btn-locate-oepnv');
+        if(btnOepnv) {
+            btnOepnv.onclick = () => {
+                if ("geolocation" in navigator) {
+                    btnOepnv.innerHTML = "⏳ Suche Standort...";
+                    navigator.geolocation.getCurrentPosition(
+                        pos => {
+                            btnOepnv.innerHTML = "📍 Haltestellen in meiner Nähe suchen";
+                            fetchAbfahrten(pos.coords.latitude, pos.coords.longitude, true);
+                        },
+                        () => {
+                            alert("Standortfreigabe verweigert.");
+                            btnOepnv.innerHTML = "📍 Haltestellen in meiner Nähe suchen";
+                        }
+                    );
+                }
+            };
+        }
+
+        // LIVE PARKDATEN GWA
         const fetchParkData = async () => {
             const container = document.getElementById('park-status-container'); if(!container) return;
             const garagesMeta = [ {n: "TG Bahnhof", id: "bahnhof", m: 520}, {n: "PH Neue Mühle", id: "mühle", m: 316}, {n: "TG Neumarkt", id: "neumarkt", m: 300}, {n: "PH Massener Straße", id: "massener", m: 247}, {n: "TG Flügelstraße", id: "flügelstraße", m: 104} ];
@@ -505,6 +629,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(()=>{});
     }
     init();
+
+    // --- ABFALLKALENDER LOGIK (Dynamische Demo) ---
+    const abfallSelect = document.getElementById('abfall-bezirk-select');
+    if(abfallSelect) {
+        abfallSelect.onchange = (e) => {
+            const container = document.getElementById('abfall-container');
+            const val = e.target.value;
+            if(!val) { container.innerHTML = ''; return; }
+            
+            let heute = new Date();
+            let d1 = new Date(heute); d1.setDate(heute.getDate() + 2);
+            let d2 = new Date(heute); d2.setDate(heute.getDate() + 6);
+            let d3 = new Date(heute); d3.setDate(heute.getDate() + 11);
+
+            let termine = [
+                { typ: "🟤 Biotonne", date: d1 },
+                { typ: "🟡 Wertstoff", date: d2 },
+                { typ: "⚫ Restmüll", date: d3 }
+            ];
+
+            let html = `<h3>Nächste Leerungen in ${e.target.options[e.target.selectedIndex].text}</h3>`;
+            termine.forEach(t => {
+                html += `<div style="background:var(--item-bg); border:1px solid var(--border); padding:15px; border-radius:8px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+                            <div style="font-weight:bold; font-size:16px;">${t.typ}</div>
+                            <div style="font-size:14px; color:#555;">${t.date.toLocaleDateString('de-DE', {weekday:'short', day:'2-digit', month:'2-digit'})}</div>
+                         </div>`;
+            });
+            html += `<p style="font-size:12px; color:#888; margin-top:20px;">Die hier angezeigten Daten sind eine technische Demo-Umgebung. Sobald die offiziellen JSON-Daten der GWA vorliegen, werden hier die echten Termine angezeigt.</p>`;
+            container.innerHTML = html;
+        };
+    }
 
     // --- Filter-Logik Events ---
     const filterEventsData = () => {

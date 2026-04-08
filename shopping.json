@@ -1,0 +1,2461 @@
+[
+    {
+        "name": "\"das macht SiNN\" Unna",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Rathauspl. 42, 59423 Unna, Deutschland",
+        "lat": 51.537946600000005,
+        "lon": 7.690452199999999,
+        "telefon": "02303 959830",
+        "website": "https://sinn.com/filialen/Alle-Modehaeuser.html?path=%2FNordrhein-Westfalen%2FUnna-162&find=",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-19:00"
+            ],
+            "2": [
+                "10:00-19:00"
+            ],
+            "3": [
+                "10:00-19:00"
+            ],
+            "4": [
+                "10:00-19:00"
+            ],
+            "5": [
+                "10:00-19:00"
+            ],
+            "6": [
+                "10:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–19:00 Uhr",
+            "Dienstag: 10:00–19:00 Uhr",
+            "Mittwoch: 10:00–19:00 Uhr",
+            "Donnerstag: 10:00–19:00 Uhr",
+            "Freitag: 10:00–19:00 Uhr",
+            "Samstag: 10:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "ALEVA",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 9, 59423 Unna, Deutschland",
+        "lat": 51.535441399999996,
+        "lon": 7.6906908,
+        "telefon": "01521 1745642",
+        "website": "https://www.instagram.com/aleva_de_parfum?igsh=YjZmM2szOTlxZTlr&utm_source=qr",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-19:00"
+            ],
+            "2": [
+                "10:00-19:00"
+            ],
+            "3": [
+                "10:00-19:00"
+            ],
+            "4": [
+                "10:00-19:00"
+            ],
+            "5": [
+                "10:00-19:00"
+            ],
+            "6": [
+                "10:00-18:30"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–19:00 Uhr",
+            "Dienstag: 10:00–19:00 Uhr",
+            "Mittwoch: 10:00–19:00 Uhr",
+            "Donnerstag: 10:00–19:00 Uhr",
+            "Freitag: 10:00–19:00 Uhr",
+            "Samstag: 10:00–18:30 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "ana selbstbedienungslaedchen",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Berliner Allee 71, 59425 Unna, Deutschland",
+        "lat": 51.553716800000004,
+        "lon": 7.694945799999999,
+        "telefon": "",
+        "website": "https://www.instagram.com/ana_selbstbedienungslaedchen/profilecard/?igsh=dWI0d21rdTM4ZnMz",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "0": [
+                "08:00-20:00"
+            ],
+            "1": [
+                "08:00-20:00"
+            ],
+            "2": [
+                "08:00-20:00"
+            ],
+            "3": [
+                "08:00-20:00"
+            ],
+            "4": [
+                "08:00-20:00"
+            ],
+            "5": [
+                "08:00-20:00"
+            ],
+            "6": [
+                "08:00-20:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 08:00–20:00 Uhr",
+            "Dienstag: 08:00–20:00 Uhr",
+            "Mittwoch: 08:00–20:00 Uhr",
+            "Donnerstag: 08:00–20:00 Uhr",
+            "Freitag: 08:00–20:00 Uhr",
+            "Samstag: 08:00–20:00 Uhr",
+            "Sonntag: 08:00–20:00 Uhr"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Barrique Unna",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Massener Str. 9, 59423 Unna, Deutschland",
+        "lat": 51.534498199999994,
+        "lon": 7.688138400000001,
+        "telefon": "02303 9865565",
+        "website": "http://www.unna.barrique.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Bella Brautstudio",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Morgenstraße 6, 59423 Unna, Deutschland",
+        "lat": 51.5357214,
+        "lon": 7.6918061,
+        "telefon": "02303 9523434",
+        "website": "https://bella-brautstudio.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "2": [
+                "10:00-13:30",
+                "14:30-18:00"
+            ],
+            "3": [
+                "10:00-13:30",
+                "14:30-18:00"
+            ],
+            "4": [
+                "10:00-13:30",
+                "14:30-18:00"
+            ],
+            "5": [
+                "10:00-13:30",
+                "14:30-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 10:00–13:30 Uhr, 14:30–18:00 Uhr",
+            "Mittwoch: 10:00–13:30 Uhr, 14:30–18:00 Uhr",
+            "Donnerstag: 10:00–13:30 Uhr, 14:30–18:00 Uhr",
+            "Freitag: 10:00–13:30 Uhr, 14:30–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "BigBarth XXL Fashion",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 46, 59423 Unna, Deutschland",
+        "lat": 51.5343543,
+        "lon": 7.684198799999999,
+        "telefon": "02307 9258070",
+        "website": "https://www.bigbarth.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {},
+        "oeffnungszeiten": [],
+        "beschreibung": ""
+    },
+    {
+        "name": "Bijou Brigitte modische Accessoires AG",
+        "kategorie": "Schmuck & Uhren",
+        "adresse": "Bahnhofstraße 7, 59423 Unna, Deutschland",
+        "lat": 51.5353001,
+        "lon": 7.6906174,
+        "telefon": "02303 254164",
+        "website": "https://www.bijou-brigitte.com/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-19:00"
+            ],
+            "2": [
+                "09:30-19:00"
+            ],
+            "3": [
+                "09:30-19:00"
+            ],
+            "4": [
+                "09:30-19:00"
+            ],
+            "5": [
+                "09:30-19:00"
+            ],
+            "6": [
+                "09:30-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–19:00 Uhr",
+            "Dienstag: 09:30–19:00 Uhr",
+            "Mittwoch: 09:30–19:00 Uhr",
+            "Donnerstag: 09:30–19:00 Uhr",
+            "Freitag: 09:30–19:00 Uhr",
+            "Samstag: 09:30–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Blumen und Geschenke Beyersdorf",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Ostring 27, 59423 Unna, Deutschland",
+        "lat": 51.5361836,
+        "lon": 7.6935497999999995,
+        "telefon": "02303 986490",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "2": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "3": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "4": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "5": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "6": [
+                "10:00-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Dienstag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Mittwoch: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Donnerstag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Freitag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Samstag: 10:00–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Boutique Claire",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Hellweg 29, 59427 Unna, Deutschland",
+        "lat": 51.5383711,
+        "lon": 7.6484301,
+        "telefon": "02303 53035",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "2": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "3": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "4": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "5": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "6": [
+                "10:00-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Mittwoch: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Donnerstag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Freitag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Samstag: 10:00–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Boutique La Rosa",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 26, 59423 Unna, Deutschland",
+        "lat": 51.534341399999995,
+        "lon": 7.6870105,
+        "telefon": "02303 9792752",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Buch am Hellweg",
+        "kategorie": "Bücher & Medien",
+        "adresse": "Bismarckstraße 11, 59427 Unna, Deutschland",
+        "lat": 51.539708399999995,
+        "lon": 7.649521,
+        "telefon": "02303 779960",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-18:00"
+            ],
+            "2": [
+                "09:30-18:00"
+            ],
+            "3": [
+                "09:30-14:00"
+            ],
+            "4": [
+                "09:30-18:00"
+            ],
+            "5": [
+                "09:30-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–18:00 Uhr",
+            "Dienstag: 09:30–18:00 Uhr",
+            "Mittwoch: 09:30–14:00 Uhr",
+            "Donnerstag: 09:30–18:00 Uhr",
+            "Freitag: 09:30–18:00 Uhr",
+            "Samstag: Geschlossen",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "BUCHHANDLUNG G. HORNUNG",
+        "kategorie": "Bücher & Medien",
+        "adresse": "Markt 6, 59423 Unna, Deutschland",
+        "lat": 51.5344422,
+        "lon": 7.6900954,
+        "telefon": "02303 251520",
+        "website": "http://www.hornung-buch.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "09:00-18:30"
+            ],
+            "2": [
+                "09:00-18:30"
+            ],
+            "3": [
+                "09:00-18:30"
+            ],
+            "4": [
+                "09:00-18:30"
+            ],
+            "5": [
+                "09:00-18:30"
+            ],
+            "6": [
+                "09:30-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–18:30 Uhr",
+            "Dienstag: 09:00–18:30 Uhr",
+            "Mittwoch: 09:00–18:30 Uhr",
+            "Donnerstag: 09:00–18:30 Uhr",
+            "Freitag: 09:00–18:30 Uhr",
+            "Samstag: 09:30–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Caspari Mode",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 14, 59423 Unna, Deutschland",
+        "lat": 51.5338531,
+        "lon": 7.687990900000001,
+        "telefon": "02303 16174",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:30"
+            ],
+            "2": [
+                "10:00-18:30"
+            ],
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-17:30"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:30 Uhr",
+            "Dienstag: 10:00–18:30 Uhr",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–17:30 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Das Körbchen",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Massener Str. 23, 59423 Unna, Deutschland",
+        "lat": 51.5345203,
+        "lon": 7.6865825999999995,
+        "telefon": "02303 490093",
+        "website": "https://www.korb-laden.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-15:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–15:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "DEICHMANN",
+        "kategorie": "Schuhe & Leder",
+        "adresse": "EKZ Mühle Bremme, Kantstraße 5, 59425 Unna, Deutschland",
+        "lat": 51.5387859,
+        "lon": 7.689609699999999,
+        "telefon": "02303 8718181",
+        "website": "https://stores.deichmann.com/de-de/de/nordrhein-westfalen/unna/kantstrasse-5",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-19:00"
+            ],
+            "2": [
+                "09:00-19:00"
+            ],
+            "3": [
+                "09:00-19:00"
+            ],
+            "4": [
+                "09:00-19:00"
+            ],
+            "5": [
+                "09:00-19:00"
+            ],
+            "6": [
+                "09:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–19:00 Uhr",
+            "Dienstag: 09:00–19:00 Uhr",
+            "Mittwoch: 09:00–19:00 Uhr",
+            "Donnerstag: 09:00–19:00 Uhr",
+            "Freitag: 09:00–19:00 Uhr",
+            "Samstag: 09:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Der Hosen - Spezialist Inh. Thomas Weber Unna",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Wasserstraße 5, 59423 Unna, Deutschland",
+        "lat": 51.534089699999996,
+        "lon": 7.690172199999998,
+        "telefon": "02303 16051",
+        "website": "http://hosenspezialist.com/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Der Senfladen",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Massener Str. 24, 59423 Unna, Deutschland",
+        "lat": 51.5343326,
+        "lon": 7.6871377,
+        "telefon": "02303 968121",
+        "website": "http://www.senfladen-unna.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "11:00-18:00"
+            ],
+            "2": [
+                "11:00-18:00"
+            ],
+            "3": [
+                "11:00-18:00"
+            ],
+            "4": [
+                "11:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 11:00–18:00 Uhr",
+            "Dienstag: 11:00–18:00 Uhr",
+            "Mittwoch: 11:00–18:00 Uhr",
+            "Donnerstag: 11:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–17:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "dreikäsehoch - Barfußschuhe & nachhaltige Kinderkleidung",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 19, 59423 Unna, Deutschland",
+        "lat": 51.5345393,
+        "lon": 7.686847599999999,
+        "telefon": "02303 5588977",
+        "website": "https://dreikaesehoch-unna.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-14:00",
+                "15:00-18:00"
+            ],
+            "2": [
+                "10:00-14:00",
+                "15:00-18:00"
+            ],
+            "3": [
+                "10:00-14:00",
+                "15:00-18:00"
+            ],
+            "4": [
+                "10:00-14:00",
+                "15:00-18:00"
+            ],
+            "5": [
+                "10:00-14:00",
+                "15:00-18:00"
+            ],
+            "6": [
+                "10:00-15:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–14:00 Uhr, 15:00–18:00 Uhr",
+            "Dienstag: 10:00–14:00 Uhr, 15:00–18:00 Uhr",
+            "Mittwoch: 10:00–14:00 Uhr, 15:00–18:00 Uhr",
+            "Donnerstag: 10:00–14:00 Uhr, 15:00–18:00 Uhr",
+            "Freitag: 10:00–14:00 Uhr, 15:00–18:00 Uhr",
+            "Samstag: 10:00–15:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "ElectricRide",
+        "kategorie": "Sport & Freizeit",
+        "adresse": "Iserlohner Str. 123, 59427 Unna, Deutschland",
+        "lat": 51.513248499999996,
+        "lon": 7.698508,
+        "telefon": "01520 2944721",
+        "website": "http://ebike-service.com/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "2": [
+                "14:00-18:00"
+            ],
+            "3": [
+                "14:00-18:00"
+            ],
+            "4": [
+                "14:00-18:00"
+            ],
+            "5": [
+                "14:00-18:00"
+            ],
+            "6": [
+                "10:00-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 14:00–18:00 Uhr",
+            "Mittwoch: 14:00–18:00 Uhr",
+            "Donnerstag: 14:00–18:00 Uhr",
+            "Freitag: 14:00–18:00 Uhr",
+            "Samstag: 10:00–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Elektrogroßhandel Steller - Unna",
+        "kategorie": "Elektronik",
+        "adresse": "Hansastraße 74C, 59425 Unna, Deutschland",
+        "lat": 51.5396919,
+        "lon": 7.673392700000001,
+        "telefon": "02303 12512",
+        "website": "https://www.elektro-steller.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "07:30-12:00",
+                "13:00-17:00"
+            ],
+            "2": [
+                "07:30-12:00",
+                "13:00-17:00"
+            ],
+            "3": [
+                "07:30-12:00",
+                "13:00-17:00"
+            ],
+            "4": [
+                "07:30-12:00",
+                "13:00-17:00"
+            ],
+            "5": [
+                "07:30-12:00",
+                "13:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 07:30–12:00 Uhr, 13:00–17:00 Uhr",
+            "Dienstag: 07:30–12:00 Uhr, 13:00–17:00 Uhr",
+            "Mittwoch: 07:30–12:00 Uhr, 13:00–17:00 Uhr",
+            "Donnerstag: 07:30–12:00 Uhr, 13:00–17:00 Uhr",
+            "Freitag: 07:30–12:00 Uhr, 13:00–17:00 Uhr",
+            "Samstag: Geschlossen",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Emil Altfeld Nachfolger GPK (Glas - Porzellan - Keramik) e. K.",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Hertingerstraße 2, 59423 Unna, Deutschland",
+        "lat": 51.53395640000001,
+        "lon": 7.689749699999999,
+        "telefon": "02303 12426",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "09:00-18:30"
+            ],
+            "2": [
+                "09:00-18:30"
+            ],
+            "3": [
+                "09:00-18:30"
+            ],
+            "4": [
+                "09:00-18:30"
+            ],
+            "5": [
+                "09:00-18:30"
+            ],
+            "6": [
+                "09:30-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–18:30 Uhr",
+            "Dienstag: 09:00–18:30 Uhr",
+            "Mittwoch: 09:00–18:30 Uhr",
+            "Donnerstag: 09:00–18:30 Uhr",
+            "Freitag: 09:00–18:30 Uhr",
+            "Samstag: 09:30–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Ernsting's family",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Flügelstraße 19, 59423 Unna, Deutschland",
+        "lat": 51.5339266,
+        "lon": 7.687650499999999,
+        "telefon": "02546 9899998",
+        "website": "https://store-locator.ernstings-family.de/unna-fluegelstrasse-19",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "09:30-18:30"
+            ],
+            "2": [
+                "09:30-18:30"
+            ],
+            "3": [
+                "09:30-18:30"
+            ],
+            "4": [
+                "09:30-18:30"
+            ],
+            "5": [
+                "09:30-18:30"
+            ],
+            "6": [
+                "09:30-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–18:30 Uhr",
+            "Dienstag: 09:30–18:30 Uhr",
+            "Mittwoch: 09:30–18:30 Uhr",
+            "Donnerstag: 09:30–18:30 Uhr",
+            "Freitag: 09:30–18:30 Uhr",
+            "Samstag: 09:30–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Euronics Berlet Unna",
+        "kategorie": "Elektronik",
+        "adresse": "Hans-Böckler-Straße 4, 59423 Unna, Deutschland",
+        "lat": 51.5300903,
+        "lon": 7.669983299999999,
+        "telefon": "02334 9550",
+        "website": "https://www.euronics.de/hagen-berlet/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-19:00"
+            ],
+            "2": [
+                "10:00-19:00"
+            ],
+            "3": [
+                "10:00-19:00"
+            ],
+            "4": [
+                "10:00-19:00"
+            ],
+            "5": [
+                "10:00-19:00"
+            ],
+            "6": [
+                "10:00-19:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–19:00 Uhr",
+            "Dienstag: 10:00–19:00 Uhr",
+            "Mittwoch: 10:00–19:00 Uhr",
+            "Donnerstag: 10:00–19:00 Uhr",
+            "Freitag: 10:00–19:00 Uhr",
+            "Samstag: 10:00–19:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Hellweg Center",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Ostring 11-15, 59423 Unna, Deutschland",
+        "lat": 51.5342886,
+        "lon": 7.6926768,
+        "telefon": "",
+        "website": "https://rewe-duerre.de/hellweg-center/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "07:00-21:00"
+            ],
+            "2": [
+                "07:00-21:00"
+            ],
+            "3": [
+                "07:00-21:00"
+            ],
+            "4": [
+                "07:00-21:00"
+            ],
+            "5": [
+                "07:00-21:00"
+            ],
+            "6": [
+                "07:00-21:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 07:00–21:00 Uhr",
+            "Dienstag: 07:00–21:00 Uhr",
+            "Mittwoch: 07:00–21:00 Uhr",
+            "Donnerstag: 07:00–21:00 Uhr",
+            "Freitag: 07:00–21:00 Uhr",
+            "Samstag: 07:00–21:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Hobbywelt Europa - Unna",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Rudolf-Diesel-Straße 5, 59425 Unna, Deutschland",
+        "lat": 51.5375723,
+        "lon": 7.6684885,
+        "telefon": "02303 9423767",
+        "website": "https://www.hobbywelt-europa.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "08:00-17:00"
+            ],
+            "2": [
+                "08:00-17:00"
+            ],
+            "3": [
+                "08:00-17:00"
+            ],
+            "4": [
+                "08:00-17:00"
+            ],
+            "5": [
+                "08:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 08:00–17:00 Uhr",
+            "Dienstag: 08:00–17:00 Uhr",
+            "Mittwoch: 08:00–17:00 Uhr",
+            "Donnerstag: 08:00–17:00 Uhr",
+            "Freitag: 08:00–17:00 Uhr",
+            "Samstag: Geschlossen",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Hugendubel",
+        "kategorie": "Bücher & Medien",
+        "adresse": "Bahnhofstraße 12, 59423 Unna, Deutschland",
+        "lat": 51.5356818,
+        "lon": 7.690647999999999,
+        "telefon": "089 30757575",
+        "website": "https://www.hugendubel.de/de/branch?branchId=9931",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-19:00"
+            ],
+            "2": [
+                "09:00-19:00"
+            ],
+            "3": [
+                "09:00-19:00"
+            ],
+            "4": [
+                "09:00-19:00"
+            ],
+            "5": [
+                "09:00-19:00"
+            ],
+            "6": [
+                "09:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–19:00 Uhr",
+            "Dienstag: 09:00–19:00 Uhr",
+            "Mittwoch: 09:00–19:00 Uhr",
+            "Donnerstag: 09:00–19:00 Uhr",
+            "Freitag: 09:00–19:00 Uhr",
+            "Samstag: 09:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "HUSSEL Confiserie",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Markt 8, 59423 Unna, Deutschland",
+        "lat": 51.534248999999996,
+        "lon": 7.689811499999999,
+        "telefon": "02303 592657",
+        "website": "http://www.hussel.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Hutfabrik",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 31, 59423 Unna, Deutschland",
+        "lat": 51.5368725,
+        "lon": 7.691259799999999,
+        "telefon": "02303 8712230",
+        "website": "http://www.hutfabrik.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "2": [
+                "10:30-17:00"
+            ],
+            "3": [
+                "10:30-17:00"
+            ],
+            "4": [
+                "10:30-17:00"
+            ],
+            "5": [
+                "10:30-17:00"
+            ],
+            "6": [
+                "10:30-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 10:30–17:00 Uhr",
+            "Mittwoch: 10:30–17:00 Uhr",
+            "Donnerstag: 10:30–17:00 Uhr",
+            "Freitag: 10:30–17:00 Uhr",
+            "Samstag: 10:30–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "JEANS FRITZ",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 6, 59423 Unna, Deutschland",
+        "lat": 51.535271099999996,
+        "lon": 7.690295,
+        "telefon": "02303 7779566",
+        "website": "https://www.jeans-fritz.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-18:30"
+            ],
+            "2": [
+                "09:30-18:30"
+            ],
+            "3": [
+                "09:30-18:30"
+            ],
+            "4": [
+                "09:30-18:30"
+            ],
+            "5": [
+                "09:30-18:30"
+            ],
+            "6": [
+                "09:30-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–18:30 Uhr",
+            "Dienstag: 09:30–18:30 Uhr",
+            "Mittwoch: 09:30–18:30 Uhr",
+            "Donnerstag: 09:30–18:30 Uhr",
+            "Freitag: 09:30–18:30 Uhr",
+            "Samstag: 09:30–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Jolie",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 7, 59423 Unna, Deutschland",
+        "lat": 51.5353001,
+        "lon": 7.6906174,
+        "telefon": "",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {},
+        "oeffnungszeiten": [],
+        "beschreibung": ""
+    },
+    {
+        "name": "Juwelier Düdder",
+        "kategorie": "Schmuck & Uhren",
+        "adresse": "Massener Hellweg 32, 59427 Unna, Deutschland",
+        "lat": 51.5381919,
+        "lon": 7.649121699999999,
+        "telefon": "02303 50055",
+        "website": "http://www.juwelier-duedder.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "2": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "3": [
+                "10:00-13:00"
+            ],
+            "4": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "5": [
+                "10:00-13:00",
+                "15:00-18:00"
+            ],
+            "6": [
+                "10:00-13:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Dienstag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Mittwoch: 10:00–13:00 Uhr",
+            "Donnerstag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Freitag: 10:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Samstag: 10:00–13:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Juwelier Sollik",
+        "kategorie": "Schmuck & Uhren",
+        "adresse": "Rathauspl. 44, 59423 Unna, Deutschland",
+        "lat": 51.5380768,
+        "lon": 7.690583399999999,
+        "telefon": "02303 9527334",
+        "website": "https://www.juwelier-sollik.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Juwelier Wienken",
+        "kategorie": "Schmuck & Uhren",
+        "adresse": "Bahnhofstraße 34, 59423 Unna, Deutschland",
+        "lat": 51.537170499999995,
+        "lon": 7.690968400000001,
+        "telefon": "02303 14575",
+        "website": "https://www.juwelier-wienken.de/?utm_source=GoogleBusiness&utm_medium=Link&utm_campaign=GoogleBusiness",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Kik Unna Mitte",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Hertingerstraße 17, 59423 Unna, Deutschland",
+        "lat": 51.533514499999995,
+        "lon": 7.6879035999999985,
+        "telefon": "",
+        "website": "https://www.kik.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-19:00"
+            ],
+            "2": [
+                "09:00-19:00"
+            ],
+            "3": [
+                "09:00-19:00"
+            ],
+            "4": [
+                "09:00-19:00"
+            ],
+            "5": [
+                "09:00-19:00"
+            ],
+            "6": [
+                "09:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–19:00 Uhr",
+            "Dienstag: 09:00–19:00 Uhr",
+            "Mittwoch: 09:00–19:00 Uhr",
+            "Donnerstag: 09:00–19:00 Uhr",
+            "Freitag: 09:00–19:00 Uhr",
+            "Samstag: 09:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Kroes Modelive GmbH & Co.KG",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 22, 59423 Unna, Deutschland",
+        "lat": 51.5362797,
+        "lon": 7.6909871999999995,
+        "telefon": "02303 15262",
+        "website": "http://www.kroes-modelive.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:30"
+            ],
+            "2": [
+                "10:00-18:30"
+            ],
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:30 Uhr",
+            "Dienstag: 10:00–18:30 Uhr",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–17:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Lilos Glück",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Lünerner Schulstraße 3, 59427 Unna, Deutschland",
+        "lat": 51.5485897,
+        "lon": 7.7624618,
+        "telefon": "0176 96171450",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Little John Bikes (ehem. Megabike Manasse GmbH)",
+        "kategorie": "Sport & Freizeit",
+        "adresse": "Massener Hellweg 23, 59427 Unna, Deutschland",
+        "lat": 51.5385298,
+        "lon": 7.6497904000000005,
+        "telefon": "02303 9427979",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-18:00"
+            ],
+            "2": [
+                "09:00-18:00"
+            ],
+            "3": [
+                "09:00-18:00"
+            ],
+            "4": [
+                "09:00-18:00"
+            ],
+            "5": [
+                "09:00-18:00"
+            ],
+            "6": [
+                "09:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–18:00 Uhr",
+            "Dienstag: 09:00–18:00 Uhr",
+            "Mittwoch: 09:00–18:00 Uhr",
+            "Donnerstag: 09:00–18:00 Uhr",
+            "Freitag: 09:00–18:00 Uhr",
+            "Samstag: 09:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Luinere.Kreativ",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Lünerner Schulstraße 18, 59427 Unna, Deutschland",
+        "lat": 51.547377499999996,
+        "lon": 7.763833899999999,
+        "telefon": "0160 96650224",
+        "website": "http://www.instagram.de/luinere.kreativ",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "0": [
+                "09:00-20:00"
+            ],
+            "1": [
+                "08:00-20:00"
+            ],
+            "2": [
+                "08:00-20:00"
+            ],
+            "3": [
+                "08:00-20:00"
+            ],
+            "4": [
+                "08:00-20:00"
+            ],
+            "5": [
+                "08:00-20:00"
+            ],
+            "6": [
+                "09:00-20:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 08:00–20:00 Uhr",
+            "Dienstag: 08:00–20:00 Uhr",
+            "Mittwoch: 08:00–20:00 Uhr",
+            "Donnerstag: 08:00–20:00 Uhr",
+            "Freitag: 08:00–20:00 Uhr",
+            "Samstag: 09:00–20:00 Uhr",
+            "Sonntag: 09:00–20:00 Uhr"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Migotti Cartell",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Schäferstraße 20, 59423 Unna, Deutschland",
+        "lat": 51.5360981,
+        "lon": 7.689785,
+        "telefon": "",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {},
+        "oeffnungszeiten": [],
+        "beschreibung": ""
+    },
+    {
+        "name": "N° 17 Fashion Deco Living",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 17, 59423 Unna, Deutschland",
+        "lat": 51.535968999999994,
+        "lon": 7.6911271,
+        "telefon": "02303 9209597",
+        "website": "http://www.hellmann-stores.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:30"
+            ],
+            "2": [
+                "10:00-18:30"
+            ],
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:30 Uhr",
+            "Dienstag: 10:00–18:30 Uhr",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "NANU-NANA",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Bahnhofstraße 25, 59423 Unna, Deutschland",
+        "lat": 51.536420899999996,
+        "lon": 7.6912461,
+        "telefon": "02303 9866418",
+        "website": "https://unternehmen.nanu-nana.de/filiale/unna-bahnhofstrasse-25",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-19:00"
+            ],
+            "2": [
+                "09:30-19:00"
+            ],
+            "3": [
+                "09:30-19:00"
+            ],
+            "4": [
+                "09:30-19:00"
+            ],
+            "5": [
+                "09:30-19:00"
+            ],
+            "6": [
+                "09:30-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–19:00 Uhr",
+            "Dienstag: 09:30–19:00 Uhr",
+            "Mittwoch: 09:30–19:00 Uhr",
+            "Donnerstag: 09:30–19:00 Uhr",
+            "Freitag: 09:30–19:00 Uhr",
+            "Samstag: 09:30–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "New Downtown Inh. Agata Gambero",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Morgenstraße 12, 59423 Unna, Deutschland",
+        "lat": 51.5356768,
+        "lon": 7.6920942,
+        "telefon": "02303 9420777",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "11:00-18:30"
+            ],
+            "2": [
+                "11:00-18:30"
+            ],
+            "3": [
+                "11:00-18:30"
+            ],
+            "4": [
+                "11:00-18:30"
+            ],
+            "5": [
+                "11:00-18:30"
+            ],
+            "6": [
+                "11:00-15:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 11:00–18:30 Uhr",
+            "Dienstag: 11:00–18:30 Uhr",
+            "Mittwoch: 11:00–18:30 Uhr",
+            "Donnerstag: 11:00–18:30 Uhr",
+            "Freitag: 11:00–18:30 Uhr",
+            "Samstag: 11:00–15:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Papeterie am Markt",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Hertingerstraße 6, 59423 Unna, Deutschland",
+        "lat": 51.5337487,
+        "lon": 7.6894767,
+        "telefon": "02303 256037",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Pralinothek Unna",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Bahnhofstraße 39f, 59423 Unna, Deutschland",
+        "lat": 51.537626499999995,
+        "lon": 7.6913351,
+        "telefon": "02303 13525",
+        "website": "http://pralinothek-unna.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "09:00-18:00"
+            ],
+            "2": [
+                "09:00-18:00"
+            ],
+            "3": [
+                "09:00-18:00"
+            ],
+            "4": [
+                "09:00-18:00"
+            ],
+            "5": [
+                "09:00-18:00"
+            ],
+            "6": [
+                "09:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–18:00 Uhr",
+            "Dienstag: 09:00–18:00 Uhr",
+            "Mittwoch: 09:00–18:00 Uhr",
+            "Donnerstag: 09:00–18:00 Uhr",
+            "Freitag: 09:00–18:00 Uhr",
+            "Samstag: 09:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "QUAST...einmalig!",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 12, 59423 Unna, Deutschland",
+        "lat": 51.5343136,
+        "lon": 7.688592300000001,
+        "telefon": "02303 239981",
+        "website": "",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Rodi Herrenmode",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 27, 59423 Unna, Deutschland",
+        "lat": 51.5345169,
+        "lon": 7.686235199999999,
+        "telefon": "02303 9285318",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-18:30"
+            ],
+            "2": [
+                "10:00-18:30"
+            ],
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:30 Uhr",
+            "Dienstag: 10:00–18:30 Uhr",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–17:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schmidt Herrenmode",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 29, 59423 Unna, Deutschland",
+        "lat": 51.536688899999994,
+        "lon": 7.6912550999999985,
+        "telefon": "02303 22000",
+        "website": "http://www.schmidt-herrenmode.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:30"
+            ],
+            "2": [
+                "10:00-18:30"
+            ],
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:30 Uhr",
+            "Dienstag: 10:00–18:30 Uhr",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–17:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schmuck Birgit Okulla",
+        "kategorie": "Schmuck & Uhren",
+        "adresse": "Güldener Trog 1, 59423 Unna, Deutschland",
+        "lat": 51.535202,
+        "lon": 7.692012999999998,
+        "telefon": "02303 8843678",
+        "website": "http://www.schmuckdesign-birgitokulla.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "11:00-18:00"
+            ],
+            "3": [
+                "11:00-18:00"
+            ],
+            "5": [
+                "11:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 11:00–18:00 Uhr",
+            "Dienstag: Geschlossen",
+            "Mittwoch: 11:00–18:00 Uhr",
+            "Donnerstag: Geschlossen",
+            "Freitag: 11:00–18:00 Uhr",
+            "Samstag: Geschlossen",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schnückel GmbH",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 2-8, 59423 Unna, Deutschland",
+        "lat": 51.534056199999995,
+        "lon": 7.688970200000001,
+        "telefon": "02303 2035",
+        "website": "http://www.kaufhaus-schnueckel.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-19:00"
+            ],
+            "2": [
+                "09:30-19:00"
+            ],
+            "3": [
+                "09:30-19:00"
+            ],
+            "4": [
+                "09:30-19:00"
+            ],
+            "5": [
+                "09:30-19:00"
+            ],
+            "6": [
+                "09:30-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–19:00 Uhr",
+            "Dienstag: 09:30–19:00 Uhr",
+            "Mittwoch: 09:30–19:00 Uhr",
+            "Donnerstag: 09:30–19:00 Uhr",
+            "Freitag: 09:30–19:00 Uhr",
+            "Samstag: 09:30–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schnückel Outlet",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Hertingerstraße, 59423 Unna, Deutschland",
+        "lat": 51.5337963,
+        "lon": 7.6890333,
+        "telefon": "",
+        "website": "",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "4": [
+                "11:00-17:00"
+            ],
+            "5": [
+                "11:00-17:00"
+            ],
+            "6": [
+                "11:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 11:00–17:00 Uhr",
+            "Freitag: 11:00–17:00 Uhr",
+            "Samstag: 11:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schuh Disselbeck",
+        "kategorie": "Schuhe & Leder",
+        "adresse": "Bahnhofstraße 16, 59423 Unna, Deutschland",
+        "lat": 51.535963699999996,
+        "lon": 7.690773699999999,
+        "telefon": "02303 14402",
+        "website": "https://schuhhaus-schreiber.de/Filialen/Schuh-Disselbeck-Unna/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schuh-Outlet Hammerschmidt",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 18-22a, 59423 Unna, Deutschland",
+        "lat": 51.534305499999995,
+        "lon": 7.6874542,
+        "telefon": "02303 7798686",
+        "website": "http://www.schuhhaus-hammerschmidt.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-19:00"
+            ],
+            "2": [
+                "10:00-19:00"
+            ],
+            "3": [
+                "10:00-19:00"
+            ],
+            "4": [
+                "10:00-19:00"
+            ],
+            "5": [
+                "10:00-19:00"
+            ],
+            "6": [
+                "10:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–19:00 Uhr",
+            "Dienstag: 10:00–19:00 Uhr",
+            "Mittwoch: 10:00–19:00 Uhr",
+            "Donnerstag: 10:00–19:00 Uhr",
+            "Freitag: 10:00–19:00 Uhr",
+            "Samstag: 10:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schuhhaus Schreiber Unna",
+        "kategorie": "Schuhe & Leder",
+        "adresse": "Wasserstraße 1, 59423 Unna, Deutschland",
+        "lat": 51.5341163,
+        "lon": 7.6899483,
+        "telefon": "02303 5878170",
+        "website": "http://www.schuhhaus-schreiber.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "SchuhHOUSE",
+        "kategorie": "Schuhe & Leder",
+        "adresse": "Bahnhofstraße 19, 59423 Unna, Deutschland",
+        "lat": 51.5361443,
+        "lon": 7.691254999999999,
+        "telefon": "02303 237474",
+        "website": "http://www.schuhhouse.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:30"
+            ],
+            "2": [
+                "10:00-18:30"
+            ],
+            "3": [
+                "10:00-18:30"
+            ],
+            "4": [
+                "10:00-18:30"
+            ],
+            "5": [
+                "10:00-18:30"
+            ],
+            "6": [
+                "10:00-17:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:30 Uhr",
+            "Dienstag: 10:00–18:30 Uhr",
+            "Mittwoch: 10:00–18:30 Uhr",
+            "Donnerstag: 10:00–18:30 Uhr",
+            "Freitag: 10:00–18:30 Uhr",
+            "Samstag: 10:00–17:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Schwesterherz",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Schäferstraße 45, 59423 Unna, Deutschland",
+        "lat": 51.5366706,
+        "lon": 7.6901165,
+        "telefon": "02303 968837",
+        "website": "http://www.schwesterherz-unna.jimdo.com/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "2": [
+                "11:00-13:00",
+                "15:00-18:00"
+            ],
+            "4": [
+                "11:00-13:00",
+                "15:00-18:00"
+            ],
+            "5": [
+                "11:00-13:00",
+                "15:00-18:00"
+            ],
+            "6": [
+                "11:00-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 11:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 11:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Freitag: 11:00–13:00 Uhr, 15:00–18:00 Uhr",
+            "Samstag: 11:00–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Secondstyle",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Kamener Str. 47A, 59425 Unna, Deutschland",
+        "lat": 51.5597503,
+        "lon": 7.681943400000001,
+        "telefon": "02303 660690",
+        "website": "http://www.secondstyle-jordan.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-12:30",
+                "15:00-17:00"
+            ],
+            "2": [
+                "09:30-12:30",
+                "15:00-17:00"
+            ],
+            "4": [
+                "09:30-12:30",
+                "15:00-17:00"
+            ],
+            "5": [
+                "09:30-12:30",
+                "15:00-17:00"
+            ],
+            "6": [
+                "10:00-13:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–12:30 Uhr, 15:00–17:00 Uhr",
+            "Dienstag: 09:30–12:30 Uhr, 15:00–17:00 Uhr",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: 09:30–12:30 Uhr, 15:00–17:00 Uhr",
+            "Freitag: 09:30–12:30 Uhr, 15:00–17:00 Uhr",
+            "Samstag: 10:00–13:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "SIEMES Schuhcenter Unna",
+        "kategorie": "Schuhe & Leder",
+        "adresse": "Nelkenstraße 15, 59425 Unna, Deutschland",
+        "lat": 51.5563717,
+        "lon": 7.683891200000001,
+        "telefon": "02303 9473676",
+        "website": "https://www.schuhcenter.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:30-19:00"
+            ],
+            "2": [
+                "09:30-19:00"
+            ],
+            "3": [
+                "09:30-19:00"
+            ],
+            "4": [
+                "09:30-19:00"
+            ],
+            "5": [
+                "09:30-19:00"
+            ],
+            "6": [
+                "09:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:30–19:00 Uhr",
+            "Dienstag: 09:30–19:00 Uhr",
+            "Mittwoch: 09:30–19:00 Uhr",
+            "Donnerstag: 09:30–19:00 Uhr",
+            "Freitag: 09:30–19:00 Uhr",
+            "Samstag: 09:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Takko Fashion",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Hellweg Center, Ostring 11-13, 59423 Unna, Deutschland",
+        "lat": 51.5342601,
+        "lon": 7.6925612999999995,
+        "telefon": "02303 537553",
+        "website": "https://www.takko.com/de-de/stores/#!/l/Unna/Ostring11-13/1116",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-20:00"
+            ],
+            "2": [
+                "09:00-20:00"
+            ],
+            "3": [
+                "09:00-20:00"
+            ],
+            "4": [
+                "09:00-20:00"
+            ],
+            "5": [
+                "09:00-20:00"
+            ],
+            "6": [
+                "09:00-20:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–20:00 Uhr",
+            "Dienstag: 09:00–20:00 Uhr",
+            "Mittwoch: 09:00–20:00 Uhr",
+            "Donnerstag: 09:00–20:00 Uhr",
+            "Freitag: 09:00–20:00 Uhr",
+            "Samstag: 09:00–20:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Tally Weijl",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "WNW, Flügelstraße 2, 59423 Unna, Deutschland",
+        "lat": 51.533582599999995,
+        "lon": 7.688260799999998,
+        "telefon": "02303 2035",
+        "website": "https://www.tally-weijl.com/de_DE/stores/UNNA/2CAX",
+        "barrierefrei": "Ja",
+        "hoursLive": {},
+        "oeffnungszeiten": [],
+        "beschreibung": ""
+    },
+    {
+        "name": "tredy Fashion GmbH",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Bahnhofstraße 14, 59423 Unna, Deutschland",
+        "lat": 51.535776299999995,
+        "lon": 7.690776400000001,
+        "telefon": "02303 9205009",
+        "website": "https://www.tredy-fashion.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "10:00-18:00"
+            ],
+            "2": [
+                "10:00-18:00"
+            ],
+            "3": [
+                "10:00-18:00"
+            ],
+            "4": [
+                "10:00-18:00"
+            ],
+            "5": [
+                "10:00-18:00"
+            ],
+            "6": [
+                "10:00-16:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–18:00 Uhr",
+            "Dienstag: 10:00–18:00 Uhr",
+            "Mittwoch: 10:00–18:00 Uhr",
+            "Donnerstag: 10:00–18:00 Uhr",
+            "Freitag: 10:00–18:00 Uhr",
+            "Samstag: 10:00–16:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Witchy Wombat",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Neuer Weg 7, 59427 Unna, Deutschland",
+        "lat": 51.5496634,
+        "lon": 7.761596,
+        "telefon": "015566 537998",
+        "website": "http://www.witchywombat.de/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "6": [
+                "10:00-14:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: Geschlossen",
+            "Mittwoch: Geschlossen",
+            "Donnerstag: Geschlossen",
+            "Freitag: Geschlossen",
+            "Samstag: 10:00–14:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Woolworth",
+        "kategorie": "Mode & Bekleidung",
+        "adresse": "Massener Str. 20a, 59423 Unna, Deutschland",
+        "lat": 51.534314599999995,
+        "lon": 7.687608999999999,
+        "telefon": "02303 5938200",
+        "website": "https://woolworth.de/stores/store/1251-unna-massener-strasse-20a",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-19:00"
+            ],
+            "2": [
+                "09:00-19:00"
+            ],
+            "3": [
+                "09:00-19:00"
+            ],
+            "4": [
+                "09:00-19:00"
+            ],
+            "5": [
+                "09:00-19:00"
+            ],
+            "6": [
+                "09:00-18:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–19:00 Uhr",
+            "Dienstag: 09:00–19:00 Uhr",
+            "Mittwoch: 09:00–19:00 Uhr",
+            "Donnerstag: 09:00–19:00 Uhr",
+            "Freitag: 09:00–19:00 Uhr",
+            "Samstag: 09:00–18:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Yucca Deko",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Massener Str. 30, 59423 Unna, Deutschland",
+        "lat": 51.5343008,
+        "lon": 7.6862003,
+        "telefon": "01573 4636282",
+        "website": "https://yucca-deko.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "2": [
+                "10:30-18:00"
+            ],
+            "3": [
+                "10:30-18:00"
+            ],
+            "4": [
+                "10:30-18:00"
+            ],
+            "5": [
+                "10:30-18:00"
+            ],
+            "6": [
+                "10:00-15:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: Geschlossen",
+            "Dienstag: 10:30–18:00 Uhr",
+            "Mittwoch: 10:30–18:00 Uhr",
+            "Donnerstag: 10:30–18:00 Uhr",
+            "Freitag: 10:30–18:00 Uhr",
+            "Samstag: 10:00–15:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Zurbrüggen Wohn-Zentrum Unna",
+        "kategorie": "Geschenke & Deko",
+        "adresse": "Hans-Böckler-Straße 4, 59423 Unna, Deutschland",
+        "lat": 51.5302839,
+        "lon": 7.669078799999999,
+        "telefon": "02303 208208",
+        "website": "https://www.zurbrueggen.de/filialen/unna/",
+        "barrierefrei": "Unbekannt",
+        "hoursLive": {
+            "1": [
+                "10:00-19:00"
+            ],
+            "2": [
+                "10:00-19:00"
+            ],
+            "3": [
+                "10:00-19:00"
+            ],
+            "4": [
+                "10:00-19:00"
+            ],
+            "5": [
+                "10:00-19:00"
+            ],
+            "6": [
+                "10:00-19:00"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 10:00–19:00 Uhr",
+            "Dienstag: 10:00–19:00 Uhr",
+            "Mittwoch: 10:00–19:00 Uhr",
+            "Donnerstag: 10:00–19:00 Uhr",
+            "Freitag: 10:00–19:00 Uhr",
+            "Samstag: 10:00–19:00 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    },
+    {
+        "name": "Zweirad Höni GmbH",
+        "kategorie": "Sport & Freizeit",
+        "adresse": "Gerhart-Hauptmann-Straße 16, 59423 Unna, Deutschland",
+        "lat": 51.5355126,
+        "lon": 7.688274099999999,
+        "telefon": "02303 12702",
+        "website": "http://www.zweiradhoeni.de/",
+        "barrierefrei": "Ja",
+        "hoursLive": {
+            "1": [
+                "09:00-13:30",
+                "14:30-18:30"
+            ],
+            "2": [
+                "09:00-13:30",
+                "14:30-18:30"
+            ],
+            "3": [
+                "09:00-13:30",
+                "14:30-18:30"
+            ],
+            "4": [
+                "09:00-13:30",
+                "14:30-18:30"
+            ],
+            "5": [
+                "09:00-13:30",
+                "14:30-18:30"
+            ],
+            "6": [
+                "09:00-13:30"
+            ]
+        },
+        "oeffnungszeiten": [
+            "Montag: 09:00–13:30 Uhr, 14:30–18:30 Uhr",
+            "Dienstag: 09:00–13:30 Uhr, 14:30–18:30 Uhr",
+            "Mittwoch: 09:00–13:30 Uhr, 14:30–18:30 Uhr",
+            "Donnerstag: 09:00–13:30 Uhr, 14:30–18:30 Uhr",
+            "Freitag: 09:00–13:30 Uhr, 14:30–18:30 Uhr",
+            "Samstag: 09:00–13:30 Uhr",
+            "Sonntag: Geschlossen"
+        ],
+        "beschreibung": ""
+    }
+]

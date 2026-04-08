@@ -1,12 +1,20 @@
-var eventDaten = [], gastroDaten = [], vereinsDaten = [], hotelsDaten = [], gesundheitDaten = [];
+var eventDaten = [], gastroDaten = [], vereinsDaten = [], hotelsDaten = [], gesundheitDaten = [], shoppingDaten = [];
 var currentDayFilter = 'all';
 var userLat = null, userLon = null;
 var leafletMap = null;
 var mapInitialized = false;
 
-// Globale Favoriten-Liste und Leaflet Layer Groups
 var favorites = JSON.parse(localStorage.getItem('unna_favorites') || '[]');
+var unlockedBadges = JSON.parse(localStorage.getItem('unna_badges') || '[]');
 var layerGroups = {}; 
+
+const entdeckerOrte = [
+    { id: 'lichtkunst', name: 'Zentrum für Internationale Lichtkunst', lat: 51.53326, lon: 7.68361, desc: 'Einmaliges Museum für Lichtkunst in der alten Lindenbrauerei.', icon: '💡' },
+    { id: 'stadtkirche', name: 'Evangelische Stadtkirche', lat: 51.53503, lon: 7.68965, desc: 'Das über 700 Jahre alte Wahrzeichen der Stadt.', icon: '⛪' },
+    { id: 'esel', name: 'Der Unnaer Esel', lat: 51.53457, lon: 7.68884, desc: 'Das heimliche Wappentier auf dem Alten Markt.', icon: '🫏' },
+    { id: 'kurpark', name: 'Kurpark Königsborn', lat: 51.55160, lon: 7.68114, desc: 'Ehemaliges Kurbad mit historischem Flair.', icon: '🌳' },
+    { id: 'rathaus', name: 'Rathaus Unna', lat: 51.53443, lon: 7.68886, desc: 'Das Herz der Stadtverwaltung am Rathausplatz.', icon: '🏛️' }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CORE ---
@@ -131,6 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-close-menu').onclick = () => toggleMenu(false);
     if(overlay) overlay.onclick = () => toggleMenu(false);
 
+    document.getElementById('btn-darkmode').onclick = () => document.body.classList.toggle('dark-mode');
+
     // --- IMPRESSUM ---
     const btnImpressum = document.getElementById('btn-impressum-side');
     if(btnImpressum) {
@@ -173,39 +183,33 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if(t === 'maps') setTimeout(initLeafletMap, 100);
         if(t === 'favoriten') rendereListe('favoriten-container', favorites, 'Mixed');
+        if(t === 'entdecker') renderEntdecker();
     }
     
     document.querySelectorAll('[data-target]').forEach(btn => btn.onclick = () => wechselTab(btn.dataset.target));
     document.getElementById('btn-close-modal').onclick = () => modal.style.display = 'none';
     if(modal) modal.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
 
-    function formatDistance(dist) {
-        if (dist === Infinity) return "";
-        if (dist < 1) return Math.round(dist * 1000) + ' m';
-        return dist.toFixed(1).replace('.', ',') + ' km';
-    }
+    function formatDistance(dist) { if (dist === Infinity) return ""; if (dist < 1) return Math.round(dist * 1000) + ' m'; return dist.toFixed(1).replace('.', ',') + ' km'; }
+
+    const getDistance = (lat1, lon1, lat2, lon2) => {
+        if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
+        const R = 6371; const dLat = (lat2 - lat1) * (Math.PI / 180), dLon = (lon2 - lon1) * (Math.PI / 180);
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    };
 
     function sortiereNachNaehe(datenArray, containerId, typ) {
-        const R = 6371;
-        const getDistance = (lat1, lon1, lat2, lon2) => {
-            if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
-            const dLat = (lat2 - lat1) * (Math.PI / 180), dLon = (lon2 - lon1) * (Math.PI / 180);
-            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        };
-
         const prozessSortierung = () => {
             let sortierteDaten = datenArray.map(item => { item.entfernung = getDistance(userLat, userLon, item.lat, item.lon); return item; }).sort((a, b) => a.entfernung - b.entfernung);
             rendereListe(containerId, sortierteDaten, typ);
         };
 
-        if (userLat && userLon) {
-            prozessSortierung();
-        } else if ("geolocation" in navigator) {
+        if (userLat && userLon) { prozessSortierung(); } 
+        else if ("geolocation" in navigator) {
             const btn = document.getElementById('btn-sort-' + typ.toLowerCase());
             if(!btn) return;
-            const originalText = btn.innerHTML;
-            btn.innerHTML = "⏳ Suche Standort...";
+            const originalText = btn.innerHTML; btn.innerHTML = "⏳ Suche Standort...";
             navigator.geolocation.getCurrentPosition(
                 (pos) => { userLat = pos.coords.latitude; userLon = pos.coords.longitude; btn.innerHTML = "✅ Sortiert"; btn.style.background = "#28a745"; prozessSortierung(); },
                 () => { alert("Standortfreigabe verweigert."); btn.innerHTML = originalText; }, { timeout: 10000 }
@@ -222,99 +226,54 @@ document.addEventListener('DOMContentLoaded', () => {
         leafletMap = L.map('inapp-map').setView([51.5344, 7.6888], 14); 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(leafletMap);
 
-        layerGroups = {
-            Gastro: L.layerGroup().addTo(leafletMap),
-            Gesundheit: L.layerGroup().addTo(leafletMap),
-            Hotel: L.layerGroup().addTo(leafletMap)
-        };
+        layerGroups = { Gastro: L.layerGroup().addTo(leafletMap), Gesundheit: L.layerGroup().addTo(leafletMap), Hotel: L.layerGroup().addTo(leafletMap), Shopping: L.layerGroup().addTo(leafletMap) };
 
         const createMarker = (item, type, iconStr, layerGrp) => {
             if(item.lat && item.lon) {
-                let markerColor = '#0056b3'; 
-                let tooltipText = `<div style="text-align:center;"><strong>${iconStr} ${item.name}</strong>`;
+                let markerColor = type === 'Gesundheit' ? '#e83e8c' : type === 'Shopping' ? '#fd7e14' : '#0056b3'; 
+                let tooltipText = `<div style="text-align:center;"><strong>${iconStr} ${item.name}</strong></div>`;
                 
-                if (type === 'Gastro') {
+                if (type === 'Gastro' || type === 'Shopping') {
                     const ls = getLiveStatus(item);
                     if (ls.status === 'open') markerColor = '#28a745';
                     else if (ls.status === 'closing') markerColor = '#ffc107';
                     else if (ls.status === 'closed') markerColor = '#dc3545';
-                    else markerColor = '#6c757d'; 
                     if(ls.status !== 'unknown') tooltipText += `<br><span style="font-size:11px; font-weight:bold; color:${markerColor};">${ls.text}</span>`;
-                } else if (type === 'Gesundheit') {
-                    markerColor = '#e83e8c'; 
-                    if (item.fachrichtung) tooltipText += `<br><span style="font-size:11px; color:#555;">${item.fachrichtung}</span>`;
-                } else {
-                    markerColor = '#17a2b8'; 
                 }
-                
-                tooltipText += `</div>`;
-                
-                const customIcon = L.divIcon({
-                    html: `<div style="background-color:${markerColor}; width:30px; height:30px; border-radius:50%; border:2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:16px;">${iconStr}</div>`,
-                    className: '', iconSize: [30, 30], iconAnchor: [15, 15]
-                });
 
+                const customIcon = L.divIcon({ html: `<div style="background-color:${markerColor}; width:30px; height:30px; border-radius:50%; border:2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:16px;">${iconStr}</div>`, className: '', iconSize: [30, 30], iconAnchor: [15, 15] });
                 const m = L.marker([item.lat, item.lon], {icon: customIcon}).addTo(layerGrp);
-                m.bindTooltip(tooltipText, {direction: 'top'});
-                m.on('click', () => oeffneDetails(item, type));
+                m.bindTooltip(tooltipText, {direction: 'top'}); m.on('click', () => oeffneDetails(item, type));
             }
         };
 
         gastroDaten.forEach(g => createMarker(g, 'Gastro', '🍽️', layerGroups.Gastro));
         hotelsDaten.forEach(h => createMarker(h, 'Hotel', '🛏️', layerGroups.Hotel));
+        shoppingDaten.forEach(s => createMarker(s, 'Shopping', '🛍️', layerGroups.Shopping));
         gesundheitDaten.forEach(g => {
-            let gIcon = '⚕️';
-            if (g.kategorie === 'Apotheke') gIcon = '💊';
-            else if (g.kategorie === 'Krankenhaus') gIcon = '🏥';
-            else if (g.kategorie === 'Arzt') gIcon = '🩺';
-            else if (g.kategorie === 'Physiotherapie') gIcon = '💆';
-            else if (g.kategorie === 'Sanitätshaus') gIcon = '🦽';
-            else if (g.kategorie === 'Fitnessstudio') gIcon = '🏋️';
-            else if (g.kategorie === 'Psychotherapie') gIcon = '🛋️';
-            else if (g.kategorie === 'Psychiatrie') gIcon = '🧠';
+            let gIcon = '⚕️'; if (g.kategorie === 'Apotheke') gIcon = '💊'; else if (g.kategorie === 'Krankenhaus') gIcon = '🏥'; else if (g.kategorie === 'Arzt') gIcon = '🩺'; else if (g.kategorie === 'Physiotherapie') gIcon = '💆'; else if (g.kategorie === 'Fitnessstudio') gIcon = '🏋️'; else if (g.kategorie === 'Psychotherapie') gIcon = '🛋️'; else if (g.kategorie === 'Psychiatrie') gIcon = '🧠';
             createMarker(g, 'Gesundheit', gIcon, layerGroups.Gesundheit);
         });
-        
         mapInitialized = true;
     }
 
     document.querySelectorAll('.map-filter-btn').forEach(btn => {
         btn.onclick = (e) => {
-            let layerName = e.target.dataset.layer;
-            e.target.classList.toggle('active');
-            if(layerGroups[layerName]) {
-                if(e.target.classList.contains('active')) {
-                    leafletMap.addLayer(layerGroups[layerName]);
-                } else {
-                    leafletMap.removeLayer(layerGroups[layerName]);
-                }
-            }
+            let layerName = e.target.dataset.layer; e.target.classList.toggle('active');
+            if(layerGroups[layerName]) { if(e.target.classList.contains('active')) { leafletMap.addLayer(layerGroups[layerName]); } else { leafletMap.removeLayer(layerGroups[layerName]); } }
         };
     });
 
     const btnLocate = document.getElementById('btn-locate-map');
-    if(btnLocate) {
-        btnLocate.onclick = () => {
-            if ("geolocation" in navigator && typeof L !== 'undefined' && leafletMap) {
-                navigator.geolocation.getCurrentPosition(pos => {
-                    userLat = pos.coords.latitude; userLon = pos.coords.longitude;
-                    L.circleMarker([userLat, userLon], {color: '#d9534f', radius: 8, fillOpacity: 0.8}).addTo(leafletMap).bindTooltip("Dein Standort").openTooltip();
-                    leafletMap.setView([userLat, userLon], 15);
-                });
-            }
-        };
-    }
+    if(btnLocate) { btnLocate.onclick = () => { if ("geolocation" in navigator && leafletMap) { navigator.geolocation.getCurrentPosition(pos => { userLat = pos.coords.latitude; userLon = pos.coords.longitude; L.circleMarker([userLat, userLon], {color: '#d9534f', radius: 8, fillOpacity: 0.8}).addTo(leafletMap).bindTooltip("Dein Standort").openTooltip(); leafletMap.setView([userLat, userLon], 15); }); } }; }
 
     // --- 3. RENDERING (MODAL) ---
     function oeffneDetails(obj, typ) {
         const title = clean(obj.name || obj.title);
-        const favId = title + '_' + typ;
-        const isFav = favorites.some(f => f.id === favId);
-        const favIcon = isFav ? '❤️' : '🤍';
+        const favId = title + '_' + typ; const isFav = favorites.some(f => f.id === favId); const favIcon = isFav ? '❤️' : '🤍';
 
         if (typ === 'News') {
-            let imgSrc = obj.thumbnail || (obj.enclosure && obj.enclosure.link) || '';
-            if(!imgSrc) { const match = (obj.content || obj.description).match(/<img[^>]+src="([^">]+)"/); if(match) imgSrc = match[1]; }
+            let imgSrc = obj.thumbnail || (obj.enclosure && obj.enclosure.link) || ''; if(!imgSrc) { const match = (obj.content || obj.description).match(/<img[^>]+src="([^">]+)"/); if(match) imgSrc = match[1]; }
             let html = imgSrc ? `<img src="${imgSrc}" class="modal-img" style="margin-bottom:10px;">` : '';
             html += `<div style="display:flex; justify-content:space-between; align-items:flex-start;"><h2 style="margin-top:0;">${title}</h2></div>`;
             html += `<p style="font-weight:bold; color:#555; font-size:13px;">📅 ${new Date(obj.pubDate).toLocaleDateString('de-DE')}</p>`;
@@ -322,138 +281,90 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `<div style="font-size:15px; line-height:1.6; margin-top:15px; overflow-wrap: break-word;">${rawContent}</div>`;
             html += `<a href="${obj.link}" target="_blank" class="ticket-btn" style="background:#0056b3; margin-top:25px;">🔗 Vollständige Meldung auf unna.de lesen</a>`;
             html += `<button class="ticket-btn" style="background:#555; margin-top:10px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
-            if(modalBody) modalBody.innerHTML = html;
-            if(modal) { modal.style.display = 'block'; modal.scrollTop = 0; }
+            if(modalBody) modalBody.innerHTML = html; if(modal) { modal.style.display = 'block'; modal.scrollTop = 0; }
             return; 
         }
 
         let html = obj.bildUrl ? `<img src="${obj.bildUrl}" class="modal-img">` : '';
+        html += `<div style="display:flex; justify-content:space-between; align-items:flex-start;"><h2 style="margin-top:0;">${title}</h2><button id="btn-toggle-fav" style="background:none; border:none; font-size:24px; padding:0 0 0 10px; cursor:pointer;">${favIcon}</button></div>`;
         
-        html += `<div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                    <h2 style="margin-top:0;">${title}</h2>
-                    <button id="btn-toggle-fav" style="background:none; border:none; font-size:24px; padding:0 0 0 10px; cursor:pointer;">${favIcon}</button>
-                 </div>`;
-        
-        if (typ === 'Gesundheit' || obj._type === 'Gesundheit') {
-            let tagsHTML = `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; font-size:11px;">`;
-            if (obj.kategorie) {
-                let gIcon = '⚕️'; 
-                if (obj.kategorie === 'Apotheke') gIcon = '💊'; 
-                else if (obj.kategorie === 'Krankenhaus') gIcon = '🏥'; 
-                else if (obj.kategorie === 'Arzt') gIcon = '🩺';
-                else if (obj.kategorie === 'Physiotherapie') gIcon = '💆';
-                else if (obj.kategorie === 'Sanitätshaus') gIcon = '🦽';
-                else if (obj.kategorie === 'Fitnessstudio') gIcon = '🏋️';
-                else if (obj.kategorie === 'Psychotherapie') gIcon = '🛋️';
-                else if (obj.kategorie === 'Psychiatrie') gIcon = '🧠';
-                tagsHTML += `<span class="status-badge" style="background:#e2e3e5; border:none; color:#383d41; margin-top:0;">${gIcon} ${obj.kategorie}</span>`;
-            }
-            if (obj.fachrichtung) tagsHTML += `<span class="status-badge" style="background:#cce5ff; border:none; color:#004085; margin-top:0;">${obj.fachrichtung}</span>`;
-            tagsHTML += `</div>`;
-            html += tagsHTML;
-        }
-
-        if (typ === 'Gastro' || obj._type === 'Gastro') {
+        if (typ === 'Gastro' || obj._type === 'Gastro' || typ === 'Shopping' || obj._type === 'Shopping') {
             const ls = getLiveStatus(obj);
             if(ls.status !== 'unknown') {
                 const bg = ls.status === 'open' ? '#d4edda' : ls.status === 'closing' ? '#fff3cd' : '#f8d7da';
                 const col = ls.status === 'open' ? '#155724' : ls.status === 'closing' ? '#856404' : '#721c24';
                 html += `<div class="status-badge" style="background:${bg}; color:${col}; margin-bottom:15px; margin-top:0; display:inline-block; font-size:13px;">${ls.text}</div><br>`;
             }
+        }
 
-            let tagsHTML = `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; font-size:11px;">`;
+        let tagsHTML = `<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:15px; font-size:11px;">`;
+        if (typ === 'Gesundheit' || obj._type === 'Gesundheit') {
+            if (obj.kategorie) tagsHTML += `<span class="status-badge" style="background:#e2e3e5; border:none; color:#383d41; margin-top:0;">⚕️ ${obj.kategorie}</span>`;
+            if (obj.fachrichtung) tagsHTML += `<span class="status-badge" style="background:#cce5ff; border:none; color:#004085; margin-top:0;">${obj.fachrichtung}</span>`;
+        }
+        if (typ === 'Shopping' || obj._type === 'Shopping') {
+            if (obj.kategorie) tagsHTML += `<span class="status-badge" style="background:#e2e3e5; border:none; color:#383d41; margin-top:0;">🛍️ ${obj.kategorie}</span>`;
+            if (obj.barrierefrei === 'Ja') tagsHTML += `<span class="status-badge" style="background:#d4edda; border:none; color:#155724; margin-top:0;">♿ Barrierefrei</span>`;
+        }
+        if (typ === 'Gastro' || obj._type === 'Gastro') {
             if (obj.kueche) tagsHTML += `<span class="status-badge" style="background:#e9ecef; border:none; color:#333; margin-top:0;">🍴 ${obj.kueche}</span>`;
             if (obj.aussenplaetze === 'Ja') tagsHTML += `<span class="status-badge" style="background:#d4edda; border:none; color:#155724; margin-top:0;">☀️ Außenplätze</span>`;
             if (obj.kartenzahlung === 'Ja') tagsHTML += `<span class="status-badge" style="background:#cce5ff; border:none; color:#004085; margin-top:0;">💳 Kartenzahlung</span>`;
             if (obj.lieferdienst === 'Ja') tagsHTML += `<span class="status-badge" style="background:#fff3cd; border:none; color:#856404; margin-top:0;">🛵 Lieferdienst</span>`;
-            tagsHTML += `</div>`;
-            html += tagsHTML;
         }
+        tagsHTML += `</div>`; html += tagsHTML;
         
         let shareBtnHTML = navigator.share ? `<button id="btn-share-item" class="ticket-btn" style="background:#17a2b8; flex:1;">📤 Teilen</button>` : '';
         html += `<div style="display:flex; gap:10px; margin-bottom:15px;">${shareBtnHTML}<button id="btn-copy-action" class="copy-btn" style="flex:1;">📋 Kopieren</button></div>`;
                  
         if ((typ === 'Event' || obj._type === 'Event') && obj.start_date) html += `<button id="btn-calendar-export" class="ticket-btn" style="background:#ffc107; color:#000 !important;">📅 In Kalender eintragen</button>`;
-        
-        if(obj.adresse) {
-            const mapsUrl = `http://googleusercontent.com/maps.google.com/?daddr=${encodeURIComponent(obj.adresse + ', Unna')}`;
-            html += `<button onclick="window.open('${mapsUrl}', '_blank')" class="ticket-btn" style="background:#4285F4;">🚗 Route in Google Maps</button>`;
-        }
+        if(obj.adresse) html += `<button onclick="window.open('http://googleusercontent.com/maps.google.com/maps?daddr=${encodeURIComponent(obj.adresse + ', Unna')}', '_blank')" class="ticket-btn" style="background:#4285F4;">🚗 Route in Google Maps</button>`;
         
         let desc = clean(obj.description || obj.beschreibung || obj.info || "");
         if(obj.start_date) html += `<p style="font-weight:bold;">📅 ${new Date(obj.start_date).toLocaleString('de-DE')} Uhr</p>`;
         if(desc) html += `<div style="font-size:14px; line-height:1.6; margin-top:15px; white-space:pre-wrap;">${desc}</div>`;
         if(obj.telefon) html += `<a href="tel:${obj.telefon.replace(/[^0-9+]/g, '')}" class="ticket-btn" style="background:#28a745; margin-top:15px;">📞 Anrufen</a>`;
         if(obj.website) html += `<a href="${obj.website}" target="_blank" class="ticket-btn" style="background:#6c757d;">🌐 Webseite</a>`;
+        if(obj.oeffnungszeiten && obj.oeffnungszeiten.length > 0) html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Öffnungszeiten:</strong><br>${obj.oeffnungszeiten.join('<br>').replace(/&/g,'&amp;')}</div>`;
         
-        if(obj.oeffnungszeiten && obj.oeffnungszeiten.length > 0) {
-            html += `<div style="margin-top:20px; padding:15px; background:rgba(0,0,0,0.05); border-radius:12px; font-size:13px;"><strong>🕒 Öffnungszeiten:</strong><br>${obj.oeffnungszeiten.join('<br>').replace(/&/g,'&amp;')}</div>`;
-        }
-        
-        html += `<a href="mailto:a.eichenmueller@gmail.com?subject=App-Feedback%20zu%20${encodeURIComponent(title)}&body=Hallo%20Armin,%0A%0Aich%20habe%20einen%20Fehler%20bei%20'${encodeURIComponent(title)}'%20entdeckt:%0A%0A" class="ticket-btn" style="background:transparent; color:var(--text) !important; border:2px solid var(--border); margin-top:20px;">✉️ Fehler entdeckt? Änderung vorschlagen</a>`;
+        html += `<a href="mailto:a.eichenmueller@gmail.com?subject=App-Feedback%20zu%20${encodeURIComponent(title)}&amp;body=Hallo%20Armin,%0A%0Aich%20habe%20einen%20Fehler%20bei%20'${encodeURIComponent(title)}'%20entdeckt:%0A%0A" class="ticket-btn" style="background:transparent; color:var(--text) !important; border:2px solid var(--border); margin-top:20px;">✉️ Fehler entdeckt? Änderung vorschlagen</a>`;
         html += `<button class="ticket-btn" style="background:#555; margin-top:10px;" onclick="document.getElementById('event-modal').style.display='none'">Schließen</button>`;
         if(modalBody) modalBody.innerHTML = html;
         
-        // Favoriten Logik
         const favBtn = document.getElementById('btn-toggle-fav');
         if(favBtn) {
             favBtn.onclick = () => {
                 const idx = favorites.findIndex(f => f.id === favId);
-                if(idx > -1) {
-                    favorites.splice(idx, 1);
-                } else {
-                    favorites.push({...obj, _type: typ, id: favId});
-                }
-                localStorage.setItem('unna_favorites', JSON.stringify(favorites));
-                oeffneDetails(obj, typ); 
-                if (document.getElementById('content-favoriten').classList.contains('active')) {
-                    rendereListe('favoriten-container', favorites, 'Mixed');
-                }
+                if(idx > -1) favorites.splice(idx, 1); else favorites.push({...obj, _type: typ, id: favId});
+                localStorage.setItem('unna_favorites', JSON.stringify(favorites)); oeffneDetails(obj, typ); 
+                if (document.getElementById('content-favoriten').classList.contains('active')) rendereListe('favoriten-container', favorites, 'Mixed');
             };
         }
 
         const copyAction = document.getElementById('btn-copy-action');
-        if(copyAction) {
-            copyAction.onclick = () => { 
-                let dateStr = "";
-                if (obj.start_date) { const d = new Date(obj.start_date); dateStr = `📅 ${d.toLocaleDateString('de-DE')} | 🕒 ${d.toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'})} Uhr\n`; }
-                navigator.clipboard.writeText(`📌 ${title.replace(/&/g, '&amp;')}\n${dateStr}📍 ${obj.adresse || 'Unna'}`); 
-                copyAction.innerHTML = "✅ Kopiert!"; setTimeout(() => { copyAction.innerHTML = "📋 Kopieren"; }, 2000);
-            };
-        }
-
+        if(copyAction) copyAction.onclick = () => { navigator.clipboard.writeText(`📌 ${title.replace(/&/g, '&amp;')}\n📍 ${obj.adresse || 'Unna'}`); copyAction.innerHTML = "✅ Kopiert!"; setTimeout(() => { copyAction.innerHTML = "📋 Kopieren"; }, 2000); };
         const btnShare = document.getElementById('btn-share-item');
         if (btnShare) btnShare.onclick = () => { navigator.share({ title: title, text: `Schau mal: ${title}\n📍 ${obj.adresse || 'Unna'}`, url: obj.website || window.location.href }).catch(()=>{}); };
 
-        const btnCal = document.getElementById('btn-calendar-export');
-        if (btnCal) {
-            btnCal.onclick = () => {
-                const start = new Date(obj.start_date); const end = new Date(start.getTime() + 2*60*60*1000); 
-                const formatD = (date) => date.toISOString().replace(/-|:|\.\d+/g, '').substring(0, 15) + 'Z';
-                const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${formatD(start)}\nDTEND:${formatD(end)}\nSUMMARY:${title}\nLOCATION:${obj.adresse || 'Unna'}\nDESCRIPTION:${clean(desc).replace(/\n/g, '\\n')}\nEND:VEVENT\nEND:VCALENDAR`;
-                const blob = new Blob([ics], { type: 'text/calendar' });
-                const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`; a.click();
-            };
-        }
-        
         if(modal) { modal.style.display = 'block'; modal.scrollTop = 0; }
     }
 
     function rendereListe(id, daten, typ) {
         const c = document.getElementById(id); if(!c) return;
-        c.innerHTML = daten.length ? '' : '<p style="padding:15px; color:#555;">Noch keine Einträge vorhanden.</p>';
+        c.innerHTML = daten.length ? '' : '<p style="padding:15px; color:#555;">Keine Einträge gefunden.</p>';
         daten.forEach(item => {
             const d = document.createElement('div'); d.className = 'event-item';
             let info = "";
-            
             if (typ === 'Mixed') info += `<div class="status-badge badge-search" style="margin-top:0;">🏷️ ${item._type}</div>`;
-            if ((typ === 'Event' || item._type === 'Event') && item.start_date) info += `<div class="event-info-line">📅 ${new Date(item.start_date).toLocaleDateString('de-DE')} | 🕒 ${new Date(item.start_date).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})} Uhr</div>`;
+            if (item.start_date) info += `<div class="event-info-line">📅 ${new Date(item.start_date).toLocaleDateString('de-DE')} | 🕒 ${new Date(item.start_date).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})} Uhr</div>`;
             if (item.adresse) info += `<div class="event-info-line" style="margin-bottom: 5px;">📍 ${clean(item.adresse)}</div>`;
-            if ((typ === 'Gastro' || item._type === 'Gastro') && item.kueche) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🍴 ${item.kueche}</div>`;
-            if ((typ === 'Gesundheit' || item._type === 'Gesundheit') && item.fachrichtung) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🩺 ${item.fachrichtung}</div>`;
+            if (item.kueche) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🍴 ${item.kueche}</div>`;
+            if (item.fachrichtung) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🩺 ${item.fachrichtung}</div>`;
+            if (item.kategorie && (typ === 'Shopping' || item._type === 'Shopping')) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#555;">🛍️ ${item.kategorie}</div>`;
+            
             if (item.entfernung && item.entfernung !== Infinity) info += `<div class="event-info-line" style="margin-bottom: 5px; color:#0056b3; font-weight:bold;">🚶 ${formatDistance(item.entfernung)} Luftlinie</div>`;
 
-            if ((typ === 'Gastro' || item._type === 'Gastro')) {
+            if (typ === 'Gastro' || item._type === 'Gastro' || typ === 'Shopping' || item._type === 'Shopping') {
                 const ls = getLiveStatus(item);
                 if (ls.status !== 'unknown') {
                     let badgeClass = ls.status === 'open' ? 'status-open' : ls.status === 'closing' ? 'status-closing' : 'status-closed';
@@ -483,6 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 eventDaten.filter(x => (x.name||x.title||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Event'}));
                 gastroDaten.filter(x => (x.name||'').toLowerCase().includes(q) || (x.kueche||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Gastro'}));
                 gesundheitDaten.filter(x => (x.name||'').toLowerCase().includes(q) || (x.fachrichtung||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Gesundheit'}));
+                shoppingDaten.filter(x => (x.name||'').toLowerCase().includes(q) || (x.kategorie||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Shopping'}));
                 vereinsDaten.filter(x => (x.name||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Verein'}));
                 hotelsDaten.filter(x => (x.name||'').toLowerCase().includes(q)).forEach(x => results.push({...x, _type: 'Hotel'}));
                 
@@ -494,6 +406,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- FUNKLOCH-MODUS (Cacher) ---
+    async function fetchWithCache(url, cacheKey) {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('Netzwerkfehler');
+            const data = await res.json();
+            localStorage.setItem(cacheKey, JSON.stringify(data));
+            return data;
+        } catch (e) {
+            console.warn('Lade Cache für:', cacheKey);
+            const cached = localStorage.getItem(cacheKey);
+            if (cached) return JSON.parse(cached);
+            return []; 
+        }
+    }
+
     // --- 4. FETCH DATEN ---
     async function init() {
         fetch('https://api.open-meteo.com/v1/forecast?latitude=51.5344&longitude=7.6888&current_weather=true')
@@ -501,14 +429,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(d => {
                 const wc = document.getElementById('weather-container');
                 if (wc && d.current_weather) {
-                    const temp = Math.round(d.current_weather.temperature);
-                    const code = d.current_weather.weathercode;
-                    let icon = '⛅';
-                    if (code === 0) icon = '☀️'; else if (code === 1 || code === 2) icon = '🌤️'; else if (code === 3) icon = '☁️';
-                    else if (code >= 45 && code <= 67) icon = '🌫️'; else if (code >= 71 && code <= 82) icon = '🌧️'; else if (code >= 95) icon = '⛈️';
+                    const temp = Math.round(d.current_weather.temperature); const code = d.current_weather.weathercode;
+                    let icon = '⛅'; if (code === 0) icon = '☀️'; else if (code === 1 || code === 2) icon = '🌤️'; else if (code === 3) icon = '☁️'; else if (code >= 45 && code <= 67) icon = '🌫️'; else if (code >= 71 && code <= 82) icon = '🌧️'; else if (code >= 95) icon = '⛈️';
                     wc.innerHTML = `<div style="background:var(--item-bg); border:1px solid var(--border); border-radius:16px; padding:15px; margin-bottom:20px; display:flex; align-items:center; justify-content:center; gap:20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"><div style="font-size:40px; line-height:1;">${icon}</div><div style="text-align:left;"><div style="font-size:12px; color:#888; font-weight:800; text-transform:uppercase; letter-spacing:1px;">Aktuell in Unna</div><div style="font-size:22px; font-weight:900;">${temp}°C</div></div></div>`;
                 }
-            }).catch(e => console.log("Wetterfehler", e));
+            }).catch(()=>{});
 
         fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.presse-service.de/rss.aspx?p=1032').then(r=>r.json()).then(d=> {
             const nc = document.getElementById('news-container'); if(!nc) return; nc.innerHTML = '';
@@ -519,63 +444,79 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }).catch(()=>{ if(document.getElementById('news-container')) document.getElementById('news-container').innerHTML = 'News aktuell nicht verfügbar.'; });
 
-        fetch('gastronomie.json').then(r=>r.json()).then(d => { gastroDaten = d.sort((a, b) => a.name.localeCompare(b.name, 'de')); rendereListe('gastro-container', gastroDaten, 'Gastro'); }).catch(()=>{});
-        fetch('gesundheit.json').then(r=>r.json()).then(d => { gesundheitDaten = d.sort((a, b) => a.name.localeCompare(b.name, 'de')); rendereListe('gesundheit-container', gesundheitDaten, 'Gesundheit'); }).catch(()=>{});
-        fetch('vereine.json').then(r=>r.json()).then(d => { vereinsDaten = d; rendereListe('vereine-container', d, 'Vereine'); }).catch(()=>{});
-        fetch('uebernachtungen.json').then(r=>r.json()).then(d => { hotelsDaten = d; rendereListe('hotels-container', d, 'Hotel'); }).catch(()=>{});
+        // Caching
+        gastroDaten = await fetchWithCache('gastronomie.json', 'cache_gastro'); gastroDaten.sort((a, b) => a.name.localeCompare(b.name, 'de'));
+        gesundheitDaten = await fetchWithCache('gesundheit.json', 'cache_gesundheit'); gesundheitDaten.sort((a, b) => a.name.localeCompare(b.name, 'de'));
+        shoppingDaten = await fetchWithCache('shopping.json', 'cache_shopping'); shoppingDaten.sort((a, b) => a.name.localeCompare(b.name, 'de'));
+        vereinsDaten = await fetchWithCache('vereine.json', 'cache_vereine');
+        hotelsDaten = await fetchWithCache('uebernachtungen.json', 'cache_hotels');
+        
+        rendereListe('gastro-container', gastroDaten, 'Gastro');
+        rendereListe('gesundheit-container', gesundheitDaten, 'Gesundheit');
+        rendereListe('shopping-container', shoppingDaten, 'Shopping');
+        rendereListe('vereine-container', vereinsDaten, 'Vereine');
+        rendereListe('hotels-container', hotelsDaten, 'Hotel');
 
-        fetch('https://kultur-in-unna.de/wp-json/tribe/events/v1/events?per_page=50').then(r=>r.json()).then(d=> {
-            if(d.events) { eventDaten = d.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue})); rendereListe('events-container', eventDaten, 'Event'); }
-        }).catch(()=>{});
+        try {
+            const eventRes = await fetchWithCache('https://kultur-in-unna.de/wp-json/tribe/events/v1/events?per_page=50', 'cache_events');
+            if(eventRes.events) { eventDaten = eventRes.events.map(e => ({...e, name: e.title, bildUrl: e.image?.url, adresse: e.venue?.venue})); }
+            rendereListe('events-container', eventDaten, 'Event');
+        } catch(e) {}
 
-        // NEU: INTELLIGENTER LIVE ABFAHRTSMONITOR (DB API)
-        const fetchAbfahrten = async (lat = 51.5393, lon = 7.6895, custom = false) => {
-            const container = document.getElementById('oepnv-live-container'); 
+        // LIVE ABFAHRTEN ÖPNV 
+        const fetchAbfahrten = async (lat = 51.5393, lon = 7.6895, isMain = false) => {
+            const cId = 'oepnv-live-container-main';
+            const container = document.getElementById(cId); 
             if(!container) return;
-            if(custom) container.innerHTML = '<p style="color:#555; font-size:13px;">⏳ Suche Haltestellen in der Nähe...</p>';
+            if(!isMain) container.innerHTML = '<p style="color:#555; font-size:13px;">⏳ Suche Haltestellen in der Nähe...</p>';
 
             try {
-                // Holt die 2 nächsten Haltestellen (Umkreis 1,5km)
                 const locRes = await fetch(`https://v6.db.transport.rest/locations/nearby?latitude=${lat}&longitude=${lon}&distance=1500&results=2&stops=true`);
+                if (!locRes.ok) throw new Error("Location API Error");
                 const locData = await locRes.json();
                 
                 if(!locData || locData.length === 0) {
-                    container.innerHTML = '<p style="color:#555; font-size:13px;">Keine Haltestellen in der Nähe gefunden.</p>'; return;
+                    container.innerHTML = '<p style="color:#555; font-size:13px;">Keine Haltestellen in der Nähe gefunden.</p>'; 
+                    return;
                 }
 
                 let html = '';
+                let validStops = 0;
+
                 for(let stop of locData) {
-                    // Abfahrten der Haltestelle abfragen
-                    const depRes = await fetch(`https://v6.db.transport.rest/stops/${stop.id}/departures?duration=120&results=5`);
-                    const depData = await depRes.json();
-                    let deps = depData.departures || depData; 
+                    try {
+                        const depRes = await fetch(`https://v6.db.transport.rest/stops/${stop.id}/departures?duration=120&results=5`);
+                        if (!depRes.ok) continue; 
+                        
+                        const depData = await depRes.json();
+                        let deps = depData.departures || depData; 
 
-                    if(Array.isArray(deps) && deps.length > 0) {
-                        html += `<div style="margin-top:15px; margin-bottom:5px; font-weight:bold; color:#0056b3;">🚏 ${stop.name} <span style="font-size:11px; color:#888;">(${Math.round(stop.distance)}m)</span></div>`;
-                        deps.forEach(dep => {
-                            let time = new Date(dep.when || dep.plannedWhen).toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'});
-                            let delayText = "";
-                            if(dep.delay > 0) delayText = `<span style="color:#dc3545; font-weight:bold;">(+${Math.round(dep.delay/60)})</span>`;
-                            else if(dep.delay <= 0) delayText = `<span style="color:#28a745; font-size:11px;">(pünktlich)</span>`;
+                        if(Array.isArray(deps) && deps.length > 0) {
+                            validStops++;
+                            html += `<div style="margin-top:15px; margin-bottom:5px; font-weight:bold; color:#0056b3;">🚏 ${stop.name} <span style="font-size:11px; color:#888;">(${Math.round(stop.distance)}m)</span></div>`;
+                            deps.forEach(dep => {
+                                let time = new Date(dep.when || dep.plannedWhen).toLocaleTimeString('de-DE', {hour:'2-digit', minute:'2-digit'});
+                                let delayText = "";
+                                if(dep.delay > 0) delayText = `<span style="color:#dc3545; font-weight:bold;">(+${Math.round(dep.delay/60)})</span>`;
+                                else if(dep.delay <= 0) delayText = `<span style="color:#28a745; font-size:11px;">(pünktlich)</span>`;
 
-                            let lineName = dep.line ? dep.line.name : "Zug";
-                            let direction = dep.direction || "Fahrt";
-                            
-                            html += `<div style="background:var(--item-bg); border:1px solid var(--border); padding:10px 15px; border-radius:8px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
-                                <div style="font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-right:10px;"><strong>${lineName}</strong> <span style="color:#555;">&rarr; ${direction}</span></div>
-                                <div style="font-size:14px; white-space:nowrap; text-align:right;">${time} ${delayText}</div>
-                            </div>`;
-                        });
-                    }
+                                let lineName = dep.line ? dep.line.name : "Zug";
+                                let direction = dep.direction || "Fahrt";
+                                
+                                html += `<div style="background:var(--item-bg); border:1px solid var(--border); padding:10px 15px; border-radius:8px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+                                    <div style="font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-right:10px;"><strong>${lineName}</strong> <span style="color:#555;">&rarr; ${direction}</span></div>
+                                    <div style="font-size:14px; white-space:nowrap; text-align:right;">${time} ${delayText}</div>
+                                </div>`;
+                            });
+                        }
+                    } catch (innerErr) {}
                 }
-                if(!html) html = '<p style="color:#555; font-size:13px;">Keine aktuellen Abfahrten gefunden.</p>';
+                
+                if(validStops === 0) html = '<p style="color:#555; font-size:13px;">Keine aktuellen Abfahrten für diese Haltestellen gefunden.</p>';
                 container.innerHTML = html;
-            } catch(e) { 
-                container.innerHTML = '<p style="color:#dc3545; font-size:12px; padding: 10px; background: #f8d7da; border-radius: 8px;">Fahrplandaten aktuell nicht erreichbar.</p>'; 
-            }
+            } catch(e) { container.innerHTML = '<p style="color:#dc3545; font-size:12px; padding: 10px; background: #f8d7da; border-radius: 8px;">Fahrplandaten aktuell nicht erreichbar.</p>'; }
         };
-        // Standardmäßig für den Bahnhof Unna (Koordinaten) abfragen
-        fetchAbfahrten();
+        fetchAbfahrten(51.5393, 7.6895, true); 
 
         const btnOepnv = document.getElementById('btn-locate-oepnv');
         if(btnOepnv) {
@@ -585,16 +526,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     navigator.geolocation.getCurrentPosition(
                         pos => {
                             btnOepnv.innerHTML = "📍 Haltestellen in meiner Nähe suchen";
-                            fetchAbfahrten(pos.coords.latitude, pos.coords.longitude, true);
+                            fetchAbfahrten(pos.coords.latitude, pos.coords.longitude, false);
                         },
                         () => {
                             alert("Standortfreigabe verweigert.");
                             btnOepnv.innerHTML = "📍 Haltestellen in meiner Nähe suchen";
-                        }
+                        },
+                        { timeout: 10000 }
                     );
                 }
             };
         }
+
+        // TANKSTELLEN SCRAPER (Super E5, Unna)
+        const fetchTankstellen = async () => {
+            const container = document.getElementById('tankstellen-container');
+            if(!container) return;
+            try {
+                const res = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.clever-tanken.de/tankstelle_liste?ort=59423&spritsorte=5&r=5'));
+                const data = await res.json();
+                const doc = new DOMParser().parseFromString(data.contents, 'text/html');
+                
+                let html = '';
+                const names = doc.querySelectorAll('.fuel-station-location-name');
+                const prices = doc.querySelectorAll('.price-text');
+                
+                if (names.length > 0 && prices.length > 0) {
+                    for(let i = 0; i < Math.min(names.length, 3); i++) {
+                        let name = names[i].innerText.trim();
+                        let price = prices[i].innerText.trim();
+                        html += `<div style="background:var(--item-bg); border:1px solid var(--border); padding:10px 15px; border-radius:8px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+                                    <div style="font-size:14px;"><strong>${name}</strong></div>
+                                    <div style="font-size:16px; font-weight:bold; color:#d9534f;">${price} <span style="font-size:12px;">€/l</span></div>
+                                </div>`;
+                    }
+                    html += `<a href="https://www.clever-tanken.de/tankstelle_liste?ort=59423&spritsorte=5&r=5" target="_blank" style="display:block; text-align:right; font-size:11px; margin-top:5px; color:#0056b3; text-decoration:underline;">Alle Preise auf clever-tanken.de ansehen</a>`;
+                    container.innerHTML = html;
+                } else { throw new Error("No prices"); }
+            } catch(e) {
+                container.innerHTML = '<div style="background:var(--item-bg); padding:15px; border-radius:8px; border:1px solid var(--border); text-align:center;"><p style="font-size:13px; margin-top:0; margin-bottom:10px;">Preise konnten nicht geladen werden.</p><a href="https://www.clever-tanken.de/tankstelle_liste?ort=59423&spritsorte=5&r=5" target="_blank" class="ticket-btn" style="background:#ffc107; color:#000 !important; margin:0;">⛽ Zu clever-tanken.de</a></div>';
+            }
+        };
+        fetchTankstellen();
 
         // LIVE PARKDATEN GWA
         const fetchParkData = async () => {
@@ -630,7 +603,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     init();
 
-    // --- ABFALLKALENDER LOGIK (Dynamische Demo) ---
+    // --- ENTDECKER MODUS (Gamification) ---
+    function renderEntdecker() {
+        const c = document.getElementById('entdecker-container'); if(!c) return;
+        let html = '';
+        entdeckerOrte.forEach(ort => {
+            const hasBadge = unlockedBadges.includes(ort.id);
+            html += `<div style="background:var(--item-bg); border:1px solid var(--border); padding:15px; border-radius:12px; margin-bottom:15px; display:flex; gap:15px; align-items:center;">
+                        <div class="${hasBadge ? 'badge-unlocked' : 'badge-locked'}" style="font-size:40px;">${ort.icon}</div>
+                        <div style="flex:1;">
+                            <div style="font-weight:bold; font-size:15px;">${ort.name}</div>
+                            <div style="font-size:12px; color:#555; margin-bottom:8px;">${ort.desc}</div>
+                            ${hasBadge ? `<span style="color:#28a745; font-size:12px; font-weight:bold;">✅ Entdeckt!</span>` : `<button class="ticket-btn" style="padding:6px; font-size:12px; margin:0;" onclick="checkIn('${ort.id}', ${ort.lat}, ${ort.lon})">📍 Hier einchecken</button>`}
+                        </div>
+                     </div>`;
+        });
+        let gesamt = unlockedBadges.length;
+        html = `<div style="text-align:center; padding:10px; background:#e8f5e9; border-radius:8px; margin-bottom:20px; font-weight:bold; color:#155724;">Dein Fortschritt: ${gesamt} von ${entdeckerOrte.length} Badges</div>` + html;
+        c.innerHTML = html;
+    }
+
+    window.checkIn = function(id, lat, lon) {
+        if (!("geolocation" in navigator)) return alert("GPS nicht verfügbar.");
+        alert("Suche deinen Standort...");
+        navigator.geolocation.getCurrentPosition(pos => {
+            let dist = getDistance(pos.coords.latitude, pos.coords.longitude, lat, lon) * 1000; 
+            if(dist < 100) { 
+                unlockedBadges.push(id);
+                localStorage.setItem('unna_badges', JSON.stringify(unlockedBadges));
+                alert("🎉 Glückwunsch! Du hast das Badge freigeschaltet!");
+                renderEntdecker();
+            } else {
+                alert(`Du bist noch zu weit weg! (${Math.round(dist)} Meter entfernt)`);
+            }
+        }, () => alert("Standort verweigert."));
+    };
+
+    // --- ABFALLKALENDER LOGIK (Demo) ---
     const abfallSelect = document.getElementById('abfall-bezirk-select');
     if(abfallSelect) {
         abfallSelect.onchange = (e) => {
@@ -695,10 +704,26 @@ document.addEventListener('DOMContentLoaded', () => {
             return true;
         });
         rendereListe('gesundheit-container', filtered, 'Gesundheit');
-        return filtered;
     };
     ['gesundheit-typ-filter', 'gesundheit-fach-filter'].forEach(id => {
         const el = document.getElementById(id); if(el) el.addEventListener('change', filterGesundheitData);
+    });
+
+    // --- Filter-Logik Shopping ---
+    const filterShoppingData = () => {
+        const typVal = document.getElementById('shopping-typ-filter') ? document.getElementById('shopping-typ-filter').value : 'alle';
+        const openVal = document.getElementById('shopping-open-filter') ? document.getElementById('shopping-open-filter').value : 'alle';
+        const barrierefrei = document.getElementById('shopping-wheelchair-filter') ? document.getElementById('shopping-wheelchair-filter').checked : false;
+        let filtered = shoppingDaten.filter(x => {
+            if (typVal !== 'alle' && x.kategorie !== typVal) return false;
+            if (barrierefrei && x.barrierefrei !== 'Ja') return false;
+            if (openVal === 'ja') { const ls = getLiveStatus(x); if (ls.status !== 'open' && ls.status !== 'closing') return false; }
+            return true;
+        });
+        rendereListe('shopping-container', filtered, 'Shopping');
+    };
+    ['shopping-typ-filter', 'shopping-open-filter', 'shopping-wheelchair-filter'].forEach(id => {
+        const el = document.getElementById(id); if(el) el.addEventListener('change', filterShoppingData);
     });
 
     // --- Filter-Logik Gastro ---
@@ -742,9 +767,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const vereinsFilter = document.getElementById('vereins-filter');
     if(vereinsFilter) { vereinsFilter.onchange = (e) => { const v = e.target.value; rendereListe('vereine-container', v === 'alle' ? vereinsDaten : vereinsDaten.filter(x => x.kategorie === v), 'Vereine'); }; }
     
-    document.getElementById('btn-darkmode').onclick = () => document.body.classList.toggle('dark-mode');
-    
     const btnSortGastro = document.getElementById('btn-sort-gastro'); if(btnSortGastro) { btnSortGastro.onclick = () => { sortiereNachNaehe(filterGastroData(), 'gastro-container', 'Gastro'); } }
+    const btnSortShopping = document.getElementById('btn-sort-shopping'); if(btnSortShopping) { btnSortShopping.onclick = () => { sortiereNachNaehe(filterShoppingData(), 'shopping-container', 'Shopping'); } }
     const btnSortHotels = document.getElementById('btn-sort-hotels'); if(btnSortHotels) btnSortHotels.onclick = () => sortiereNachNaehe(hotelsDaten, 'hotels-container', 'Hotel');
     const btnSortGesundheit = document.getElementById('btn-sort-gesundheit'); if(btnSortGesundheit) { btnSortGesundheit.onclick = () => { sortiereNachNaehe(filterGesundheitData(), 'gesundheit-container', 'Gesundheit'); } }
 });

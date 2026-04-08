@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kultur in Unna</title>
-    <link rel="stylesheet" href="style.css?v=141">
+    <link rel="stylesheet" href="style.css?v=147">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0056b3">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -18,9 +18,16 @@
         .map-filters { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
         .map-filters::-webkit-scrollbar { display: none; }
         .map-filter-btn { padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--item-bg); color: var(--text); white-space: nowrap; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.2s; }
-        
-        /* FIX: Perfekte Lesbarkeit bei aktivierten Buttons */
         .map-filter-btn.active { background: #0056b3; color: #ffffff !important; border-color: #0056b3; }
+        
+        .badge-locked { filter: grayscale(100%); opacity: 0.5; }
+        .badge-unlocked { filter: none; opacity: 1; transform: scale(1.1); transition: all 0.3s ease; }
+
+        /* NEU: Dashboard Grid Layout */
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+        .dash-btn { padding: 15px 10px; background: var(--item-bg); border: 1px solid var(--border); border-radius: 12px; font-size: 24px; color: var(--text); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s; }
+        .dash-btn:active { transform: scale(0.96); }
+        .dash-btn span { font-size: 13px; font-weight: bold; text-align: center; }
     </style>
 </head>
 <body>
@@ -39,15 +46,16 @@
         <button class="close-menu-btn" id="btn-close-menu">×</button>
         <div class="side-menu-content">
             <h2 style="color:#0056b3; margin-bottom:20px;">Menü</h2>
-            
+            <button class="side-nav-btn active" data-target="dashboard" style="font-weight:bold; color:#0056b3;">🏠 Startseite</button>
             <button class="side-nav-btn" data-target="favoriten" style="font-weight:bold; color:#dc3545;">❤️ Meine Favoriten</button>
             <button class="side-nav-btn" data-target="abfall" style="font-weight:bold; color:#28a745;">🗑️ Abfallkalender</button>
+            <button class="side-nav-btn" data-target="entdecker" style="font-weight:bold; color:#fd7e14;">🏆 Unna Entdecker</button>
             <hr>
-
-            <button class="side-nav-btn active" data-target="events">📅 Events</button>
+            <button class="side-nav-btn" data-target="events">📅 Events</button>
             <button class="side-nav-btn" data-target="maps">🗺️ Karte &amp; Umgebung</button>
             <button class="side-nav-btn" data-target="mobilitaet">🚆 Mobilität &amp; Parken</button>
             <button class="side-nav-btn" data-target="gastro">🍽️ Gastro</button>
+            <button class="side-nav-btn" data-target="shopping">🛍️ Einkaufen &amp; Markt</button>
             <button class="side-nav-btn" data-target="gesundheit">⚕️ Gesundheit &amp; Notfall</button>
             <button class="side-nav-btn" data-target="vereine">👥 Vereine &amp; Freizeit</button>
             <button class="side-nav-btn" data-target="news">📰 News</button>
@@ -69,7 +77,7 @@
 
     <main id="main-content">
         <div style="padding: 0 15px;">
-            <input type="text" id="global-search-input" class="main-search" placeholder="🔍 Appweit suchen (Events, Ärzte, Gastro...)...">
+            <input type="text" id="global-search-input" class="main-search" placeholder="🔍 Appweit suchen (Events, Ärzte, Shopping...)...">
         </div>
 
         <div id="content-search" class="tab-content" style="display:none;">
@@ -80,15 +88,39 @@
 
         <div id="tab-wrappers">
             
+            <div id="content-dashboard" class="tab-content active">
+                <h1>Willkommen in Unna</h1>
+                <div id="weather-container"></div>
+                
+                <div class="dashboard-grid">
+                    <button class="dash-btn" data-target="events">📅 <span>Events</span></button>
+                    <button class="dash-btn" data-target="gastro">🍽️ <span>Gastro</span></button>
+                    <button class="dash-btn" data-target="shopping">🛍️ <span>Shopping</span></button>
+                    <button class="dash-btn" data-target="mobilitaet">🚆 <span>Mobilität</span></button>
+                    <button class="dash-btn" data-target="maps">🗺️ <span>Karte</span></button>
+                    <button class="dash-btn" data-target="gesundheit">⚕️ <span>Gesundheit</span></button>
+                    <button class="dash-btn" data-target="news">📰 <span>News</span></button>
+                    <button class="dash-btn" data-target="vereine">👥 <span>Vereine</span></button>
+                    <button class="dash-btn" data-target="tickets">🎟️ <span>Tickets</span></button>
+                    <button class="dash-btn" data-target="tourismus">🛏️ <span>Zu Gast</span></button>
+                    <button class="dash-btn" data-target="abfall">🗑️ <span>Abfallkalender</span></button>
+                    <button class="dash-btn" data-target="entdecker">🏆 <span>Entdecker</span></button>
+                </div>
+            </div>
+
+            <div id="content-entdecker" class="tab-content">
+                <h1>Unna Entdecker 🏆</h1>
+                <p class="hint-text" style="margin-bottom:15px; font-size:13px; color:#555;">Gehe zu diesen Orten in Unna, drücke auf "Einchecken" und sammle alle digitalen Badges!</p>
+                <div id="entdecker-container"></div>
+            </div>
+
             <div id="content-favoriten" class="tab-content">
                 <h1>Meine Favoriten ❤️</h1>
-                <p class="hint-text" style="margin-bottom:15px; font-size:13px; color:#555;">Hier findest du alle Orte und Events, die du mit einem Herz markiert hast. Sie werden lokal auf deinem Gerät gespeichert.</p>
                 <div id="favoriten-container"></div>
             </div>
 
             <div id="content-abfall" class="tab-content">
                 <h1>Abfallkalender 🗑️</h1>
-                <p class="hint-text" style="margin-bottom:15px; font-size:13px; color:#555;">Wähle deinen Bezirk, um die nächsten Leerungstermine zu sehen.</p>
                 <select id="abfall-bezirk-select" class="main-select" style="margin-bottom:20px;">
                     <option value="">-- Bitte Bezirk wählen --</option>
                     <option value="bezirk1">Bezirk 1 (Mitte)</option>
@@ -98,9 +130,42 @@
                 <div id="abfall-container"></div>
             </div>
 
-            <div id="content-events" class="tab-content active">
+            <div id="content-shopping" class="tab-content">
+                <h1>Einkaufen &amp; Markt 🛍️</h1>
+                
+                <a href="https://www.citygutschein-unna.de/" target="_blank" class="ticket-btn" style="background:#e83e8c; margin-bottom:20px; box-shadow: 0 4px 6px rgba(232, 62, 140, 0.3);">🎁 Citygutschein Unna (Infos &amp; Akzeptanzstellen)</a>
+
+                <div style="background: var(--item-bg); border: 1px solid var(--border); border-radius: 12px; padding: 15px; margin-bottom: 20px; border-left: 4px solid #28a745;">
+                    <h3 style="margin-top:0; margin-bottom:5px;">🍎 Wochenmarkt Unna</h3>
+                    <p style="font-size:13px; margin:0;"><strong>Dienstag &amp; Freitag:</strong> 07:00 – 13:30 Uhr auf dem Alten Markt.</p>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                    <select id="shopping-typ-filter" class="main-select" style="flex:1; min-width: 45%;">
+                        <option value="alle">Alle Kategorien</option>
+                        <option value="Mode &amp; Bekleidung">👗 Mode &amp; Kleidung</option>
+                        <option value="Schuhe &amp; Leder">👞 Schuhe</option>
+                        <option value="Bücher &amp; Medien">📚 Bücher</option>
+                        <option value="Schmuck &amp; Uhren">💍 Schmuck</option>
+                        <option value="Elektronik">💻 Elektronik</option>
+                    </select>
+                    
+                    <select id="shopping-open-filter" class="main-select" style="flex:1; min-width: 45%; background: #e8f5e9; border-color: #28a745;">
+                        <option value="alle">Zeiten: Egal</option>
+                        <option value="ja">🟢 Jetzt geöffnet</option>
+                    </select>
+                </div>
+                
+                <label style="display:flex; align-items:center; gap:8px; font-size:13px; font-weight:bold; margin-bottom:15px; color:#0056b3;">
+                    <input type="checkbox" id="shopping-wheelchair-filter" style="width:18px; height:18px;"> ♿ Nur barrierefrei
+                </label>
+                
+                <button id="btn-sort-shopping" class="ticket-btn" style="background:#17a2b8; margin-bottom:15px;">📍 In meiner Nähe finden</button>
+                <div id="shopping-container"></div>
+            </div>
+
+            <div id="content-events" class="tab-content">
                 <h1>Kultur &amp; Events</h1>
-                <div id="weather-container"></div>
                 <div class="filter-box">
                     <div class="filter-row" id="time-filter-row">
                         <button class="filter-pill active" data-time="all">Alle</button>
@@ -128,7 +193,7 @@
                 
                 <h3>Live-Abfahrten ÖPNV 🚆</h3>
                 <button id="btn-locate-oepnv" class="ticket-btn" style="background:#17a2b8; margin-bottom:15px;">📍 Haltestellen in meiner Nähe suchen</button>
-                <div id="oepnv-live-container" style="margin-bottom: 20px;">
+                <div id="oepnv-live-container-main" style="margin-bottom: 20px;">
                     <div class="skel-card skeleton" style="margin-bottom:8px;"><div class="skel-title skeleton" style="width:50%;"></div></div>
                 </div>
 
@@ -138,12 +203,23 @@
                 <div id="park-status-container">
                     <div class="skel-card skeleton" style="margin-bottom:8px;"><div class="skel-title skeleton" style="width:70%;"></div><div class="skel-text skeleton"></div></div>
                 </div>
+                
+                <a href="https://wheelmap.org/search?lat=51.5344&amp;lon=7.6888&amp;zoom=14" target="_blank" class="ticket-btn" style="background:#0056b3; margin: 20px 0;">♿ Rollstuhlgerechte Orte (Wheelmap)</a>
+                
                 <h3>Radstationen &amp; Fahrrad 🚲</h3>
                 <div id="rad-container"></div>
+                
                 <h3>Taxis 🚕</h3>
                 <div id="taxi-container" class="grid-buttons"></div>
+                
                 <h3>Alle Parkmöglichkeiten</h3>
                 <div id="parken-container"></div>
+
+                <h3>Tankstellen &amp; Spritpreise ⛽</h3>
+                <p class="hint-text" style="margin-bottom:10px; font-size:13px; color:#555;">Aktuelle Super E5 Preise in Unna.</p>
+                <div id="tankstellen-container">
+                    <div class="skel-card skeleton" style="margin-bottom:8px;"><div class="skel-title skeleton" style="width:50%;"></div></div>
+                </div>
             </div>
 
             <div id="content-news" class="tab-content">
@@ -176,13 +252,12 @@
 
             <div id="content-maps" class="tab-content">
                 <h1>Karte &amp; Umgebung</h1>
-                
                 <div class="map-filters" id="map-layer-filters">
                     <button class="map-filter-btn active" data-layer="Gastro">🍽️ Gastro</button>
                     <button class="map-filter-btn active" data-layer="Gesundheit">⚕️ Gesundheit</button>
+                    <button class="map-filter-btn active" data-layer="Shopping">🛍️ Shopping</button>
                     <button class="map-filter-btn active" data-layer="Hotel">🛏️ Hotels</button>
                 </div>
-
                 <div id="inapp-map" style="height: 50vh; width: 100%; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 15px; z-index: 1;"></div>
                 <button id="btn-locate-map" class="ticket-btn" style="background:#28a745; margin-bottom: 25px;">📍 Meinen Standort auf Karte zeigen</button>
                 
@@ -197,7 +272,6 @@
                 <p class="hint-text" style="margin-bottom:15px; font-size:13px; line-height:1.5; color:#555;">
                     ℹ️ <strong>Hinweis:</strong> Die Öffnungszeiten basieren auf den auf Google Maps veröffentlichten Daten. Abweichungen sind möglich.
                 </p>
-                
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
                     <select id="gastro-typ-filter" class="main-select" style="margin-bottom:0;">
                         <option value="alle">Alle Typen</option>
@@ -228,21 +302,17 @@
                         <option value="nightlife">🌙 Nightlife (Spät geöffnet &amp; Bars)</option>
                     </select>
                 </div>
-
                 <button id="btn-sort-gastro" class="ticket-btn" style="background:#17a2b8; margin-bottom:15px;">📍 In meiner Nähe finden</button>
                 <div id="gastro-container"></div>
             </div>
 
             <div id="content-gesundheit" class="tab-content">
                 <h1>Gesundheit &amp; Notfall</h1>
-                
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                     <a href="tel:112" class="ticket-btn" style="background:#dc3545; flex: 1; text-align: center; padding: 12px; font-size:16px;">🚨 Notruf 112</a>
-                    <a href="tel:116117" class="ticket-btn" style="background:#ffc107; color:#000 !important; flex: 1; text-align: center; padding: 12px; font-size:14px;">📞 Ärztl. Bereitschaft<br>116117</a>
+                    <a href="tel:116117" class="ticket-btn" style="background:#ffc107; color:#000 !important; flex: 1; text-align: center; padding: 12px; font-size:14px;">📞 Bereitschaft</a>
                 </div>
-
                 <a href="https://www.akwl.de/notdienstkalender.php" target="_blank" class="ticket-btn" style="background:#0056b3; margin-bottom: 20px;">🌙 Apotheken-Notdienst suchen (AKWL)</a>
-
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
                     <select id="gesundheit-typ-filter" class="main-select" style="margin-bottom:0;">
                         <option value="alle">Alle Typen</option>
@@ -266,7 +336,6 @@
                         <option value="HNO">HNO</option>
                     </select>
                 </div>
-
                 <button id="btn-sort-gesundheit" class="ticket-btn" style="background:#17a2b8; margin-bottom:15px;">📍 In meiner Nähe finden</button>
                 <div id="gesundheit-container"></div>
             </div>
@@ -289,10 +358,12 @@
     </div>
 
     <nav class="bottom-nav">
-        <button type="button" data-target="events" class="active">📅<br>Events</button>
+        <button type="button" data-target="dashboard" class="active">🏠<br>Start</button>
+        <button type="button" data-target="events">📅<br>Events</button>
         <button type="button" data-target="maps">🗺️<br>Karten</button>
         <button type="button" data-target="mobilitaet">🚆<br>Mobil</button>
         <button type="button" data-target="gastro">🍽️<br>Gastro</button>
+        <button type="button" data-target="shopping">🛍️<br>Shops</button>
         <button type="button" data-target="gesundheit">⚕️<br>Gesundheit</button>
         <button type="button" data-target="vereine">👥<br>Vereine</button>
         <button type="button" data-target="news">📰<br>News</button>
@@ -300,6 +371,6 @@
         <button type="button" data-target="tourismus">🛏️<br>Gast</button>
     </nav>
 
-    <script src="app.js?v=141"></script>
+    <script src="app.js?v=147"></script>
 </body>
 </html>
